@@ -3,6 +3,5 @@
 /lib
 /pyvenv.cfg
 /share
-ZegCLIP-main/
-ZegFormer-main/
-myZegCLIP/
+data/
+weights/
