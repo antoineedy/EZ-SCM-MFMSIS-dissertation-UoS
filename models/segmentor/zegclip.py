@@ -74,8 +74,11 @@ class ZegCLIP(EncoderDecoder):
         target model for self-training [17,49,56] which can achieve
         better performance.
         """
-        self.multi_prompts = multi_prompts
-        self.load_text_embedding = load_text_embedding
+        self.multi_prompts = (
+            multi_prompts  # antoine: if we have multiple text prompts, see further
+        )
+
+        self.load_text_embedding = load_text_embedding  # antoine: if we want to load text embeddings from a file
 
         if not self.load_text_embedding:
             if not self.multi_prompts:
@@ -149,7 +152,9 @@ class ZegCLIP(EncoderDecoder):
         seen_map = np.array([-1] * 256)
         seen_map[255] = 255
         for i, n in enumerate(list(seen_classes)):
-            seen_map[n] = n
+            seen_map[n] = (
+                n  # antoine: we replace the seen classes with their index. Because we are in self-training mode, we keep the unseen classes!!
+            )
         seen_map[200] = 200  # pixels of padding will be excluded
         self.visibility_seen_mask = seen_map.copy()
         print(
@@ -174,10 +179,14 @@ class ZegCLIP(EncoderDecoder):
         self.num_classes = self.decode_head.num_classes
 
     def _decode_head_forward_train(self, feat, img_metas, gt_semantic_seg):
+        # antoine: feat contains the image features and the text features
+        # img_metas contains ?
+        # gt_semantic_seg contains the ground truth segmentation
+
         """Run forward function and calculate loss for decode head in
         training."""
         if self.training:
-            if len(self.base_class) != len(self.both_class):  # zero setting
+            if len(self.base_class) != len(self.both_class):  # zero-shot setting
                 gt_semantic_seg = torch.Tensor(self.visibility_seen_mask).type_as(
                     gt_semantic_seg
                 )[gt_semantic_seg]
@@ -201,7 +210,9 @@ class ZegCLIP(EncoderDecoder):
         return losses
 
     def text_embedding(self, texts, img):
+        # antoine: encode the text using the CLIP text encoder
         text_embeddings = self.text_encoder(texts.to(img.device))
+        # antoine: we normalize the embeddings
         text_embeddings = text_embeddings / text_embeddings.norm(dim=-1, keepdim=True)
         return text_embeddings
 
@@ -212,22 +223,30 @@ class ZegCLIP(EncoderDecoder):
         return visual_feat
 
     def forward_train(self, img, img_metas, gt_semantic_seg):
-        visual_feat = self.extract_feat(img)
+        visual_feat = self.extract_feat(
+            img
+        )  # image features using the CLIP image encoder
         if self.load_text_embedding:
+            # antoine: if we want to load text embeddings from a file
             text_feat = np.load(self.load_text_embedding)
             text_feat = torch.from_numpy(text_feat).to(img.device)
         else:
             if not self.multi_prompts:
+                # antoine: one prompt: "a photo of a {class_name}". We tokenize it and encode it using the CLIP text encoder
                 text_feat = self.text_embedding(self.texts, img)
             else:
+                # antoine: multiple prompts here. What is that?
                 assert AttributeError("preparing the multi embeddings")
 
         if not self.self_training:
+            # antoine: if we are not in self-training mode, we only keep the embeddings of the seen classes
             text_feat = text_feat[self.base_class, :]
 
         feat = []
         feat.append(visual_feat)
         feat.append(text_feat)
+
+        # antoine: feat contains the image features and the text features
 
         losses = dict()
         loss_decode = self._decode_head_forward_train(feat, img_metas, gt_semantic_seg)
@@ -236,25 +255,31 @@ class ZegCLIP(EncoderDecoder):
         return losses
 
     def encode_decode(self, img, img_metas):
-        visual_feat = self.extract_feat(img)
+        visual_feat = self.extract_feat(img)  # antoine: image encoder from CLIP
 
         if self.load_text_embedding:
             text_feat = np.load(self.load_text_embedding)
             text_feat = torch.from_numpy(text_feat).to(img.device)
+            # antoine: encode the text using the CLIP text encoder
         else:
             if not self.multi_prompts:
                 text_feat = self.text_embedding(self.texts, img)
+                # antoine: if one prompt, then simple text encoder from CLIP with the prompt "a photo of a {class_name}"
             else:
-                num_cls, num_prompts, _ = self.texts.size()
+                num_cls, num_prompts, _ = self.texts.size()  # the numerous prompts!
                 text_feat = self.text_embedding(
                     self.texts.reshape(num_cls * num_prompts, -1), img
                 )
+                # antoine: if multiple prompts, we reshape the text embeddings and encode them using the CLIP text encoder
                 text_feat = text_feat.reshape(num_cls, num_prompts, -1).mean(dim=1)
+                # antoine: we take the mean of the embeddings of the prompts
                 text_feat /= text_feat.norm(dim=-1).unsqueeze(1)
+                # antoine: we normalize the embeddings
 
         feat = []
         feat.append(visual_feat)
         feat.append(text_feat)
+        # antoine: feat contains the image features and the text features
 
         out = self._decode_head_forward_test(feat, img_metas, self.self_training)
         out = resize(
