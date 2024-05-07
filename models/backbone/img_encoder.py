@@ -164,22 +164,31 @@ class CLIPVisionTransformer(nn.Module):
         )
         spatial_pos = spatial_pos.reshape(1, C, H * W).permute(0, 2, 1)
         pos = torch.cat([cls_pos.reshape(1, 1, C), spatial_pos], dim=1)
-        x = x + pos
-        x = self.ln_pre(x)
-        x = x.permute(1, 0, 2)  # NLD -> LND
+        x = x + pos  # antoine: add the positional embedding to the tensor
+        x = self.ln_pre(x)  # antoine: apply layer normalization
+        x = x.permute(
+            1, 0, 2
+        )  # NLD -> LND, antoine: N is the batch size, L is the sequence length, D is the feature dimension
 
         features = []
         outs = []
         for i, blk in enumerate(self.transformer.resblocks):
-            x = blk(x)
-            if len(self.out_indices) > 1:
-                if i in self.out_indices:
+            x = blk(x)  # antoine: apply the transformer block
+            if (
+                len(self.out_indices) > 1
+            ):  # antoine: if we want to extract features from multiple layers
+                if (
+                    i in self.out_indices
+                ):  # antoine: if the current layer is in the out_indices
                     xp = (
                         x.permute(1, 0, 2)[:, 1:, :]
                         .permute(0, 2, 1)
                         .reshape(B, -1, H, W)
                     )
-                    features.append(xp.contiguous())
+                    features.append(
+                        xp.contiguous()
+                    )  # antoine: add the features to the list
+                    # antoine: contiguous() returns a contiguous tensor containing the same data as self tensor (no worries bro)
 
         if self.get_embeddings:
             x = x.permute(1, 0, 2)
