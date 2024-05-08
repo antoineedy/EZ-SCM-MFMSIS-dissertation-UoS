@@ -19,13 +19,13 @@ num_classes = len(base_class)
 pretrained = "././weights/ViT-B-16.pt"
 
 model = dict(
-    type="ZegCLIP",
+    type="XXScalesZegCLIP",
     pretrained=pretrained,
     pretrained_text=pretrained,
     context_length=77,
     backbone=dict(
-        type="VPTCLIPVisionTransformer",
-        patch_size=16,
+        type="XXScalesVPTCLIPVisionTransformer",
+        patch_sizes=[16, 32, 64],
         width=768,
         output_dim=512,  # ? difference between the output and the embeddings
         get_embeddings=True,
