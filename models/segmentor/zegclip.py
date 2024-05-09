@@ -10,6 +10,8 @@ from mmseg.models.builder import SEGMENTORS
 from mmseg.models.segmentors.base import BaseSegmentor
 from mmseg.models.segmentors.encoder_decoder import EncoderDecoder
 
+from other_modules.multi_scale import MultiScales
+
 from .untils import tokenize
 import numpy as np
 import tqdm
@@ -376,6 +378,7 @@ class MultiScalesZegCLIP(EncoderDecoder):
         ft_backbone=False,
         exclude_key=None,
         load_text_embedding=None,
+        multi_scale=None,
         #  init_cfg=None,
         **args,
     ):
@@ -412,6 +415,8 @@ class MultiScalesZegCLIP(EncoderDecoder):
         self.multi_prompts = (
             multi_prompts  # antoine: if we have multiple text prompts, see further
         )
+
+        self._init_multi_scale(multi_scale)
 
         self.load_text_embedding = load_text_embedding  # antoine: if we want to load text embeddings from a file
 
@@ -506,6 +511,11 @@ class MultiScalesZegCLIP(EncoderDecoder):
         print(
             "Making st mask for zero-shot setting in self_traning stage:", self.st_mask
         )
+
+    def _init_multi_scale(self, multi_scale):
+        """Initialize ``multi_scale``"""
+        number_divisions = multi_scale["divisions"]
+        self.multi_scale = MultiScales(number_divisions)
 
     def _init_decode_head(self, decode_head):
         """Initialize ``decode_head``"""

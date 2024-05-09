@@ -6,7 +6,7 @@ import patchify
 
 
 @MODELS.register_module()
-class MultiScale(nn.Module):
+class MultiScales(nn.Module):
     def __init__(self, divisions):
         self.divisions = divisions
         self.original_size = None
