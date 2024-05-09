@@ -1,4 +1,6 @@
-from models.segmentor.zegclip import ZegCLIP
+from models.segmentor.zegclip import ZegCLIP, MultiScalesZegCLIP
+
+from models.other_modules.multi_scale import MultiScale
 
 from models.backbone.text_encoder import CLIPTextEncoder
 from models.backbone.img_encoder import CLIPVisionTransformer, VPTCLIPVisionTransformer

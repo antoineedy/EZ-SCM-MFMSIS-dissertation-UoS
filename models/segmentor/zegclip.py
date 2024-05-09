@@ -17,6 +17,8 @@ import tqdm
 import os
 import matplotlib.pyplot as plt
 
+import patchify
+
 
 @SEGMENTORS.register_module()
 class ZegCLIP(EncoderDecoder):
@@ -352,7 +354,7 @@ class ZegCLIP(EncoderDecoder):
 
 
 @SEGMENTORS.register_module()
-class XXScalesZegCLIP(EncoderDecoder):
+class MultiScalesZegCLIP(EncoderDecoder):
     """Encoder Decoder segmentors.
     EncoderDecoder typically consists of backbone, decode_head, auxiliary_head.
     Note that auxiliary_head is only used for deep supervision during training,
@@ -549,18 +551,26 @@ class XXScalesZegCLIP(EncoderDecoder):
         text_embeddings = text_embeddings / text_embeddings.norm(dim=-1, keepdim=True)
         return text_embeddings
 
+    def extract_crops(self, img):
+        # extract the different crops of the image
+        all_crops = self.multi_scale(img)
+        return all_crops
+
     def extract_feat(self, img):
         # antoine: extract features from images using the backbone. Here, the backbone is the image encoder, CLIP vision encoder
         """Extract features from images."""
-        visual_feat = self.backbone(
-            img
-        )  # with XXScalesVPTCLIPVisionTransformer, 3 scales so list of 3 tensors here!
+        all_crops = self.extract_crops(img)
+        visual_feats = []
+        for crop in all_crops:
+            visual_feat = self.backbone(crop)
+            visual_feats.append(visual_feat)
         return visual_feat
 
     def forward_train(self, img, img_metas, gt_semantic_seg):
         visual_feats = self.extract_feat(
             img
         )  # image features using the CLIP image encoder
+        gt_semantic_segs = self.extract_crops(gt_semantic_seg)
         for i, visual_feat in enumerate(visual_feats):
             if self.load_text_embedding:
                 # antoine: if we want to load text embeddings from a file
@@ -587,12 +597,12 @@ class XXScalesZegCLIP(EncoderDecoder):
             if i == 0:
                 losses = dict()
                 loss_decode = self._decode_head_forward_train(
-                    feat, img_metas, gt_semantic_seg
+                    feat, img_metas, gt_semantic_segs[i]
                 )
                 losses.update(loss_decode)
             if i > 0:
                 loss_decode = self._decode_head_forward_train(
-                    feat, img_metas, gt_semantic_seg
+                    feat, img_metas, gt_semantic_segs[i]
                 )
                 for key in loss_decode:
                     losses[key] += loss_decode[key]
@@ -637,10 +647,16 @@ class XXScalesZegCLIP(EncoderDecoder):
                 align_corners=self.align_corners,
             )
             outs.append(out)
-        # antoine: we have 3 scales, so we have 3 outputs
-        # we want the mean of the 3 outputs
-        out = torch.stack(outs)
-        out = out.mean(dim=0)
+        if len(outs) == 1:
+            out = outs[0]
+        else:
+            # antoine: here we consider that we only have 1 other division of the image
+            # 2x2 OR 3x3, not the two at the same time
+            # will have to add that later
+            original = outs[0]
+            all_crops = outs[1:]
+            reconstruct = patchify.unpatchify(all_crops, original.size())
+            out = (original + reconstruct) / 2
         return out
 
     def _decode_head_forward_test(self, x, img_metas, self_training):

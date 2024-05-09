@@ -19,12 +19,15 @@ num_classes = len(base_class)
 pretrained = "././weights/ViT-B-16.pt"
 
 model = dict(
-    type="XXScalesZegCLIP",
+    type="MultiScalesZegCLIP",
     pretrained=pretrained,
     pretrained_text=pretrained,
     context_length=77,
+    multi_scale=dict(
+        type="MultiScale", divisions=[2, 3]
+    ),  # number of crops to add to the original images
     backbone=dict(
-        type="XXScalesVPTCLIPVisionTransformer",
+        type="VPTCLIPVisionTransformer",
         patch_sizes=[16, 32, 64],
         width=768,
         output_dim=512,  # ? difference between the output and the embeddings
