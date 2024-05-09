@@ -1,7 +1,7 @@
 from ast import Gt
 import numpy as np
 from mmcv.cnn import ConvModule
-from mmseg.ops import Upsample, resize
+from mmseg.ops import Upsample, resize  # type: ignore
 
 from mmseg.models.builder import HEADS
 from mmseg.models.decode_heads.decode_head import BaseDecodeHead
@@ -14,7 +14,7 @@ from torch.nn import TransformerDecoder, TransformerDecoderLayer
 from typing import Optional
 import math
 from functools import partial
-from mmcv.runner import auto_fp16, force_fp32
+from mmcv.runner import auto_fp16, force_fp32  # type: ignore
 import matplotlib.pyplot as plt
 
 from timm.models.layers import trunc_normal_
@@ -403,7 +403,7 @@ class ATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transfer Mo
         ]
 
     def d3_to_d4(self, t):
-        # here what for?
+        # antoine: linear to image
         n, hw, c = t.size()
         if hw % 2 != 0:
             t = t[:, 1:]
@@ -411,6 +411,7 @@ class ATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transfer Mo
         return t.transpose(1, 2).reshape(n, c, h, w)
 
     def d4_to_d3(self, t):
+        # antoine: reverse image to linear
         return t.flatten(-2).transpose(-1, -2)
 
     def get_qs(self, q, cls):

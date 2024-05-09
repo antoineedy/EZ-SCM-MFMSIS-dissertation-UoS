@@ -545,6 +545,7 @@ class VPTCLIPVisionTransformer(nn.Module):
             return encoded, features
 
 
+## TRASH
 @BACKBONES.register_module()
 class XXScalesVPTCLIPVisionTransformer(nn.Module):
     def __init__(
