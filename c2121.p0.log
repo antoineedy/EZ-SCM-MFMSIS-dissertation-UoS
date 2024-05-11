@@ -1,0 +1,29 @@
+000 (2121.000.000) 2024-05-11 17:37:06 Job submitted from host: <131.227.81.140:9618?addrs=131.227.81.140-9618&alias=training-condor.surrey.ac.uk&noUDP&sock=schedd_1399_2d15>
+...
+040 (2121.000.000) 2024-05-11 17:37:08 Finished transferring input files
+...
+001 (2121.000.000) 2024-05-11 17:37:09 Job executing on host: <131.227.80.172:9618?addrs=131.227.80.172-9618&alias=aisurrey01.surrey.ac.uk&noUDP&sock=startd_9522_e0e3>
+...
+040 (2121.000.000) 2024-05-11 17:37:11 Started transferring output files
+...
+040 (2121.000.000) 2024-05-11 17:37:11 Finished transferring output files
+...
+005 (2121.000.000) 2024-05-11 17:37:12 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	570  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	570  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :        0        3         3 
+	   Disk (KB)            :       25    17500    246844 
+	   Gpus (Average)       :        0        1         1 "GPU-36a655d1-c604-0db2-f8ee-bf0e0ad128fb"
+	   GpusMemory (MB)      :      257                    
+	   Memory (MB)          :              2048      2048 
+
+	Job terminated of its own accord at 2024-05-11T16:37:11Z.
+...
