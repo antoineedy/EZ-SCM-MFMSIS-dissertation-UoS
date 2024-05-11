@@ -10,7 +10,7 @@ JobBatchName = "ANtoine-ZegCLIP-1"
 
 # --------------------------------------------
 # Executable and its arguments
-executable    = ~/miniconda3/envs/dissert/bin/python
+executable    = /user/HS400/ae01116/miniconda3/envs/dissert/bin/python3
 arguments     = $ENV(PWD)/start_training.py
 
 # ---------------------------------------------------
