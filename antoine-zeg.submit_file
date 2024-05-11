@@ -11,7 +11,7 @@ JobBatchName = "ANtoine-ZegCLIP-1"
 # --------------------------------------------
 # Executable and its arguments
 executable    = ~/miniconda3/envs/dissert
-arguments     = $ENV(PWD)/
+arguments     = $ENV(PWD)/start_training.py
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
