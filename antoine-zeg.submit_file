@@ -6,7 +6,7 @@
 
 #---------------------------------------------
 # Name your batch so it's easy to distinguish in the q.
-JobBatchName = "ANtoine-ZegCLIP-1"
+JobBatchName = "Antoine-ZegCLIP-1"
 
 # --------------------------------------------
 # Executable and its arguments
@@ -30,7 +30,7 @@ should_transfer_files = YES
 
 # Make certain project spaces available in container
 # Uncomment this environment line if you're not running on /mnt/fast
-# environment = "mount=$ENV(PWD)"
+environment = "mount=$ENV(PWD)"
 
 # -------------------------------------
 # Requirements for the Job (Requirements are explained in further detail in example09.submit_file)
