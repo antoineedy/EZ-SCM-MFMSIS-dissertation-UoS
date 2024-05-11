@@ -10,6 +10,8 @@ from mmseg.models.builder import SEGMENTORS
 from mmseg.models.segmentors.base import BaseSegmentor
 from mmseg.models.segmentors.encoder_decoder import EncoderDecoder
 
+import sys
+sys.path.append('../')
 from other_modules.multi_scale import MultiScales
 
 from .untils import tokenize
