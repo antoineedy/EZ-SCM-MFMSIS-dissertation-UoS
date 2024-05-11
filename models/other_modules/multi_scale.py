@@ -5,7 +5,7 @@ from mmseg.registry import MODELS
 import patchify
 
 
-@MODELS.register_module()
+#@MODELS.register_module()
 class MultiScales(nn.Module):
     def __init__(self, divisions):
         self.divisions = divisions
