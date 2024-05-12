@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/user/HS400/ae01116/Documents/multi-modal-dissertation-uos/start_training.py", line 6, in <module>
+    os.chdir("~")
+FileNotFoundError: [Errno 2] No such file or directory: '~'

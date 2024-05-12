@@ -27,6 +27,12 @@ error  = logs/c$(cluster).p$(process).error
 # -----------------------------------
 # File Transfer, Input, Output
 should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+# transfer all the files in the current directory
+
+# transfer_input_files = $ENV(PWD)
+transfer_input_files = $ENV(PWD)/antoine-zeg.submit_file, $ENV(PWD)/train.py, $ENV(PWD)/get_flops.py, $ENV(PWD)/logs, $ENV(PWD)/models, $ENV(PWD)/data, $ENV(PWD)/docker_stderror, $ENV(PWD)/start_training.py, $ENV(PWD)/test.py, $ENV(PWD)/dist_train.sh, $ENV(PWD)/weights, $ENV(PWD)/configs
 
 # Make certain project spaces available in container
 # Uncomment this environment line if you're not running on /mnt/fast

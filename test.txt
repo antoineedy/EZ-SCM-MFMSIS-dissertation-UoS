@@ -1,6 +1,0 @@
-_condor_stderr
-_condor_stdout
-docker_stderror
-test.txt
-tmp
-var
