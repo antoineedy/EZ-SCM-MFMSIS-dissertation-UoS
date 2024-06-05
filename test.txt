@@ -1,0 +1,8 @@
+_condor_stderr
+_condor_stdout
+dist_train.sh
+docker_stderror
+start_training.py
+test.txt
+tmp
+var
