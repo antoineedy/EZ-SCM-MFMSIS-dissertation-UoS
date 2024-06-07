@@ -1,0 +1,102 @@
+Unable to find image 'ziqinzhou/zegclip:latest' locally
+latest: Pulling from ziqinzhou/zegclip
+f22ccc0b8772: Pulling fs layer
+3cf8fb62ba5f: Pulling fs layer
+e80c964ece6a: Pulling fs layer
+8a451ac89a87: Pulling fs layer
+c563160b1f64: Pulling fs layer
+596a46902202: Pulling fs layer
+aa0805983180: Pulling fs layer
+5718c3da35a0: Pulling fs layer
+003637b0851a: Pulling fs layer
+18a42526ee57: Pulling fs layer
+32c20b0bdcb3: Pulling fs layer
+8a451ac89a87: Waiting
+7a199c750eab: Pulling fs layer
+2825dc7fe8c1: Pulling fs layer
+c563160b1f64: Waiting
+6492e8c8d9cb: Pulling fs layer
+ffb19499e9bc: Pulling fs layer
+2e28d4214878: Pulling fs layer
+596a46902202: Waiting
+99ecb2fb3af5: Pulling fs layer
+2825dc7fe8c1: Waiting
+f00b3bfdf61f: Pulling fs layer
+6492e8c8d9cb: Waiting
+ea5037ba151e: Pulling fs layer
+f9d2142c6ca6: Pulling fs layer
+e6d0d0a6cebe: Pulling fs layer
+5718c3da35a0: Waiting
+4b211c3eb4b1: Pulling fs layer
+2e28d4214878: Waiting
+f9d2142c6ca6: Waiting
+f00b3bfdf61f: Waiting
+003637b0851a: Waiting
+e6d0d0a6cebe: Waiting
+99ecb2fb3af5: Waiting
+4b211c3eb4b1: Waiting
+ea5037ba151e: Waiting
+18a42526ee57: Waiting
+7a199c750eab: Waiting
+3cf8fb62ba5f: Verifying Checksum
+3cf8fb62ba5f: Download complete
+e80c964ece6a: Download complete
+c563160b1f64: Verifying Checksum
+c563160b1f64: Download complete
+f22ccc0b8772: Verifying Checksum
+f22ccc0b8772: Download complete
+596a46902202: Download complete
+f22ccc0b8772: Pull complete
+8a451ac89a87: Verifying Checksum
+8a451ac89a87: Download complete
+3cf8fb62ba5f: Pull complete
+e80c964ece6a: Pull complete
+8a451ac89a87: Pull complete
+c563160b1f64: Pull complete
+596a46902202: Pull complete
+5718c3da35a0: Verifying Checksum
+5718c3da35a0: Download complete
+18a42526ee57: Verifying Checksum
+18a42526ee57: Download complete
+aa0805983180: Verifying Checksum
+aa0805983180: Download complete
+7a199c750eab: Verifying Checksum
+7a199c750eab: Download complete
+2825dc7fe8c1: Verifying Checksum
+2825dc7fe8c1: Download complete
+6492e8c8d9cb: Verifying Checksum
+6492e8c8d9cb: Download complete
+003637b0851a: Verifying Checksum
+003637b0851a: Download complete
+2e28d4214878: Verifying Checksum
+2e28d4214878: Download complete
+ffb19499e9bc: Verifying Checksum
+f00b3bfdf61f: Verifying Checksum
+f00b3bfdf61f: Download complete
+ea5037ba151e: Verifying Checksum
+ea5037ba151e: Download complete
+f9d2142c6ca6: Download complete
+e6d0d0a6cebe: Download complete
+4b211c3eb4b1: Verifying Checksum
+4b211c3eb4b1: Download complete
+99ecb2fb3af5: Verifying Checksum
+99ecb2fb3af5: Download complete
+aa0805983180: Pull complete
+5718c3da35a0: Pull complete
+003637b0851a: Pull complete
+18a42526ee57: Pull complete
+32c20b0bdcb3: Download complete
+32c20b0bdcb3: Pull complete
+7a199c750eab: Pull complete
+2825dc7fe8c1: Pull complete
+6492e8c8d9cb: Pull complete
+ffb19499e9bc: Pull complete
+2e28d4214878: Pull complete
+99ecb2fb3af5: Pull complete
+f00b3bfdf61f: Pull complete
+ea5037ba151e: Pull complete
+f9d2142c6ca6: Pull complete
+e6d0d0a6cebe: Pull complete
+4b211c3eb4b1: Pull complete
+Digest: sha256:4b1e3624b7fb42d3def91caabc268fba70c19ce1f1aa2fe0ce82bc555a43e44d
+Status: Downloaded newer image for ziqinzhou/zegclip:latest

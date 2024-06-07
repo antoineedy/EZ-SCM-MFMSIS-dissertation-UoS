@@ -16,7 +16,8 @@ arguments     = $ENV(PWD)/start_training.py
 # ---------------------------------------------------
 # Universe (vanilla, docker)
 universe         = docker
-docker_image     = antoineedy/dissert1
+#docker_image     = antoineedy/dissert1
+docker_image = ziqinzhou/zegclip:latest
 
 # -------------------------------------------------
 # Event, out and error logs
