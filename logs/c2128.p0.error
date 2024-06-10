@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/user/HS400/ae01116/Documents/multi-modal-dissertation-uos/start_training.py", line 4, in <module>
-    os.chdir("~/Documents/multi-modal-dissertation-uos/")
-FileNotFoundError: [Errno 2] No such file or directory: '~/Documents/multi-modal-dissertation-uos/'

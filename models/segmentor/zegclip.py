@@ -10,9 +10,9 @@ from mmseg.models.builder import SEGMENTORS
 from mmseg.models.segmentors.base import BaseSegmentor
 from mmseg.models.segmentors.encoder_decoder import EncoderDecoder
 
-#import sys
-#sys.path.append('../')
-#from other_modules.multi_scale import MultiScales
+# import sys
+# sys.path.append('../')
+# from other_modules.multi_scale import MultiScales
 
 from .untils import tokenize
 import numpy as np
@@ -23,18 +23,22 @@ import matplotlib.pyplot as plt
 
 import patchify
 
+
 class MultiScales(nn.Module):
     def __init__(self, divisions):
+        super().__init__()
         self.divisions = divisions
         self.original_size = None
 
     def forward(self, x):
-        self.original_size = x.size()
+        self.device = x.device
+        self.original_size = x.size()[-1]
         self.original_type = x.dtype
         out = [x]
-        for i in range(self.divisions):
+        for i in range(len(self.divisions)):
             images = self._create_images(x, self.divisions[i])
             out += images
+        out = [x.to(self.device) for x in out]
         return out
 
     def _create_images(self, x, number_divisions):
@@ -47,9 +51,17 @@ class MultiScales(nn.Module):
                 If 2, the image will be divided in 2 parts in each direction, resulting in 4 images.
                 The number of images will be number_divisions**2.
         """
-        patch_sizes = self.original_size // number_divisions
-        x = np.array(x)
-        patches = patchify.patchify(x, patch_sizes, step=patch_sizes)
+        patch_size = int(self.original_size) // int(number_divisions)
+        x = np.array(x.cpu())
+        x = x.transpose(1, 2, 0)
+        patches = patchify.patchify(x, (patch_size, patch_size, 3), step=patch_size)
+        patches = patches.reshape(-1, patch_size, patch_size, 3)
+        patches = torch.from_numpy(patches)
+        patches = patches.reshape(patches.size()[0], 3, patch_size, patch_size)
+        #patches = patches.resize(patches.size()[0], int(self.original_size), int(self.original_size), 3)
+        patches = [nn.functional.interpolate(patches[i], scale_factor=int(number_divisions)) for i in range(patches.size()[0])]
+        patches = np.array(patches)
+        print(patches.shape)
         patches = [x] + patches
         for i in range(len(patches)):
             patches[i] = torch.from_numpy(patches[i])
@@ -417,7 +429,7 @@ class MultiScalesZegCLIP(EncoderDecoder):
         #  init_cfg=None,
         **args,
     ):
-        super(ZegCLIP, self).__init__(**args)
+        super(MultiScalesZegCLIP, self).__init__(**args)
 
         if pretrained_text is not None:
             assert (
@@ -550,7 +562,7 @@ class MultiScalesZegCLIP(EncoderDecoder):
     def _init_multi_scale(self, multi_scale):
         """Initialize ``multi_scale``"""
         number_divisions = multi_scale["divisions"]
-        self.multi_scale = MultiScales(number_divisions)
+        self.__multi_scale = MultiScales(number_divisions)
 
     def _init_decode_head(self, decode_head):
         """Initialize ``decode_head``"""
@@ -596,9 +608,13 @@ class MultiScalesZegCLIP(EncoderDecoder):
         text_embeddings = text_embeddings / text_embeddings.norm(dim=-1, keepdim=True)
         return text_embeddings
 
-    def extract_crops(self, img):
+    def extract_crops(self, imgs):
         # extract the different crops of the image
-        all_crops = self.multi_scale(img)
+        # here I think that there are 4 images because of the data augmentation
+        all_crops = torch.Tensor()
+        for img in imgs:
+            ms = self.__multi_scale(img)
+            all_crops = torch.cat((all_crops, ms), 0)
         return all_crops
 
     def extract_feat(self, img):

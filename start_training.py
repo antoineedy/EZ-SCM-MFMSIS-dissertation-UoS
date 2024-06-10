@@ -4,5 +4,10 @@ import os
 
 os.system("ls >> test.txt")
 
-command = "bash /user/HS400/ae01116/Documents/multi-modal-dissertation-uos/dist_train.sh configs/voc12/vpt_seg_zero_vit-b_512x512_20k_12_10.py data/VOC2012"
+base = "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos"
+base_scratch = "/mnt/fast/nobackup/scratch4weeks/ae01116"
+
+config = f"{base}/configs/voc12/xxscales_input_vpt_seg_zero_vit-b_512x512_20k_12_10.py"
+
+command = f"bash {base}/dist_train.sh {config} {base_scratch}/data/VOC2012"
 os.system(command)

@@ -1,0 +1,41 @@
+python: can't open file '/path/to/test.py': [Errno 2] No such file or directory
+Watching job link.sh
+{'ok': True, 'result': {'message_id': 24, 'from': {'id': 7298020171, 'is_bot': True, 'first_name': 'python-logs', 'username': 'python_logs_antoine_bot'}, 'chat': {'id': 6284547224, 'first_name': 'Antoine', 'last_name': 'Edy', 'type': 'private'}, 'date': 1717953470, 'text': '----- Starting to watch the file -----'}}
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/link_telegram.py", line 34, in <module>
+    old_content = open_file(file)
+                  ^^^^^^^^^^^^^^^
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/link_telegram.py", line 21, in open_file
+    with open(file, "r") as f:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/logs/clink.sh.p0.error'
+Watching job link.sh
+{'ok': True, 'result': {'message_id': 25, 'from': {'id': 7298020171, 'is_bot': True, 'first_name': 'python-logs', 'username': 'python_logs_antoine_bot'}, 'chat': {'id': 6284547224, 'first_name': 'Antoine', 'last_name': 'Edy', 'type': 'private'}, 'date': 1717953649, 'text': '----- Starting to watch the file -----'}}
+{'ok': True, 'result': {'message_id': 26, 'from': {'id': 7298020171, 'is_bot': True, 'first_name': 'python-logs', 'username': 'python_logs_antoine_bot'}, 'chat': {'id': 6284547224, 'first_name': 'Antoine', 'last_name': 'Edy', 'type': 'private'}, 'date': 1717953650, 'text': 'Watching file /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/logs/clink.sh.p0.error'}}
+{'ok': True, 'result': {'message_id': 27, 'from': {'id': 7298020171, 'is_bot': True, 'first_name': 'python-logs', 'username': 'python_logs_antoine_bot'}, 'chat': {'id': 6284547224, 'first_name': 'Antoine', 'last_name': 'Edy', 'type': 'private'}, 'date': 1717953650, 'text': 'File /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/logs/clink.sh.p0.error not found.'}}
+{'ok': True, 'result': {'message_id': 28, 'from': {'id': 7298020171, 'is_bot': True, 'first_name': 'python-logs', 'username': 'python_logs_antoine_bot'}, 'chat': {'id': 6284547224, 'first_name': 'Antoine', 'last_name': 'Edy', 'type': 'private'}, 'date': 1717953650, 'text': 'The file is empty, stopping the watch.'}}
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/link_telegram.py", line 42, in <module>
+    sleep(10)
+    ^^^^^
+NameError: name 'sleep' is not defined
+Watching job 1908
+{'ok': True, 'result': {'message_id': 29, 'from': {'id': 7298020171, 'is_bot': True, 'first_name': 'python-logs', 'username': 'python_logs_antoine_bot'}, 'chat': {'id': 6284547224, 'first_name': 'Antoine', 'last_name': 'Edy', 'type': 'private'}, 'date': 1717953678, 'text': '----- Starting to watch the file -----'}}
+{'ok': True, 'result': {'message_id': 30, 'from': {'id': 7298020171, 'is_bot': True, 'first_name': 'python-logs', 'username': 'python_logs_antoine_bot'}, 'chat': {'id': 6284547224, 'first_name': 'Antoine', 'last_name': 'Edy', 'type': 'private'}, 'date': 1717953679, 'text': 'Watching file /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/logs/c1908.p0.error'}}
+{'ok': True, 'result': {'message_id': 31, 'from': {'id': 7298020171, 'is_bot': True, 'first_name': 'python-logs', 'username': 'python_logs_antoine_bot'}, 'chat': {'id': 6284547224, 'first_name': 'Antoine', 'last_name': 'Edy', 'type': 'private'}, 'date': 1717953679, 'text': 'File /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/logs/c1908.p0.error not found.'}}
+{'ok': True, 'result': {'message_id': 32, 'from': {'id': 7298020171, 'is_bot': True, 'first_name': 'python-logs', 'username': 'python_logs_antoine_bot'}, 'chat': {'id': 6284547224, 'first_name': 'Antoine', 'last_name': 'Edy', 'type': 'private'}, 'date': 1717953679, 'text': 'The file is empty, stopping the watch.'}}
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/link_telegram.py", line 42, in <module>
+    sleep(10)
+    ^^^^^
+NameError: name 'sleep' is not defined
+Watching job 0
+{'ok': True, 'result': {'message_id': 33, 'from': {'id': 7298020171, 'is_bot': True, 'first_name': 'python-logs', 'username': 'python_logs_antoine_bot'}, 'chat': {'id': 6284547224, 'first_name': 'Antoine', 'last_name': 'Edy', 'type': 'private'}, 'date': 1717958602, 'text': '----- Starting to watch the file -----'}}
+{'ok': True, 'result': {'message_id': 34, 'from': {'id': 7298020171, 'is_bot': True, 'first_name': 'python-logs', 'username': 'python_logs_antoine_bot'}, 'chat': {'id': 6284547224, 'first_name': 'Antoine', 'last_name': 'Edy', 'type': 'private'}, 'date': 1717958602, 'text': 'Watching file /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/logs/c0.p0.error'}}
+{'ok': True, 'result': {'message_id': 35, 'from': {'id': 7298020171, 'is_bot': True, 'first_name': 'python-logs', 'username': 'python_logs_antoine_bot'}, 'chat': {'id': 6284547224, 'first_name': 'Antoine', 'last_name': 'Edy', 'type': 'private'}, 'date': 1717958602, 'text': 'File /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/logs/c0.p0.error not found.'}}
+Watching job 170649
+{'ok': True, 'result': {'message_id': 36, 'from': {'id': 7298020171, 'is_bot': True, 'first_name': 'python-logs', 'username': 'python_logs_antoine_bot'}, 'chat': {'id': 6284547224, 'first_name': 'Antoine', 'last_name': 'Edy', 'type': 'private'}, 'date': 1717958647, 'text': '----- Starting to watch the file -----'}}
+{'ok': True, 'result': {'message_id': 37, 'from': {'id': 7298020171, 'is_bot': True, 'first_name': 'python-logs', 'username': 'python_logs_antoine_bot'}, 'chat': {'id': 6284547224, 'first_name': 'Antoine', 'last_name': 'Edy', 'type': 'private'}, 'date': 1717958647, 'text': 'Watching file /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/logs/c170649.p0.error'}}
+{'ok': True, 'result': {'message_id': 38, 'from': {'id': 7298020171, 'is_bot': True, 'first_name': 'python-logs', 'username': 'python_logs_antoine_bot'}, 'chat': {'id': 6284547224, 'first_name': 'Antoine', 'last_name': 'Edy', 'type': 'private'}, 'date': 1717958648, 'text': 'No new lines, stopping the watch.'}}
+usage: link_telegram.py [-h] [--job JOB] [--type TYPE]
+link_telegram.py: error: unrecognized arguments: 170650

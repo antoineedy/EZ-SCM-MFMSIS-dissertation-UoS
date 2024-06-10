@@ -1,6 +1,9 @@
 # dataset settings
 dataset_type = 'ZeroPascalVOCDataset20'
-data_root = 'Path/to/data/VOCdevkit/VOC2012'
+#data_root = 'Path/to/data/VOCdevkit/VOC2012'
+base = "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos"
+base_scratch = "/mnt/fast/nobackup/scratch4weeks/ae01116"
+data_root = base_scratch + "/data/VOC2012"
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 crop_size = (512, 512)
