@@ -18,6 +18,8 @@ from .untils import tokenize
 import numpy as np
 import tqdm
 
+from PIL import Image
+
 import os
 import matplotlib.pyplot as plt
 
@@ -34,14 +36,16 @@ class MultiScales(nn.Module):
         self.device = x.device
         self.original_size = x.size()[-1]
         self.original_type = x.dtype
-        out = [x]
+        out = []
         for i in range(len(self.divisions)):
-            images = self._create_images(x, self.divisions[i])
+            images = self._create_images(x, self.divisions[i], i)
             out += images
-        out = [x.to(self.device) for x in out]
+        out = torch.stack(out)
+        out = out.to(self.device)
+        print(out.size())
         return out
 
-    def _create_images(self, x, number_divisions):
+    def _create_images(self, x, number_divisions, add_x=0):
         """
         Create images from the original image.
 
@@ -59,13 +63,22 @@ class MultiScales(nn.Module):
         patches = torch.from_numpy(patches)
         patches = patches.reshape(patches.size()[0], 3, patch_size, patch_size)
         #patches = patches.resize(patches.size()[0], int(self.original_size), int(self.original_size), 3)
-        patches = [nn.functional.interpolate(patches[i], scale_factor=int(number_divisions)) for i in range(patches.size()[0])]
-        patches = np.array(patches)
-        print(patches.shape)
-        patches = [x] + patches
+        if add_x == 0:
+            new_patches = [x]
+        else:
+            new_patches = []
         for i in range(len(patches)):
-            patches[i] = torch.from_numpy(patches[i])
-            patches[i] = patches[i].resize(self.original_size)
+            patch_image = patches[i]
+            patch_image = patch_image.permute(1, 2, 0)
+            patch_image = patch_image.numpy() * 255
+            patch_image = patch_image.astype(np.uint8)
+            patch_image = Image.fromarray(patch_image)
+            patch_image = patch_image.resize((self.original_size, self.original_size))
+            patch_image = np.array(patch_image) / 255
+            patch_image = torch.from_numpy(patch_image)
+            new_patches.append(patch_image)
+        patches = np.array(new_patches)
+        patches = torch.from_numpy(patches)
         return patches
 
 
@@ -611,10 +624,15 @@ class MultiScalesZegCLIP(EncoderDecoder):
     def extract_crops(self, imgs):
         # extract the different crops of the image
         # here I think that there are 4 images because of the data augmentation
-        all_crops = torch.Tensor()
+        all_crops = []
         for img in imgs:
-            ms = self.__multi_scale(img)
-            all_crops = torch.cat((all_crops, ms), 0)
+            ms = np.array(self.__multi_scale(img).cpu())
+            all_crops.append(ms)
+        all_crops = np.array(all_crops)
+        all_crops = torch.from_numpy(all_crops).to(imgs.device)
+        # change 0 and 1
+        all_crops = all_crops.permute(1, 0, 4, 2, 3)
+        all_crops = all_crops.float()
         return all_crops
 
     def extract_feat(self, img):

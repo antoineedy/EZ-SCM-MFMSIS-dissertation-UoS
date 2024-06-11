@@ -43,6 +43,7 @@ if __name__ == "__main__":
     old_content = open_file(file)
     if old_content == None:
         sys.exit(0)
+    count = 0
     while True:
         time.sleep(_time)
         # for every new line of the file, send a message
@@ -50,14 +51,11 @@ if __name__ == "__main__":
             content = f.read()
             message = content[len(old_content):]
             if len(message) > 0:
-                a=0
-                for line in message.split("\n"):
-                    send_message(line)
-                    a+=1
-                    if a>10:
-                        break
-                old_content = content
+                send_message(message)
             else:
-                send_message("No new lines, stopping the watch.")
-                break
+                count += 1
+                send_message("\uE11B No update for now.")
+                if count > 20:
+                    send_message("No new lines, stopping the watch.")
+                    break
         
