@@ -49,26 +49,26 @@ transfer_input_files = $ENV(PWD)/start_training.py, $ENV(PWD)/dist_train.sh, $EN
 #               (HasStornext) && \
 #               (CUDACapability > 2.0)
 
-requirements = (CUDAGlobalMemoryMb <  11000) && (HasStornext)
+# requirements = (CUDAGlobalMemoryMb <  11000) && (HasStornext)
 
 # --------------------------------------
 # Resources
-request_GPUs     = 1
+#request_GPUs     = 1
 # this needs to be specified for the AI@Surrey cluster if requesting a GPU
-+GPUMem          = 20000
-request_CPUs   = 3 
+#+GPUMem          = 20000
+#request_CPUs   = 3 
 # tailor the number of CPUs to your needs - check epoch time or GPU power usage via 
 # https://wandb.ai/site to know that you're not staving the GPU
-request_memory   = 64G
+#request_memory   = 64G
 
 
-# request_cpus            = 3
-# request_memory          = 65536MB
-# request_disk            = 17500KB
-# request_gpus            = 1
-# +GPUMem          = 20000
-# requirements            = (Machine == "aisurrey03.surrey.ac.uk")
-# +GPUDevice              = "GPU-2d0384f8-9b4f-de85-ae26-75080ed9ec3b"
+request_cpus            = 3
+request_memory          = 65536MB
+request_disk            = 17500KB
+request_gpus            = 1
++GPUMem          = 20000
+requirements            = (Machine == "aisurrey03.surrey.ac.uk")
++GPUDevice              = "GPU-2d0384f8-9b4f-de85-ae26-75080ed9ec3b"
 
 # #This job will complete in less than 1 hour
 +JobRunTime = 1

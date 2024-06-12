@@ -8,5 +8,6 @@ weights/
 data.zip
 weights.zip
 zegenv/
+zegenv2/
 logs/
 mmseg/

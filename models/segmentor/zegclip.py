@@ -18,7 +18,7 @@ from .untils import tokenize
 import numpy as np
 import tqdm
 
-from PIL import Image
+#from PIL import Image
 
 import os
 import matplotlib.pyplot as plt
@@ -31,11 +31,13 @@ class MultiScales(nn.Module):
         super().__init__()
         self.divisions = divisions
         self.original_size = None
+        self.upsample = None
 
     def forward(self, x):
         self.device = x.device
         self.original_size = x.size()[-1]
         self.original_type = x.dtype
+        self.upsample = nn.Upsample(size=(3, self.original_size, self.original_size), mode="bilinear", align_corners=False)
         out = []
         for i in range(len(self.divisions)):
             images = self._create_images(x, self.divisions[i], i)
@@ -68,14 +70,15 @@ class MultiScales(nn.Module):
         else:
             new_patches = []
         for i in range(len(patches)):
-            patch_image = patches[i]
-            patch_image = patch_image.permute(1, 2, 0)
-            patch_image = patch_image.numpy() * 255
-            patch_image = patch_image.astype(np.uint8)
-            patch_image = Image.fromarray(patch_image)
-            patch_image = patch_image.resize((self.original_size, self.original_size))
-            patch_image = np.array(patch_image) / 255
-            patch_image = torch.from_numpy(patch_image)
+            patch_image = patches[i] # channel x height x width
+            patch_image = self.upsample(patch_image)
+
+            # patch_image = patch_image.numpy() * 255
+            # patch_image = patch_image.astype(np.uint8)
+            # patch_image = Image.fromarray(patch_image)
+            # patch_image = patch_image.resize((self.original_size, self.original_size))
+            # patch_image = np.array(patch_image) / 255
+            # patch_image = torch.from_numpy(patch_image)
             new_patches.append(patch_image)
         patches = np.array(new_patches)
         patches = torch.from_numpy(patches)
