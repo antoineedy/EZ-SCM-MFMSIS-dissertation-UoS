@@ -46,16 +46,17 @@ transfer_input_files = $ENV(PWD)/start_training.py, $ENV(PWD)/dist_train.sh, $EN
 # NOTE: HasStornext is not valid on orca.
 #requirements = (CUDAGlobalMemoryMb > 4500) && (CUDAGlobalMemoryMb <  17000) && \
 #              (HasStornext) && \
-requirements = (CUDACapability > 2.0)
+requirements = (CUDACapability > 2.0) && (CUDAGlobalMemoryMb > 10000) && (CUDAGlobalMemoryMb <  16000)
++GPUDevice = "GPU-2d0384f8-9b4f-de85-ae26-75080ed9ec3b"
 
-# --------------------------------------
-# Resources
-request_GPUs     = 1
-# this needs to be specified for the AI@Surrey cluster if requesting a GPU
+# # --------------------------------------
+# # Resources
+request_GPUs     = 4
+# # this needs to be specified for the AI@Surrey cluster if requesting a GPU
 +GPUMem          = 10000  
-request_CPUs   = 3 
-# tailor the number of CPUs to your needs - check epoch time or GPU power usage via 
-# https://wandb.ai/site to know that you're not staving the GPU
+request_CPUs   = 1
+# # tailor the number of CPUs to your needs - check epoch time or GPU power usage via 
+# # https://wandb.ai/site to know that you're not staving the GPU
 request_memory   = 64G
 
 #This job will complete in less than 1 hour

@@ -25,7 +25,7 @@ model = dict(
     pretrained_text=pretrained,
     context_length=77,
     multi_scale=dict(
-        type="MultiScales", divisions=[2, 3]
+        type="MultiScales", divisions=[2]
     ),  # number of crops to add to the original images
     # multi_scale is not a module as backbone is, but a parameter of the segmentor "MultiScalesZegCLIP"
     backbone=dict(
@@ -81,7 +81,7 @@ model = dict(
     both_class=both_class,
     ft_backbone=False,
     exclude_key="prompt",
-    load_text_embedding="configs/_base_/datasets/text_embedding/voc12_single.npy",
+    load_text_embedding="/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/_base_/datasets/text_embedding/voc12_single.npy",
 )
 
 lr_config = dict(
@@ -112,7 +112,9 @@ optimizer = dict(
     ),
 )
 
+# I CHANGED THAT FROM 4 TO 2
+
 data = dict(
-    samples_per_gpu=4,
-    workers_per_gpu=4,
+    samples_per_gpu=2,
+    workers_per_gpu=2,
 )

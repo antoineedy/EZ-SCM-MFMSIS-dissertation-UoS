@@ -270,6 +270,7 @@ class ATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transfer Mo
         self_training=False,
         st_mask=None,
     ):
+
         seg_logits = self.forward(inputs)
 
         if self_training:

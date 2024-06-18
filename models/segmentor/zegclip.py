@@ -18,7 +18,7 @@ from .untils import tokenize
 import numpy as np
 import tqdm
 
-#from PIL import Image
+# from PIL import Image
 
 import os
 import matplotlib.pyplot as plt
@@ -37,14 +37,17 @@ class MultiScales(nn.Module):
         self.device = x.device
         self.original_size = x.size()[-1]
         self.original_type = x.dtype
-        self.upsample = nn.Upsample(size=(3, self.original_size, self.original_size), mode="bilinear", align_corners=False)
+        self.upsample = nn.Upsample(
+            size=(self.original_size, self.original_size),
+            mode="bilinear",
+            align_corners=False,
+        )
         out = []
         for i in range(len(self.divisions)):
             images = self._create_images(x, self.divisions[i], i)
             out += images
         out = torch.stack(out)
         out = out.to(self.device)
-        print(out.size())
         return out
 
     def _create_images(self, x, number_divisions, add_x=0):
@@ -60,25 +63,26 @@ class MultiScales(nn.Module):
         patch_size = int(self.original_size) // int(number_divisions)
         x = np.array(x.cpu())
         x = x.transpose(1, 2, 0)
-        patches = patchify.patchify(x, (patch_size, patch_size, 3), step=patch_size)
-        patches = patches.reshape(-1, patch_size, patch_size, 3)
-        patches = torch.from_numpy(patches)
-        patches = patches.reshape(patches.size()[0], 3, patch_size, patch_size)
-        #patches = patches.resize(patches.size()[0], int(self.original_size), int(self.original_size), 3)
+        channels = x.shape[-1]
+        patches = patchify.patchify(
+            x, (patch_size, patch_size, channels), step=patch_size
+        )
+        patches = patches.reshape(-1, patch_size, patch_size, channels)
+        # to float
+        patches = torch.from_numpy(patches).float()
+        patches = patches.reshape(patches.size()[0], channels, patch_size, patch_size)
+        # patches = patches.resize(patches.size()[0], int(self.original_size), int(self.original_size), 3)
+        new_patches = []
         if add_x == 0:
-            new_patches = [x]
-        else:
-            new_patches = []
+            x = x.transpose(2, 0, 1)
+            x = torch.from_numpy(x)
+            new_patches.append(x)
         for i in range(len(patches)):
-            patch_image = patches[i] # channel x height x width
-            patch_image = self.upsample(patch_image)
+            patch_image = patches[i]  # channel x height x width
+            patch_image = patch_image.unsqueeze(0)
 
-            # patch_image = patch_image.numpy() * 255
-            # patch_image = patch_image.astype(np.uint8)
-            # patch_image = Image.fromarray(patch_image)
-            # patch_image = patch_image.resize((self.original_size, self.original_size))
-            # patch_image = np.array(patch_image) / 255
-            # patch_image = torch.from_numpy(patch_image)
+            patch_image = self.upsample(patch_image)
+            patch_image = patch_image.squeeze(0)
             new_patches.append(patch_image)
         patches = np.array(new_patches)
         patches = torch.from_numpy(patches)
@@ -293,6 +297,10 @@ class ZegCLIP(EncoderDecoder):
         visual_feat = self.extract_feat(
             img
         )  # image features using the CLIP image encoder
+        print(f"gt_semantic_segs: {gt_semantic_seg.shape}")
+        print(f"visual_feats: {len(visual_feat)}")
+        print(f"visual_feats_shape: {len(visual_feat[0])}")
+        print(f"visual_feats_shape: {visual_feat[0][0].shape}")
         if self.load_text_embedding:
             # antoine: if we want to load text embeddings from a file
             text_feat = np.load(self.load_text_embedding)
@@ -355,6 +363,7 @@ class ZegCLIP(EncoderDecoder):
             mode="bilinear",
             align_corners=self.align_corners,
         )
+        print(out)
         return out
 
     def _decode_head_forward_test(self, x, img_metas, self_training):
@@ -595,6 +604,7 @@ class MultiScalesZegCLIP(EncoderDecoder):
         training."""
         if self.training:
             if len(self.base_class) != len(self.both_class):  # zero-shot setting
+                gt_semantic_seg = gt_semantic_seg.long()
                 gt_semantic_seg = torch.Tensor(self.visibility_seen_mask).type_as(
                     gt_semantic_seg
                 )[gt_semantic_seg]
@@ -634,7 +644,7 @@ class MultiScalesZegCLIP(EncoderDecoder):
         all_crops = np.array(all_crops)
         all_crops = torch.from_numpy(all_crops).to(imgs.device)
         # change 0 and 1
-        all_crops = all_crops.permute(1, 0, 4, 2, 3)
+        all_crops = all_crops.permute(1, 0, 2, 3, 4)
         all_crops = all_crops.float()
         return all_crops
 
@@ -646,7 +656,7 @@ class MultiScalesZegCLIP(EncoderDecoder):
         for crop in all_crops:
             visual_feat = self.backbone(crop)
             visual_feats.append(visual_feat)
-        return visual_feat
+        return visual_feats
 
     def forward_train(self, img, img_metas, gt_semantic_seg):
         visual_feats = self.extract_feat(
@@ -675,7 +685,6 @@ class MultiScalesZegCLIP(EncoderDecoder):
             feat.append(text_feat)
 
             # antoine: feat contains the image features and the text features
-
             if i == 0:
                 losses = dict()
                 loss_decode = self._decode_head_forward_train(
@@ -736,10 +745,36 @@ class MultiScalesZegCLIP(EncoderDecoder):
             # 2x2 OR 3x3, not the two at the same time
             # will have to add that later
             original = outs[0]
+            # original = self._upsample(original)
             all_crops = outs[1:]
-            reconstruct = patchify.unpatchify(all_crops, original.size())
-            out = (original + reconstruct) / 2
+            all_crops = torch.stack(all_crops)
+            new_shape = list(all_crops.shape)
+            new_shape[0] = 1
+            new_shape[-2] = 2 * new_shape[-2]
+            new_shape[-1] = 2 * new_shape[-1]
+            reconstruct = all_crops.reshape(new_shape)
+            # mean of original and reconstruct
+            # reconstruct = original  # TO DELETE !!!!!!! JUST TO TEST SOMETHING !!!
+            # out = (original + reconstruct) / 2
+            # downsample the image
+            # out = out.squeeze(0)
+            out = original
+            # out = self._downsample(out)
+            print(out)
         return out
+
+    def _upsample(self, x):
+        upsample = nn.Upsample(
+            scale_factor=2,
+            mode="bilinear",
+            align_corners=False,
+        )
+        x = upsample(x)
+        return x
+
+    def _downsample(self, x):
+        x = F.interpolate(x, scale_factor=0.5, mode="bilinear")
+        return x
 
     def _decode_head_forward_test(self, x, img_metas, self_training):
         """Run forward function and calculate loss for decode head in
