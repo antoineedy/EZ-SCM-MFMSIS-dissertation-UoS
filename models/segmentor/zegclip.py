@@ -23,7 +23,52 @@ import tqdm
 import os
 import matplotlib.pyplot as plt
 
-import patchify
+def patchify(x: torch.Tensor, dimension=2):
+    """
+    Patchify a tensor.
+    
+    :param x: tensor to patchify
+    :param dimension: number of cuts to do along each dimension. 
+                      2 means creating a grid of 2*2 patches (top left, top right, bottom left, bottom right)
+    :return: tensor of patches
+    """
+    x = x.unsqueeze(0)
+    assert len(x.shape) >= 2, "Input tensor must have at least 2 dimensions"
+    assert all([s % dimension == 0 for s in x.shape[-2:]]), "Tensor dimensions must be divisible by the number of patches"
+
+    patches = x.unfold(2, x.shape[-2] // dimension, x.shape[-2] // dimension) \
+              .unfold(3, x.shape[-1] // dimension, x.shape[-1] // dimension)
+    patches = patches.contiguous().view(*x.shape[:-2], -1, x.shape[-2] // dimension, x.shape[-1] // dimension)
+    patches = patches.squeeze(0).permute(1, 0, 2, 3)
+    
+    return patches
+
+def depatchify(patches: torch.Tensor, dimension=2):
+    """
+    Depatchify a tensor.
+    
+    :param patches: tensor of patches to reconstruct
+    :param dimension: number of patches along each dimension.
+                      Should match the dimension used in patchify.
+    :return: original tensor reconstructed from patches
+    """
+    patches = patches.permute(0, 2, 1, 3, 4)
+    patch_size = patches.shape[-2:]
+    num_patches = dimension
+
+    original_shape = list(patches.shape[:-3]) + [patch_size[0] * num_patches, patch_size[1] * num_patches]
+    
+    # Reshape patches to combine the patch dimensions
+    patches = patches.view(*patches.shape[:-3], num_patches, num_patches, *patch_size)
+    
+    # Permute to bring patch dimensions in order
+    patches = patches.permute(0, 1, 2, 4, 3, 5).contiguous()
+    
+    # Merge patches into the original tensor
+    original_tensor = patches.view(*original_shape)
+    original_tensor = original_tensor.squeeze(0)
+    
+    return original_tensor
 
 
 class MultiScales(nn.Module):
@@ -34,6 +79,12 @@ class MultiScales(nn.Module):
         self.upsample = None
 
     def forward(self, x):
+        # print x entirely
+        #print("\n")
+        #print(x.size())
+        torch.set_printoptions(profile="full")
+        #print(x)
+        torch.set_printoptions(profile="default")
         self.device = x.device
         self.original_size = x.size()[-1]
         self.original_type = x.dtype
@@ -48,6 +99,9 @@ class MultiScales(nn.Module):
             out += images
         out = torch.stack(out)
         out = out.to(self.device)
+        torch.set_printoptions(profile="full")
+        #print(out)
+        torch.set_printoptions(profile="default")
         return out
 
     def _create_images(self, x, number_divisions, add_x=0):
@@ -61,21 +115,10 @@ class MultiScales(nn.Module):
                 The number of images will be number_divisions**2.
         """
         patch_size = int(self.original_size) // int(number_divisions)
-        x = np.array(x.cpu())
-        x = x.transpose(1, 2, 0)
-        channels = x.shape[-1]
-        patches = patchify.patchify(
-            x, (patch_size, patch_size, channels), step=patch_size
-        )
-        patches = patches.reshape(-1, patch_size, patch_size, channels)
-        # to float
-        patches = torch.from_numpy(patches).float()
-        patches = patches.reshape(patches.size()[0], channels, patch_size, patch_size)
-        # patches = patches.resize(patches.size()[0], int(self.original_size), int(self.original_size), 3)
+        patches = patchify(
+            x, 2)
         new_patches = []
         if add_x == 0:
-            x = x.transpose(2, 0, 1)
-            x = torch.from_numpy(x)
             new_patches.append(x)
         for i in range(len(patches)):
             patch_image = patches[i]  # channel x height x width
@@ -84,8 +127,7 @@ class MultiScales(nn.Module):
             patch_image = self.upsample(patch_image)
             patch_image = patch_image.squeeze(0)
             new_patches.append(patch_image)
-        patches = np.array(new_patches)
-        patches = torch.from_numpy(patches)
+        patches = torch.stack(new_patches)
         return patches
 
 
@@ -297,10 +339,6 @@ class ZegCLIP(EncoderDecoder):
         visual_feat = self.extract_feat(
             img
         )  # image features using the CLIP image encoder
-        print(f"gt_semantic_segs: {gt_semantic_seg.shape}")
-        print(f"visual_feats: {len(visual_feat)}")
-        print(f"visual_feats_shape: {len(visual_feat[0])}")
-        print(f"visual_feats_shape: {visual_feat[0][0].shape}")
         if self.load_text_embedding:
             # antoine: if we want to load text embeddings from a file
             text_feat = np.load(self.load_text_embedding)
@@ -330,8 +368,10 @@ class ZegCLIP(EncoderDecoder):
         return losses
 
     def encode_decode(self, img, img_metas):
+        print(img.size())
         visual_feat = self.extract_feat(img)  # antoine: image encoder from CLIP
-
+        print(visual_feat) ## TO CHECK IF THE FEATURES ARE THE SAME AS OTHER MODEL
+        raise "Just stop"
         if self.load_text_embedding:
             text_feat = np.load(self.load_text_embedding)
             text_feat = torch.from_numpy(text_feat).to(img.device)
@@ -363,7 +403,6 @@ class ZegCLIP(EncoderDecoder):
             mode="bilinear",
             align_corners=self.align_corners,
         )
-        print(out)
         return out
 
     def _decode_head_forward_test(self, x, img_metas, self_training):
@@ -636,7 +675,7 @@ class MultiScalesZegCLIP(EncoderDecoder):
 
     def extract_crops(self, imgs):
         # extract the different crops of the image
-        # here I think that there are 4 images because of the data augmentation
+        # here I think that there are 4 images because of the data augmentation. No batches!
         all_crops = []
         for img in imgs:
             ms = np.array(self.__multi_scale(img).cpu())
@@ -703,28 +742,44 @@ class MultiScalesZegCLIP(EncoderDecoder):
         return losses
 
     def encode_decode(self, img, img_metas):
+        print(img.size())
         visual_feats = self.extract_feat(img)  # antoine: image encoder from CLIP
+        print(visual_feats[0]) ## TO CHECK IF THE FEATURES ARE THE SAME AS OTHER MODEL
+        raise "Just stop"
         outs = []
-        for i, visual_feat in enumerate(visual_feats):
-            if self.load_text_embedding:
-                text_feat = np.load(self.load_text_embedding)
-                text_feat = torch.from_numpy(text_feat).to(img.device)
-                # antoine: encode the text using the CLIP text encoder
+        if self.load_text_embedding:
+            text_feat = np.load(self.load_text_embedding)
+            text_feat = torch.from_numpy(text_feat).to(img.device)
+            # antoine: encode the text using the CLIP text encoder
+        else:
+            if not self.multi_prompts:
+                text_feat = self.text_embedding(self.texts, img)
+                # antoine: if one prompt, then simple text encoder from CLIP with the prompt "a photo of a {class_name}"
             else:
-                if not self.multi_prompts:
-                    text_feat = self.text_embedding(self.texts, img)
-                    # antoine: if one prompt, then simple text encoder from CLIP with the prompt "a photo of a {class_name}"
-                else:
-                    num_cls, num_prompts, _ = self.texts.size()  # the numerous prompts!
-                    text_feat = self.text_embedding(
-                        self.texts.reshape(num_cls * num_prompts, -1), img
-                    )
-                    # antoine: if multiple prompts, we reshape the text embeddings and encode them using the CLIP text encoder
-                    text_feat = text_feat.reshape(num_cls, num_prompts, -1).mean(dim=1)
-                    # antoine: we take the mean of the embeddings of the prompts
-                    text_feat /= text_feat.norm(dim=-1).unsqueeze(1)
-                    # antoine: we normalize the embeddings
+                num_cls, num_prompts, _ = self.texts.size()  # the numerous prompts!
+                text_feat = self.text_embedding(
+                    self.texts.reshape(num_cls * num_prompts, -1), img
+                )
+                # antoine: if multiple prompts, we reshape the text embeddings and encode them using the CLIP text encoder
+                text_feat = text_feat.reshape(num_cls, num_prompts, -1).mean(dim=1)
+                # antoine: we take the mean of the embeddings of the prompts
+                text_feat /= text_feat.norm(dim=-1).unsqueeze(1)
+                # antoine: we normalize the embeddings
 
+        feat = []
+        feat.append(visual_feats[0])
+        feat.append(text_feat)
+
+        out = self._decode_head_forward_test(feat, img_metas, self.self_training)
+        out = resize(
+            input=out,
+            size=img.shape[2:],
+            mode="bilinear",
+            align_corners=self.align_corners,
+        )
+        return out
+
+        for i, visual_feat in enumerate(visual_feats):
             feat = []
             feat.append(visual_feat)
             feat.append(text_feat)
@@ -738,6 +793,11 @@ class MultiScalesZegCLIP(EncoderDecoder):
                 align_corners=self.align_corners,
             )
             outs.append(out)
+        return outs[0]
+
+        #### 
+        ####
+
         if len(outs) == 1:
             out = outs[0]
         else:
@@ -745,22 +805,20 @@ class MultiScalesZegCLIP(EncoderDecoder):
             # 2x2 OR 3x3, not the two at the same time
             # will have to add that later
             original = outs[0]
-            # original = self._upsample(original)
+            to_test = original.clone()
+            original = self._upsample(original)
             all_crops = outs[1:]
             all_crops = torch.stack(all_crops)
-            new_shape = list(all_crops.shape)
-            new_shape[0] = 1
-            new_shape[-2] = 2 * new_shape[-2]
-            new_shape[-1] = 2 * new_shape[-1]
-            reconstruct = all_crops.reshape(new_shape)
+            all_crops = all_crops.permute(1, 0, 2, 3, 4)
+            reconstruct = depatchify(all_crops, dimension=2)
             # mean of original and reconstruct
-            # reconstruct = original  # TO DELETE !!!!!!! JUST TO TEST SOMETHING !!!
-            # out = (original + reconstruct) / 2
+            out = (original + reconstruct) / 2
             # downsample the image
-            # out = out.squeeze(0)
-            out = original
-            # out = self._downsample(out)
-            print(out)
+            #out = out.squeeze(0)
+            out = self._downsample(out)
+
+            #to test
+            out = to_test
         return out
 
     def _upsample(self, x):
