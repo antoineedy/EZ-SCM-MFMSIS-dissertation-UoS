@@ -30,7 +30,7 @@ model = dict(
     # multi_scale is not a module as backbone is, but a parameter of the segmentor "MultiScalesZegCLIP"
     backbone=dict(
         type="VPTCLIPVisionTransformer",
-        patch_sizes=[16, 32, 64],
+        patch_size=16,
         width=768,
         output_dim=512,  # ? difference between the output and the embeddings
         get_embeddings=True,
@@ -112,7 +112,7 @@ optimizer = dict(
     ),
 )
 
-# I CHANGED THAT FROM 4 TO 2
+# I CHANGED THAT FROM 4 TO 1
 
 data = dict(
     samples_per_gpu=2,

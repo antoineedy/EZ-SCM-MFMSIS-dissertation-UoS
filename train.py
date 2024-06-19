@@ -63,10 +63,12 @@ def parse_args():
 
 
 def main():
+    torch.cuda.empty_cache() 
+    print("Torch cache cleared")
     args = parse_args()
-    # rank = args._get_args
-    # torch.cuda.set_device(0)
-
+    local_rank = args.local_rank
+    print("Local rank:", local_rank)
+    torch.cuda.set_device(local_rank)
     cfg = Config.fromfile(args.config)
     if args.options is not None:
         cfg.merge_from_dict(args.options)

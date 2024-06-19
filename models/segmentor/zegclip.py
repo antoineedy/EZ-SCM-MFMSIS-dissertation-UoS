@@ -79,7 +79,6 @@ class MultiScales(nn.Module):
         self.upsample = None
 
     def forward(self, x):
-        print('Enter MultiScale', x.size())
         self.device = x.device
         self.original_size = x.size()[-1]
         self.original_type = x.dtype
@@ -90,11 +89,8 @@ class MultiScales(nn.Module):
         )
         out = []
         for i in range(len(self.divisions)):
-            images = self._create_images(x, self.divisions[i], i)
-            out += images
-        out = torch.stack(out)
-        out = out.to(self.device)
-        print('Exit MultiScale', out.size())
+            out += self._create_images(x, self.divisions[i], i)
+        out = torch.stack(out).to(self.device)
         return out
 
     def _create_images(self, x, number_divisions, add_x=0):
@@ -115,8 +111,7 @@ class MultiScales(nn.Module):
             new_patches.append(x)
         for i in range(len(patches)):
             patch_image = patches[i]  # channel x height x width
-            patch_image = patch_image.unsqueeze(0)
-
+            patch_image = patch_image.unsqueeze(0).float()
             patch_image = self.upsample(patch_image)
             patch_image = patch_image.squeeze(0)
             new_patches.append(patch_image)
@@ -329,7 +324,7 @@ class ZegCLIP(EncoderDecoder):
         # antoine: extract features from images using the backbone. Here, the backbone is the image encoder, CLIP vision encoder
         """Extract features from images."""
         visual_feat = self.backbone(img)
-        print("visual_feat", visual_feat.size())
+        print("visual_feat", len(visual_feat))
         return visual_feat
 
     def forward_train(self, img, img_metas, gt_semantic_seg):
@@ -356,8 +351,6 @@ class ZegCLIP(EncoderDecoder):
         feat.append(visual_feat)
         feat.append(text_feat)
 
-        print("feat", feat[0].size(), feat[1].size())
-
         # antoine: feat contains the image features and the text features
 
         losses = dict()
@@ -368,7 +361,7 @@ class ZegCLIP(EncoderDecoder):
 
     def encode_decode(self, img, img_metas):
         visual_feat = self.extract_feat(img)  # antoine: image encoder from CLIP
-        print('visual_feat', visual_feat.size())
+        print('visual_feat', len(visual_feat))
         if self.load_text_embedding:
             text_feat = np.load(self.load_text_embedding)
             text_feat = torch.from_numpy(text_feat).to(img.device)
@@ -393,7 +386,6 @@ class ZegCLIP(EncoderDecoder):
         feat.append(visual_feat)
         feat.append(text_feat)
         # antoine: feat contains the image features and the text features
-        print('feat', feat[0].size(), feat[1].size())
 
         out = self._decode_head_forward_test(feat, img_metas, self.self_training)
         print('out1', out.size())
@@ -628,8 +620,7 @@ class MultiScalesZegCLIP(EncoderDecoder):
 
     def _init_multi_scale(self, multi_scale):
         """Initialize ``multi_scale``"""
-        number_divisions = multi_scale["divisions"]
-        self.__multi_scale = MultiScales(number_divisions)
+        self.__multi_scale = MultiScales(multi_scale["divisions"])
 
     def _init_decode_head(self, decode_head):
         """Initialize ``decode_head``"""
@@ -650,8 +641,6 @@ class MultiScalesZegCLIP(EncoderDecoder):
                 gt_semantic_seg = torch.Tensor(self.visibility_seen_mask).type_as(
                     gt_semantic_seg
                 )[gt_semantic_seg]
-
-        print("gt_semantic_seg", gt_semantic_seg.size())
 
         losses = dict()
         if self.self_training:
@@ -676,7 +665,6 @@ class MultiScalesZegCLIP(EncoderDecoder):
         text_embeddings = self.text_encoder(texts.to(img.device))
         # antoine: we normalize the embeddings
         text_embeddings = text_embeddings / text_embeddings.norm(dim=-1, keepdim=True)
-        print("text_embeddings", text_embeddings.size())
         return text_embeddings
 
     def extract_crops(self, imgs):
@@ -684,26 +672,18 @@ class MultiScalesZegCLIP(EncoderDecoder):
         # here I think that there are 4 images because of the data augmentation. No batches!
         all_crops = []
         for img in imgs:
-            ms = np.array(self.__multi_scale(img).cpu())
-            all_crops.append(ms)
-        all_crops = np.array(all_crops)
-        all_crops = torch.from_numpy(all_crops).to(imgs.device)
-        # change 0 and 1
-        all_crops = all_crops.permute(1, 0, 2, 3, 4)
-        all_crops = all_crops.float()
+            all_crops.append(self.__multi_scale(img))
+        all_crops = torch.stack(all_crops).to(imgs.device)
+        all_crops = all_crops.permute(1, 0, 2, 3, 4).float()
         return all_crops
 
     def extract_feat(self, img):
         # antoine: extract features from images using the backbone. Here, the backbone is the image encoder, CLIP vision encoder
         """Extract features from images."""
         all_crops = self.extract_crops(img)
-        print("all_crops images", all_crops.size())
         visual_feats = []
         for crop in all_crops:
-            visual_feat = self.backbone(crop)
-            visual_feats.append(visual_feat)
-        print("visual_feats_only_1", visual_feats[0].size())
-        print("len visual feats", len(visual_feats))
+            visual_feats.append(self.backbone(crop))
         return visual_feats
 
     def forward_train(self, img, img_metas, gt_semantic_seg):
@@ -711,7 +691,6 @@ class MultiScalesZegCLIP(EncoderDecoder):
             img
         )  # image features using the CLIP image encoder
         gt_semantic_segs = self.extract_crops(gt_semantic_seg)
-        print("all crops gt semantics", gt_semantic_segs.size()
         for i, visual_feat in enumerate(visual_feats):
             if self.load_text_embedding:
                 # antoine: if we want to load text embeddings from a file
@@ -732,7 +711,6 @@ class MultiScalesZegCLIP(EncoderDecoder):
             feat = []
             feat.append(visual_feat)
             feat.append(text_feat)
-            print("feat", feat[0].size(), feat[1].size())
 
             # antoine: feat contains the image features and the text features
             if i == 0:
@@ -774,19 +752,6 @@ class MultiScalesZegCLIP(EncoderDecoder):
                 text_feat /= text_feat.norm(dim=-1).unsqueeze(1)
                 # antoine: we normalize the embeddings
 
-        feat = []
-        feat.append(visual_feats[0])
-        feat.append(text_feat)
-
-        out = self._decode_head_forward_test(feat, img_metas, self.self_training)
-        out = resize(
-            input=out,
-            size=img.shape[2:],
-            mode="bilinear",
-            align_corners=self.align_corners,
-        )
-        return out
-
         for i, visual_feat in enumerate(visual_feats):
             feat = []
             feat.append(visual_feat)
@@ -801,19 +766,11 @@ class MultiScalesZegCLIP(EncoderDecoder):
                 align_corners=self.align_corners,
             )
             outs.append(out)
-        return outs[0]
-
-        #### 
-        ####
-
+  
         if len(outs) == 1:
             out = outs[0]
         else:
-            # antoine: here we consider that we only have 1 other division of the image
-            # 2x2 OR 3x3, not the two at the same time
-            # will have to add that later
             original = outs[0]
-            to_test = original.clone()
             original = self._upsample(original)
             all_crops = outs[1:]
             all_crops = torch.stack(all_crops)
@@ -822,11 +779,8 @@ class MultiScalesZegCLIP(EncoderDecoder):
             # mean of original and reconstruct
             out = (original + reconstruct) / 2
             # downsample the image
-            #out = out.squeeze(0)
             out = self._downsample(out)
 
-            #to test
-            out = to_test
         return out
 
     def _upsample(self, x):
