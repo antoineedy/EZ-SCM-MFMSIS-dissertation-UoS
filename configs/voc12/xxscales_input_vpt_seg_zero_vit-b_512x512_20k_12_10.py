@@ -17,7 +17,7 @@ num_classes = len(base_class)
 
 # pretrained = "Path/to/pretrained/ViT-B-16.pt"
 # pretrained = "././weights/ViT-B-16.pt"
-pretrained = None
+pretrained = '/mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16.pt'
 
 model = dict(
     type="MultiScalesZegCLIP",
