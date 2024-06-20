@@ -2,21 +2,23 @@ print("Beginning training script")
 
 import os
 
-from mmcv.utils import collect_env as collect_base_env
+import mmcv
+
+#from mmcv.utils import collect_env as collect_base_env
 from mmcv.utils import get_git_hash
 
 
-def collect_env():
-    """Collect the information of the running environments."""
-    env_info = collect_base_env()
+#def collect_env():
+    #"""Collect the information of the running environments."""
+    #env_info = collect_base_env()
     # env_info['MMSegmentation'] = f'{mmseg.__version__}+{get_git_hash()[:7]}'
 
-    return env_info
+    #return env_info
 
 
 print("---- Environment info: ----")
-for name, val in collect_env().items():
-    print("{}: {}".format(name, val))
+#for name, val in collect_env().items():
+#    print("{}: {}".format(name, val))
 print("---------------------------")
 
 base = "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos"

@@ -115,6 +115,6 @@ optimizer = dict(
 # I CHANGED THAT FROM 4 TO 1
 
 data = dict(
-    samples_per_gpu=2,
-    workers_per_gpu=2,
+    samples_per_gpu=1,
+    workers_per_gpu=1,
 )

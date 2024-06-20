@@ -53,7 +53,7 @@ def parse_args():
         default="none",
         help="job launcher",
     )
-    parser.add_argument("--local_rank", type=int, default=0)
+    parser.add_argument("--local_rank", type=int)
     parser.add_argument("--finetune", default=False, action="store_true")
     args = parser.parse_args()
     if "LOCAL_RANK" not in os.environ:
@@ -66,9 +66,8 @@ def main():
     torch.cuda.empty_cache() 
     print("Torch cache cleared")
     args = parse_args()
-    local_rank = args.local_rank
-    print("Local rank:", local_rank)
-    torch.cuda.set_device(local_rank)
+    torch.cuda.set_device(args.local_rank)
+
     cfg = Config.fromfile(args.config)
     if args.options is not None:
         cfg.merge_from_dict(args.options)
