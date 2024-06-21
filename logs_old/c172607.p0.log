@@ -1,0 +1,33 @@
+000 (172607.000.000) 2024-06-19 16:21:35 Job submitted from host: <131.227.81.127:9618?addrs=131.227.81.127-9618&alias=aisurrey-condor.surrey.ac.uk&noUDP&sock=schedd_1795_cc96>
+...
+040 (172607.000.000) 2024-06-19 16:21:47 Started transferring input files
+	Transferring to host: <131.227.80.158:9618?addrs=131.227.80.158-9618&alias=aisurrey13.surrey.ac.uk&noUDP&sock=slot1_1_12037_e7c3_13207>
+...
+040 (172607.000.000) 2024-06-19 16:21:47 Finished transferring input files
+...
+001 (172607.000.000) 2024-06-19 16:21:48 Job executing on host: <131.227.80.158:9618?addrs=131.227.80.158-9618&alias=aisurrey13.surrey.ac.uk&noUDP&sock=startd_11838_763a>
+...
+006 (172607.000.000) 2024-06-19 16:21:56 Image size of job updated: 17500
+	170  -  MemoryUsage of job (MB)
+	174812  -  ResidentSetSize of job (KB)
+...
+006 (172607.000.000) 2024-06-19 16:22:04 Image size of job updated: 17500
+	826  -  MemoryUsage of job (MB)
+	846044  -  ResidentSetSize of job (KB)
+...
+004 (172607.000.000) 2024-06-19 16:22:06 Job was evicted.
+	(0) CPU times
+		Usr 0 00:00:01, Sys 0 00:00:01  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	16250407  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.01        4         4 
+	   Disk (KB)            : 15893       17500    652975 
+	   Gpus (Average)       :     0           4         4 "CUDA0,CUDA2,CUDA3,CUDA4"
+	   GpusMemory (MB)      :   321                       
+	   Memory (MB)          :   826       65536     65536 
+...
+009 (172607.000.000) 2024-06-19 16:22:06 Job was aborted.
+	via condor_rm (by user ae01116)
+...

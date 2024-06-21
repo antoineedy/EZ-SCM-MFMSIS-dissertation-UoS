@@ -1,1 +1,1 @@
-nohup python link_telegram.py --job $1 --type $2 --time $3 &
+nohup python3 link_telegram.py --job $1 --type $2 --time $3 &

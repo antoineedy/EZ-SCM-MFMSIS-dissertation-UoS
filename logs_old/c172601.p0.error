@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/start_training.py", line 7, in <module>
+    f#rom mmcv.utils import collect_env as collect_base_env
+NameError: name 'f' is not defined

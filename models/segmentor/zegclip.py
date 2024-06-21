@@ -292,8 +292,6 @@ class ZegCLIP(EncoderDecoder):
                     gt_semantic_seg
                 )[gt_semantic_seg]
 
-        print("gt_semantic_seg", gt_semantic_seg.size())
-
         losses = dict()
         if self.self_training:
             loss_decode = self.decode_head.forward_train(
@@ -317,14 +315,12 @@ class ZegCLIP(EncoderDecoder):
         text_embeddings = self.text_encoder(texts.to(img.device))
         # antoine: we normalize the embeddings
         text_embeddings = text_embeddings / text_embeddings.norm(dim=-1, keepdim=True)
-        print("text_embeddings", text_embeddings.size())
         return text_embeddings
 
     def extract_feat(self, img):
         # antoine: extract features from images using the backbone. Here, the backbone is the image encoder, CLIP vision encoder
         """Extract features from images."""
         visual_feat = self.backbone(img)
-        print("visual_feat", len(visual_feat))
         return visual_feat
 
     def forward_train(self, img, img_metas, gt_semantic_seg):
@@ -361,12 +357,10 @@ class ZegCLIP(EncoderDecoder):
 
     def encode_decode(self, img, img_metas):
         visual_feat = self.extract_feat(img)  # antoine: image encoder from CLIP
-        print('visual_feat', len(visual_feat))
         if self.load_text_embedding:
             text_feat = np.load(self.load_text_embedding)
             text_feat = torch.from_numpy(text_feat).to(img.device)
             # antoine: encode the text using the CLIP text encoder
-            print('text_feat', text_feat.size())
         else:
             if not self.multi_prompts:
                 text_feat = self.text_embedding(self.texts, img)
@@ -388,14 +382,12 @@ class ZegCLIP(EncoderDecoder):
         # antoine: feat contains the image features and the text features
 
         out = self._decode_head_forward_test(feat, img_metas, self.self_training)
-        print('out1', out.size())
         out = resize(
             input=out,
             size=img.shape[2:],
             mode="bilinear",
             align_corners=self.align_corners,
         )
-        print('out2', out.size())
         return out
 
     def _decode_head_forward_test(self, x, img_metas, self_training):
@@ -404,7 +396,6 @@ class ZegCLIP(EncoderDecoder):
         seg_logits = self.decode_head.forward_test(
             x, img_metas, self.test_cfg, self_training
         )
-        print('seg_logits', seg_logits.size())
         return seg_logits
 
     # TODO refactor
@@ -457,7 +448,6 @@ class ZegCLIP(EncoderDecoder):
                 align_corners=self.align_corners,
                 warning=False,
             )
-        print('preds', preds.size())
         return preds
 
 
@@ -777,8 +767,10 @@ class MultiScalesZegCLIP(EncoderDecoder):
             all_crops = all_crops.permute(1, 0, 2, 3, 4)
             reconstruct = depatchify(all_crops, dimension=2)
             # mean of original and reconstruct
-            out = (original + reconstruct) / 2
+            reconstruct = reconstruct.unsqueeze(0)
+            #out = (original + reconstruct) / 2 # try 1
             # downsample the image
+            out = reconstruct # try 2
             out = self._downsample(out)
 
         return out

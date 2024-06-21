@@ -1,0 +1,103 @@
+/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py:178: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use_env is set by default in torchrun.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  warnings.warn(
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/train.py", line 200, in <module>
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/train.py", line 200, in <module>
+    main()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/train.py", line 74, in main
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/train.py", line 200, in <module>
+    main()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/train.py", line 74, in main
+    torch.cuda.set_device(local_rank)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/cuda/__init__.py", line 311, in set_device
+    torch.cuda.set_device(local_rank)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/cuda/__init__.py", line 311, in set_device
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/train.py", line 200, in <module>
+    main()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/train.py", line 74, in main
+    torch.cuda.set_device(local_rank)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/cuda/__init__.py", line 311, in set_device
+    main()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/train.py", line 74, in main
+    torch.cuda.set_device(local_rank)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/cuda/__init__.py", line 311, in set_device
+    device = _get_device_index(device)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/cuda/_utils.py", line 24, in _get_device_index
+    device = _get_device_index(device)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/cuda/_utils.py", line 24, in _get_device_index
+    device = _get_device_index(device)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/cuda/_utils.py", line 24, in _get_device_index
+    device = _get_device_index(device)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/cuda/_utils.py", line 24, in _get_device_index
+    device = torch.device(device)
+RuntimeError: Invalid device string: '1'
+        device = torch.device(device)device = torch.device(device)
+
+RuntimeErrorRuntimeError: : Invalid device string: '3'Invalid device string: '2'
+
+    device = torch.device(device)
+RuntimeError: Invalid device string: '0'
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 26) of binary: /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/bin/python
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py", line 193, in <module>
+    main()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py", line 189, in main
+    launch(args)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py", line 174, in launch
+    run(args)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/distributed/run.py", line 715, in run
+    elastic_launch(
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 131, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 245, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/train.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2024-06-19_15:22:23
+  host      : ae01116-172608.0-aisurrey10.surrey.ac.uk
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 27)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2024-06-19_15:22:23
+  host      : ae01116-172608.0-aisurrey10.surrey.ac.uk
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 28)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2024-06-19_15:22:23
+  host      : ae01116-172608.0-aisurrey10.surrey.ac.uk
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 29)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-06-19_15:22:23
+  host      : ae01116-172608.0-aisurrey10.surrey.ac.uk
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 26)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
