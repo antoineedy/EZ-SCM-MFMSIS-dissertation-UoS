@@ -768,9 +768,9 @@ class MultiScalesZegCLIP(EncoderDecoder):
             reconstruct = depatchify(all_crops, dimension=2)
             # mean of original and reconstruct
             reconstruct = reconstruct.unsqueeze(0)
-            #out = (original + reconstruct) / 2 # try 1
-            # downsample the image
-            out = reconstruct # try 2
+            alpha = 0.5
+            out = alpha * original + (1 - alpha) * reconstruct
+            # downsample the final image
             out = self._downsample(out)
 
         return out
