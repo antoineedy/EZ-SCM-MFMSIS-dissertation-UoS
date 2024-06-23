@@ -15,14 +15,17 @@ novel_class = [15, 16, 17, 18, 19]
 both_class = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 num_classes = len(base_class)
 
-# pretrained = "Path/to/pretrained/ViT-B-16.pt"
-pretrained = "././weights/ViT-B-16.pt"
+pretrained = '/mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16.pt'
 
 model = dict(
-    type="OutputScalesZegCLIP",
+    type="MultiScalesOutputZegCLIP",
     pretrained=pretrained,
     pretrained_text=pretrained,
     context_length=77,
+    multi_scale=dict(
+        type="MultiScales", divisions=[2]
+    ),  # number of crops to add to the original images
+    # multi_scale is not a module as backbone is, but a parameter of the segmentor "MultiScalesZegCLIP"
     backbone=dict(
         type="VPTCLIPVisionTransformer",
         patch_size=16,
@@ -39,7 +42,6 @@ model = dict(
         total_d_layer=11,
         style="pytorch",
     ),
-    output_scaler=dict(type="OutputScaler", patch_size=16, scales=3, method="average"),
     text_encoder=dict(
         type="CLIPTextEncoder",
         context_length=77,
@@ -77,7 +79,7 @@ model = dict(
     both_class=both_class,
     ft_backbone=False,
     exclude_key="prompt",
-    load_text_embedding="configs/_base_/datasets/text_embedding/voc12_single.npy",
+    load_text_embedding="/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/_base_/datasets/text_embedding/voc12_single.npy",
 )
 
 lr_config = dict(
@@ -108,7 +110,9 @@ optimizer = dict(
     ),
 )
 
+# I CHANGED THAT FROM 4 TO 1
+
 data = dict(
-    samples_per_gpu=4,
-    workers_per_gpu=4,
+    samples_per_gpu=2,
+    workers_per_gpu=2,
 )
