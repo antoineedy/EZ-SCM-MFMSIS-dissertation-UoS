@@ -15,10 +15,7 @@ novel_class = [15, 16, 17, 18, 19]
 both_class = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 num_classes = len(base_class)
 
-# pretrained = "Path/to/pretrained/ViT-B-16.pt"
-base = "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos"
-base_scratch = "/mnt/fast/nobackup/scratch4weeks/ae01116"
-pretrained = f"{base_scratch}/weights/ViT-B-16.pt"
+pretrained = '/mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16.pt'
 
 model = dict(
     type="ZegCLIP",
@@ -78,7 +75,7 @@ model = dict(
     both_class=both_class,
     ft_backbone=False,
     exclude_key="prompt",
-    load_text_embedding=f"{base}/configs/_base_/datasets/text_embedding/voc12_single.npy",
+    load_text_embedding="/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/_base_/datasets/text_embedding/voc12_single.npy",
 )
 
 lr_config = dict(

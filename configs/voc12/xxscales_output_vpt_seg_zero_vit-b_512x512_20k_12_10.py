@@ -22,10 +22,6 @@ model = dict(
     pretrained=pretrained,
     pretrained_text=pretrained,
     context_length=77,
-    multi_scale=dict(
-        type="MultiScales", divisions=[2]
-    ),  # number of crops to add to the original images
-    # multi_scale is not a module as backbone is, but a parameter of the segmentor "MultiScalesZegCLIP"
     backbone=dict(
         type="VPTCLIPVisionTransformer",
         patch_size=16,
@@ -110,9 +106,7 @@ optimizer = dict(
     ),
 )
 
-# I CHANGED THAT FROM 4 TO 1
-
 data = dict(
-    samples_per_gpu=2,
-    workers_per_gpu=2,
+    samples_per_gpu=4,
+    workers_per_gpu=4,
 )

@@ -1,0 +1,1191 @@
+/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py:178: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use_env is set by default in torchrun.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  warnings.warn(
+2024-06-21 16:01:48,480 - mmseg - INFO - Environment info:
+------------------------------------------------------------
+sys.platform: linux
+Python: 3.9.19 (main, May  6 2024, 19:43:03) [GCC 11.2.0]
+CUDA available: True
+GPU 0,1,2,3: NVIDIA GeForce RTX 3090
+CUDA_HOME: /usr/local/cuda
+NVCC: Build cuda_11.0_bu.TC445_37.28845127_0
+GCC: gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0
+PyTorch: 1.10.1+cu111
+PyTorch compiling details: PyTorch built with:
+  - GCC 7.3
+  - C++ Version: 201402
+  - Intel(R) Math Kernel Library Version 2020.0.0 Product Build 20191122 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v2.2.3 (Git Hash 7336ca9f055cf1bfa13efb658fe15dc9b41f0740)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 11.1
+  - NVCC architecture flags: -gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86
+  - CuDNN 8.0.5
+  - Magma 2.5.2
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.1, CUDNN_VERSION=8.0.5, CXX_COMPILER=/opt/rh/devtoolset-7/root/usr/bin/c++, CXX_FLAGS= -Wno-deprecated -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -fopenmp -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -DEDGE_PROFILER_USE_KINETO -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_VERSION=1.10.1, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, 
+
+TorchVision: 0.11.2+cu111
+OpenCV: 4.10.0
+MMCV: 1.4.4
+MMCV Compiler: GCC 7.3
+MMCV CUDA Compiler: 11.1
+------------------------------------------------------------
+
+2024-06-21 16:01:48,480 - mmseg - INFO - Distributed training: True
+2024-06-21 16:01:49,593 - mmseg - INFO - Config:
+norm_cfg = dict(type='SyncBN', requires_grad=True)
+img_size = 512
+in_channels = 512
+out_indices = [11]
+model = dict(
+    type='ZegCLIP',
+    pretrained='/mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16.pt',
+    context_length=77,
+    backbone=dict(
+        type='VPTCLIPVisionTransformer',
+        layers=12,
+        style='pytorch',
+        patch_size=16,
+        width=768,
+        output_dim=512,
+        get_embeddings=True,
+        drop_path_rate=0.1,
+        input_resolution=512,
+        out_indices=[11],
+        num_tokens=10,
+        prompt_dim=768,
+        total_d_layer=11),
+    text_encoder=dict(
+        type='CLIPTextEncoder',
+        context_length=77,
+        style='pytorch',
+        embed_dim=512,
+        transformer_width=512,
+        transformer_heads=8,
+        transformer_layers=12),
+    decode_head=dict(
+        type='ATMSingleHeadSeg',
+        img_size=512,
+        in_channels=512,
+        channels=512,
+        num_classes=15,
+        num_layers=3,
+        num_heads=8,
+        use_stages=1,
+        embed_dims=512,
+        loss_decode=dict(
+            type='SegLossPlus',
+            num_classes=15,
+            dec_layers=3,
+            loss_weight=1.0,
+            mask_weight=100.0,
+            dice_weight=1.0),
+        seen_idx=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+        all_idx=[
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
+            19
+        ],
+        use_proj=False),
+    train_cfg=dict(),
+    test_cfg=dict(mode='slide', crop_size=(512, 512), stride=(426, 426)),
+    pretrained_text=
+    '/mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16.pt',
+    base_class=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+    novel_class=[15, 16, 17, 18, 19],
+    both_class=[
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+    ],
+    ft_backbone=False,
+    exclude_key='prompt',
+    load_text_embedding=
+    '/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/_base_/datasets/text_embedding/voc12_single.npy'
+)
+dataset_type = 'ZeroPascalVOCDataset20'
+base = '/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos'
+base_scratch = '/mnt/fast/nobackup/scratch4weeks/ae01116'
+data_root = '/mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012'
+img_norm_cfg = dict(
+    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
+crop_size = (512, 512)
+train_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(type='LoadAnnotations', reduce_zero_label=True),
+    dict(type='Resize', img_scale=(2048, 512), ratio_range=(0.5, 2.0)),
+    dict(type='RandomCrop', crop_size=(512, 512), cat_max_ratio=0.75),
+    dict(type='RandomFlip', prob=0.5),
+    dict(type='PhotoMetricDistortion'),
+    dict(
+        type='Normalize',
+        mean=[123.675, 116.28, 103.53],
+        std=[58.395, 57.12, 57.375],
+        to_rgb=True),
+    dict(type='Pad', size=(512, 512), pad_val=0, seg_pad_val=255),
+    dict(type='DefaultFormatBundle'),
+    dict(type='Collect', keys=['img', 'gt_semantic_seg'])
+]
+test_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(
+        type='MultiScaleFlipAug',
+        img_scale=(2048, 512),
+        flip=False,
+        transforms=[
+            dict(type='Resize', keep_ratio=True, min_size=512),
+            dict(type='RandomFlip'),
+            dict(
+                type='Normalize',
+                mean=[123.675, 116.28, 103.53],
+                std=[58.395, 57.12, 57.375],
+                to_rgb=True),
+            dict(type='ImageToTensor', keys=['img']),
+            dict(type='Collect', keys=['img'])
+        ])
+]
+data = dict(
+    samples_per_gpu=4,
+    workers_per_gpu=4,
+    train=dict(
+        type='ZeroPascalVOCDataset20',
+        data_root='/mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012',
+        img_dir='JPEGImages',
+        ann_dir=['SegmentationClass', 'SegmentationClassAug'],
+        split=[
+            'ImageSets/Segmentation/train.txt',
+            'ImageSets/Segmentation/aug.txt'
+        ],
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(type='LoadAnnotations', reduce_zero_label=True),
+            dict(type='Resize', img_scale=(2048, 512), ratio_range=(0.5, 2.0)),
+            dict(type='RandomCrop', crop_size=(512, 512), cat_max_ratio=0.75),
+            dict(type='RandomFlip', prob=0.5),
+            dict(type='PhotoMetricDistortion'),
+            dict(
+                type='Normalize',
+                mean=[123.675, 116.28, 103.53],
+                std=[58.395, 57.12, 57.375],
+                to_rgb=True),
+            dict(type='Pad', size=(512, 512), pad_val=0, seg_pad_val=255),
+            dict(type='DefaultFormatBundle'),
+            dict(type='Collect', keys=['img', 'gt_semantic_seg'])
+        ]),
+    val=dict(
+        type='ZeroPascalVOCDataset20',
+        data_root='/mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012',
+        img_dir='JPEGImages',
+        ann_dir='SegmentationClass',
+        split='ImageSets/Segmentation/val.txt',
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(
+                type='MultiScaleFlipAug',
+                img_scale=(2048, 512),
+                flip=False,
+                transforms=[
+                    dict(type='Resize', keep_ratio=True, min_size=512),
+                    dict(type='RandomFlip'),
+                    dict(
+                        type='Normalize',
+                        mean=[123.675, 116.28, 103.53],
+                        std=[58.395, 57.12, 57.375],
+                        to_rgb=True),
+                    dict(type='ImageToTensor', keys=['img']),
+                    dict(type='Collect', keys=['img'])
+                ])
+        ]),
+    test=dict(
+        type='ZeroPascalVOCDataset20',
+        data_root='/mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012',
+        img_dir='JPEGImages',
+        ann_dir='SegmentationClass',
+        split='ImageSets/Segmentation/val.txt',
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(
+                type='MultiScaleFlipAug',
+                img_scale=(2048, 512),
+                flip=False,
+                transforms=[
+                    dict(type='Resize', keep_ratio=True, min_size=512),
+                    dict(type='RandomFlip'),
+                    dict(
+                        type='Normalize',
+                        mean=[123.675, 116.28, 103.53],
+                        std=[58.395, 57.12, 57.375],
+                        to_rgb=True),
+                    dict(type='ImageToTensor', keys=['img']),
+                    dict(type='Collect', keys=['img'])
+                ])
+        ]))
+log_config = dict(
+    interval=50, hooks=[dict(type='TextLoggerHook', by_epoch=False)])
+dist_params = dict(backend='nccl')
+log_level = 'INFO'
+load_from = None
+resume_from = None
+workflow = [('train', 1)]
+cudnn_benchmark = True
+find_unused_parameters = True
+optimizer = dict(
+    type='AdamW',
+    lr=2e-05,
+    weight_decay=0.01,
+    paramwise_cfg=dict(
+        custom_keys=dict(
+            backbone=dict(lr_mult=10.0),
+            text_encoder=dict(lr_mult=0.0),
+            norm=dict(decay_mult=0.0),
+            ln=dict(decay_mult=0.0),
+            head=dict(lr_mult=10.0))))
+optimizer_config = dict()
+lr_config = dict(
+    policy='poly',
+    power=0.9,
+    min_lr=1e-06,
+    by_epoch=False,
+    warmup='linear',
+    warmup_iters=1500,
+    warmup_ratio=1e-06)
+runner = dict(type='IterBasedRunner', max_iters=20000)
+checkpoint_config = dict(by_epoch=False, interval=2000)
+evaluation = dict(interval=20001, metric='mIoU')
+base_class = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+novel_class = [15, 16, 17, 18, 19]
+both_class = [
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+]
+num_classes = 15
+pretrained = '/mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16.pt'
+work_dir = '/mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012'
+gpu_ids = range(0, 1)
+
+2024-06-21 16:01:49,596 - mmseg - INFO - Loaded 1464 images
+2024-06-21 16:01:49,608 - mmseg - INFO - Loaded 10582 images
+2024-06-21 16:01:50,548 - mmseg - INFO - #Params: 164077824
+/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/nn/functional.py:3631: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  warnings.warn(
+/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/nn/functional.py:3631: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  warnings.warn(
+/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/nn/functional.py:3631: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  warnings.warn(
+/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/nn/functional.py:3631: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  warnings.warn(
+2024-06-21 16:01:51,607 - mmseg - INFO - ZegCLIP(
+  (backbone): VPTCLIPVisionTransformer(
+    (conv1): Conv2d(3, 768, kernel_size=(16, 16), stride=(16, 16), bias=False)
+    (ln_pre): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    (transformer): Transformer(
+      (resblocks): Sequential(
+        (0): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+          )
+          (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+          )
+          (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (drop_path): Identity()
+        )
+        (1): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+          )
+          (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+          )
+          (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (drop_path): DropPath(p=0.00909090880304575)
+        )
+        (2): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+          )
+          (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+          )
+          (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (drop_path): DropPath(p=0.0181818176060915)
+        )
+        (3): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+          )
+          (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+          )
+          (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (drop_path): DropPath(p=0.027272727340459824)
+        )
+        (4): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+          )
+          (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+          )
+          (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (drop_path): DropPath(p=0.036363635212183)
+        )
+        (5): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+          )
+          (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+          )
+          (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (drop_path): DropPath(p=0.045454543083906174)
+        )
+        (6): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+          )
+          (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+          )
+          (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (drop_path): DropPath(p=0.054545458406209946)
+        )
+        (7): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+          )
+          (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+          )
+          (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (drop_path): DropPath(p=0.06363636255264282)
+        )
+        (8): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+          )
+          (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+          )
+          (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (drop_path): DropPath(p=0.0727272778749466)
+        )
+        (9): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+          )
+          (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+          )
+          (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (drop_path): DropPath(p=0.08181818574666977)
+        )
+        (10): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+          )
+          (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+          )
+          (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (drop_path): DropPath(p=0.09090909361839294)
+        )
+        (11): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+          )
+          (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+          )
+          (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (drop_path): DropPath(p=0.10000000149011612)
+        )
+      )
+    )
+    (ln_post): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    (prompt_proj): Linear(in_features=768, out_features=768, bias=True)
+    (prompt_norm): LayerNorm((768,), eps=1e-06, elementwise_affine=True)
+    (prompt_dropout): Dropout(p=0.1, inplace=False)
+  )
+  (decode_head): ATMSingleHeadSeg(
+    input_transform=None, ignore_index=255, align_corners=False
+    (loss_decode): SegLossPlus(
+      (criterion): SegPlusCriterion()
+    )
+    (dropout): Dropout2d(p=0.1, inplace=False)
+    (input_proj_1): Identity()
+    (proj_norm_1): Identity()
+    (decoder_1): TPN_Decoder(
+      (layers): ModuleList(
+        (0): TPN_DecoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (linear1): Linear(in_features=512, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=512, bias=True)
+          (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (norm3): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (multihead_attn): Attention(
+            (q): Linear(in_features=512, out_features=512, bias=True)
+            (k): Linear(in_features=512, out_features=512, bias=True)
+            (v): Linear(in_features=512, out_features=512, bias=True)
+            (attn_drop): Dropout(p=0.1, inplace=False)
+            (proj): Linear(in_features=512, out_features=512, bias=True)
+            (proj_drop): Dropout(p=0.0, inplace=False)
+          )
+        )
+        (1): TPN_DecoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (linear1): Linear(in_features=512, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=512, bias=True)
+          (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (norm3): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (multihead_attn): Attention(
+            (q): Linear(in_features=512, out_features=512, bias=True)
+            (k): Linear(in_features=512, out_features=512, bias=True)
+            (v): Linear(in_features=512, out_features=512, bias=True)
+            (attn_drop): Dropout(p=0.1, inplace=False)
+            (proj): Linear(in_features=512, out_features=512, bias=True)
+            (proj_drop): Dropout(p=0.0, inplace=False)
+          )
+        )
+        (2): TPN_DecoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (linear1): Linear(in_features=512, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=512, bias=True)
+          (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (norm3): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (multihead_attn): Attention(
+            (q): Linear(in_features=512, out_features=512, bias=True)
+            (k): Linear(in_features=512, out_features=512, bias=True)
+            (v): Linear(in_features=512, out_features=512, bias=True)
+            (attn_drop): Dropout(p=0.1, inplace=False)
+            (proj): Linear(in_features=512, out_features=512, bias=True)
+            (proj_drop): Dropout(p=0.0, inplace=False)
+          )
+        )
+      )
+    )
+    (q_proj): Linear(in_features=1024, out_features=512, bias=True)
+  )
+  init_cfg={'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
+  (text_encoder): CLIPTextEncoder(
+    (transformer): Transformer(
+      (resblocks): Sequential(
+        (0): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+          )
+          (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (drop_path): Identity()
+        )
+        (1): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+          )
+          (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (drop_path): Identity()
+        )
+        (2): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+          )
+          (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (drop_path): Identity()
+        )
+        (3): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+          )
+          (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (drop_path): Identity()
+        )
+        (4): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+          )
+          (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (drop_path): Identity()
+        )
+        (5): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+          )
+          (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (drop_path): Identity()
+        )
+        (6): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+          )
+          (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (drop_path): Identity()
+        )
+        (7): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+          )
+          (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (drop_path): Identity()
+        )
+        (8): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+          )
+          (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (drop_path): Identity()
+        )
+        (9): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+          )
+          (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (drop_path): Identity()
+        )
+        (10): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+          )
+          (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (drop_path): Identity()
+        )
+        (11): ResidualAttentionBlock(
+          (attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+            (gelu): QuickGELU()
+            (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+          )
+          (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (drop_path): Identity()
+        )
+      )
+    )
+    (token_embedding): Embedding(49408, 512)
+    (ln_final): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  )
+)
+fatal: not a git repository (or any parent up to mount point /scratch/condor)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+fatal: not a git repository (or any parent up to mount point /scratch/condor)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+fatal: not a git repository (or any parent up to mount point /scratch/condor)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+fatal: not a git repository (or any parent up to mount point /scratch/condor)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2024-06-21 16:01:58,027 - mmseg - INFO - Loaded 1449 images
+2024-06-21 16:01:58,345 - mmseg - INFO - Start running, host: ae01116@ae01116-173017.0-aisurrey19.surrey.ac.uk, work_dir: /mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012
+2024-06-21 16:01:58,346 - mmseg - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) PolyLrUpdaterHook                  
+(NORMAL      ) CheckpointHook                     
+(LOW         ) DistEvalHook                       
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) PolyLrUpdaterHook                  
+(LOW         ) IterTimerHook                      
+(LOW         ) DistEvalHook                       
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) PolyLrUpdaterHook                  
+(LOW         ) IterTimerHook                      
+(LOW         ) DistEvalHook                       
+ -------------------- 
+after_train_iter:
+(ABOVE_NORMAL) OptimizerHook                      
+(NORMAL      ) CheckpointHook                     
+(LOW         ) IterTimerHook                      
+(LOW         ) DistEvalHook                       
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) CheckpointHook                     
+(LOW         ) DistEvalHook                       
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_val_epoch:
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_epoch:
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+after_run:
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+2024-06-21 16:01:58,346 - mmseg - INFO - workflow: [('train', 1)], max: 20000 iters
+2024-06-21 16:01:58,347 - mmseg - INFO - Checkpoints will be saved to /mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012 by HardDiskBackend.
+/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/nn/functional.py:3631: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  warnings.warn(
+/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/nn/functional.py:3631: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  warnings.warn(
+/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/nn/functional.py:3631: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  warnings.warn(
+/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/nn/functional.py:3631: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  warnings.warn(
+2024-06-21 16:02:46,658 - mmseg - INFO - Iter [50/20000]	lr: 6.520e-07, eta: 2:45:24, time: 0.497, data_time: 0.012, memory: 8305, decode.loss_mask: 165.3385, decode.loss_dice: 0.7225, decode.acc_seg: 8.9334, loss: 166.0611
+2024-06-21 16:03:10,054 - mmseg - INFO - Iter [100/20000]	lr: 1.314e-06, eta: 2:40:06, time: 0.468, data_time: 0.009, memory: 8305, decode.loss_mask: 142.4375, decode.loss_dice: 0.7242, decode.acc_seg: 8.8056, loss: 143.1617
+2024-06-21 16:03:33,675 - mmseg - INFO - Iter [150/20000]	lr: 1.974e-06, eta: 2:38:34, time: 0.472, data_time: 0.009, memory: 8305, decode.loss_mask: 98.1146, decode.loss_dice: 0.7486, decode.acc_seg: 5.7729, loss: 98.8633
+2024-06-21 16:03:56,996 - mmseg - INFO - Iter [200/20000]	lr: 2.631e-06, eta: 2:37:06, time: 0.466, data_time: 0.008, memory: 8305, decode.loss_mask: 48.5026, decode.loss_dice: 0.7645, decode.acc_seg: 7.8814, loss: 49.2670
+2024-06-21 16:04:20,496 - mmseg - INFO - Iter [250/20000]	lr: 3.285e-06, eta: 2:36:18, time: 0.470, data_time: 0.008, memory: 8305, decode.loss_mask: 18.4221, decode.loss_dice: 0.8141, decode.acc_seg: 6.2493, loss: 19.2362
+2024-06-21 16:04:43,925 - mmseg - INFO - Iter [300/20000]	lr: 3.936e-06, eta: 2:35:33, time: 0.469, data_time: 0.008, memory: 8305, decode.loss_mask: 12.4257, decode.loss_dice: 0.8484, decode.acc_seg: 9.2100, loss: 13.2741
+2024-06-21 16:05:07,984 - mmseg - INFO - Iter [350/20000]	lr: 4.584e-06, eta: 2:35:31, time: 0.481, data_time: 0.008, memory: 8305, decode.loss_mask: 12.1112, decode.loss_dice: 0.8560, decode.acc_seg: 9.2350, loss: 12.9672
+2024-06-21 16:05:31,712 - mmseg - INFO - Iter [400/20000]	lr: 5.229e-06, eta: 2:35:06, time: 0.475, data_time: 0.008, memory: 8305, decode.loss_mask: 11.9286, decode.loss_dice: 0.8513, decode.acc_seg: 11.0371, loss: 12.7800
+2024-06-21 16:05:55,118 - mmseg - INFO - Iter [450/20000]	lr: 5.872e-06, eta: 2:34:28, time: 0.468, data_time: 0.008, memory: 8308, decode.loss_mask: 11.4016, decode.loss_dice: 0.8441, decode.acc_seg: 17.1016, loss: 12.2458
+2024-06-21 16:06:18,931 - mmseg - INFO - Iter [500/20000]	lr: 6.511e-06, eta: 2:34:08, time: 0.476, data_time: 0.008, memory: 8308, decode.loss_mask: 10.8431, decode.loss_dice: 0.8326, decode.acc_seg: 25.5165, loss: 11.6757
+2024-06-21 16:06:42,923 - mmseg - INFO - Iter [550/20000]	lr: 7.148e-06, eta: 2:33:54, time: 0.480, data_time: 0.008, memory: 8308, decode.loss_mask: 10.8577, decode.loss_dice: 0.8191, decode.acc_seg: 26.3317, loss: 11.6768
+2024-06-21 16:07:07,139 - mmseg - INFO - Iter [600/20000]	lr: 7.782e-06, eta: 2:33:46, time: 0.484, data_time: 0.007, memory: 8308, decode.loss_mask: 10.0896, decode.loss_dice: 0.8122, decode.acc_seg: 28.2496, loss: 10.9018
+2024-06-21 16:07:31,252 - mmseg - INFO - Iter [650/20000]	lr: 8.413e-06, eta: 2:33:32, time: 0.482, data_time: 0.007, memory: 8308, decode.loss_mask: 9.4974, decode.loss_dice: 0.8104, decode.acc_seg: 28.0828, loss: 10.3077
+2024-06-21 16:07:55,939 - mmseg - INFO - Iter [700/20000]	lr: 9.041e-06, eta: 2:33:33, time: 0.494, data_time: 0.008, memory: 8308, decode.loss_mask: 9.3110, decode.loss_dice: 0.8009, decode.acc_seg: 29.3254, loss: 10.1119
+2024-06-21 16:08:20,546 - mmseg - INFO - Iter [750/20000]	lr: 9.666e-06, eta: 2:33:28, time: 0.492, data_time: 0.008, memory: 8308, decode.loss_mask: 8.9693, decode.loss_dice: 0.7966, decode.acc_seg: 30.8830, loss: 9.7658
+2024-06-21 16:08:46,032 - mmseg - INFO - Iter [800/20000]	lr: 1.029e-05, eta: 2:33:41, time: 0.510, data_time: 0.052, memory: 8308, decode.loss_mask: 8.5640, decode.loss_dice: 0.7978, decode.acc_seg: 31.3016, loss: 9.3618
+2024-06-21 16:09:10,043 - mmseg - INFO - Iter [850/20000]	lr: 1.091e-05, eta: 2:33:17, time: 0.480, data_time: 0.007, memory: 8308, decode.loss_mask: 8.2212, decode.loss_dice: 0.7845, decode.acc_seg: 40.1604, loss: 9.0057
+2024-06-21 16:09:34,638 - mmseg - INFO - Iter [900/20000]	lr: 1.152e-05, eta: 2:33:06, time: 0.492, data_time: 0.007, memory: 8308, decode.loss_mask: 8.3053, decode.loss_dice: 0.7817, decode.acc_seg: 40.9768, loss: 9.0870
+2024-06-21 16:09:59,414 - mmseg - INFO - Iter [950/20000]	lr: 1.214e-05, eta: 2:32:56, time: 0.496, data_time: 0.007, memory: 8308, decode.loss_mask: 7.5561, decode.loss_dice: 0.7721, decode.acc_seg: 52.1227, loss: 8.3282
+2024-06-21 16:10:23,278 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 16:10:23,278 - mmseg - INFO - Iter [1000/20000]	lr: 1.275e-05, eta: 2:32:28, time: 0.477, data_time: 0.007, memory: 8308, decode.loss_mask: 7.7402, decode.loss_dice: 0.7633, decode.acc_seg: 52.3132, loss: 8.5035
+2024-06-21 16:10:47,080 - mmseg - INFO - Iter [1050/20000]	lr: 1.336e-05, eta: 2:31:59, time: 0.476, data_time: 0.007, memory: 8308, decode.loss_mask: 6.9878, decode.loss_dice: 0.7701, decode.acc_seg: 52.8887, loss: 7.7579
+2024-06-21 16:11:11,191 - mmseg - INFO - Iter [1100/20000]	lr: 1.396e-05, eta: 2:31:36, time: 0.482, data_time: 0.007, memory: 8308, decode.loss_mask: 7.1272, decode.loss_dice: 0.7603, decode.acc_seg: 52.7110, loss: 7.8875
+2024-06-21 16:11:33,505 - mmseg - INFO - Iter [1150/20000]	lr: 1.457e-05, eta: 2:30:43, time: 0.446, data_time: 0.006, memory: 8308, decode.loss_mask: 6.7789, decode.loss_dice: 0.7574, decode.acc_seg: 53.9840, loss: 7.5363
+2024-06-21 16:11:56,802 - mmseg - INFO - Iter [1200/20000]	lr: 1.516e-05, eta: 2:30:08, time: 0.466, data_time: 0.007, memory: 8308, decode.loss_mask: 6.7502, decode.loss_dice: 0.7480, decode.acc_seg: 57.3102, loss: 7.4982
+2024-06-21 16:12:20,502 - mmseg - INFO - Iter [1250/20000]	lr: 1.576e-05, eta: 2:29:40, time: 0.474, data_time: 0.008, memory: 8308, decode.loss_mask: 6.2949, decode.loss_dice: 0.7445, decode.acc_seg: 61.3965, loss: 7.0394
+2024-06-21 16:12:44,379 - mmseg - INFO - Iter [1300/20000]	lr: 1.635e-05, eta: 2:29:15, time: 0.478, data_time: 0.008, memory: 8308, decode.loss_mask: 6.4915, decode.loss_dice: 0.7399, decode.acc_seg: 64.3948, loss: 7.2313
+2024-06-21 16:13:09,546 - mmseg - INFO - Iter [1350/20000]	lr: 1.695e-05, eta: 2:29:08, time: 0.503, data_time: 0.008, memory: 8308, decode.loss_mask: 5.9628, decode.loss_dice: 0.7216, decode.acc_seg: 70.6769, loss: 6.6844
+2024-06-21 16:13:33,173 - mmseg - INFO - Iter [1400/20000]	lr: 1.753e-05, eta: 2:28:39, time: 0.473, data_time: 0.008, memory: 8308, decode.loss_mask: 4.7725, decode.loss_dice: 0.7136, decode.acc_seg: 77.5244, loss: 5.4861
+2024-06-21 16:13:56,175 - mmseg - INFO - Iter [1450/20000]	lr: 1.812e-05, eta: 2:28:03, time: 0.460, data_time: 0.008, memory: 8308, decode.loss_mask: 4.4338, decode.loss_dice: 0.6871, decode.acc_seg: 82.8791, loss: 5.1208
+2024-06-21 16:14:19,436 - mmseg - INFO - Iter [1500/20000]	lr: 1.870e-05, eta: 2:27:30, time: 0.465, data_time: 0.008, memory: 8308, decode.loss_mask: 4.1612, decode.loss_dice: 0.6668, decode.acc_seg: 85.6400, loss: 4.8280
+2024-06-21 16:14:45,848 - mmseg - INFO - Iter [1550/20000]	lr: 1.867e-05, eta: 2:27:36, time: 0.528, data_time: 0.053, memory: 8308, decode.loss_mask: 3.9627, decode.loss_dice: 0.6657, decode.acc_seg: 83.7090, loss: 4.6284
+2024-06-21 16:15:09,865 - mmseg - INFO - Iter [1600/20000]	lr: 1.863e-05, eta: 2:27:12, time: 0.480, data_time: 0.008, memory: 8308, decode.loss_mask: 4.0391, decode.loss_dice: 0.6509, decode.acc_seg: 85.0600, loss: 4.6900
+2024-06-21 16:15:34,004 - mmseg - INFO - Iter [1650/20000]	lr: 1.858e-05, eta: 2:26:50, time: 0.483, data_time: 0.009, memory: 8308, decode.loss_mask: 3.6386, decode.loss_dice: 0.6511, decode.acc_seg: 88.3006, loss: 4.2897
+2024-06-21 16:15:57,818 - mmseg - INFO - Iter [1700/20000]	lr: 1.854e-05, eta: 2:26:24, time: 0.476, data_time: 0.008, memory: 8308, decode.loss_mask: 3.4266, decode.loss_dice: 0.6218, decode.acc_seg: 86.5531, loss: 4.0483
+2024-06-21 16:16:21,718 - mmseg - INFO - Iter [1750/20000]	lr: 1.850e-05, eta: 2:25:59, time: 0.478, data_time: 0.008, memory: 8308, decode.loss_mask: 3.2935, decode.loss_dice: 0.6096, decode.acc_seg: 87.6737, loss: 3.9031
+2024-06-21 16:16:45,280 - mmseg - INFO - Iter [1800/20000]	lr: 1.845e-05, eta: 2:25:30, time: 0.471, data_time: 0.008, memory: 8308, decode.loss_mask: 3.1535, decode.loss_dice: 0.6039, decode.acc_seg: 85.9648, loss: 3.7575
+2024-06-21 16:17:08,623 - mmseg - INFO - Iter [1850/20000]	lr: 1.841e-05, eta: 2:25:00, time: 0.467, data_time: 0.008, memory: 8308, decode.loss_mask: 3.3947, decode.loss_dice: 0.6069, decode.acc_seg: 88.7629, loss: 4.0015
+2024-06-21 16:17:32,420 - mmseg - INFO - Iter [1900/20000]	lr: 1.837e-05, eta: 2:24:34, time: 0.476, data_time: 0.009, memory: 8308, decode.loss_mask: 3.3500, decode.loss_dice: 0.6115, decode.acc_seg: 89.0497, loss: 3.9615
+2024-06-21 16:17:55,759 - mmseg - INFO - Iter [1950/20000]	lr: 1.833e-05, eta: 2:24:05, time: 0.467, data_time: 0.009, memory: 8308, decode.loss_mask: 3.2364, decode.loss_dice: 0.6139, decode.acc_seg: 87.1797, loss: 3.8503
+2024-06-21 16:18:16,943 - mmseg - INFO - Saving checkpoint at 2000 iterations
+2024-06-21 16:18:18,161 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 16:18:18,161 - mmseg - INFO - Iter [2000/20000]	lr: 1.828e-05, eta: 2:23:27, time: 0.448, data_time: 0.008, memory: 8308, decode.loss_mask: 3.5394, decode.loss_dice: 0.6027, decode.acc_seg: 86.7791, loss: 4.1420
+2024-06-21 16:18:39,608 - mmseg - INFO - Iter [2050/20000]	lr: 1.824e-05, eta: 2:22:41, time: 0.429, data_time: 0.008, memory: 8308, decode.loss_mask: 3.0363, decode.loss_dice: 0.5962, decode.acc_seg: 87.8763, loss: 3.6325
+2024-06-21 16:19:01,186 - mmseg - INFO - Iter [2100/20000]	lr: 1.820e-05, eta: 2:21:58, time: 0.432, data_time: 0.008, memory: 8308, decode.loss_mask: 3.0373, decode.loss_dice: 0.6097, decode.acc_seg: 87.1572, loss: 3.6471
+2024-06-21 16:19:22,434 - mmseg - INFO - Iter [2150/20000]	lr: 1.815e-05, eta: 2:21:13, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 2.8705, decode.loss_dice: 0.5998, decode.acc_seg: 88.5143, loss: 3.4702
+2024-06-21 16:19:44,303 - mmseg - INFO - Iter [2200/20000]	lr: 1.811e-05, eta: 2:20:34, time: 0.437, data_time: 0.008, memory: 8308, decode.loss_mask: 2.8132, decode.loss_dice: 0.5875, decode.acc_seg: 89.0565, loss: 3.4007
+2024-06-21 16:20:05,483 - mmseg - INFO - Iter [2250/20000]	lr: 1.807e-05, eta: 2:19:51, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 2.7964, decode.loss_dice: 0.5852, decode.acc_seg: 88.8325, loss: 3.3816
+2024-06-21 16:20:29,498 - mmseg - INFO - Iter [2300/20000]	lr: 1.802e-05, eta: 2:19:30, time: 0.480, data_time: 0.051, memory: 8308, decode.loss_mask: 2.8221, decode.loss_dice: 0.5696, decode.acc_seg: 89.8833, loss: 3.3917
+2024-06-21 16:20:50,820 - mmseg - INFO - Iter [2350/20000]	lr: 1.798e-05, eta: 2:18:49, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.8338, decode.loss_dice: 0.5933, decode.acc_seg: 87.8317, loss: 3.4271
+2024-06-21 16:21:12,098 - mmseg - INFO - Iter [2400/20000]	lr: 1.794e-05, eta: 2:18:08, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.6018, decode.loss_dice: 0.5730, decode.acc_seg: 90.3240, loss: 3.1748
+2024-06-21 16:21:33,381 - mmseg - INFO - Iter [2450/20000]	lr: 1.789e-05, eta: 2:17:29, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.9525, decode.loss_dice: 0.5960, decode.acc_seg: 89.0108, loss: 3.5485
+2024-06-21 16:21:54,584 - mmseg - INFO - Iter [2500/20000]	lr: 1.785e-05, eta: 2:16:49, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 2.9281, decode.loss_dice: 0.5718, decode.acc_seg: 89.7402, loss: 3.4999
+2024-06-21 16:22:15,996 - mmseg - INFO - Iter [2550/20000]	lr: 1.781e-05, eta: 2:16:12, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 2.7966, decode.loss_dice: 0.5824, decode.acc_seg: 90.7621, loss: 3.3790
+2024-06-21 16:22:37,651 - mmseg - INFO - Iter [2600/20000]	lr: 1.776e-05, eta: 2:15:36, time: 0.433, data_time: 0.008, memory: 8308, decode.loss_mask: 2.5604, decode.loss_dice: 0.5561, decode.acc_seg: 92.5783, loss: 3.1165
+2024-06-21 16:22:59,143 - mmseg - INFO - Iter [2650/20000]	lr: 1.772e-05, eta: 2:15:01, time: 0.430, data_time: 0.007, memory: 8308, decode.loss_mask: 2.6581, decode.loss_dice: 0.5532, decode.acc_seg: 91.7208, loss: 3.2114
+2024-06-21 16:23:20,208 - mmseg - INFO - Iter [2700/20000]	lr: 1.768e-05, eta: 2:14:23, time: 0.421, data_time: 0.007, memory: 8308, decode.loss_mask: 2.9577, decode.loss_dice: 0.5614, decode.acc_seg: 90.9399, loss: 3.5191
+2024-06-21 16:23:41,770 - mmseg - INFO - Iter [2750/20000]	lr: 1.763e-05, eta: 2:13:48, time: 0.431, data_time: 0.007, memory: 8308, decode.loss_mask: 2.5997, decode.loss_dice: 0.5718, decode.acc_seg: 91.5299, loss: 3.1715
+2024-06-21 16:24:03,091 - mmseg - INFO - Iter [2800/20000]	lr: 1.759e-05, eta: 2:13:13, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.5427, decode.loss_dice: 0.5612, decode.acc_seg: 91.9939, loss: 3.1039
+2024-06-21 16:24:24,413 - mmseg - INFO - Iter [2850/20000]	lr: 1.755e-05, eta: 2:12:38, time: 0.426, data_time: 0.007, memory: 8308, decode.loss_mask: 2.6501, decode.loss_dice: 0.5569, decode.acc_seg: 89.4943, loss: 3.2070
+2024-06-21 16:24:45,704 - mmseg - INFO - Iter [2900/20000]	lr: 1.750e-05, eta: 2:12:04, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.5005, decode.loss_dice: 0.5589, decode.acc_seg: 91.8887, loss: 3.0594
+2024-06-21 16:25:07,001 - mmseg - INFO - Iter [2950/20000]	lr: 1.746e-05, eta: 2:11:30, time: 0.426, data_time: 0.007, memory: 8308, decode.loss_mask: 2.9818, decode.loss_dice: 0.5509, decode.acc_seg: 91.3093, loss: 3.5327
+2024-06-21 16:25:28,330 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 16:25:28,331 - mmseg - INFO - Iter [3000/20000]	lr: 1.742e-05, eta: 2:10:57, time: 0.427, data_time: 0.007, memory: 8308, decode.loss_mask: 2.6679, decode.loss_dice: 0.5591, decode.acc_seg: 91.7796, loss: 3.2270
+2024-06-21 16:25:51,844 - mmseg - INFO - Iter [3050/20000]	lr: 1.737e-05, eta: 2:10:36, time: 0.470, data_time: 0.053, memory: 8308, decode.loss_mask: 2.5659, decode.loss_dice: 0.5595, decode.acc_seg: 91.3962, loss: 3.1255
+2024-06-21 16:26:13,189 - mmseg - INFO - Iter [3100/20000]	lr: 1.733e-05, eta: 2:10:03, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 2.3921, decode.loss_dice: 0.5286, decode.acc_seg: 93.2842, loss: 2.9207
+2024-06-21 16:26:34,776 - mmseg - INFO - Iter [3150/20000]	lr: 1.729e-05, eta: 2:09:32, time: 0.432, data_time: 0.008, memory: 8308, decode.loss_mask: 2.3738, decode.loss_dice: 0.5551, decode.acc_seg: 91.7714, loss: 2.9289
+2024-06-21 16:26:56,373 - mmseg - INFO - Iter [3200/20000]	lr: 1.724e-05, eta: 2:09:01, time: 0.432, data_time: 0.008, memory: 8308, decode.loss_mask: 2.3269, decode.loss_dice: 0.5352, decode.acc_seg: 93.4570, loss: 2.8621
+2024-06-21 16:27:17,820 - mmseg - INFO - Iter [3250/20000]	lr: 1.720e-05, eta: 2:08:30, time: 0.429, data_time: 0.008, memory: 8308, decode.loss_mask: 2.3003, decode.loss_dice: 0.5446, decode.acc_seg: 93.9172, loss: 2.8449
+2024-06-21 16:27:38,941 - mmseg - INFO - Iter [3300/20000]	lr: 1.715e-05, eta: 2:07:57, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 2.2890, decode.loss_dice: 0.5407, decode.acc_seg: 93.5319, loss: 2.8298
+2024-06-21 16:28:00,234 - mmseg - INFO - Iter [3350/20000]	lr: 1.711e-05, eta: 2:07:26, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.5390, decode.loss_dice: 0.5330, decode.acc_seg: 93.1717, loss: 3.0720
+2024-06-21 16:28:21,612 - mmseg - INFO - Iter [3400/20000]	lr: 1.707e-05, eta: 2:06:55, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 2.3236, decode.loss_dice: 0.5382, decode.acc_seg: 94.2599, loss: 2.8618
+2024-06-21 16:28:42,996 - mmseg - INFO - Iter [3450/20000]	lr: 1.702e-05, eta: 2:06:25, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 2.4879, decode.loss_dice: 0.5366, decode.acc_seg: 92.7128, loss: 3.0245
+2024-06-21 16:29:04,466 - mmseg - INFO - Iter [3500/20000]	lr: 1.698e-05, eta: 2:05:55, time: 0.429, data_time: 0.008, memory: 8308, decode.loss_mask: 2.4393, decode.loss_dice: 0.5312, decode.acc_seg: 93.3797, loss: 2.9706
+2024-06-21 16:29:25,585 - mmseg - INFO - Iter [3550/20000]	lr: 1.694e-05, eta: 2:05:24, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 2.6770, decode.loss_dice: 0.5393, decode.acc_seg: 91.4283, loss: 3.2163
+2024-06-21 16:29:46,953 - mmseg - INFO - Iter [3600/20000]	lr: 1.689e-05, eta: 2:04:54, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 2.4076, decode.loss_dice: 0.5149, decode.acc_seg: 93.4429, loss: 2.9226
+2024-06-21 16:30:08,229 - mmseg - INFO - Iter [3650/20000]	lr: 1.685e-05, eta: 2:04:24, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.3035, decode.loss_dice: 0.5478, decode.acc_seg: 93.1553, loss: 2.8513
+2024-06-21 16:30:29,640 - mmseg - INFO - Iter [3700/20000]	lr: 1.681e-05, eta: 2:03:55, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 2.2048, decode.loss_dice: 0.5126, decode.acc_seg: 94.2628, loss: 2.7174
+2024-06-21 16:30:51,059 - mmseg - INFO - Iter [3750/20000]	lr: 1.676e-05, eta: 2:03:26, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 2.3647, decode.loss_dice: 0.5471, decode.acc_seg: 92.8763, loss: 2.9119
+2024-06-21 16:31:14,887 - mmseg - INFO - Iter [3800/20000]	lr: 1.672e-05, eta: 2:03:08, time: 0.477, data_time: 0.053, memory: 8308, decode.loss_mask: 2.3757, decode.loss_dice: 0.5259, decode.acc_seg: 92.1322, loss: 2.9016
+2024-06-21 16:31:36,198 - mmseg - INFO - Iter [3850/20000]	lr: 1.667e-05, eta: 2:02:39, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.3480, decode.loss_dice: 0.5235, decode.acc_seg: 93.0826, loss: 2.8715
+2024-06-21 16:31:57,145 - mmseg - INFO - Iter [3900/20000]	lr: 1.663e-05, eta: 2:02:08, time: 0.419, data_time: 0.008, memory: 8308, decode.loss_mask: 2.3033, decode.loss_dice: 0.5349, decode.acc_seg: 91.4050, loss: 2.8381
+2024-06-21 16:32:18,276 - mmseg - INFO - Iter [3950/20000]	lr: 1.659e-05, eta: 2:01:39, time: 0.423, data_time: 0.008, memory: 8308, decode.loss_mask: 2.2783, decode.loss_dice: 0.5171, decode.acc_seg: 93.4314, loss: 2.7953
+2024-06-21 16:32:39,912 - mmseg - INFO - Saving checkpoint at 4000 iterations
+2024-06-21 16:32:41,067 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 16:32:41,067 - mmseg - INFO - Iter [4000/20000]	lr: 1.654e-05, eta: 2:01:17, time: 0.456, data_time: 0.008, memory: 8308, decode.loss_mask: 2.6435, decode.loss_dice: 0.5186, decode.acc_seg: 91.7437, loss: 3.1621
+2024-06-21 16:33:02,195 - mmseg - INFO - Iter [4050/20000]	lr: 1.650e-05, eta: 2:00:47, time: 0.423, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1176, decode.loss_dice: 0.5288, decode.acc_seg: 93.9617, loss: 2.6464
+2024-06-21 16:33:23,865 - mmseg - INFO - Iter [4100/20000]	lr: 1.646e-05, eta: 2:00:21, time: 0.433, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1791, decode.loss_dice: 0.5241, decode.acc_seg: 92.0987, loss: 2.7032
+2024-06-21 16:33:44,912 - mmseg - INFO - Iter [4150/20000]	lr: 1.641e-05, eta: 1:59:52, time: 0.421, data_time: 0.008, memory: 8308, decode.loss_mask: 2.3528, decode.loss_dice: 0.5272, decode.acc_seg: 92.6154, loss: 2.8799
+2024-06-21 16:34:05,943 - mmseg - INFO - Iter [4200/20000]	lr: 1.637e-05, eta: 1:59:23, time: 0.421, data_time: 0.008, memory: 8308, decode.loss_mask: 2.2196, decode.loss_dice: 0.5124, decode.acc_seg: 94.4041, loss: 2.7321
+2024-06-21 16:34:27,309 - mmseg - INFO - Iter [4250/20000]	lr: 1.633e-05, eta: 1:58:55, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 2.5304, decode.loss_dice: 0.5369, decode.acc_seg: 92.1190, loss: 3.0673
+2024-06-21 16:34:48,478 - mmseg - INFO - Iter [4300/20000]	lr: 1.628e-05, eta: 1:58:27, time: 0.423, data_time: 0.009, memory: 8308, decode.loss_mask: 2.1163, decode.loss_dice: 0.5186, decode.acc_seg: 94.4163, loss: 2.6349
+2024-06-21 16:35:09,631 - mmseg - INFO - Iter [4350/20000]	lr: 1.624e-05, eta: 1:57:59, time: 0.423, data_time: 0.008, memory: 8308, decode.loss_mask: 2.2812, decode.loss_dice: 0.5033, decode.acc_seg: 93.5141, loss: 2.7844
+2024-06-21 16:35:30,899 - mmseg - INFO - Iter [4400/20000]	lr: 1.619e-05, eta: 1:57:32, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 2.4803, decode.loss_dice: 0.5312, decode.acc_seg: 92.4532, loss: 3.0115
+2024-06-21 16:35:51,994 - mmseg - INFO - Iter [4450/20000]	lr: 1.615e-05, eta: 1:57:04, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 2.5910, decode.loss_dice: 0.5404, decode.acc_seg: 92.0151, loss: 3.1314
+2024-06-21 16:36:13,220 - mmseg - INFO - Iter [4500/20000]	lr: 1.611e-05, eta: 1:56:37, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 2.4466, decode.loss_dice: 0.5431, decode.acc_seg: 93.1046, loss: 2.9897
+2024-06-21 16:36:36,795 - mmseg - INFO - Iter [4550/20000]	lr: 1.606e-05, eta: 1:56:17, time: 0.471, data_time: 0.053, memory: 8308, decode.loss_mask: 2.5141, decode.loss_dice: 0.5149, decode.acc_seg: 93.9253, loss: 3.0291
+2024-06-21 16:36:58,233 - mmseg - INFO - Iter [4600/20000]	lr: 1.602e-05, eta: 1:55:51, time: 0.429, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0873, decode.loss_dice: 0.5126, decode.acc_seg: 94.2730, loss: 2.5999
+2024-06-21 16:37:19,720 - mmseg - INFO - Iter [4650/20000]	lr: 1.597e-05, eta: 1:55:25, time: 0.430, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1325, decode.loss_dice: 0.5140, decode.acc_seg: 93.6726, loss: 2.6464
+2024-06-21 16:37:40,998 - mmseg - INFO - Iter [4700/20000]	lr: 1.593e-05, eta: 1:54:58, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1023, decode.loss_dice: 0.5221, decode.acc_seg: 93.2980, loss: 2.6245
+2024-06-21 16:38:02,216 - mmseg - INFO - Iter [4750/20000]	lr: 1.589e-05, eta: 1:54:31, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1998, decode.loss_dice: 0.5113, decode.acc_seg: 93.9575, loss: 2.7111
+2024-06-21 16:38:23,498 - mmseg - INFO - Iter [4800/20000]	lr: 1.584e-05, eta: 1:54:05, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0324, decode.loss_dice: 0.5033, decode.acc_seg: 95.1174, loss: 2.5357
+2024-06-21 16:38:44,703 - mmseg - INFO - Iter [4850/20000]	lr: 1.580e-05, eta: 1:53:38, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 2.2330, decode.loss_dice: 0.5178, decode.acc_seg: 92.5510, loss: 2.7508
+2024-06-21 16:39:05,903 - mmseg - INFO - Iter [4900/20000]	lr: 1.575e-05, eta: 1:53:12, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 2.2370, decode.loss_dice: 0.5002, decode.acc_seg: 93.6373, loss: 2.7372
+2024-06-21 16:39:27,431 - mmseg - INFO - Iter [4950/20000]	lr: 1.571e-05, eta: 1:52:46, time: 0.431, data_time: 0.008, memory: 8308, decode.loss_mask: 2.4374, decode.loss_dice: 0.5086, decode.acc_seg: 91.9420, loss: 2.9460
+2024-06-21 16:39:48,772 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 16:39:48,772 - mmseg - INFO - Iter [5000/20000]	lr: 1.567e-05, eta: 1:52:20, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 2.3148, decode.loss_dice: 0.5224, decode.acc_seg: 92.7223, loss: 2.8373
+2024-06-21 16:40:09,899 - mmseg - INFO - Iter [5050/20000]	lr: 1.562e-05, eta: 1:51:54, time: 0.423, data_time: 0.008, memory: 8308, decode.loss_mask: 2.5523, decode.loss_dice: 0.5176, decode.acc_seg: 90.5664, loss: 3.0699
+2024-06-21 16:40:31,145 - mmseg - INFO - Iter [5100/20000]	lr: 1.558e-05, eta: 1:51:28, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 2.3937, decode.loss_dice: 0.5222, decode.acc_seg: 93.9254, loss: 2.9159
+2024-06-21 16:40:52,260 - mmseg - INFO - Iter [5150/20000]	lr: 1.553e-05, eta: 1:51:02, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1382, decode.loss_dice: 0.5144, decode.acc_seg: 93.9204, loss: 2.6526
+2024-06-21 16:41:13,491 - mmseg - INFO - Iter [5200/20000]	lr: 1.549e-05, eta: 1:50:36, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 2.3105, decode.loss_dice: 0.5148, decode.acc_seg: 91.9163, loss: 2.8253
+2024-06-21 16:41:34,921 - mmseg - INFO - Iter [5250/20000]	lr: 1.545e-05, eta: 1:50:11, time: 0.429, data_time: 0.008, memory: 8308, decode.loss_mask: 2.3311, decode.loss_dice: 0.4865, decode.acc_seg: 92.4652, loss: 2.8176
+2024-06-21 16:41:58,278 - mmseg - INFO - Iter [5300/20000]	lr: 1.540e-05, eta: 1:49:51, time: 0.467, data_time: 0.051, memory: 8308, decode.loss_mask: 2.3337, decode.loss_dice: 0.5184, decode.acc_seg: 94.0471, loss: 2.8521
+2024-06-21 16:42:19,682 - mmseg - INFO - Iter [5350/20000]	lr: 1.536e-05, eta: 1:49:26, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1836, decode.loss_dice: 0.5136, decode.acc_seg: 94.5192, loss: 2.6972
+2024-06-21 16:42:41,103 - mmseg - INFO - Iter [5400/20000]	lr: 1.531e-05, eta: 1:49:01, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0055, decode.loss_dice: 0.5077, decode.acc_seg: 93.6202, loss: 2.5132
+2024-06-21 16:43:02,333 - mmseg - INFO - Iter [5450/20000]	lr: 1.527e-05, eta: 1:48:35, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1695, decode.loss_dice: 0.5261, decode.acc_seg: 92.0333, loss: 2.6957
+2024-06-21 16:43:23,782 - mmseg - INFO - Iter [5500/20000]	lr: 1.523e-05, eta: 1:48:10, time: 0.429, data_time: 0.007, memory: 8308, decode.loss_mask: 2.0267, decode.loss_dice: 0.5133, decode.acc_seg: 93.5723, loss: 2.5400
+2024-06-21 16:43:44,849 - mmseg - INFO - Iter [5550/20000]	lr: 1.518e-05, eta: 1:47:44, time: 0.421, data_time: 0.007, memory: 8308, decode.loss_mask: 2.0442, decode.loss_dice: 0.4778, decode.acc_seg: 93.7989, loss: 2.5220
+2024-06-21 16:44:06,485 - mmseg - INFO - Iter [5600/20000]	lr: 1.514e-05, eta: 1:47:20, time: 0.433, data_time: 0.007, memory: 8308, decode.loss_mask: 2.2609, decode.loss_dice: 0.5135, decode.acc_seg: 94.5134, loss: 2.7745
+2024-06-21 16:44:27,505 - mmseg - INFO - Iter [5650/20000]	lr: 1.509e-05, eta: 1:46:54, time: 0.420, data_time: 0.007, memory: 8308, decode.loss_mask: 2.0962, decode.loss_dice: 0.5073, decode.acc_seg: 93.9876, loss: 2.6035
+2024-06-21 16:44:48,685 - mmseg - INFO - Iter [5700/20000]	lr: 1.505e-05, eta: 1:46:29, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 2.3567, decode.loss_dice: 0.4875, decode.acc_seg: 93.4564, loss: 2.8442
+2024-06-21 16:45:09,874 - mmseg - INFO - Iter [5750/20000]	lr: 1.501e-05, eta: 1:46:04, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0023, decode.loss_dice: 0.5033, decode.acc_seg: 95.2779, loss: 2.5056
+2024-06-21 16:45:31,144 - mmseg - INFO - Iter [5800/20000]	lr: 1.496e-05, eta: 1:45:39, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1863, decode.loss_dice: 0.4940, decode.acc_seg: 92.4405, loss: 2.6803
+2024-06-21 16:45:52,431 - mmseg - INFO - Iter [5850/20000]	lr: 1.492e-05, eta: 1:45:14, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.2531, decode.loss_dice: 0.4823, decode.acc_seg: 92.9519, loss: 2.7353
+2024-06-21 16:46:13,954 - mmseg - INFO - Iter [5900/20000]	lr: 1.487e-05, eta: 1:44:50, time: 0.430, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0929, decode.loss_dice: 0.4904, decode.acc_seg: 93.6262, loss: 2.5833
+2024-06-21 16:46:34,827 - mmseg - INFO - Iter [5950/20000]	lr: 1.483e-05, eta: 1:44:24, time: 0.417, data_time: 0.008, memory: 8308, decode.loss_mask: 2.3474, decode.loss_dice: 0.5135, decode.acc_seg: 93.0377, loss: 2.8608
+2024-06-21 16:46:56,118 - mmseg - INFO - Saving checkpoint at 6000 iterations
+2024-06-21 16:46:57,217 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 16:46:57,217 - mmseg - INFO - Iter [6000/20000]	lr: 1.478e-05, eta: 1:44:02, time: 0.448, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1251, decode.loss_dice: 0.4985, decode.acc_seg: 94.8136, loss: 2.6236
+2024-06-21 16:47:20,749 - mmseg - INFO - Iter [6050/20000]	lr: 1.474e-05, eta: 1:43:43, time: 0.471, data_time: 0.051, memory: 8308, decode.loss_mask: 2.2852, decode.loss_dice: 0.4946, decode.acc_seg: 92.6508, loss: 2.7798
+2024-06-21 16:47:42,047 - mmseg - INFO - Iter [6100/20000]	lr: 1.470e-05, eta: 1:43:18, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0882, decode.loss_dice: 0.4812, decode.acc_seg: 94.5287, loss: 2.5694
+2024-06-21 16:48:03,652 - mmseg - INFO - Iter [6150/20000]	lr: 1.465e-05, eta: 1:42:54, time: 0.432, data_time: 0.008, memory: 8308, decode.loss_mask: 2.2654, decode.loss_dice: 0.5139, decode.acc_seg: 93.8365, loss: 2.7793
+2024-06-21 16:48:24,951 - mmseg - INFO - Iter [6200/20000]	lr: 1.461e-05, eta: 1:42:30, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.4301, decode.loss_dice: 0.5080, decode.acc_seg: 94.7621, loss: 2.9381
+2024-06-21 16:48:46,263 - mmseg - INFO - Iter [6250/20000]	lr: 1.456e-05, eta: 1:42:05, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9975, decode.loss_dice: 0.4892, decode.acc_seg: 95.6204, loss: 2.4866
+2024-06-21 16:49:07,327 - mmseg - INFO - Iter [6300/20000]	lr: 1.452e-05, eta: 1:41:40, time: 0.421, data_time: 0.008, memory: 8308, decode.loss_mask: 2.2048, decode.loss_dice: 0.5028, decode.acc_seg: 93.9931, loss: 2.7076
+2024-06-21 16:49:28,747 - mmseg - INFO - Iter [6350/20000]	lr: 1.447e-05, eta: 1:41:16, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 2.4140, decode.loss_dice: 0.4960, decode.acc_seg: 93.5911, loss: 2.9100
+2024-06-21 16:49:50,161 - mmseg - INFO - Iter [6400/20000]	lr: 1.443e-05, eta: 1:40:52, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1090, decode.loss_dice: 0.4886, decode.acc_seg: 95.3685, loss: 2.5976
+2024-06-21 16:50:11,329 - mmseg - INFO - Iter [6450/20000]	lr: 1.438e-05, eta: 1:40:28, time: 0.423, data_time: 0.008, memory: 8308, decode.loss_mask: 2.2094, decode.loss_dice: 0.5156, decode.acc_seg: 94.2082, loss: 2.7251
+2024-06-21 16:50:32,658 - mmseg - INFO - Iter [6500/20000]	lr: 1.434e-05, eta: 1:40:04, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0651, decode.loss_dice: 0.4846, decode.acc_seg: 94.6795, loss: 2.5497
+2024-06-21 16:50:53,685 - mmseg - INFO - Iter [6550/20000]	lr: 1.430e-05, eta: 1:39:39, time: 0.421, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1784, decode.loss_dice: 0.5070, decode.acc_seg: 92.4241, loss: 2.6854
+2024-06-21 16:51:15,053 - mmseg - INFO - Iter [6600/20000]	lr: 1.425e-05, eta: 1:39:15, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9650, decode.loss_dice: 0.5021, decode.acc_seg: 93.8693, loss: 2.4671
+2024-06-21 16:51:36,473 - mmseg - INFO - Iter [6650/20000]	lr: 1.421e-05, eta: 1:38:51, time: 0.428, data_time: 0.009, memory: 8308, decode.loss_mask: 2.3090, decode.loss_dice: 0.5034, decode.acc_seg: 93.4174, loss: 2.8124
+2024-06-21 16:51:57,656 - mmseg - INFO - Iter [6700/20000]	lr: 1.416e-05, eta: 1:38:27, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0982, decode.loss_dice: 0.4885, decode.acc_seg: 93.9293, loss: 2.5867
+2024-06-21 16:52:18,973 - mmseg - INFO - Iter [6750/20000]	lr: 1.412e-05, eta: 1:38:03, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.2402, decode.loss_dice: 0.4808, decode.acc_seg: 93.8053, loss: 2.7210
+2024-06-21 16:52:42,714 - mmseg - INFO - Iter [6800/20000]	lr: 1.407e-05, eta: 1:37:44, time: 0.475, data_time: 0.051, memory: 8308, decode.loss_mask: 2.0384, decode.loss_dice: 0.4965, decode.acc_seg: 93.7029, loss: 2.5349
+2024-06-21 16:53:03,971 - mmseg - INFO - Iter [6850/20000]	lr: 1.403e-05, eta: 1:37:20, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9007, decode.loss_dice: 0.4779, decode.acc_seg: 94.9668, loss: 2.3786
+2024-06-21 16:53:25,290 - mmseg - INFO - Iter [6900/20000]	lr: 1.398e-05, eta: 1:36:56, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1212, decode.loss_dice: 0.4901, decode.acc_seg: 93.9771, loss: 2.6114
+2024-06-21 16:53:46,599 - mmseg - INFO - Iter [6950/20000]	lr: 1.394e-05, eta: 1:36:32, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1202, decode.loss_dice: 0.4881, decode.acc_seg: 95.2747, loss: 2.6082
+2024-06-21 16:54:07,805 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 16:54:07,805 - mmseg - INFO - Iter [7000/20000]	lr: 1.389e-05, eta: 1:36:08, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1825, decode.loss_dice: 0.4874, decode.acc_seg: 94.1165, loss: 2.6700
+2024-06-21 16:54:29,171 - mmseg - INFO - Iter [7050/20000]	lr: 1.385e-05, eta: 1:35:44, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9553, decode.loss_dice: 0.4775, decode.acc_seg: 94.6740, loss: 2.4328
+2024-06-21 16:54:50,229 - mmseg - INFO - Iter [7100/20000]	lr: 1.381e-05, eta: 1:35:20, time: 0.421, data_time: 0.007, memory: 8308, decode.loss_mask: 2.0647, decode.loss_dice: 0.5008, decode.acc_seg: 94.0471, loss: 2.5655
+2024-06-21 16:55:11,546 - mmseg - INFO - Iter [7150/20000]	lr: 1.376e-05, eta: 1:34:56, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1027, decode.loss_dice: 0.4930, decode.acc_seg: 94.0586, loss: 2.5957
+2024-06-21 16:55:32,824 - mmseg - INFO - Iter [7200/20000]	lr: 1.372e-05, eta: 1:34:32, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0152, decode.loss_dice: 0.4737, decode.acc_seg: 94.3903, loss: 2.4890
+2024-06-21 16:55:54,156 - mmseg - INFO - Iter [7250/20000]	lr: 1.367e-05, eta: 1:34:09, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0963, decode.loss_dice: 0.4976, decode.acc_seg: 94.2378, loss: 2.5940
+2024-06-21 16:56:15,208 - mmseg - INFO - Iter [7300/20000]	lr: 1.363e-05, eta: 1:33:45, time: 0.421, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9789, decode.loss_dice: 0.5037, decode.acc_seg: 94.0929, loss: 2.4826
+2024-06-21 16:56:36,723 - mmseg - INFO - Iter [7350/20000]	lr: 1.358e-05, eta: 1:33:21, time: 0.430, data_time: 0.008, memory: 8308, decode.loss_mask: 2.3021, decode.loss_dice: 0.5020, decode.acc_seg: 94.0678, loss: 2.8041
+2024-06-21 16:56:57,812 - mmseg - INFO - Iter [7400/20000]	lr: 1.354e-05, eta: 1:32:58, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9904, decode.loss_dice: 0.4837, decode.acc_seg: 94.2850, loss: 2.4740
+2024-06-21 16:57:19,217 - mmseg - INFO - Iter [7450/20000]	lr: 1.349e-05, eta: 1:32:34, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1339, decode.loss_dice: 0.4718, decode.acc_seg: 94.3272, loss: 2.6057
+2024-06-21 16:57:40,827 - mmseg - INFO - Iter [7500/20000]	lr: 1.345e-05, eta: 1:32:11, time: 0.432, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8657, decode.loss_dice: 0.4721, decode.acc_seg: 95.2707, loss: 2.3377
+2024-06-21 16:58:04,341 - mmseg - INFO - Iter [7550/20000]	lr: 1.340e-05, eta: 1:31:51, time: 0.470, data_time: 0.053, memory: 8308, decode.loss_mask: 2.0423, decode.loss_dice: 0.4890, decode.acc_seg: 94.2668, loss: 2.5313
+2024-06-21 16:58:25,881 - mmseg - INFO - Iter [7600/20000]	lr: 1.336e-05, eta: 1:31:28, time: 0.431, data_time: 0.008, memory: 8308, decode.loss_mask: 2.2198, decode.loss_dice: 0.4800, decode.acc_seg: 94.0409, loss: 2.6998
+2024-06-21 16:58:46,952 - mmseg - INFO - Iter [7650/20000]	lr: 1.331e-05, eta: 1:31:04, time: 0.421, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0762, decode.loss_dice: 0.4741, decode.acc_seg: 94.3730, loss: 2.5504
+2024-06-21 16:59:07,931 - mmseg - INFO - Iter [7700/20000]	lr: 1.327e-05, eta: 1:30:40, time: 0.420, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9935, decode.loss_dice: 0.4879, decode.acc_seg: 92.3139, loss: 2.4814
+2024-06-21 16:59:29,076 - mmseg - INFO - Iter [7750/20000]	lr: 1.322e-05, eta: 1:30:17, time: 0.423, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9587, decode.loss_dice: 0.4875, decode.acc_seg: 94.8291, loss: 2.4462
+2024-06-21 16:59:50,253 - mmseg - INFO - Iter [7800/20000]	lr: 1.318e-05, eta: 1:29:53, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8772, decode.loss_dice: 0.4684, decode.acc_seg: 96.1419, loss: 2.3457
+2024-06-21 17:00:11,599 - mmseg - INFO - Iter [7850/20000]	lr: 1.313e-05, eta: 1:29:30, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9985, decode.loss_dice: 0.4861, decode.acc_seg: 94.0658, loss: 2.4846
+2024-06-21 17:00:32,770 - mmseg - INFO - Iter [7900/20000]	lr: 1.309e-05, eta: 1:29:06, time: 0.423, data_time: 0.008, memory: 8308, decode.loss_mask: 2.2430, decode.loss_dice: 0.4998, decode.acc_seg: 93.4033, loss: 2.7428
+2024-06-21 17:00:54,314 - mmseg - INFO - Iter [7950/20000]	lr: 1.304e-05, eta: 1:28:43, time: 0.431, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9409, decode.loss_dice: 0.4880, decode.acc_seg: 95.0356, loss: 2.4289
+2024-06-21 17:01:15,278 - mmseg - INFO - Saving checkpoint at 8000 iterations
+2024-06-21 17:01:16,363 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 17:01:16,363 - mmseg - INFO - Iter [8000/20000]	lr: 1.300e-05, eta: 1:28:21, time: 0.441, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0143, decode.loss_dice: 0.4857, decode.acc_seg: 94.1227, loss: 2.5001
+2024-06-21 17:01:37,907 - mmseg - INFO - Iter [8050/20000]	lr: 1.295e-05, eta: 1:27:58, time: 0.431, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1251, decode.loss_dice: 0.4894, decode.acc_seg: 93.6901, loss: 2.6146
+2024-06-21 17:01:59,278 - mmseg - INFO - Iter [8100/20000]	lr: 1.291e-05, eta: 1:27:35, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9851, decode.loss_dice: 0.4757, decode.acc_seg: 94.0150, loss: 2.4608
+2024-06-21 17:02:20,624 - mmseg - INFO - Iter [8150/20000]	lr: 1.286e-05, eta: 1:27:12, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8809, decode.loss_dice: 0.4697, decode.acc_seg: 95.3309, loss: 2.3506
+2024-06-21 17:02:42,001 - mmseg - INFO - Iter [8200/20000]	lr: 1.282e-05, eta: 1:26:49, time: 0.428, data_time: 0.007, memory: 8308, decode.loss_mask: 2.0354, decode.loss_dice: 0.4718, decode.acc_seg: 94.4154, loss: 2.5072
+2024-06-21 17:03:03,217 - mmseg - INFO - Iter [8250/20000]	lr: 1.277e-05, eta: 1:26:26, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0500, decode.loss_dice: 0.4810, decode.acc_seg: 94.2010, loss: 2.5310
+2024-06-21 17:03:26,729 - mmseg - INFO - Iter [8300/20000]	lr: 1.273e-05, eta: 1:26:06, time: 0.470, data_time: 0.052, memory: 8308, decode.loss_mask: 1.9615, decode.loss_dice: 0.4809, decode.acc_seg: 95.3777, loss: 2.4424
+2024-06-21 17:03:48,088 - mmseg - INFO - Iter [8350/20000]	lr: 1.268e-05, eta: 1:25:43, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9453, decode.loss_dice: 0.4822, decode.acc_seg: 94.5397, loss: 2.4275
+2024-06-21 17:04:09,306 - mmseg - INFO - Iter [8400/20000]	lr: 1.264e-05, eta: 1:25:19, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0650, decode.loss_dice: 0.4811, decode.acc_seg: 93.8461, loss: 2.5461
+2024-06-21 17:04:30,634 - mmseg - INFO - Iter [8450/20000]	lr: 1.259e-05, eta: 1:24:56, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0764, decode.loss_dice: 0.4812, decode.acc_seg: 94.1281, loss: 2.5576
+2024-06-21 17:04:51,919 - mmseg - INFO - Iter [8500/20000]	lr: 1.255e-05, eta: 1:24:33, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.2352, decode.loss_dice: 0.4665, decode.acc_seg: 94.2047, loss: 2.7018
+2024-06-21 17:05:13,147 - mmseg - INFO - Iter [8550/20000]	lr: 1.250e-05, eta: 1:24:10, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0267, decode.loss_dice: 0.4864, decode.acc_seg: 94.6925, loss: 2.5130
+2024-06-21 17:05:34,143 - mmseg - INFO - Iter [8600/20000]	lr: 1.246e-05, eta: 1:23:47, time: 0.420, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9306, decode.loss_dice: 0.4885, decode.acc_seg: 95.2407, loss: 2.4191
+2024-06-21 17:05:55,336 - mmseg - INFO - Iter [8650/20000]	lr: 1.241e-05, eta: 1:23:23, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0565, decode.loss_dice: 0.4853, decode.acc_seg: 94.6715, loss: 2.5418
+2024-06-21 17:06:16,479 - mmseg - INFO - Iter [8700/20000]	lr: 1.237e-05, eta: 1:23:00, time: 0.423, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8649, decode.loss_dice: 0.4768, decode.acc_seg: 95.1571, loss: 2.3418
+2024-06-21 17:06:37,598 - mmseg - INFO - Iter [8750/20000]	lr: 1.232e-05, eta: 1:22:37, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 2.2883, decode.loss_dice: 0.4890, decode.acc_seg: 93.1054, loss: 2.7773
+2024-06-21 17:06:58,864 - mmseg - INFO - Iter [8800/20000]	lr: 1.228e-05, eta: 1:22:14, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8750, decode.loss_dice: 0.4600, decode.acc_seg: 95.2387, loss: 2.3349
+2024-06-21 17:07:20,009 - mmseg - INFO - Iter [8850/20000]	lr: 1.223e-05, eta: 1:21:51, time: 0.423, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1121, decode.loss_dice: 0.4922, decode.acc_seg: 93.9712, loss: 2.6043
+2024-06-21 17:07:41,413 - mmseg - INFO - Iter [8900/20000]	lr: 1.219e-05, eta: 1:21:28, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9050, decode.loss_dice: 0.4885, decode.acc_seg: 93.9054, loss: 2.3936
+2024-06-21 17:08:02,591 - mmseg - INFO - Iter [8950/20000]	lr: 1.214e-05, eta: 1:21:05, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0309, decode.loss_dice: 0.4873, decode.acc_seg: 95.3741, loss: 2.5182
+2024-06-21 17:08:24,146 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 17:08:24,147 - mmseg - INFO - Iter [9000/20000]	lr: 1.209e-05, eta: 1:20:42, time: 0.431, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0743, decode.loss_dice: 0.4625, decode.acc_seg: 95.4418, loss: 2.5369
+2024-06-21 17:08:47,753 - mmseg - INFO - Iter [9050/20000]	lr: 1.205e-05, eta: 1:20:22, time: 0.472, data_time: 0.052, memory: 8308, decode.loss_mask: 1.9871, decode.loss_dice: 0.4537, decode.acc_seg: 95.7074, loss: 2.4408
+2024-06-21 17:09:09,326 - mmseg - INFO - Iter [9100/20000]	lr: 1.200e-05, eta: 1:20:00, time: 0.431, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0178, decode.loss_dice: 0.4663, decode.acc_seg: 95.3003, loss: 2.4840
+2024-06-21 17:09:30,747 - mmseg - INFO - Iter [9150/20000]	lr: 1.196e-05, eta: 1:19:37, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0218, decode.loss_dice: 0.4784, decode.acc_seg: 94.3158, loss: 2.5002
+2024-06-21 17:09:52,089 - mmseg - INFO - Iter [9200/20000]	lr: 1.191e-05, eta: 1:19:14, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8756, decode.loss_dice: 0.4645, decode.acc_seg: 95.3674, loss: 2.3401
+2024-06-21 17:10:13,293 - mmseg - INFO - Iter [9250/20000]	lr: 1.187e-05, eta: 1:18:51, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 2.2014, decode.loss_dice: 0.4623, decode.acc_seg: 93.5262, loss: 2.6637
+2024-06-21 17:10:34,845 - mmseg - INFO - Iter [9300/20000]	lr: 1.182e-05, eta: 1:18:29, time: 0.431, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8584, decode.loss_dice: 0.4790, decode.acc_seg: 95.2186, loss: 2.3374
+2024-06-21 17:10:56,469 - mmseg - INFO - Iter [9350/20000]	lr: 1.178e-05, eta: 1:18:06, time: 0.432, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0151, decode.loss_dice: 0.4749, decode.acc_seg: 94.7425, loss: 2.4900
+2024-06-21 17:11:18,198 - mmseg - INFO - Iter [9400/20000]	lr: 1.173e-05, eta: 1:17:44, time: 0.435, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0151, decode.loss_dice: 0.4939, decode.acc_seg: 94.8831, loss: 2.5091
+2024-06-21 17:11:39,402 - mmseg - INFO - Iter [9450/20000]	lr: 1.169e-05, eta: 1:17:21, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0699, decode.loss_dice: 0.4732, decode.acc_seg: 94.0933, loss: 2.5431
+2024-06-21 17:12:00,584 - mmseg - INFO - Iter [9500/20000]	lr: 1.164e-05, eta: 1:16:58, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0646, decode.loss_dice: 0.4826, decode.acc_seg: 94.4448, loss: 2.5472
+2024-06-21 17:12:21,773 - mmseg - INFO - Iter [9550/20000]	lr: 1.159e-05, eta: 1:16:35, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0973, decode.loss_dice: 0.4840, decode.acc_seg: 94.1373, loss: 2.5813
+2024-06-21 17:12:43,484 - mmseg - INFO - Iter [9600/20000]	lr: 1.155e-05, eta: 1:16:13, time: 0.434, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0450, decode.loss_dice: 0.4804, decode.acc_seg: 94.6612, loss: 2.5253
+2024-06-21 17:13:04,973 - mmseg - INFO - Iter [9650/20000]	lr: 1.150e-05, eta: 1:15:50, time: 0.430, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9579, decode.loss_dice: 0.4743, decode.acc_seg: 94.5271, loss: 2.4323
+2024-06-21 17:13:26,506 - mmseg - INFO - Iter [9700/20000]	lr: 1.146e-05, eta: 1:15:28, time: 0.431, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9756, decode.loss_dice: 0.4708, decode.acc_seg: 94.3220, loss: 2.4465
+2024-06-21 17:13:47,865 - mmseg - INFO - Iter [9750/20000]	lr: 1.141e-05, eta: 1:15:05, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8680, decode.loss_dice: 0.4619, decode.acc_seg: 94.4954, loss: 2.3299
+2024-06-21 17:14:11,382 - mmseg - INFO - Iter [9800/20000]	lr: 1.137e-05, eta: 1:14:45, time: 0.470, data_time: 0.051, memory: 8308, decode.loss_mask: 1.8243, decode.loss_dice: 0.4590, decode.acc_seg: 95.7565, loss: 2.2833
+2024-06-21 17:14:32,496 - mmseg - INFO - Iter [9850/20000]	lr: 1.132e-05, eta: 1:14:22, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8803, decode.loss_dice: 0.4611, decode.acc_seg: 95.3994, loss: 2.3414
+2024-06-21 17:14:53,891 - mmseg - INFO - Iter [9900/20000]	lr: 1.127e-05, eta: 1:13:59, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9901, decode.loss_dice: 0.4692, decode.acc_seg: 94.1770, loss: 2.4593
+2024-06-21 17:15:15,314 - mmseg - INFO - Iter [9950/20000]	lr: 1.123e-05, eta: 1:13:37, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 1.7126, decode.loss_dice: 0.4680, decode.acc_seg: 96.4901, loss: 2.1806
+2024-06-21 17:15:36,507 - mmseg - INFO - Saving checkpoint at 10000 iterations
+2024-06-21 17:15:37,504 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 17:15:37,504 - mmseg - INFO - Iter [10000/20000]	lr: 1.118e-05, eta: 1:13:15, time: 0.444, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0087, decode.loss_dice: 0.4670, decode.acc_seg: 95.4705, loss: 2.4757
+2024-06-21 17:15:58,761 - mmseg - INFO - Iter [10050/20000]	lr: 1.114e-05, eta: 1:12:52, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9349, decode.loss_dice: 0.4759, decode.acc_seg: 94.6533, loss: 2.4108
+2024-06-21 17:16:19,759 - mmseg - INFO - Iter [10100/20000]	lr: 1.109e-05, eta: 1:12:30, time: 0.420, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9015, decode.loss_dice: 0.4826, decode.acc_seg: 94.6764, loss: 2.3841
+2024-06-21 17:16:40,782 - mmseg - INFO - Iter [10150/20000]	lr: 1.105e-05, eta: 1:12:07, time: 0.420, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1635, decode.loss_dice: 0.4955, decode.acc_seg: 92.3542, loss: 2.6590
+2024-06-21 17:17:01,981 - mmseg - INFO - Iter [10200/20000]	lr: 1.100e-05, eta: 1:11:44, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9206, decode.loss_dice: 0.4705, decode.acc_seg: 94.6384, loss: 2.3911
+2024-06-21 17:17:22,997 - mmseg - INFO - Iter [10250/20000]	lr: 1.095e-05, eta: 1:11:21, time: 0.420, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8691, decode.loss_dice: 0.4568, decode.acc_seg: 95.1261, loss: 2.3259
+2024-06-21 17:17:44,116 - mmseg - INFO - Iter [10300/20000]	lr: 1.091e-05, eta: 1:10:58, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8686, decode.loss_dice: 0.4710, decode.acc_seg: 94.6268, loss: 2.3396
+2024-06-21 17:18:05,635 - mmseg - INFO - Iter [10350/20000]	lr: 1.086e-05, eta: 1:10:36, time: 0.430, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9659, decode.loss_dice: 0.4636, decode.acc_seg: 95.2437, loss: 2.4295
+2024-06-21 17:18:26,976 - mmseg - INFO - Iter [10400/20000]	lr: 1.082e-05, eta: 1:10:13, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0744, decode.loss_dice: 0.4509, decode.acc_seg: 94.9192, loss: 2.5252
+2024-06-21 17:18:47,957 - mmseg - INFO - Iter [10450/20000]	lr: 1.077e-05, eta: 1:09:51, time: 0.420, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9826, decode.loss_dice: 0.4949, decode.acc_seg: 94.4877, loss: 2.4775
+2024-06-21 17:19:09,130 - mmseg - INFO - Iter [10500/20000]	lr: 1.072e-05, eta: 1:09:28, time: 0.423, data_time: 0.008, memory: 8308, decode.loss_mask: 1.7196, decode.loss_dice: 0.4661, decode.acc_seg: 95.4275, loss: 2.1857
+2024-06-21 17:19:32,540 - mmseg - INFO - Iter [10550/20000]	lr: 1.068e-05, eta: 1:09:07, time: 0.468, data_time: 0.051, memory: 8308, decode.loss_mask: 1.9250, decode.loss_dice: 0.4647, decode.acc_seg: 95.3671, loss: 2.3897
+2024-06-21 17:19:53,606 - mmseg - INFO - Iter [10600/20000]	lr: 1.063e-05, eta: 1:08:45, time: 0.421, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8663, decode.loss_dice: 0.4591, decode.acc_seg: 95.8255, loss: 2.3254
+2024-06-21 17:20:14,847 - mmseg - INFO - Iter [10650/20000]	lr: 1.059e-05, eta: 1:08:22, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9580, decode.loss_dice: 0.4662, decode.acc_seg: 95.1477, loss: 2.4242
+2024-06-21 17:20:36,102 - mmseg - INFO - Iter [10700/20000]	lr: 1.054e-05, eta: 1:08:00, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 1.7378, decode.loss_dice: 0.4653, decode.acc_seg: 96.0925, loss: 2.2032
+2024-06-21 17:20:57,056 - mmseg - INFO - Iter [10750/20000]	lr: 1.049e-05, eta: 1:07:37, time: 0.419, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9627, decode.loss_dice: 0.4529, decode.acc_seg: 94.0597, loss: 2.4156
+2024-06-21 17:21:18,180 - mmseg - INFO - Iter [10800/20000]	lr: 1.045e-05, eta: 1:07:14, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9156, decode.loss_dice: 0.4761, decode.acc_seg: 95.0038, loss: 2.3917
+2024-06-21 17:21:39,436 - mmseg - INFO - Iter [10850/20000]	lr: 1.040e-05, eta: 1:06:52, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0464, decode.loss_dice: 0.4709, decode.acc_seg: 95.0857, loss: 2.5173
+2024-06-21 17:22:00,853 - mmseg - INFO - Iter [10900/20000]	lr: 1.035e-05, eta: 1:06:29, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 1.7349, decode.loss_dice: 0.4709, decode.acc_seg: 95.4925, loss: 2.2059
+2024-06-21 17:22:22,090 - mmseg - INFO - Iter [10950/20000]	lr: 1.031e-05, eta: 1:06:07, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0199, decode.loss_dice: 0.4634, decode.acc_seg: 94.5083, loss: 2.4832
+2024-06-21 17:22:43,351 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 17:22:43,351 - mmseg - INFO - Iter [11000/20000]	lr: 1.026e-05, eta: 1:05:44, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8859, decode.loss_dice: 0.4441, decode.acc_seg: 94.7262, loss: 2.3300
+2024-06-21 17:23:04,474 - mmseg - INFO - Iter [11050/20000]	lr: 1.022e-05, eta: 1:05:22, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9919, decode.loss_dice: 0.4530, decode.acc_seg: 95.1290, loss: 2.4449
+2024-06-21 17:23:25,741 - mmseg - INFO - Iter [11100/20000]	lr: 1.017e-05, eta: 1:04:59, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9237, decode.loss_dice: 0.4793, decode.acc_seg: 94.3204, loss: 2.4029
+2024-06-21 17:23:46,927 - mmseg - INFO - Iter [11150/20000]	lr: 1.012e-05, eta: 1:04:37, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8185, decode.loss_dice: 0.4569, decode.acc_seg: 94.9567, loss: 2.2754
+2024-06-21 17:24:08,146 - mmseg - INFO - Iter [11200/20000]	lr: 1.008e-05, eta: 1:04:14, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 1.7503, decode.loss_dice: 0.4761, decode.acc_seg: 95.6762, loss: 2.2264
+2024-06-21 17:24:29,755 - mmseg - INFO - Iter [11250/20000]	lr: 1.003e-05, eta: 1:03:52, time: 0.432, data_time: 0.009, memory: 8308, decode.loss_mask: 1.8478, decode.loss_dice: 0.4555, decode.acc_seg: 95.1332, loss: 2.3033
+2024-06-21 17:24:53,399 - mmseg - INFO - Iter [11300/20000]	lr: 9.983e-06, eta: 1:03:32, time: 0.473, data_time: 0.052, memory: 8308, decode.loss_mask: 1.9473, decode.loss_dice: 0.4701, decode.acc_seg: 93.0274, loss: 2.4174
+2024-06-21 17:25:14,790 - mmseg - INFO - Iter [11350/20000]	lr: 9.937e-06, eta: 1:03:09, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9011, decode.loss_dice: 0.4538, decode.acc_seg: 95.3257, loss: 2.3549
+2024-06-21 17:25:36,011 - mmseg - INFO - Iter [11400/20000]	lr: 9.890e-06, eta: 1:02:47, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8483, decode.loss_dice: 0.4874, decode.acc_seg: 94.4835, loss: 2.3357
+2024-06-21 17:25:57,103 - mmseg - INFO - Iter [11450/20000]	lr: 9.844e-06, eta: 1:02:25, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 1.7100, decode.loss_dice: 0.4474, decode.acc_seg: 95.5335, loss: 2.1573
+2024-06-21 17:26:18,323 - mmseg - INFO - Iter [11500/20000]	lr: 9.797e-06, eta: 1:02:02, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8555, decode.loss_dice: 0.4591, decode.acc_seg: 94.6019, loss: 2.3146
+2024-06-21 17:26:39,543 - mmseg - INFO - Iter [11550/20000]	lr: 9.751e-06, eta: 1:01:40, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9011, decode.loss_dice: 0.4593, decode.acc_seg: 94.2291, loss: 2.3604
+2024-06-21 17:27:00,716 - mmseg - INFO - Iter [11600/20000]	lr: 9.704e-06, eta: 1:01:17, time: 0.423, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8317, decode.loss_dice: 0.4749, decode.acc_seg: 94.5722, loss: 2.3066
+2024-06-21 17:27:21,650 - mmseg - INFO - Iter [11650/20000]	lr: 9.657e-06, eta: 1:00:55, time: 0.419, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8191, decode.loss_dice: 0.4541, decode.acc_seg: 94.1640, loss: 2.2732
+2024-06-21 17:27:42,798 - mmseg - INFO - Iter [11700/20000]	lr: 9.611e-06, eta: 1:00:32, time: 0.423, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9326, decode.loss_dice: 0.4547, decode.acc_seg: 95.5531, loss: 2.3873
+2024-06-21 17:28:03,904 - mmseg - INFO - Iter [11750/20000]	lr: 9.564e-06, eta: 1:00:10, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9166, decode.loss_dice: 0.4640, decode.acc_seg: 95.6396, loss: 2.3806
+2024-06-21 17:28:25,374 - mmseg - INFO - Iter [11800/20000]	lr: 9.517e-06, eta: 0:59:48, time: 0.429, data_time: 0.008, memory: 8308, decode.loss_mask: 1.6977, decode.loss_dice: 0.4532, decode.acc_seg: 96.3319, loss: 2.1509
+2024-06-21 17:28:46,573 - mmseg - INFO - Iter [11850/20000]	lr: 9.471e-06, eta: 0:59:25, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9096, decode.loss_dice: 0.4527, decode.acc_seg: 95.6446, loss: 2.3623
+2024-06-21 17:29:07,664 - mmseg - INFO - Iter [11900/20000]	lr: 9.424e-06, eta: 0:59:03, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8930, decode.loss_dice: 0.4584, decode.acc_seg: 95.9715, loss: 2.3514
+2024-06-21 17:29:29,077 - mmseg - INFO - Iter [11950/20000]	lr: 9.377e-06, eta: 0:58:41, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0677, decode.loss_dice: 0.4787, decode.acc_seg: 95.9035, loss: 2.5465
+2024-06-21 17:29:49,924 - mmseg - INFO - Saving checkpoint at 12000 iterations
+2024-06-21 17:29:50,939 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 17:29:50,940 - mmseg - INFO - Iter [12000/20000]	lr: 9.330e-06, eta: 0:58:19, time: 0.437, data_time: 0.008, memory: 8308, decode.loss_mask: 1.7602, decode.loss_dice: 0.4555, decode.acc_seg: 95.2704, loss: 2.2157
+2024-06-21 17:30:14,319 - mmseg - INFO - Iter [12050/20000]	lr: 9.283e-06, eta: 0:57:58, time: 0.468, data_time: 0.052, memory: 8308, decode.loss_mask: 1.8343, decode.loss_dice: 0.4602, decode.acc_seg: 94.9428, loss: 2.2946
+2024-06-21 17:30:35,909 - mmseg - INFO - Iter [12100/20000]	lr: 9.236e-06, eta: 0:57:36, time: 0.432, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8329, decode.loss_dice: 0.4660, decode.acc_seg: 94.8016, loss: 2.2989
+2024-06-21 17:30:57,202 - mmseg - INFO - Iter [12150/20000]	lr: 9.190e-06, eta: 0:57:14, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 2.1213, decode.loss_dice: 0.4691, decode.acc_seg: 94.3997, loss: 2.5905
+2024-06-21 17:31:18,615 - mmseg - INFO - Iter [12200/20000]	lr: 9.143e-06, eta: 0:56:52, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 1.7211, decode.loss_dice: 0.4585, decode.acc_seg: 95.5041, loss: 2.1796
+2024-06-21 17:31:39,563 - mmseg - INFO - Iter [12250/20000]	lr: 9.096e-06, eta: 0:56:29, time: 0.419, data_time: 0.007, memory: 8308, decode.loss_mask: 1.8296, decode.loss_dice: 0.4541, decode.acc_seg: 93.8945, loss: 2.2837
+2024-06-21 17:32:00,747 - mmseg - INFO - Iter [12300/20000]	lr: 9.049e-06, eta: 0:56:07, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 1.6674, decode.loss_dice: 0.4364, decode.acc_seg: 96.6449, loss: 2.1037
+2024-06-21 17:32:21,957 - mmseg - INFO - Iter [12350/20000]	lr: 9.002e-06, eta: 0:55:45, time: 0.424, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8746, decode.loss_dice: 0.4446, decode.acc_seg: 94.8545, loss: 2.3192
+2024-06-21 17:32:43,190 - mmseg - INFO - Iter [12400/20000]	lr: 8.954e-06, eta: 0:55:22, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 1.6778, decode.loss_dice: 0.4629, decode.acc_seg: 95.6935, loss: 2.1407
+2024-06-21 17:33:04,481 - mmseg - INFO - Iter [12450/20000]	lr: 8.907e-06, eta: 0:55:00, time: 0.426, data_time: 0.009, memory: 8308, decode.loss_mask: 1.7480, decode.loss_dice: 0.4625, decode.acc_seg: 95.8029, loss: 2.2104
+2024-06-21 17:33:25,853 - mmseg - INFO - Iter [12500/20000]	lr: 8.860e-06, eta: 0:54:38, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8477, decode.loss_dice: 0.4612, decode.acc_seg: 94.8467, loss: 2.3089
+2024-06-21 17:33:46,965 - mmseg - INFO - Iter [12550/20000]	lr: 8.813e-06, eta: 0:54:16, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8514, decode.loss_dice: 0.4811, decode.acc_seg: 94.7558, loss: 2.3324
+2024-06-21 17:34:08,335 - mmseg - INFO - Iter [12600/20000]	lr: 8.766e-06, eta: 0:53:53, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 1.7864, decode.loss_dice: 0.4351, decode.acc_seg: 96.1625, loss: 2.2215
+2024-06-21 17:34:29,639 - mmseg - INFO - Iter [12650/20000]	lr: 8.719e-06, eta: 0:53:31, time: 0.426, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8436, decode.loss_dice: 0.4460, decode.acc_seg: 96.0044, loss: 2.2896
+2024-06-21 17:34:50,896 - mmseg - INFO - Iter [12700/20000]	lr: 8.671e-06, eta: 0:53:09, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9790, decode.loss_dice: 0.4702, decode.acc_seg: 95.1306, loss: 2.4493
+2024-06-21 17:35:11,940 - mmseg - INFO - Iter [12750/20000]	lr: 8.624e-06, eta: 0:52:47, time: 0.421, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8246, decode.loss_dice: 0.4681, decode.acc_seg: 95.8125, loss: 2.2927
+2024-06-21 17:35:33,062 - mmseg - INFO - Iter [12800/20000]	lr: 8.577e-06, eta: 0:52:25, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9625, decode.loss_dice: 0.4565, decode.acc_seg: 94.8449, loss: 2.4191
+2024-06-21 17:35:56,272 - mmseg - INFO - Iter [12850/20000]	lr: 8.529e-06, eta: 0:52:03, time: 0.464, data_time: 0.051, memory: 8308, decode.loss_mask: 1.9534, decode.loss_dice: 0.4673, decode.acc_seg: 94.2126, loss: 2.4207
+2024-06-21 17:36:17,233 - mmseg - INFO - Iter [12900/20000]	lr: 8.482e-06, eta: 0:51:41, time: 0.419, data_time: 0.008, memory: 8308, decode.loss_mask: 1.7808, decode.loss_dice: 0.4584, decode.acc_seg: 95.2189, loss: 2.2392
+2024-06-21 17:36:38,336 - mmseg - INFO - Iter [12950/20000]	lr: 8.435e-06, eta: 0:51:19, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 1.9062, decode.loss_dice: 0.4490, decode.acc_seg: 93.9747, loss: 2.3552
+2024-06-21 17:36:59,120 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 17:36:59,120 - mmseg - INFO - Iter [13000/20000]	lr: 8.387e-06, eta: 0:50:56, time: 0.416, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8442, decode.loss_dice: 0.4590, decode.acc_seg: 95.9573, loss: 2.3033
+2024-06-21 17:37:20,387 - mmseg - INFO - Iter [13050/20000]	lr: 8.340e-06, eta: 0:50:34, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 1.7697, decode.loss_dice: 0.4508, decode.acc_seg: 95.4658, loss: 2.2205
+2024-06-21 17:37:41,477 - mmseg - INFO - Iter [13100/20000]	lr: 8.292e-06, eta: 0:50:12, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0456, decode.loss_dice: 0.4466, decode.acc_seg: 95.7060, loss: 2.4922
+2024-06-21 17:38:02,577 - mmseg - INFO - Iter [13150/20000]	lr: 8.244e-06, eta: 0:49:50, time: 0.422, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8185, decode.loss_dice: 0.4520, decode.acc_seg: 95.9960, loss: 2.2706
+2024-06-21 17:38:24,035 - mmseg - INFO - Iter [13200/20000]	lr: 8.197e-06, eta: 0:49:28, time: 0.429, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8195, decode.loss_dice: 0.4633, decode.acc_seg: 95.1671, loss: 2.2828
+2024-06-21 17:38:45,204 - mmseg - INFO - Iter [13250/20000]	lr: 8.149e-06, eta: 0:49:06, time: 0.423, data_time: 0.007, memory: 8308, decode.loss_mask: 1.7425, decode.loss_dice: 0.4422, decode.acc_seg: 95.6534, loss: 2.1847
+2024-06-21 17:39:06,457 - mmseg - INFO - Iter [13300/20000]	lr: 8.102e-06, eta: 0:48:44, time: 0.425, data_time: 0.007, memory: 8308, decode.loss_mask: 1.8480, decode.loss_dice: 0.4610, decode.acc_seg: 95.3820, loss: 2.3090
+2024-06-21 17:39:27,840 - mmseg - INFO - Iter [13350/20000]	lr: 8.054e-06, eta: 0:48:22, time: 0.428, data_time: 0.007, memory: 8308, decode.loss_mask: 1.7868, decode.loss_dice: 0.4511, decode.acc_seg: 95.2926, loss: 2.2379
+2024-06-21 17:39:48,970 - mmseg - INFO - Iter [13400/20000]	lr: 8.006e-06, eta: 0:47:59, time: 0.423, data_time: 0.007, memory: 8308, decode.loss_mask: 1.7119, decode.loss_dice: 0.4544, decode.acc_seg: 96.1764, loss: 2.1663
+2024-06-21 17:40:09,952 - mmseg - INFO - Iter [13450/20000]	lr: 7.958e-06, eta: 0:47:37, time: 0.420, data_time: 0.008, memory: 8308, decode.loss_mask: 2.0416, decode.loss_dice: 0.4523, decode.acc_seg: 95.2557, loss: 2.4938
+2024-06-21 17:40:31,216 - mmseg - INFO - Iter [13500/20000]	lr: 7.910e-06, eta: 0:47:15, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8811, decode.loss_dice: 0.4688, decode.acc_seg: 94.4338, loss: 2.3499
+2024-06-21 17:40:52,591 - mmseg - INFO - Iter [13550/20000]	lr: 7.863e-06, eta: 0:46:53, time: 0.427, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8234, decode.loss_dice: 0.4465, decode.acc_seg: 95.1523, loss: 2.2699
+2024-06-21 17:41:16,005 - mmseg - INFO - Iter [13600/20000]	lr: 7.815e-06, eta: 0:46:32, time: 0.468, data_time: 0.051, memory: 8308, decode.loss_mask: 1.6946, decode.loss_dice: 0.4443, decode.acc_seg: 96.1940, loss: 2.1389
+2024-06-21 17:41:37,256 - mmseg - INFO - Iter [13650/20000]	lr: 7.767e-06, eta: 0:46:10, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 1.8884, decode.loss_dice: 0.4411, decode.acc_seg: 95.4589, loss: 2.3295
+2024-06-21 17:41:58,675 - mmseg - INFO - Iter [13700/20000]	lr: 7.719e-06, eta: 0:45:48, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 1.6567, decode.loss_dice: 0.4474, decode.acc_seg: 95.7255, loss: 2.1040
+2024-06-21 17:42:20,096 - mmseg - INFO - Iter [13750/20000]	lr: 7.671e-06, eta: 0:45:26, time: 0.428, data_time: 0.008, memory: 8308, decode.loss_mask: 1.7603, decode.loss_dice: 0.4447, decode.acc_seg: 95.7883, loss: 2.2049
+2024-06-21 17:42:41,354 - mmseg - INFO - Iter [13800/20000]	lr: 7.623e-06, eta: 0:45:04, time: 0.425, data_time: 0.008, memory: 8308, decode.loss_mask: 1.7602, decode.loss_dice: 0.4476, decode.acc_seg: 94.9857, loss: 2.2078
+2024-06-21 17:43:03,101 - mmseg - INFO - Iter [13850/20000]	lr: 7.575e-06, eta: 0:44:42, time: 0.435, data_time: 0.008, memory: 8308, decode.loss_mask: 1.7834, decode.loss_dice: 0.4515, decode.acc_seg: 95.9984, loss: 2.2349
+2024-06-21 17:43:24,058 - mmseg - INFO - Iter [13900/20000]	lr: 7.527e-06, eta: 0:44:20, time: 0.419, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7815, decode.loss_dice: 0.4482, decode.acc_seg: 94.9747, loss: 2.2298
+2024-06-21 17:43:45,270 - mmseg - INFO - Iter [13950/20000]	lr: 7.478e-06, eta: 0:43:58, time: 0.424, data_time: 0.008, memory: 8309, decode.loss_mask: 1.9957, decode.loss_dice: 0.4705, decode.acc_seg: 95.1978, loss: 2.4662
+2024-06-21 17:44:06,684 - mmseg - INFO - Saving checkpoint at 14000 iterations
+2024-06-21 17:44:07,644 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 17:44:07,644 - mmseg - INFO - Iter [14000/20000]	lr: 7.430e-06, eta: 0:43:36, time: 0.447, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7706, decode.loss_dice: 0.4582, decode.acc_seg: 95.6820, loss: 2.2288
+2024-06-21 17:44:28,568 - mmseg - INFO - Iter [14050/20000]	lr: 7.382e-06, eta: 0:43:14, time: 0.418, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6804, decode.loss_dice: 0.4537, decode.acc_seg: 96.1568, loss: 2.1341
+2024-06-21 17:44:49,904 - mmseg - INFO - Iter [14100/20000]	lr: 7.334e-06, eta: 0:42:52, time: 0.427, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6665, decode.loss_dice: 0.4440, decode.acc_seg: 95.8602, loss: 2.1105
+2024-06-21 17:45:11,067 - mmseg - INFO - Iter [14150/20000]	lr: 7.285e-06, eta: 0:42:30, time: 0.423, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7219, decode.loss_dice: 0.4398, decode.acc_seg: 96.1436, loss: 2.1617
+2024-06-21 17:45:32,398 - mmseg - INFO - Iter [14200/20000]	lr: 7.237e-06, eta: 0:42:08, time: 0.427, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8527, decode.loss_dice: 0.4472, decode.acc_seg: 95.2485, loss: 2.2999
+2024-06-21 17:45:53,813 - mmseg - INFO - Iter [14250/20000]	lr: 7.189e-06, eta: 0:41:46, time: 0.428, data_time: 0.009, memory: 8309, decode.loss_mask: 1.8405, decode.loss_dice: 0.4553, decode.acc_seg: 96.2660, loss: 2.2959
+2024-06-21 17:46:14,807 - mmseg - INFO - Iter [14300/20000]	lr: 7.140e-06, eta: 0:41:24, time: 0.420, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7565, decode.loss_dice: 0.4465, decode.acc_seg: 95.7695, loss: 2.2031
+2024-06-21 17:46:38,215 - mmseg - INFO - Iter [14350/20000]	lr: 7.092e-06, eta: 0:41:03, time: 0.468, data_time: 0.051, memory: 8309, decode.loss_mask: 1.8201, decode.loss_dice: 0.4570, decode.acc_seg: 95.0140, loss: 2.2772
+2024-06-21 17:46:59,400 - mmseg - INFO - Iter [14400/20000]	lr: 7.043e-06, eta: 0:40:41, time: 0.424, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8117, decode.loss_dice: 0.4496, decode.acc_seg: 95.0693, loss: 2.2613
+2024-06-21 17:47:20,424 - mmseg - INFO - Iter [14450/20000]	lr: 6.995e-06, eta: 0:40:19, time: 0.420, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8896, decode.loss_dice: 0.4472, decode.acc_seg: 94.8791, loss: 2.3368
+2024-06-21 17:47:41,604 - mmseg - INFO - Iter [14500/20000]	lr: 6.946e-06, eta: 0:39:57, time: 0.424, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8290, decode.loss_dice: 0.4422, decode.acc_seg: 94.9927, loss: 2.2712
+2024-06-21 17:48:02,912 - mmseg - INFO - Iter [14550/20000]	lr: 6.897e-06, eta: 0:39:35, time: 0.426, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7458, decode.loss_dice: 0.4413, decode.acc_seg: 95.3470, loss: 2.1872
+2024-06-21 17:48:23,956 - mmseg - INFO - Iter [14600/20000]	lr: 6.849e-06, eta: 0:39:13, time: 0.421, data_time: 0.008, memory: 8309, decode.loss_mask: 1.9096, decode.loss_dice: 0.4448, decode.acc_seg: 94.8502, loss: 2.3544
+2024-06-21 17:48:44,829 - mmseg - INFO - Iter [14650/20000]	lr: 6.800e-06, eta: 0:38:50, time: 0.417, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8299, decode.loss_dice: 0.4646, decode.acc_seg: 94.3569, loss: 2.2945
+2024-06-21 17:49:05,994 - mmseg - INFO - Iter [14700/20000]	lr: 6.751e-06, eta: 0:38:28, time: 0.423, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7728, decode.loss_dice: 0.4519, decode.acc_seg: 96.5001, loss: 2.2248
+2024-06-21 17:49:27,189 - mmseg - INFO - Iter [14750/20000]	lr: 6.702e-06, eta: 0:38:06, time: 0.424, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8345, decode.loss_dice: 0.4562, decode.acc_seg: 94.5233, loss: 2.2906
+2024-06-21 17:49:48,126 - mmseg - INFO - Iter [14800/20000]	lr: 6.653e-06, eta: 0:37:44, time: 0.419, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6994, decode.loss_dice: 0.4504, decode.acc_seg: 95.2351, loss: 2.1498
+2024-06-21 17:50:09,532 - mmseg - INFO - Iter [14850/20000]	lr: 6.604e-06, eta: 0:37:23, time: 0.428, data_time: 0.008, memory: 8309, decode.loss_mask: 2.0028, decode.loss_dice: 0.4572, decode.acc_seg: 94.8981, loss: 2.4600
+2024-06-21 17:50:30,559 - mmseg - INFO - Iter [14900/20000]	lr: 6.555e-06, eta: 0:37:00, time: 0.421, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7532, decode.loss_dice: 0.4503, decode.acc_seg: 96.5824, loss: 2.2035
+2024-06-21 17:50:51,390 - mmseg - INFO - Iter [14950/20000]	lr: 6.506e-06, eta: 0:36:38, time: 0.417, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7855, decode.loss_dice: 0.4455, decode.acc_seg: 95.8546, loss: 2.2310
+2024-06-21 17:51:12,623 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 17:51:12,623 - mmseg - INFO - Iter [15000/20000]	lr: 6.457e-06, eta: 0:36:16, time: 0.425, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7884, decode.loss_dice: 0.4324, decode.acc_seg: 96.4193, loss: 2.2208
+2024-06-21 17:51:33,992 - mmseg - INFO - Iter [15050/20000]	lr: 6.408e-06, eta: 0:35:55, time: 0.427, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8919, decode.loss_dice: 0.4612, decode.acc_seg: 94.6089, loss: 2.3531
+2024-06-21 17:51:57,590 - mmseg - INFO - Iter [15100/20000]	lr: 6.359e-06, eta: 0:35:33, time: 0.472, data_time: 0.050, memory: 8309, decode.loss_mask: 1.7014, decode.loss_dice: 0.4438, decode.acc_seg: 95.2893, loss: 2.1452
+2024-06-21 17:52:18,806 - mmseg - INFO - Iter [15150/20000]	lr: 6.310e-06, eta: 0:35:11, time: 0.424, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7404, decode.loss_dice: 0.4441, decode.acc_seg: 95.5874, loss: 2.1845
+2024-06-21 17:52:39,720 - mmseg - INFO - Iter [15200/20000]	lr: 6.260e-06, eta: 0:34:49, time: 0.418, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7142, decode.loss_dice: 0.4463, decode.acc_seg: 95.9497, loss: 2.1605
+2024-06-21 17:53:00,885 - mmseg - INFO - Iter [15250/20000]	lr: 6.211e-06, eta: 0:34:27, time: 0.423, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7658, decode.loss_dice: 0.4253, decode.acc_seg: 95.5373, loss: 2.1911
+2024-06-21 17:53:21,976 - mmseg - INFO - Iter [15300/20000]	lr: 6.162e-06, eta: 0:34:05, time: 0.422, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8311, decode.loss_dice: 0.4444, decode.acc_seg: 95.3582, loss: 2.2755
+2024-06-21 17:53:43,150 - mmseg - INFO - Iter [15350/20000]	lr: 6.112e-06, eta: 0:33:43, time: 0.423, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8388, decode.loss_dice: 0.4448, decode.acc_seg: 95.6577, loss: 2.2836
+2024-06-21 17:54:04,694 - mmseg - INFO - Iter [15400/20000]	lr: 6.063e-06, eta: 0:33:22, time: 0.431, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7260, decode.loss_dice: 0.4479, decode.acc_seg: 95.5090, loss: 2.1740
+2024-06-21 17:54:25,677 - mmseg - INFO - Iter [15450/20000]	lr: 6.013e-06, eta: 0:33:00, time: 0.420, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8549, decode.loss_dice: 0.4545, decode.acc_seg: 94.6934, loss: 2.3095
+2024-06-21 17:54:46,556 - mmseg - INFO - Iter [15500/20000]	lr: 5.964e-06, eta: 0:32:38, time: 0.418, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8179, decode.loss_dice: 0.4507, decode.acc_seg: 95.7151, loss: 2.2686
+2024-06-21 17:55:07,755 - mmseg - INFO - Iter [15550/20000]	lr: 5.914e-06, eta: 0:32:16, time: 0.424, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6167, decode.loss_dice: 0.4351, decode.acc_seg: 96.1125, loss: 2.0518
+2024-06-21 17:55:29,123 - mmseg - INFO - Iter [15600/20000]	lr: 5.864e-06, eta: 0:31:54, time: 0.427, data_time: 0.008, memory: 8309, decode.loss_mask: 1.9157, decode.loss_dice: 0.4514, decode.acc_seg: 94.9195, loss: 2.3671
+2024-06-21 17:55:50,435 - mmseg - INFO - Iter [15650/20000]	lr: 5.815e-06, eta: 0:31:32, time: 0.426, data_time: 0.009, memory: 8309, decode.loss_mask: 1.9224, decode.loss_dice: 0.4394, decode.acc_seg: 96.1824, loss: 2.3617
+2024-06-21 17:56:11,815 - mmseg - INFO - Iter [15700/20000]	lr: 5.765e-06, eta: 0:31:10, time: 0.428, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7345, decode.loss_dice: 0.4391, decode.acc_seg: 95.6431, loss: 2.1736
+2024-06-21 17:56:33,187 - mmseg - INFO - Iter [15750/20000]	lr: 5.715e-06, eta: 0:30:48, time: 0.427, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7151, decode.loss_dice: 0.4290, decode.acc_seg: 95.8751, loss: 2.1440
+2024-06-21 17:56:54,160 - mmseg - INFO - Iter [15800/20000]	lr: 5.665e-06, eta: 0:30:26, time: 0.419, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7233, decode.loss_dice: 0.4292, decode.acc_seg: 96.2099, loss: 2.1524
+2024-06-21 17:57:17,578 - mmseg - INFO - Iter [15850/20000]	lr: 5.615e-06, eta: 0:30:05, time: 0.468, data_time: 0.052, memory: 8309, decode.loss_mask: 1.7783, decode.loss_dice: 0.4293, decode.acc_seg: 95.7619, loss: 2.2077
+2024-06-21 17:57:38,792 - mmseg - INFO - Iter [15900/20000]	lr: 5.565e-06, eta: 0:29:43, time: 0.424, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8672, decode.loss_dice: 0.4518, decode.acc_seg: 94.9469, loss: 2.3190
+2024-06-21 17:57:59,969 - mmseg - INFO - Iter [15950/20000]	lr: 5.515e-06, eta: 0:29:21, time: 0.424, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8807, decode.loss_dice: 0.4583, decode.acc_seg: 95.6392, loss: 2.3390
+2024-06-21 17:58:21,037 - mmseg - INFO - Saving checkpoint at 16000 iterations
+2024-06-21 17:58:22,058 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 17:58:22,058 - mmseg - INFO - Iter [16000/20000]	lr: 5.465e-06, eta: 0:29:00, time: 0.442, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8931, decode.loss_dice: 0.4448, decode.acc_seg: 95.7611, loss: 2.3379
+2024-06-21 17:58:43,254 - mmseg - INFO - Iter [16050/20000]	lr: 5.414e-06, eta: 0:28:38, time: 0.424, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6973, decode.loss_dice: 0.4386, decode.acc_seg: 94.9543, loss: 2.1358
+2024-06-21 17:59:04,191 - mmseg - INFO - Iter [16100/20000]	lr: 5.364e-06, eta: 0:28:16, time: 0.419, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6257, decode.loss_dice: 0.4402, decode.acc_seg: 96.0794, loss: 2.0659
+2024-06-21 17:59:25,283 - mmseg - INFO - Iter [16150/20000]	lr: 5.314e-06, eta: 0:27:54, time: 0.422, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7241, decode.loss_dice: 0.4186, decode.acc_seg: 95.7664, loss: 2.1427
+2024-06-21 17:59:46,376 - mmseg - INFO - Iter [16200/20000]	lr: 5.263e-06, eta: 0:27:32, time: 0.422, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7668, decode.loss_dice: 0.4278, decode.acc_seg: 95.7075, loss: 2.1947
+2024-06-21 18:00:07,558 - mmseg - INFO - Iter [16250/20000]	lr: 5.213e-06, eta: 0:27:10, time: 0.424, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6711, decode.loss_dice: 0.4528, decode.acc_seg: 96.3569, loss: 2.1239
+2024-06-21 18:00:28,893 - mmseg - INFO - Iter [16300/20000]	lr: 5.162e-06, eta: 0:26:48, time: 0.427, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6893, decode.loss_dice: 0.4414, decode.acc_seg: 95.7065, loss: 2.1307
+2024-06-21 18:00:49,991 - mmseg - INFO - Iter [16350/20000]	lr: 5.111e-06, eta: 0:26:26, time: 0.422, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8277, decode.loss_dice: 0.4444, decode.acc_seg: 94.9840, loss: 2.2721
+2024-06-21 18:01:10,951 - mmseg - INFO - Iter [16400/20000]	lr: 5.061e-06, eta: 0:26:04, time: 0.419, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7322, decode.loss_dice: 0.4420, decode.acc_seg: 95.6448, loss: 2.1742
+2024-06-21 18:01:32,022 - mmseg - INFO - Iter [16450/20000]	lr: 5.010e-06, eta: 0:25:43, time: 0.421, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7182, decode.loss_dice: 0.4480, decode.acc_seg: 94.8845, loss: 2.1662
+2024-06-21 18:01:53,080 - mmseg - INFO - Iter [16500/20000]	lr: 4.959e-06, eta: 0:25:21, time: 0.421, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6375, decode.loss_dice: 0.4614, decode.acc_seg: 95.1661, loss: 2.0989
+2024-06-21 18:02:14,207 - mmseg - INFO - Iter [16550/20000]	lr: 4.908e-06, eta: 0:24:59, time: 0.423, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7161, decode.loss_dice: 0.4439, decode.acc_seg: 96.0761, loss: 2.1599
+2024-06-21 18:02:37,662 - mmseg - INFO - Iter [16600/20000]	lr: 4.857e-06, eta: 0:24:37, time: 0.469, data_time: 0.053, memory: 8309, decode.loss_mask: 1.7187, decode.loss_dice: 0.4489, decode.acc_seg: 96.1354, loss: 2.1677
+2024-06-21 18:02:58,935 - mmseg - INFO - Iter [16650/20000]	lr: 4.806e-06, eta: 0:24:16, time: 0.426, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7004, decode.loss_dice: 0.4400, decode.acc_seg: 95.6794, loss: 2.1403
+2024-06-21 18:03:19,972 - mmseg - INFO - Iter [16700/20000]	lr: 4.755e-06, eta: 0:23:54, time: 0.421, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7338, decode.loss_dice: 0.4382, decode.acc_seg: 95.4148, loss: 2.1721
+2024-06-21 18:03:40,918 - mmseg - INFO - Iter [16750/20000]	lr: 4.704e-06, eta: 0:23:32, time: 0.419, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6463, decode.loss_dice: 0.4363, decode.acc_seg: 96.1758, loss: 2.0826
+2024-06-21 18:04:02,098 - mmseg - INFO - Iter [16800/20000]	lr: 4.652e-06, eta: 0:23:10, time: 0.424, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7353, decode.loss_dice: 0.4421, decode.acc_seg: 95.3651, loss: 2.1774
+2024-06-21 18:04:23,159 - mmseg - INFO - Iter [16850/20000]	lr: 4.601e-06, eta: 0:22:48, time: 0.421, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7022, decode.loss_dice: 0.4274, decode.acc_seg: 96.1474, loss: 2.1296
+2024-06-21 18:04:44,396 - mmseg - INFO - Iter [16900/20000]	lr: 4.550e-06, eta: 0:22:26, time: 0.425, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7470, decode.loss_dice: 0.4571, decode.acc_seg: 96.1238, loss: 2.2041
+2024-06-21 18:05:05,931 - mmseg - INFO - Iter [16950/20000]	lr: 4.498e-06, eta: 0:22:05, time: 0.431, data_time: 0.008, memory: 8309, decode.loss_mask: 1.5947, decode.loss_dice: 0.4370, decode.acc_seg: 96.1381, loss: 2.0317
+2024-06-21 18:05:26,786 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 18:05:26,787 - mmseg - INFO - Iter [17000/20000]	lr: 4.446e-06, eta: 0:21:43, time: 0.417, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6379, decode.loss_dice: 0.4302, decode.acc_seg: 95.7769, loss: 2.0680
+2024-06-21 18:05:47,721 - mmseg - INFO - Iter [17050/20000]	lr: 4.395e-06, eta: 0:21:21, time: 0.419, data_time: 0.008, memory: 8309, decode.loss_mask: 1.5921, decode.loss_dice: 0.4424, decode.acc_seg: 97.1083, loss: 2.0345
+2024-06-21 18:06:09,001 - mmseg - INFO - Iter [17100/20000]	lr: 4.343e-06, eta: 0:20:59, time: 0.426, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6036, decode.loss_dice: 0.4202, decode.acc_seg: 96.7403, loss: 2.0237
+2024-06-21 18:06:30,273 - mmseg - INFO - Iter [17150/20000]	lr: 4.291e-06, eta: 0:20:37, time: 0.425, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7325, decode.loss_dice: 0.4562, decode.acc_seg: 95.3062, loss: 2.1887
+2024-06-21 18:06:51,834 - mmseg - INFO - Iter [17200/20000]	lr: 4.239e-06, eta: 0:20:16, time: 0.431, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8865, decode.loss_dice: 0.4426, decode.acc_seg: 94.7150, loss: 2.3292
+2024-06-21 18:07:12,887 - mmseg - INFO - Iter [17250/20000]	lr: 4.187e-06, eta: 0:19:54, time: 0.421, data_time: 0.008, memory: 8309, decode.loss_mask: 1.5721, decode.loss_dice: 0.4310, decode.acc_seg: 95.8873, loss: 2.0031
+2024-06-21 18:07:33,985 - mmseg - INFO - Iter [17300/20000]	lr: 4.135e-06, eta: 0:19:32, time: 0.422, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6684, decode.loss_dice: 0.4437, decode.acc_seg: 95.9397, loss: 2.1121
+2024-06-21 18:07:57,302 - mmseg - INFO - Iter [17350/20000]	lr: 4.082e-06, eta: 0:19:10, time: 0.466, data_time: 0.051, memory: 8309, decode.loss_mask: 1.7087, decode.loss_dice: 0.4412, decode.acc_seg: 95.0844, loss: 2.1498
+2024-06-21 18:08:18,523 - mmseg - INFO - Iter [17400/20000]	lr: 4.030e-06, eta: 0:18:49, time: 0.424, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6673, decode.loss_dice: 0.4338, decode.acc_seg: 95.9875, loss: 2.1011
+2024-06-21 18:08:39,722 - mmseg - INFO - Iter [17450/20000]	lr: 3.978e-06, eta: 0:18:27, time: 0.424, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6571, decode.loss_dice: 0.4435, decode.acc_seg: 96.3613, loss: 2.1005
+2024-06-21 18:09:01,115 - mmseg - INFO - Iter [17500/20000]	lr: 3.925e-06, eta: 0:18:05, time: 0.428, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7736, decode.loss_dice: 0.4332, decode.acc_seg: 96.3055, loss: 2.2068
+2024-06-21 18:09:22,547 - mmseg - INFO - Iter [17550/20000]	lr: 3.872e-06, eta: 0:17:43, time: 0.429, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6069, decode.loss_dice: 0.4455, decode.acc_seg: 95.9432, loss: 2.0525
+2024-06-21 18:09:43,822 - mmseg - INFO - Iter [17600/20000]	lr: 3.820e-06, eta: 0:17:22, time: 0.425, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6859, decode.loss_dice: 0.4410, decode.acc_seg: 96.2250, loss: 2.1269
+2024-06-21 18:10:04,843 - mmseg - INFO - Iter [17650/20000]	lr: 3.767e-06, eta: 0:17:00, time: 0.420, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6700, decode.loss_dice: 0.4336, decode.acc_seg: 95.8655, loss: 2.1036
+2024-06-21 18:10:26,117 - mmseg - INFO - Iter [17700/20000]	lr: 3.714e-06, eta: 0:16:38, time: 0.425, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6229, decode.loss_dice: 0.4344, decode.acc_seg: 96.1596, loss: 2.0573
+2024-06-21 18:10:47,387 - mmseg - INFO - Iter [17750/20000]	lr: 3.661e-06, eta: 0:16:16, time: 0.425, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7979, decode.loss_dice: 0.4457, decode.acc_seg: 95.5790, loss: 2.2436
+2024-06-21 18:11:08,510 - mmseg - INFO - Iter [17800/20000]	lr: 3.607e-06, eta: 0:15:54, time: 0.423, data_time: 0.008, memory: 8309, decode.loss_mask: 1.5390, decode.loss_dice: 0.4449, decode.acc_seg: 96.2582, loss: 1.9839
+2024-06-21 18:11:29,687 - mmseg - INFO - Iter [17850/20000]	lr: 3.554e-06, eta: 0:15:33, time: 0.424, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6649, decode.loss_dice: 0.4263, decode.acc_seg: 95.9607, loss: 2.0912
+2024-06-21 18:11:50,707 - mmseg - INFO - Iter [17900/20000]	lr: 3.500e-06, eta: 0:15:11, time: 0.420, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6905, decode.loss_dice: 0.4380, decode.acc_seg: 95.9886, loss: 2.1285
+2024-06-21 18:12:11,728 - mmseg - INFO - Iter [17950/20000]	lr: 3.447e-06, eta: 0:14:49, time: 0.420, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7924, decode.loss_dice: 0.4295, decode.acc_seg: 95.2770, loss: 2.2219
+2024-06-21 18:12:32,722 - mmseg - INFO - Saving checkpoint at 18000 iterations
+2024-06-21 18:12:33,750 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 18:12:33,750 - mmseg - INFO - Iter [18000/20000]	lr: 3.393e-06, eta: 0:14:27, time: 0.440, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7455, decode.loss_dice: 0.4367, decode.acc_seg: 95.0272, loss: 2.1822
+2024-06-21 18:12:54,862 - mmseg - INFO - Iter [18050/20000]	lr: 3.339e-06, eta: 0:14:06, time: 0.422, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6882, decode.loss_dice: 0.4236, decode.acc_seg: 96.6178, loss: 2.1118
+2024-06-21 18:13:18,163 - mmseg - INFO - Iter [18100/20000]	lr: 3.285e-06, eta: 0:13:44, time: 0.466, data_time: 0.051, memory: 8309, decode.loss_mask: 1.6900, decode.loss_dice: 0.4311, decode.acc_seg: 96.2552, loss: 2.1212
+2024-06-21 18:13:39,200 - mmseg - INFO - Iter [18150/20000]	lr: 3.231e-06, eta: 0:13:22, time: 0.421, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7477, decode.loss_dice: 0.4442, decode.acc_seg: 96.1999, loss: 2.1918
+2024-06-21 18:13:59,947 - mmseg - INFO - Iter [18200/20000]	lr: 3.177e-06, eta: 0:13:01, time: 0.415, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6474, decode.loss_dice: 0.4398, decode.acc_seg: 95.8876, loss: 2.0872
+2024-06-21 18:14:20,990 - mmseg - INFO - Iter [18250/20000]	lr: 3.122e-06, eta: 0:12:39, time: 0.421, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7074, decode.loss_dice: 0.4160, decode.acc_seg: 96.2374, loss: 2.1233
+2024-06-21 18:14:41,944 - mmseg - INFO - Iter [18300/20000]	lr: 3.068e-06, eta: 0:12:17, time: 0.419, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7229, decode.loss_dice: 0.4178, decode.acc_seg: 96.8582, loss: 2.1407
+2024-06-21 18:15:03,314 - mmseg - INFO - Iter [18350/20000]	lr: 3.013e-06, eta: 0:11:55, time: 0.427, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6024, decode.loss_dice: 0.4322, decode.acc_seg: 95.2498, loss: 2.0345
+2024-06-21 18:15:24,718 - mmseg - INFO - Iter [18400/20000]	lr: 2.958e-06, eta: 0:11:34, time: 0.428, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6827, decode.loss_dice: 0.4219, decode.acc_seg: 95.0341, loss: 2.1046
+2024-06-21 18:15:45,952 - mmseg - INFO - Iter [18450/20000]	lr: 2.903e-06, eta: 0:11:12, time: 0.425, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6163, decode.loss_dice: 0.4330, decode.acc_seg: 95.8962, loss: 2.0493
+2024-06-21 18:16:07,050 - mmseg - INFO - Iter [18500/20000]	lr: 2.847e-06, eta: 0:10:50, time: 0.422, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7651, decode.loss_dice: 0.4252, decode.acc_seg: 95.7827, loss: 2.1904
+2024-06-21 18:16:28,158 - mmseg - INFO - Iter [18550/20000]	lr: 2.792e-06, eta: 0:10:28, time: 0.422, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6040, decode.loss_dice: 0.4253, decode.acc_seg: 96.4102, loss: 2.0293
+2024-06-21 18:16:49,551 - mmseg - INFO - Iter [18600/20000]	lr: 2.736e-06, eta: 0:10:07, time: 0.428, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6898, decode.loss_dice: 0.4512, decode.acc_seg: 96.5004, loss: 2.1410
+2024-06-21 18:17:10,854 - mmseg - INFO - Iter [18650/20000]	lr: 2.680e-06, eta: 0:09:45, time: 0.426, data_time: 0.008, memory: 8309, decode.loss_mask: 1.9290, decode.loss_dice: 0.4327, decode.acc_seg: 95.2574, loss: 2.3617
+2024-06-21 18:17:32,193 - mmseg - INFO - Iter [18700/20000]	lr: 2.624e-06, eta: 0:09:23, time: 0.427, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6278, decode.loss_dice: 0.4495, decode.acc_seg: 95.9079, loss: 2.0773
+2024-06-21 18:17:53,291 - mmseg - INFO - Iter [18750/20000]	lr: 2.568e-06, eta: 0:09:02, time: 0.422, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6757, decode.loss_dice: 0.4434, decode.acc_seg: 95.2434, loss: 2.1191
+2024-06-21 18:18:14,168 - mmseg - INFO - Iter [18800/20000]	lr: 2.512e-06, eta: 0:08:40, time: 0.418, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8010, decode.loss_dice: 0.4437, decode.acc_seg: 95.6064, loss: 2.2447
+2024-06-21 18:18:37,648 - mmseg - INFO - Iter [18850/20000]	lr: 2.455e-06, eta: 0:08:18, time: 0.470, data_time: 0.053, memory: 8309, decode.loss_mask: 1.6137, decode.loss_dice: 0.4281, decode.acc_seg: 96.6220, loss: 2.0418
+2024-06-21 18:18:58,923 - mmseg - INFO - Iter [18900/20000]	lr: 2.398e-06, eta: 0:07:57, time: 0.425, data_time: 0.009, memory: 8309, decode.loss_mask: 1.7556, decode.loss_dice: 0.4301, decode.acc_seg: 95.5158, loss: 2.1858
+2024-06-21 18:19:20,782 - mmseg - INFO - Iter [18950/20000]	lr: 2.341e-06, eta: 0:07:35, time: 0.437, data_time: 0.009, memory: 8309, decode.loss_mask: 1.6553, decode.loss_dice: 0.4410, decode.acc_seg: 94.9593, loss: 2.0963
+2024-06-21 18:19:41,931 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 18:19:41,931 - mmseg - INFO - Iter [19000/20000]	lr: 2.283e-06, eta: 0:07:13, time: 0.423, data_time: 0.008, memory: 8309, decode.loss_mask: 1.5284, decode.loss_dice: 0.4405, decode.acc_seg: 95.8208, loss: 1.9689
+2024-06-21 18:20:03,040 - mmseg - INFO - Iter [19050/20000]	lr: 2.225e-06, eta: 0:06:51, time: 0.422, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6233, decode.loss_dice: 0.4271, decode.acc_seg: 96.5340, loss: 2.0505
+2024-06-21 18:20:24,118 - mmseg - INFO - Iter [19100/20000]	lr: 2.167e-06, eta: 0:06:30, time: 0.422, data_time: 0.008, memory: 8309, decode.loss_mask: 1.5976, decode.loss_dice: 0.4297, decode.acc_seg: 95.6387, loss: 2.0274
+2024-06-21 18:20:45,314 - mmseg - INFO - Iter [19150/20000]	lr: 2.109e-06, eta: 0:06:08, time: 0.424, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6010, decode.loss_dice: 0.4363, decode.acc_seg: 95.9321, loss: 2.0373
+2024-06-21 18:21:06,610 - mmseg - INFO - Iter [19200/20000]	lr: 2.050e-06, eta: 0:05:46, time: 0.426, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7192, decode.loss_dice: 0.4262, decode.acc_seg: 96.4538, loss: 2.1454
+2024-06-21 18:21:27,856 - mmseg - INFO - Iter [19250/20000]	lr: 1.991e-06, eta: 0:05:25, time: 0.425, data_time: 0.008, memory: 8309, decode.loss_mask: 1.8667, decode.loss_dice: 0.4384, decode.acc_seg: 94.0175, loss: 2.3051
+2024-06-21 18:21:49,029 - mmseg - INFO - Iter [19300/20000]	lr: 1.931e-06, eta: 0:05:03, time: 0.423, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7691, decode.loss_dice: 0.4198, decode.acc_seg: 95.9160, loss: 2.1889
+2024-06-21 18:22:09,912 - mmseg - INFO - Iter [19350/20000]	lr: 1.871e-06, eta: 0:04:41, time: 0.418, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6345, decode.loss_dice: 0.4385, decode.acc_seg: 95.8012, loss: 2.0730
+2024-06-21 18:22:30,717 - mmseg - INFO - Iter [19400/20000]	lr: 1.811e-06, eta: 0:04:20, time: 0.416, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7545, decode.loss_dice: 0.4285, decode.acc_seg: 95.6754, loss: 2.1831
+2024-06-21 18:22:51,821 - mmseg - INFO - Iter [19450/20000]	lr: 1.750e-06, eta: 0:03:58, time: 0.422, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6631, decode.loss_dice: 0.4431, decode.acc_seg: 96.1333, loss: 2.1062
+2024-06-21 18:23:12,901 - mmseg - INFO - Iter [19500/20000]	lr: 1.688e-06, eta: 0:03:36, time: 0.422, data_time: 0.008, memory: 8309, decode.loss_mask: 1.5560, decode.loss_dice: 0.4162, decode.acc_seg: 96.9015, loss: 1.9722
+2024-06-21 18:23:33,986 - mmseg - INFO - Iter [19550/20000]	lr: 1.626e-06, eta: 0:03:15, time: 0.422, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6395, decode.loss_dice: 0.4328, decode.acc_seg: 96.1435, loss: 2.0724
+2024-06-21 18:23:57,651 - mmseg - INFO - Iter [19600/20000]	lr: 1.563e-06, eta: 0:02:53, time: 0.473, data_time: 0.052, memory: 8309, decode.loss_mask: 1.5503, decode.loss_dice: 0.4238, decode.acc_seg: 96.5246, loss: 1.9741
+2024-06-21 18:24:18,748 - mmseg - INFO - Iter [19650/20000]	lr: 1.500e-06, eta: 0:02:31, time: 0.422, data_time: 0.008, memory: 8309, decode.loss_mask: 1.7042, decode.loss_dice: 0.4210, decode.acc_seg: 96.0773, loss: 2.1252
+2024-06-21 18:24:39,810 - mmseg - INFO - Iter [19700/20000]	lr: 1.435e-06, eta: 0:02:10, time: 0.421, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6535, decode.loss_dice: 0.4257, decode.acc_seg: 96.2081, loss: 2.0793
+2024-06-21 18:25:01,156 - mmseg - INFO - Iter [19750/20000]	lr: 1.369e-06, eta: 0:01:48, time: 0.427, data_time: 0.008, memory: 8309, decode.loss_mask: 1.5952, decode.loss_dice: 0.4249, decode.acc_seg: 95.4434, loss: 2.0201
+2024-06-21 18:25:22,645 - mmseg - INFO - Iter [19800/20000]	lr: 1.302e-06, eta: 0:01:26, time: 0.430, data_time: 0.008, memory: 8309, decode.loss_mask: 1.5832, decode.loss_dice: 0.4252, decode.acc_seg: 95.9329, loss: 2.0084
+2024-06-21 18:25:43,939 - mmseg - INFO - Iter [19850/20000]	lr: 1.234e-06, eta: 0:01:05, time: 0.426, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6151, decode.loss_dice: 0.4405, decode.acc_seg: 96.2872, loss: 2.0556
+2024-06-21 18:26:05,173 - mmseg - INFO - Iter [19900/20000]	lr: 1.163e-06, eta: 0:00:43, time: 0.425, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6277, decode.loss_dice: 0.4186, decode.acc_seg: 96.1870, loss: 2.0463
+2024-06-21 18:26:26,232 - mmseg - INFO - Iter [19950/20000]	lr: 1.088e-06, eta: 0:00:21, time: 0.421, data_time: 0.007, memory: 8309, decode.loss_mask: 1.7717, decode.loss_dice: 0.4331, decode.acc_seg: 94.9182, loss: 2.2048
+2024-06-21 18:26:47,298 - mmseg - INFO - Saving checkpoint at 20000 iterations
+2024-06-21 18:26:48,302 - mmseg - INFO - Exp name: vpt_seg_zero_vit-b_512x512_20k_12_10.py
+2024-06-21 18:26:48,302 - mmseg - INFO - Iter [20000/20000]	lr: 1.003e-06, eta: 0:00:00, time: 0.441, data_time: 0.008, memory: 8309, decode.loss_mask: 1.6234, decode.loss_dice: 0.4227, decode.acc_seg: 96.4104, loss: 2.0461

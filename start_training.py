@@ -26,6 +26,7 @@ base_scratch = "/mnt/fast/nobackup/scratch4weeks/ae01116"
 
 config1 = f"{base}/configs/voc12/vpt_seg_zero_vit-b_512x512_20k_12_10.py"
 config2 = f"{base}/configs/voc12/xxscales_input_vpt_seg_zero_vit-b_512x512_20k_12_10.py"
+config3 = f"{base}/configs/voc12/xxscales_output_vpt_seg_zero_vit-b_512x512_20k_12_10.py"
 
-command = f"bash {base}/dist_train.sh {config2} {base_scratch}/data/VOC2012"
+command = f"bash {base}/dist_train.sh {config3} {base_scratch}/data/VOC2012"
 os.system(command)

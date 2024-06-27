@@ -1,0 +1,44 @@
+000 (172944.000.000) 2024-06-21 10:07:50 Job submitted from host: <131.227.81.127:9618?addrs=131.227.81.127-9618&alias=aisurrey-condor.surrey.ac.uk&noUDP&sock=schedd_1795_cc96>
+...
+040 (172944.000.000) 2024-06-21 10:07:51 Started transferring input files
+	Transferring to host: <131.227.80.176:9618?addrs=131.227.80.176-9618&alias=aisurrey03.surrey.ac.uk&noUDP&sock=slot1_1_9593_e2df_11448>
+...
+040 (172944.000.000) 2024-06-21 10:07:51 Finished transferring input files
+...
+001 (172944.000.000) 2024-06-21 10:07:52 Job executing on host: <131.227.80.176:9618?addrs=131.227.80.176-9618&alias=aisurrey03.surrey.ac.uk&noUDP&sock=startd_9393_652b>
+...
+006 (172944.000.000) 2024-06-21 10:08:00 Image size of job updated: 17500
+	137  -  MemoryUsage of job (MB)
+	140972  -  ResidentSetSize of job (KB)
+...
+006 (172944.000.000) 2024-06-21 10:13:00 Image size of job updated: 17500
+	4743  -  MemoryUsage of job (MB)
+	4857528  -  ResidentSetSize of job (KB)
+...
+006 (172944.000.000) 2024-06-21 10:17:19 Image size of job updated: 17500
+	5720  -  MemoryUsage of job (MB)
+	5858172  -  ResidentSetSize of job (KB)
+...
+040 (172944.000.000) 2024-06-21 10:17:19 Started transferring output files
+...
+040 (172944.000.000) 2024-06-21 10:17:19 Finished transferring output files
+...
+005 (172944.000.000) 2024-06-21 10:17:19 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:08:18, Sys 0 00:01:45  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:08:18, Sys 0 00:01:45  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	16250611  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	16250611  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        4         4 
+	   Disk (KB)            : 15894       17500    246844 
+	   Gpus (Average)       :     0.95        4         4 "GPU-2d0384f8-9b4f-de85-ae26-75080ed9ec3b,GPU-31de5537-fe1f-270d-fdc8-52bd2f1b6b93,GPU-3ba231bc-7a4a-5dc9-c910-8e94f695f3ab,GPU-dd31334a-8723-9dc2-a732-8fe6b9a71a51"
+	   GpusMemory (MB)      :   257                       
+	   Memory (MB)          :  5720       65536     65536 
+
+	Job terminated of its own accord at 2024-06-21T09:17:19Z.
+...
