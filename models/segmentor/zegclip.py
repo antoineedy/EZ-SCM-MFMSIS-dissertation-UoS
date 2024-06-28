@@ -924,12 +924,21 @@ class MultiScalesOutputZegCLIP(EncoderDecoder):
             align_corners=False,
         )
 
+        self.upsample8 = nn.Upsample(
+            scale_factor=8,
+            mode="bilinear",
+            align_corners=False,
+        )
+
         # torch.Size([1, 512, 32, 32]) -> torch.Size([1, 512, 16, 16])
         self.conv_mult_1 = nn.Conv2d(512, 512, 3, stride = 2, padding=1)
         
 
         # torch.Size([1, 512, 16, 16]) -> torch.Size([1, 512, 8, 8])
         self.conv_mult_2 = nn.Conv2d(512, 512, 3, stride = 2, padding=1)
+
+        # torch.Size([1, 512, 8, 8]) -> torch.Size([1, 512, 4, 4])
+        self.conv_mult_3 = nn.Conv2d(512, 512, 3, stride = 2, padding=1)
 
         if not self.load_text_embedding:
             if not self.multi_prompts:
@@ -1082,13 +1091,15 @@ class MultiScalesOutputZegCLIP(EncoderDecoder):
 
         first_step = self.conv_mult_1(visual_feat_00) # torch.Size([1, 512, 16, 16])
         second_step = self.conv_mult_2(first_step) # torch.Size([1, 512, 8, 8])
+        third_step = self.conv_mult_3(second_step) # torch.Size([1, 512, 4, 4])
 
         a = self.upsample2(first_step)
         b = self.upsample4(second_step)
-        c = visual_feat_00
+        c = self.upsample8(third_step)
+        d = visual_feat_00 
 
-        visual_feat_last = self.upsample2(first_step) + self.upsample4(second_step) + visual_feat_00 
-        visual_feat_last = visual_feat_last / 3
+        visual_feat_last = a + b + c + d
+        visual_feat_last = visual_feat_last / 4
 
         backup_visual_feat[0] = list(backup_visual_feat[0])
         backup_visual_feat[0][0] = visual_feat_last
