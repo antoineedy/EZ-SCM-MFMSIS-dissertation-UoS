@@ -6,7 +6,7 @@
 
 #---------------------------------------------
 # Name your batch so it's easy to distinguish in the q.
-JobBatchName = "Antoine-ZegCLIP-train-2-specific"
+JobBatchName = "Antoine-ZegCLIP-train-on-RTX3090"
 
 # --------------------------------------------
 # Executable and its arguments

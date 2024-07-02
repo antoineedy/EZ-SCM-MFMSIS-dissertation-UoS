@@ -1091,15 +1091,17 @@ class MultiScalesOutputZegCLIP(EncoderDecoder):
 
         first_step = self.conv_mult_1(visual_feat_00) # torch.Size([1, 512, 16, 16])
         second_step = self.conv_mult_2(first_step) # torch.Size([1, 512, 8, 8])
-        third_step = self.conv_mult_3(second_step) # torch.Size([1, 512, 4, 4])
+        #third_step = self.conv_mult_3(second_step) # torch.Size([1, 512, 4, 4])
 
         a = self.upsample2(first_step)
         b = self.upsample4(second_step)
-        c = self.upsample8(third_step)
+        #c = self.upsample8(third_step)
         d = visual_feat_00 
 
-        visual_feat_last = a + b + c + d
-        visual_feat_last = visual_feat_last / 4
+        #visual_feat_last = a + b + c + d
+        visual_feat_last = a + b + d
+        #visual_feat_last = visual_feat_last / 4
+        visual_feat_last = visual_feat_last / 3
 
         backup_visual_feat[0] = list(backup_visual_feat[0])
         backup_visual_feat[0][0] = visual_feat_last
