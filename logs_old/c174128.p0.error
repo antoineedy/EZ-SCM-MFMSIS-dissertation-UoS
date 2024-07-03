@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/test.py", line 23, in <module>
+    import models
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/models/__init__.py", line 5, in <module>
+    from models.segmentor.inner_zegclip_vpt import InnerZegCLIP
+ModuleNotFoundError: No module named 'models.segmentor.inner_zegclip_vpt'

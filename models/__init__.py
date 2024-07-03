@@ -1,4 +1,8 @@
-from models.segmentor.zegclip import ZegCLIP, MultiScalesZegCLIP
+from models.segmentor.zegclip import ZegCLIP
+
+from models.segmentor.xx_scales_input_zegclip import MultiScales
+from models.segmentor.xx_scales_output_zegclip import MultiScalesOutputZegCLIP
+from models.segmentor.inner_zegclip import InnerZegCLIP
 
 from models.other_modules.multi_scale import MultiScales
 

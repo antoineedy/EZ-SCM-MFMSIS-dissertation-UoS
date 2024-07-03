@@ -25,8 +25,103 @@ from copy import deepcopy
 import os
 import matplotlib.pyplot as plt
 
+def patchify(x: torch.Tensor, dimension=2):
+    """
+    Patchify a tensor.
+    
+    :param x: tensor to patchify
+    :param dimension: number of cuts to do along each dimension. 
+                      2 means creating a grid of 2*2 patches (top left, top right, bottom left, bottom right)
+    :return: tensor of patches
+    """
+    x = x.unsqueeze(0)
+    assert len(x.shape) >= 2, "Input tensor must have at least 2 dimensions"
+    assert all([s % dimension == 0 for s in x.shape[-2:]]), "Tensor dimensions must be divisible by the number of patches"
+
+    patches = x.unfold(2, x.shape[-2] // dimension, x.shape[-2] // dimension) \
+              .unfold(3, x.shape[-1] // dimension, x.shape[-1] // dimension)
+    patches = patches.contiguous().view(*x.shape[:-2], -1, x.shape[-2] // dimension, x.shape[-1] // dimension)
+    patches = patches.squeeze(0).permute(1, 0, 2, 3)
+    
+    return patches
+
+def depatchify(patches: torch.Tensor, dimension=2):
+    """
+    Depatchify a tensor.
+    
+    :param patches: tensor of patches to reconstruct
+    :param dimension: number of patches along each dimension.
+                      Should match the dimension used in patchify.
+    :return: original tensor reconstructed from patches
+    """
+    patches = patches.permute(0, 2, 1, 3, 4)
+    patch_size = patches.shape[-2:]
+    num_patches = dimension
+
+    original_shape = list(patches.shape[:-3]) + [patch_size[0] * num_patches, patch_size[1] * num_patches]
+    
+    # Reshape patches to combine the patch dimensions
+    patches = patches.view(*patches.shape[:-3], num_patches, num_patches, *patch_size)
+    
+    # Permute to bring patch dimensions in order
+    patches = patches.permute(0, 1, 2, 4, 3, 5).contiguous()
+    
+    # Merge patches into the original tensor
+    original_tensor = patches.view(*original_shape)
+    original_tensor = original_tensor.squeeze(0)
+    
+    return original_tensor
+
+
+class MultiScales(nn.Module):
+    def __init__(self, divisions):
+        super().__init__()
+        self.divisions = divisions
+        self.original_size = None
+        self.upsample = None
+
+    def forward(self, x):
+        self.device = x.device
+        self.original_size = x.size()[-1]
+        self.original_type = x.dtype
+        self.upsample = nn.Upsample(
+            size=(self.original_size, self.original_size),
+            mode="bilinear",
+            align_corners=False,
+        )
+        out = []
+        for i in range(len(self.divisions)):
+            out += self._create_images(x, self.divisions[i], i)
+        out = torch.stack(out).to(self.device)
+        return out
+
+    def _create_images(self, x, number_divisions, add_x=0):
+        """
+        Create images from the original image.
+
+        Args:
+            x (torch.Tensor): The original image.
+            number_divisions (int): The number of divisions to make in each direction.
+                If 2, the image will be divided in 2 parts in each direction, resulting in 4 images.
+                The number of images will be number_divisions**2.
+        """
+        patch_size = int(self.original_size) // int(number_divisions)
+        patches = patchify(
+            x, 2)
+        new_patches = []
+        if add_x == 0:
+            new_patches.append(x)
+        for i in range(len(patches)):
+            patch_image = patches[i]  # channel x height x width
+            patch_image = patch_image.unsqueeze(0).float()
+            patch_image = self.upsample(patch_image)
+            patch_image = patch_image.squeeze(0)
+            new_patches.append(patch_image)
+        patches = torch.stack(new_patches)
+        return patches
+
 @SEGMENTORS.register_module()
-class ZegCLIP(EncoderDecoder):
+class MultiScalesOutputZegCLIP(EncoderDecoder):
     """Encoder Decoder segmentors.
     EncoderDecoder typically consists of backbone, decode_head, auxiliary_head.
     Note that auxiliary_head is only used for deep supervision during training,
@@ -51,7 +146,7 @@ class ZegCLIP(EncoderDecoder):
         #  init_cfg=None,
         **args,
     ):
-        super(ZegCLIP, self).__init__(**args)
+        super(MultiScalesOutputZegCLIP, self).__init__(**args)
 
         if pretrained_text is not None:
             assert (
@@ -86,6 +181,34 @@ class ZegCLIP(EncoderDecoder):
         )
 
         self.load_text_embedding = load_text_embedding  # antoine: if we want to load text embeddings from a file
+
+        self.upsample2 = nn.Upsample(
+            scale_factor=2,
+            mode="bilinear",
+            align_corners=False,
+        )
+
+        self.upsample4 = nn.Upsample(
+            scale_factor=4,
+            mode="bilinear",
+            align_corners=False,
+        )
+
+        self.upsample8 = nn.Upsample(
+            scale_factor=8,
+            mode="bilinear",
+            align_corners=False,
+        )
+
+        # torch.Size([1, 512, 32, 32]) -> torch.Size([1, 512, 16, 16])
+        self.conv_mult_1 = nn.Conv2d(512, 512, 3, stride = 2, padding=1)
+        
+
+        # torch.Size([1, 512, 16, 16]) -> torch.Size([1, 512, 8, 8])
+        self.conv_mult_2 = nn.Conv2d(512, 512, 3, stride = 2, padding=1)
+
+        # torch.Size([1, 512, 8, 8]) -> torch.Size([1, 512, 4, 4])
+        self.conv_mult_3 = nn.Conv2d(512, 512, 3, stride = 2, padding=1)
 
         if not self.load_text_embedding:
             if not self.multi_prompts:
@@ -147,7 +270,6 @@ class ZegCLIP(EncoderDecoder):
     ):  # antoine: to create a mask for the zero-shot setting
         seen_map = np.array([-1] * 256)
         # antoine: I think 256 is the number of classes. We create a mask of -1 for all classes. We will then replace the seen classes with their index.
-        # antoine update: nooop 20 classes only
         seen_map[255] = 255
         for i, n in enumerate(list(seen_classes)):
             seen_map[n] = (
@@ -230,10 +352,46 @@ class ZegCLIP(EncoderDecoder):
         visual_feat = self.backbone(img)
         return visual_feat
 
+    def apply_multiscale_output(self, visual_feat):
+        # antoine: apply the multi-scale output
+        # visual_feat[0][0]: visual features
+        # visual_feat[1][0]: cls token
+        backup_visual_feat = list(visual_feat)
+        visual_feat_00 = visual_feat[0][0] # torch.Size([1, 512, 32, 32])
+
+        first_step = self.conv_mult_1(visual_feat_00) # torch.Size([1, 512, 16, 16])
+        second_step = self.conv_mult_2(first_step) # torch.Size([1, 512, 8, 8])
+        #third_step = self.conv_mult_3(second_step) # torch.Size([1, 512, 4, 4])
+
+        a = self.upsample2(first_step)
+        b = self.upsample4(second_step)
+        #c = self.upsample8(third_step)
+        d = visual_feat_00 
+
+        #visual_feat_last = a + b + c + d
+        visual_feat_last = a + b + d
+        #visual_feat_last = visual_feat_last / 4
+        visual_feat_last = visual_feat_last / 3
+
+        backup_visual_feat[0] = list(backup_visual_feat[0])
+        backup_visual_feat[0][0] = visual_feat_last
+
+        return backup_visual_feat
+
+    def _upsample(self, x, scale_factor=2):
+        upsample = nn.Upsample(
+            scale_factor=scale_factor,
+            mode="bilinear",
+            align_corners=False,
+        )
+        x = upsample(x)
+        return x
+
     def forward_train(self, img, img_metas, gt_semantic_seg):
         visual_feat = self.extract_feat(
             img
         )  # image features using the CLIP image encoder
+        visual_feat = self.apply_multiscale_output(visual_feat)
         if self.load_text_embedding:
             # antoine: if we want to load text embeddings from a file
             text_feat = np.load(self.load_text_embedding)
@@ -264,6 +422,7 @@ class ZegCLIP(EncoderDecoder):
 
     def encode_decode(self, img, img_metas):
         visual_feat = self.extract_feat(img)  # antoine: image encoder from CLIP
+        visual_feat = self.apply_multiscale_output(visual_feat)
         if self.load_text_embedding:
             text_feat = np.load(self.load_text_embedding)
             text_feat = torch.from_numpy(text_feat).to(img.device)

@@ -26,7 +26,7 @@ import os
 import matplotlib.pyplot as plt
 
 @SEGMENTORS.register_module()
-class ZegCLIP(EncoderDecoder):
+class InnerZegCLIP(EncoderDecoder):
     """Encoder Decoder segmentors.
     EncoderDecoder typically consists of backbone, decode_head, auxiliary_head.
     Note that auxiliary_head is only used for deep supervision during training,
@@ -51,7 +51,7 @@ class ZegCLIP(EncoderDecoder):
         #  init_cfg=None,
         **args,
     ):
-        super(ZegCLIP, self).__init__(**args)
+        super(InnerZegCLIP, self).__init__(**args)
 
         if pretrained_text is not None:
             assert (
@@ -86,6 +86,34 @@ class ZegCLIP(EncoderDecoder):
         )
 
         self.load_text_embedding = load_text_embedding  # antoine: if we want to load text embeddings from a file
+
+        self.upsample2 = nn.Upsample(
+            scale_factor=2,
+            mode="bilinear",
+            align_corners=False,
+        )
+
+        self.upsample4 = nn.Upsample(
+            scale_factor=4,
+            mode="bilinear",
+            align_corners=False,
+        )
+
+        # torch.Size([1, 512, 32, 32]) -> torch.Size([1, 512, 8, 8])
+        self.conv_mult_1 = nn.Conv2d(512, 512, 3, stride = 4, padding=1)
+
+        # torch.Size([1, 512, 32, 32]) -> torch.Size([1, 512, 16, 16])
+        self.conv_mult_2 = nn.Conv2d(512, 512, 3, stride = 2, padding=1)
+
+        # linear [1, 768, 32, 32] -> [1, 512, 32, 32]
+        self.linear1_inner = nn.Linear(768, 512)
+
+        # linear [1, 768, 32, 32] -> [1, 512, 32, 32]
+        self.linear2_inner = nn.Linear(768, 512)
+
+        # linear [1, 768, 32, 32] -> [1, 512, 32, 32]
+        self.linear3_inner = nn.Linear(768, 512)
+
 
         if not self.load_text_embedding:
             if not self.multi_prompts:
@@ -228,6 +256,44 @@ class ZegCLIP(EncoderDecoder):
         # antoine: extract features from images using the backbone. Here, the backbone is the image encoder, CLIP vision encoder
         """Extract features from images."""
         visual_feat = self.backbone(img)
+        visual_feat = self.mutli_scale_inner(visual_feat)
+        return visual_feat
+
+    def mutli_scale_inner(self, visual_feat):
+        layer4 = visual_feat[0][0]
+        layer8 = visual_feat[0][1]
+        layer12 = visual_feat[0][2]
+
+        # change dim 0 and 2
+        layer12 = layer12.permute(0, 2, 3, 1)
+        layer8 = layer8.permute(0, 2, 3, 1)
+        layer4 = layer4.permute(0, 2, 3, 1)
+
+        layer12 = self.linear1_inner(layer12)
+        layer8 = self.linear2_inner(layer8)
+        layer4 = self.linear3_inner(layer4)
+
+        # change dim 0 and 2
+        layer12 = layer12.permute(0, 3, 1, 2)
+        layer8 = layer8.permute(0, 3, 1, 2)
+        layer4 = layer4.permute(0, 3, 1, 2)
+
+        # layer 12 : 32x32 -> 8x8
+        layer12 = self.conv_mult_1(layer12)
+
+        # layer 8 : 32x32 -> 16x16
+        layer8 = self.conv_mult_2(layer8)
+
+        # upsample 4 times
+        layer12 = self.upsample4(layer12)
+
+        # upsample 2 times
+        layer8 = self.upsample2(layer8)
+
+        layer = (layer4 + layer8 + layer12) / 3
+
+        visual_feat[0] = layer.unsqueeze(0)
+
         return visual_feat
 
     def forward_train(self, img, img_metas, gt_semantic_seg):

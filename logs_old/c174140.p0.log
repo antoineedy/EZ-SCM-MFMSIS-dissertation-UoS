@@ -1,0 +1,36 @@
+000 (174140.000.000) 2024-07-03 11:22:49 Job submitted from host: <131.227.81.127:9618?addrs=131.227.81.127-9618&alias=aisurrey-condor.surrey.ac.uk&noUDP&sock=schedd_1795_cc96>
+...
+040 (174140.000.000) 2024-07-03 11:22:49 Started transferring input files
+	Transferring to host: <131.227.80.176:9618?addrs=131.227.80.176-9618&alias=aisurrey03.surrey.ac.uk&noUDP&sock=slot1_1_8872_e062_4268>
+...
+040 (174140.000.000) 2024-07-03 11:22:49 Finished transferring input files
+...
+001 (174140.000.000) 2024-07-03 11:22:50 Job executing on host: <131.227.80.176:9618?addrs=131.227.80.176-9618&alias=aisurrey03.surrey.ac.uk&noUDP&sock=startd_8729_f249>
+...
+006 (174140.000.000) 2024-07-03 11:22:59 Image size of job updated: 17500
+	148  -  MemoryUsage of job (MB)
+	152384  -  ResidentSetSize of job (KB)
+...
+040 (174140.000.000) 2024-07-03 11:23:01 Started transferring output files
+...
+040 (174140.000.000) 2024-07-03 11:23:01 Finished transferring output files
+...
+005 (174140.000.000) 2024-07-03 11:23:01 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:00:12, Sys 0 00:00:02  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:12, Sys 0 00:00:02  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	16251163  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	16251163  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :        0        4         4 
+	   Disk (KB)            :    15895    17500    246844 
+	   Gpus (Average)       :        0        4         4 "GPU-2d0384f8-9b4f-de85-ae26-75080ed9ec3b,GPU-31de5537-fe1f-270d-fdc8-52bd2f1b6b93,GPU-3ba231bc-7a4a-5dc9-c910-8e94f695f3ab,GPU-dd31334a-8723-9dc2-a732-8fe6b9a71a51"
+	   GpusMemory (MB)      :      257                    
+	   Memory (MB)          :      148    65536     65536 
+
+	Job terminated of its own accord at 2024-07-03T10:23:01Z.
+...

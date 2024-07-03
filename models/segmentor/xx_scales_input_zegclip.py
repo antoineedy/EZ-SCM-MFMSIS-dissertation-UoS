@@ -25,8 +25,104 @@ from copy import deepcopy
 import os
 import matplotlib.pyplot as plt
 
+def patchify(x: torch.Tensor, dimension=2):
+    """
+    Patchify a tensor.
+    
+    :param x: tensor to patchify
+    :param dimension: number of cuts to do along each dimension. 
+                      2 means creating a grid of 2*2 patches (top left, top right, bottom left, bottom right)
+    :return: tensor of patches
+    """
+    x = x.unsqueeze(0)
+    assert len(x.shape) >= 2, "Input tensor must have at least 2 dimensions"
+    assert all([s % dimension == 0 for s in x.shape[-2:]]), "Tensor dimensions must be divisible by the number of patches"
+
+    patches = x.unfold(2, x.shape[-2] // dimension, x.shape[-2] // dimension) \
+              .unfold(3, x.shape[-1] // dimension, x.shape[-1] // dimension)
+    patches = patches.contiguous().view(*x.shape[:-2], -1, x.shape[-2] // dimension, x.shape[-1] // dimension)
+    patches = patches.squeeze(0).permute(1, 0, 2, 3)
+    
+    return patches
+
+def depatchify(patches: torch.Tensor, dimension=2):
+    """
+    Depatchify a tensor.
+    
+    :param patches: tensor of patches to reconstruct
+    :param dimension: number of patches along each dimension.
+                      Should match the dimension used in patchify.
+    :return: original tensor reconstructed from patches
+    """
+    patches = patches.permute(0, 2, 1, 3, 4)
+    patch_size = patches.shape[-2:]
+    num_patches = dimension
+
+    original_shape = list(patches.shape[:-3]) + [patch_size[0] * num_patches, patch_size[1] * num_patches]
+    
+    # Reshape patches to combine the patch dimensions
+    patches = patches.view(*patches.shape[:-3], num_patches, num_patches, *patch_size)
+    
+    # Permute to bring patch dimensions in order
+    patches = patches.permute(0, 1, 2, 4, 3, 5).contiguous()
+    
+    # Merge patches into the original tensor
+    original_tensor = patches.view(*original_shape)
+    original_tensor = original_tensor.squeeze(0)
+    
+    return original_tensor
+
+
+class MultiScales(nn.Module):
+    def __init__(self, divisions):
+        super().__init__()
+        self.divisions = divisions
+        self.original_size = None
+        self.upsample = None
+
+    def forward(self, x):
+        self.device = x.device
+        self.original_size = x.size()[-1]
+        self.original_type = x.dtype
+        self.upsample = nn.Upsample(
+            size=(self.original_size, self.original_size),
+            mode="bilinear",
+            align_corners=False,
+        )
+        out = []
+        for i in range(len(self.divisions)):
+            out += self._create_images(x, self.divisions[i], i)
+        out = torch.stack(out).to(self.device)
+        return out
+
+    def _create_images(self, x, number_divisions, add_x=0):
+        """
+        Create images from the original image.
+
+        Args:
+            x (torch.Tensor): The original image.
+            number_divisions (int): The number of divisions to make in each direction.
+                If 2, the image will be divided in 2 parts in each direction, resulting in 4 images.
+                The number of images will be number_divisions**2.
+        """
+        patch_size = int(self.original_size) // int(number_divisions)
+        patches = patchify(
+            x, 2)
+        new_patches = []
+        if add_x == 0:
+            new_patches.append(x)
+        for i in range(len(patches)):
+            patch_image = patches[i]  # channel x height x width
+            patch_image = patch_image.unsqueeze(0).float()
+            patch_image = self.upsample(patch_image)
+            patch_image = patch_image.squeeze(0)
+            new_patches.append(patch_image)
+        patches = torch.stack(new_patches)
+        return patches
+
+
 @SEGMENTORS.register_module()
-class ZegCLIP(EncoderDecoder):
+class MultiScalesZegCLIP(EncoderDecoder):
     """Encoder Decoder segmentors.
     EncoderDecoder typically consists of backbone, decode_head, auxiliary_head.
     Note that auxiliary_head is only used for deep supervision during training,
@@ -48,10 +144,11 @@ class ZegCLIP(EncoderDecoder):
         ft_backbone=False,
         exclude_key=None,
         load_text_embedding=None,
+        multi_scale=None,
         #  init_cfg=None,
         **args,
     ):
-        super(ZegCLIP, self).__init__(**args)
+        super(MultiScalesZegCLIP, self).__init__(**args)
 
         if pretrained_text is not None:
             assert (
@@ -84,6 +181,8 @@ class ZegCLIP(EncoderDecoder):
         self.multi_prompts = (
             multi_prompts  # antoine: if we have multiple text prompts, see further
         )
+
+        self._init_multi_scale(multi_scale)
 
         self.load_text_embedding = load_text_embedding  # antoine: if we want to load text embeddings from a file
 
@@ -147,7 +246,6 @@ class ZegCLIP(EncoderDecoder):
     ):  # antoine: to create a mask for the zero-shot setting
         seen_map = np.array([-1] * 256)
         # antoine: I think 256 is the number of classes. We create a mask of -1 for all classes. We will then replace the seen classes with their index.
-        # antoine update: nooop 20 classes only
         seen_map[255] = 255
         for i, n in enumerate(list(seen_classes)):
             seen_map[n] = (
@@ -180,6 +278,10 @@ class ZegCLIP(EncoderDecoder):
             "Making st mask for zero-shot setting in self_traning stage:", self.st_mask
         )
 
+    def _init_multi_scale(self, multi_scale):
+        """Initialize ``multi_scale``"""
+        self.__multi_scale = MultiScales(multi_scale["divisions"])
+
     def _init_decode_head(self, decode_head):
         """Initialize ``decode_head``"""
         self.decode_head = builder.build_head(decode_head)
@@ -195,6 +297,7 @@ class ZegCLIP(EncoderDecoder):
         training."""
         if self.training:
             if len(self.base_class) != len(self.both_class):  # zero-shot setting
+                gt_semantic_seg = gt_semantic_seg.long()
                 gt_semantic_seg = torch.Tensor(self.visibility_seen_mask).type_as(
                     gt_semantic_seg
                 )[gt_semantic_seg]
@@ -224,46 +327,72 @@ class ZegCLIP(EncoderDecoder):
         text_embeddings = text_embeddings / text_embeddings.norm(dim=-1, keepdim=True)
         return text_embeddings
 
+    def extract_crops(self, imgs):
+        # extract the different crops of the image
+        # here I think that there are 4 images because of the data augmentation. No batches!
+        all_crops = []
+        for img in imgs:
+            all_crops.append(self.__multi_scale(img))
+        all_crops = torch.stack(all_crops).to(imgs.device)
+        all_crops = all_crops.permute(1, 0, 2, 3, 4).float()
+        return all_crops
+
     def extract_feat(self, img):
         # antoine: extract features from images using the backbone. Here, the backbone is the image encoder, CLIP vision encoder
         """Extract features from images."""
-        visual_feat = self.backbone(img)
-        return visual_feat
+        all_crops = self.extract_crops(img)
+        visual_feats = []
+        for crop in all_crops:
+            visual_feats.append(self.backbone(crop))
+        return visual_feats
 
     def forward_train(self, img, img_metas, gt_semantic_seg):
-        visual_feat = self.extract_feat(
+        visual_feats = self.extract_feat(
             img
         )  # image features using the CLIP image encoder
-        if self.load_text_embedding:
-            # antoine: if we want to load text embeddings from a file
-            text_feat = np.load(self.load_text_embedding)
-            text_feat = torch.from_numpy(text_feat).to(img.device)
-        else:
-            if not self.multi_prompts:
-                # antoine: one prompt: "a photo of a {class_name}". We tokenize it and encode it using the CLIP text encoder
-                text_feat = self.text_embedding(self.texts, img)
+        gt_semantic_segs = self.extract_crops(gt_semantic_seg)
+        for i, visual_feat in enumerate(visual_feats):
+            if self.load_text_embedding:
+                # antoine: if we want to load text embeddings from a file
+                text_feat = np.load(self.load_text_embedding)
+                text_feat = torch.from_numpy(text_feat).to(img.device)
             else:
-                # antoine: multiple prompts here. What is that?
-                assert AttributeError("preparing the multi embeddings")
+                if not self.multi_prompts:
+                    # antoine: one prompt: "a photo of a {class_name}". We tokenize it and encode it using the CLIP text encoder
+                    text_feat = self.text_embedding(self.texts, img)
+                else:
+                    # antoine: multiple prompts here. What is that?
+                    assert AttributeError("preparing the multi embeddings")
 
-        if not self.self_training:
-            # antoine: if we are not in self-training mode, we only keep the embeddings of the seen classes
-            text_feat = text_feat[self.base_class, :]
+            if not self.self_training:
+                # antoine: if we are not in self-training mode, we only keep the embeddings of the seen classes
+                text_feat = text_feat[self.base_class, :]
 
-        feat = []
-        feat.append(visual_feat)
-        feat.append(text_feat)
+            feat = []
+            feat.append(visual_feat)
+            feat.append(text_feat)
 
-        # antoine: feat contains the image features and the text features
+            # antoine: feat contains the image features and the text features
+            if i == 0:
+                losses = dict()
+                loss_decode = self._decode_head_forward_train(
+                    feat, img_metas, gt_semantic_segs[i]
+                )
+                losses.update(loss_decode)
+            if i > 0:
+                loss_decode = self._decode_head_forward_train(
+                    feat, img_metas, gt_semantic_segs[i]
+                )
+                for key in loss_decode:
+                    losses[key] += loss_decode[key]
 
-        losses = dict()
-        loss_decode = self._decode_head_forward_train(feat, img_metas, gt_semantic_seg)
-        losses.update(loss_decode)
+            # antoine: really important: the loss is not that of the mean of all 3 outpus, but the sum of the losses of the 3 outputs
 
         return losses
 
     def encode_decode(self, img, img_metas):
-        visual_feat = self.extract_feat(img)  # antoine: image encoder from CLIP
+        visual_feats = self.extract_feat(img)  # antoine: image encoder from CLIP
+        outs = []
         if self.load_text_embedding:
             text_feat = np.load(self.load_text_embedding)
             text_feat = torch.from_numpy(text_feat).to(img.device)
@@ -283,19 +412,51 @@ class ZegCLIP(EncoderDecoder):
                 text_feat /= text_feat.norm(dim=-1).unsqueeze(1)
                 # antoine: we normalize the embeddings
 
-        feat = []
-        feat.append(visual_feat)
-        feat.append(text_feat)
-        # antoine: feat contains the image features and the text features
+        for i, visual_feat in enumerate(visual_feats):
+            feat = []
+            feat.append(visual_feat)
+            feat.append(text_feat)
+            # antoine: feat contains the image features and the text features
 
-        out = self._decode_head_forward_test(feat, img_metas, self.self_training)
-        out = resize(
-            input=out,
-            size=img.shape[2:],
-            mode="bilinear",
-            align_corners=self.align_corners,
-        )
+            out = self._decode_head_forward_test(feat, img_metas, self.self_training)
+            out = resize(
+                input=out,
+                size=img.shape[2:],
+                mode="bilinear",
+                align_corners=self.align_corners,
+            )
+            outs.append(out)
+  
+        if len(outs) == 1:
+            out = outs[0]
+        else:
+            original = outs[0]
+            original = self._upsample(original)
+            all_crops = outs[1:]
+            all_crops = torch.stack(all_crops)
+            all_crops = all_crops.permute(1, 0, 2, 3, 4)
+            reconstruct = depatchify(all_crops, dimension=2)
+            # mean of original and reconstruct
+            reconstruct = reconstruct.unsqueeze(0)
+            alpha = 0.5
+            out = alpha * original + (1 - alpha) * reconstruct
+            # downsample the final image
+            out = self._downsample(out)
+
         return out
+
+    def _upsample(self, x):
+        upsample = nn.Upsample(
+            scale_factor=2,
+            mode="bilinear",
+            align_corners=False,
+        )
+        x = upsample(x)
+        return x
+
+    def _downsample(self, x):
+        x = F.interpolate(x, scale_factor=0.5, mode="bilinear")
+        return x
 
     def _decode_head_forward_test(self, x, img_metas, self_training):
         """Run forward function and calculate loss for decode head in

@@ -17,10 +17,10 @@ unique_weight = "/mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012/iter_1945
 model1 = f"{base}/configs/voc12/vpt_seg_zero_vit-b_512x512_20k_12_10.py"
 model2 = f"{base}/configs/voc12/xxscales_input_vpt_seg_zero_vit-b_512x512_20k_12_10.py"
 model3 = f"{base}/configs/voc12/xxscales_output_vpt_seg_zero_vit-b_512x512_20k_12_10.py"
+model4 = f"{base}/configs/voc12/inner_vpt_seg_zero_vit-b_512x512_20k_12_10.py"
 
 # command = f"{base}/zegenv/bin/python {base}/test.py {base}/configs/voc12/xxscales_input_vpt_seg_zero_vit-b_512x512_20k_12_10.py {weight2} --eval=mIoU"
 
-command = f"{base}/zegenv/bin/python {base}/test.py {model3} {unique_weight} --eval=mIoU"
-
+command = f"{base}/zegenv/bin/python {base}/test.py {model4} {weight0} --eval=mIoU"
 
 os.system(command)
