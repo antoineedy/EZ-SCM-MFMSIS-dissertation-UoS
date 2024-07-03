@@ -260,13 +260,9 @@ class InnerZegCLIP(EncoderDecoder):
         return visual_feat
 
     def mutli_scale_inner(self, visual_feat):
-        #layer4 = visual_feat[0][0]
-        #layer8 = visual_feat[0][1]
-        #layer12 = visual_feat[0][2]
-
-        layer4 = visual_feat[0][2]
+        layer4 = visual_feat[0][0]
         layer8 = visual_feat[0][1]
-        layer12 = visual_feat[0][0]
+        layer12 = visual_feat[0][2]
 
         # change dim 0 and 2
         layer12 = layer12.permute(0, 2, 3, 1)

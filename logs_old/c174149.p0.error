@@ -1,0 +1,43 @@
+2024-07-03 10:52:25,139 - mmseg - INFO - Loaded 1449 images
+/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/nn/functional.py:3631: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/test.py", line 330, in <module>
+    main()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/test.py", line 291, in main
+    results = single_gpu_test(
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/mmseg/apis/test.py", line 91, in single_gpu_test
+    result = model(return_loss=False, **data)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/mmcv/parallel/data_parallel.py", line 50, in forward
+    return super().forward(*inputs, **kwargs)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/nn/parallel/data_parallel.py", line 166, in forward
+    return self.module(*inputs[0], **kwargs[0])
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/mmcv/runner/fp16_utils.py", line 109, in new_func
+    return old_func(*args, **kwargs)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/mmseg/models/segmentors/base.py", line 110, in forward
+    return self.forward_test(img, img_metas, **kwargs)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/mmseg/models/segmentors/base.py", line 92, in forward_test
+    return self.simple_test(imgs[0], img_metas[0], **kwargs)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/mmseg/models/segmentors/encoder_decoder.py", line 256, in simple_test
+    seg_logit = self.inference(img, img_meta, rescale)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/mmseg/models/segmentors/encoder_decoder.py", line 239, in inference
+    seg_logit = self.slide_inference(img, img_meta, rescale)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/models/segmentor/inner_zegclip.py", line 396, in slide_inference
+    crop_seg_logit = self.encode_decode(crop_img, img_meta)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/models/segmentor/inner_zegclip.py", line 330, in encode_decode
+    visual_feat = self.extract_feat(img)  # antoine: image encoder from CLIP
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/models/segmentor/inner_zegclip.py", line 256, in extract_feat
+    visual_feat = self.mutli_scale_inner(visual_feat)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/models/segmentor/inner_zegclip.py", line 270, in mutli_scale_inner
+    layer12 = self.conv_mult_1(layer12)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 446, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 442, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: Given groups=1, weight of size [512, 512, 3, 3], expected input[1, 768, 32, 32] to have 512 channels, but got 768 channels instead
