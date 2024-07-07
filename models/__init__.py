@@ -3,6 +3,8 @@ from models.segmentor.zegclip import ZegCLIP
 from models.segmentor.xx_scales_input_zegclip import MultiScales
 from models.segmentor.xx_scales_output_zegclip import MultiScalesOutputZegCLIP
 from models.segmentor.inner_zegclip import InnerZegCLIP
+from models.segmentor.dilation_zegclip import DilationZegCLIP
+from models.segmentor.inner_bis_zegclip import InnerBisZegCLIP
 
 from models.other_modules.multi_scale import MultiScales
 

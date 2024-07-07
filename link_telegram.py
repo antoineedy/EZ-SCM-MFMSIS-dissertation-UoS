@@ -55,7 +55,7 @@ if __name__ == "__main__":
         sys.exit(0)
     count = 0
     while True:
-        time.sleep(_time)
+        time.sleep(_time * 60)
         # for every new line of the file, send a message
         with open(file, "r") as f:
             content = f.read()
