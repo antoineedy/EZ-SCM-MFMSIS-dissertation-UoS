@@ -26,7 +26,7 @@ import os
 import matplotlib.pyplot as plt
 
 @SEGMENTORS.register_module()
-class InnerBisZegCLIP(EncoderDecoder):
+class InnerZegCLIP(EncoderDecoder):
     """Encoder Decoder segmentors.
     EncoderDecoder typically consists of backbone, decode_head, auxiliary_head.
     Note that auxiliary_head is only used for deep supervision during training,
@@ -51,7 +51,7 @@ class InnerBisZegCLIP(EncoderDecoder):
         #  init_cfg=None,
         **args,
     ):
-        super(InnerBisZegCLIP, self).__init__(**args)
+        super(InnerZegCLIP, self).__init__(**args)
 
         if pretrained_text is not None:
             assert (
@@ -99,20 +99,11 @@ class InnerBisZegCLIP(EncoderDecoder):
             align_corners=False,
         )
 
-        # torch.Size([1, 512, 32, 32]) -> torch.Size([1, 512, 16, 16])
-        self.conv_mult_1 = nn.Conv2d(512, 512, 3, stride = 2, padding=1)
-
-        # torch.Size([1, 512, 16, 16]) -> torch.Size([1, 512, 8, 8])
-        self.conv_mult_2 = nn.Conv2d(512, 512, 3, stride = 2, padding=1)
-
-        # torch.Size([1, 512, 32, 32]) -> torch.Size([1, 512, 32, 32])
-        self.conv_mult_3 = nn.Conv2d(512, 512, 3, stride = 1, padding=1)
-
-        # torch.Size([1, 512, 32, 32]) -> torch.Size([1, 512, 16, 16])
-        self.conv_mult_4 = nn.Conv2d(512, 512, 3, stride = 2, padding=1)
-
         # torch.Size([1, 512, 32, 32]) -> torch.Size([1, 512, 8, 8])
-        self.conv_mult_5 = nn.Conv2d(512, 512, 3, stride = 4, padding=1)
+        self.conv_mult_1 = nn.Conv2d(512, 512, 3, stride = 4, padding=1)
+
+        # torch.Size([1, 512, 32, 32]) -> torch.Size([1, 512, 16, 16])
+        self.conv_mult_2 = nn.Conv2d(512, 512, 3, stride = 2, padding=1)
 
         # linear [1, 768, 32, 32] -> [1, 512, 32, 32]
         self.linear1_inner = nn.Linear(768, 512)
@@ -287,27 +278,19 @@ class InnerBisZegCLIP(EncoderDecoder):
         layer8 = layer8.permute(0, 3, 1, 2)
         layer4 = layer4.permute(0, 3, 1, 2)
 
-        if False:
-            l_32x32 = layer12 + self.conv_mult_3(layer4)
-            l_16x16 = self.conv_mult_1(l_32x32) + self.conv_mult_4(layer8)
-            l_8x8 = self.conv_mult_2(l_16x16) + self.conv_mult_5(layer12)
+        # layer 12 : 32x32 -> 8x8
+        layer12 = self.conv_mult_1(layer12)
 
-            layer = (l_32x32 + self.upsample2(l_16x16) + self.upsample4(l_8x8))/3
-        else:
-            l_32x32_1 = layer12
-            l_32x32_2 = self.conv_mult_3(layer4)
+        # layer 8 : 32x32 -> 16x16
+        layer8 = self.conv_mult_2(layer8)
 
-            l_16x16_1 = self.conv_mult_1(l_32x32_1)
-            l_16x16_2 = self.conv_mult_4(layer8)
+        # upsample 4 times
+        layer12 = self.upsample4(layer12)
 
-            l_8x8_1 = self.conv_mult_2(l_16x16_1)
-            l_8x8_2 = self.conv_mult_5(layer12)
+        # upsample 2 times
+        layer8 = self.upsample2(layer8)
 
-            l_32x32 = F.relu(l_32x32_1 + l_32x32_2)
-            l_16x16 = F.relu(l_16x16_1 + l_16x16_2)
-            l_8x8 = F.relu(l_8x8_1 + l_8x8_2)
-
-            layer = (l_32x32 + self.upsample2(l_16x16) + self.upsample4(l_8x8))/3
+        layer = (layer4 + layer8 + layer12) / 3
 
         visual_feat[0] = layer.unsqueeze(0)
 
