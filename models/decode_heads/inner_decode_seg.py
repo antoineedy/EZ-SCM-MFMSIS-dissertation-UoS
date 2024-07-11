@@ -193,7 +193,7 @@ class InnerATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transf
         crop_train=False,
         **kwargs,
     ):
-        super(ATMSingleHeadSeg, self).__init__(in_channels=in_channels, **kwargs)
+        super(InnerATMSingleHeadSeg, self).__init__(in_channels=in_channels, **kwargs)
 
         self.image_size = img_size
         self.use_stages = use_stages
@@ -250,7 +250,19 @@ class InnerATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transf
 
         delattr(self, "conv_seg")
 
-        self.q_proj = nn.Linear(dim * 2, dim)
+        #self.q_proj = nn.Linear(dim * 2, dim)
+
+        self.layer6_proj = nn.Linear(768, 512)
+        self.layer8_proj = nn.Linear(768, 512)
+        self.layer12_proj = nn.Linear(768, 512)
+
+        self.q6_proj = nn.Linear(dim * 2, dim)
+        self.q8_proj = nn.Linear(dim * 2, dim)
+        self.q12_proj = nn.Linear(dim * 2, dim)
+
+        self.text_proj_6 = nn.Linear(512, 512)
+        self.text_proj_8 = nn.Linear(512, 512)
+        self.text_proj_12 = nn.Linear(512, 512)
 
     def init_weights(self):
         for n, m in self.named_modules():
@@ -301,13 +313,44 @@ class InnerATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transf
         text_token = inputs_both[1]
         # antoine: text_token will be the output of the text encoder
 
-        x = []
-        for stage_ in inputs[: self.use_stages]:
-            x.append(self.d4_to_d3(stage_) if stage_.dim() > 3 else stage_)
-        x.reverse()
-        bs = x[0].size()[0]  # antoine: batch size
+        text_token_6 = self.text_proj_6(text_token.float())
+        text_token_8 = self.text_proj_8(text_token.float())
+        text_token_12 = self.text_proj_12(text_token.float())
 
-        laterals = []  # antoine
+        visual_feat = inputs_both[0]
+
+        layer6 = visual_feat[0][0] # torch.Size([1, 768, 32, 32])
+        layer8 = visual_feat[0][1] # torch.Size([1, 768, 32, 32])
+        layer12 = visual_feat[0][2] # torch.Size([1, 768, 32, 32])
+
+
+        # --- CHANGE DIMENSIONS ---
+        layer12 = layer12.permute(0, 2, 3, 1)
+        layer8 = layer8.permute(0, 2, 3, 1)
+        layer6 = layer6.permute(0, 2, 3, 1)
+
+        layer6 = self.layer6_proj(layer6) # torch.Size([1, 768, 32, 32]) -> torch.Size([1, 512, 32, 32])
+        layer8 = self.layer8_proj(layer8) # torch.Size([1, 768, 32, 32]) -> torch.Size([1, 512, 32, 32])
+        layer12 = self.layer12_proj(layer12) # torch.Size([1, 768, 32, 32]) -> torch.Size([1, 512, 32, 32])
+
+        layer12 = layer12.permute(0, 3, 1, 2)
+        layer8 = layer8.permute(0, 3, 1, 2)
+        layer6 = layer6.permute(0, 3, 1, 2)
+
+        # --- END ---
+
+        # cls6 will be the mean of torch.Size([1, 768, 32, 32]) along the spatial dimensions
+        cls6 = layer6.mean(dim=[2, 3]) # torch.Size([1, 768])
+        cls8 = layer8.mean(dim=[2, 3]) # torch.Size([1, 768])
+        cls12 = (layer12.mean(dim=[2, 3]) + cls_token)/2 # torch.Size([1, 768])
+
+        x = []
+        for stage_ in [layer6, layer8, layer12]:
+            x.append(self.d4_to_d3(stage_) if stage_.dim() > 3 else stage_)
+        x.reverse() # antoine: [layer12, layer8, layer6]
+        bs = x[0].size()[0] 
+
+        laterals = []
         attns = []
         maps_size = []
         qs = []
@@ -316,7 +359,7 @@ class InnerATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transf
             zip(x, self.input_proj, self.proj_norm)
         ):
             lateral = norm_(proj_(x_))
-            # antoine: apply the projection and normalization layers
+            # antoine: apply the projection and normalization layers to images (12 before else)
             if idx == 0:
                 laterals.append(lateral)
                 # antoine: if it is the first layer, append the lateral to the list
@@ -334,11 +377,23 @@ class InnerATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transf
 
         # antoine: lateral = images? see the paper with my drawing
 
-        q = self.q_proj(self.get_qs(text_token, cls_token))
+        #q = self.q_proj(self.get_qs(text_token, cls_token))
         # antoine: get the query with the relationship descriptor
-        q = q.transpose(0, 1)
+        #q = q.transpose(0, 1)
+
+        q6 = self.q6_proj(self.get_qs(text_token_6, cls6))
+        q6 = q6.transpose(0, 1)
+
+        q8 = self.q8_proj(self.get_qs(text_token_8, cls8))
+        q8 = q8.transpose(0, 1)
+
+        q12 = self.q12_proj(self.get_qs(text_token_12, cls12))
+        q12 = q12.transpose(0, 1)
+
+        ql = [q12, q8, q6]
 
         for idx, decoder_ in enumerate(self.decoder):
+            q = ql[idx]
             q_, attn_ = decoder_(q, lateral.transpose(0, 1))
             # antoine: apply the decoder
             for q, attn in zip(q_, attn_):
