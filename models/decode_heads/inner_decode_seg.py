@@ -393,7 +393,10 @@ class InnerATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transf
         ql = [q12, q8, q6]
 
         for idx, decoder_ in enumerate(self.decoder):
-            q = ql[idx]
+            if idx==0:
+                q = ql[idx]
+            else:
+                q = self.merge_qs(q, ql[idx])
             q_, attn_ = decoder_(q, lateral.transpose(0, 1))
             # antoine: apply the decoder
             for q, attn in zip(q_, attn_):
@@ -450,6 +453,9 @@ class InnerATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transf
         mask_pred = mask_pred.sigmoid()
         mask_pred[:, seen_idx] = mask_pred[:, seen_idx] - weight
         return mask_pred
+
+    def merge_qs(self, q, q_layer):
+        return (q + q_layer)/2
 
     @torch.jit.unused
     def _set_aux_loss(self, outputs_seg_masks):
