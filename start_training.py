@@ -18,5 +18,7 @@ config5 = f"{base}/configs/voc12/dilation_vpt_seg_zero_vit-b_512x512_20k_12_10.p
 config6 = f"{base}/configs/voc12/inner_bis_vpt_seg_zero_vit-b_512x512_20k_12_10.py"
 config7 = f"{base}/configs/voc12/double_inner_vpt_seg_zero_vit-b_512x512_20k_12_10.py"
 
-command = f"bash {base}/dist_train.sh {config7} {base_scratch}/data/VOC2012"
+config8 = f"{base}/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py"
+
+command = f"bash {base}/dist_train.sh {config8} {base_scratch}/data/VOC2012"
 os.system(command)

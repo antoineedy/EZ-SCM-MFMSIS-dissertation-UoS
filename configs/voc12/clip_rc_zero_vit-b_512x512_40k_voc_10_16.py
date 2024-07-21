@@ -1,6 +1,8 @@
 _base_ = [
-    '../datasets/zero_voc12_20_aug_512x512.py',
-    '../../_base_/default_runtime.py'
+    #'../datasets/zero_voc12_20_aug_512x512.py',
+    #'../../_base_/default_runtime.py'
+    "../_base_/datasets/voc12_20_aug_512x512.py",
+    "../_base_/default_runtime.py",
 ]
 
 img_size = 512
@@ -101,3 +103,8 @@ scheduler = dict(type='PolyLR',
                  max_steps=max_iter,
                  power=0.9,
                  min_lr=1e-6)
+
+data = dict(
+    samples_per_gpu=1,
+    workers_per_gpu=1,
+)

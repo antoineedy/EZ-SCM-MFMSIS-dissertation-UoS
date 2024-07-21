@@ -5,7 +5,8 @@ import numpy as np
 from jseg.ops import resize
 from jseg.utils.general import add_prefix
 from jseg.utils.registry import MODELS, build_from_cfg, BACKBONES, HEADS
-from .encoder_decoder import EncoderDecoder
+#from .encoder_decoder import EncoderDecoder
+from mmseg.models.segmentors.encoder_decoder import EncoderDecoder
 
 from jseg.utils.tokenizer import tokenize
 
