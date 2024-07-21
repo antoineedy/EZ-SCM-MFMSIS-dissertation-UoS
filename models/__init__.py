@@ -7,10 +7,16 @@ from models.segmentor.dilation_zegclip import DilationZegCLIP
 from models.segmentor.inner_bis_zegclip import InnerBisZegCLIP
 from models.segmentor.double_inner_zegclip import DoubleInnerZegCLIP
 
+from models.segmentor.clip_rc import CLIPRC
+
+
 from models.other_modules.multi_scale import MultiScales
 
 from models.backbone.text_encoder import CLIPTextEncoder
 from models.backbone.img_encoder import CLIPVisionTransformer, VPTCLIPVisionTransformer
+
+from models.backbone.clip_encoder_rlb import CLIPVisionTransformerWithRLB
+
 from models.decode_heads.decode_seg import ATMSingleHeadSeg
 
 from models.decode_heads.inner_decode_seg import InnerATMSingleHeadSeg
