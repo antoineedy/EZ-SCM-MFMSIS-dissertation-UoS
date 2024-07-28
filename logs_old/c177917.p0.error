@@ -1,0 +1,28 @@
+[i 0728 12:59:44.151145 20 __init__.py:227] Total mem: 251.74GB, using 16 procs for compiling.
+[i 0728 13:00:07.621297 20 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0728 13:00:07.859748 20 init.cc:62] Found cuda archs: [75,]
+[i 0728 13:00:09.109720 20 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0728 13:00:09.201376 20 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x04/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/custom_ops
+[i 0728 13:00:11.932216 20 compile_extern.py:339] Downloading cutt...
+[i 0728 13:00:12.120681 20 compile_extern.py:352] installing cutt...
+[i 0728 13:00:28.383161 20 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x04/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/cuda
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 3, in <module>
+    from jseg.runner import Runner
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/__init__.py", line 1, in <module>
+    from . import models
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/__init__.py", line 5, in <module>
+    from .segmentors import *
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/segmentors/__init__.py", line 3, in <module>
+    from .clip_rc import CLIPRC
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/segmentors/clip_rc.py", line 10, in <module>
+    from jseg.utils.tokenizer import tokenize
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/utils/tokenizer.py", line 152, in <module>
+    _tokenizer = SimpleTokenizer()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/utils/tokenizer.py", line 72, in __init__
+    merges = gzip.open(bpe_path).read().decode("utf-8").split('\n')
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/gzip.py", line 58, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/gzip.py", line 173, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'project/clip_rc/bpe_simple_vocab_16e6.txt.gz'

@@ -18,10 +18,8 @@ config5 = f"{base}/configs/voc12/dilation_vpt_seg_zero_vit-b_512x512_20k_12_10.p
 config6 = f"{base}/configs/voc12/inner_bis_vpt_seg_zero_vit-b_512x512_20k_12_10.py"
 config7 = f"{base}/configs/voc12/double_inner_vpt_seg_zero_vit-b_512x512_20k_12_10.py"
 
-#command = f"bash {base}/dist_train.sh {config8} {base_scratch}/data/VOC2012"
+config8 = f"{base}/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py"
 
-#command = f"/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python {base}/JSeg/tools/run_net.py --config-file={base}/JSeg/project/clip_rc/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py --task=train"
-
-command = "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python JSeg/tools/run_net.py --config-file=JSeg/project/fcn/fcn_r50-d8_512x1024_cityscapes_80k.py --task=train"
+command = f"bash {base}/dist_train.sh {config8} {base_scratch}/data/VOC2012"
 
 os.system(command)

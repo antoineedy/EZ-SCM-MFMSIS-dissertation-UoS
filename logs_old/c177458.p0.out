@@ -1,0 +1,93 @@
+[i 0725 16:24:18.425522 44 lock.py:85] Create lock file:/user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x35/AMDEPYC750232-x2a/jittor.lock
+[i 0725 16:24:18.426248 24 lock.py:85] Create lock file:/user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x35/AMDEPYC750232-x2a/jittor.lock
+[i 0725 16:24:18.427875 32 lock.py:85] Create lock file:/user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x35/AMDEPYC750232-x2a/jittor.lock
+[i 0725 16:24:18.438756 00 lock.py:85] Create lock file:/user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x35/AMDEPYC750232-x2a/jittor.lock
+[i 0725 16:24:18.454124 44 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
+[i 0725 16:24:18.480827 44 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
+[i 0725 16:24:18.480943 44 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x35/AMDEPYC750232-x2a/default
+[i 0725 16:24:18.509504 44 __init__.py:411] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc.
+[i 0725 16:24:18.539595 44 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
+[i 0725 16:24:18.708025 44 compiler.py:1011] cuda key:cu11.0.221_sm_75
+[i 0725 16:24:18.800974 44 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x35/AMDEPYC750232-x2a/default/cu11.0.221_sm_75
+[i 0725 16:24:18.803682 44 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x35/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/jit
+[i 0725 16:24:18.805642 44 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x35/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/obj_files
+[i 0725 16:24:18.807176 44 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x35/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/gen
+[i 0725 16:24:18.808697 44 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x35/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/tmp
+[i 0725 16:24:18.810159 44 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x35/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/checkpoints
+Compiling jittor_core(26/151) used: 2.069s eta: 9.949sCompiling jittor_core(27/151) used: 2.176s eta: 9.991sCompiling jittor_core(28/151) used: 2.194s eta: 9.638sCompiling jittor_core(29/151) used: 2.242s eta: 9.430sCompiling jittor_core(30/151) used: 2.466s eta: 9.946sCompiling jittor_core(31/151) used: 2.514s eta: 9.732sCompiling jittor_core(32/151) used: 2.519s eta: 9.366sCompiling jittor_core(33/151) used: 2.608s eta: 9.326sCompiling jittor_core(34/151) used: 2.772s eta: 9.539sCompiling jittor_core(35/151) used: 2.776s eta: 9.201sCompiling jittor_core(36/151) used: 2.846s eta: 9.091sCompiling jittor_core(37/151) used: 2.991s eta: 9.216sCompiling jittor_core(38/151) used: 3.046s eta: 9.059sCompiling jittor_core(39/151) used: 3.139s eta: 9.015sCompiling jittor_core(40/151) used: 3.163s eta: 8.777sCompiling jittor_core(41/151) used: 3.190s eta: 8.558sCompiling jittor_core(42/151) used: 3.269s eta: 8.483sCompiling jittor_core(43/151) used: 3.417s eta: 8.582sCompiling jittor_core(44/151) used: 3.436s eta: 8.357sCompiling jittor_core(45/151) used: 3.464s eta: 8.160sCompiling jittor_core(46/151) used: 3.672s eta: 8.383sCompiling jittor_core(47/151) used: 3.673s eta: 8.127sCompiling jittor_core(48/151) used: 3.796s eta: 8.145sCompiling jittor_core(49/151) used: 3.836s eta: 7.985sCompiling jittor_core(50/151) used: 4.031s eta: 8.142sCompiling jittor_core(51/151) used: 4.048s eta: 7.938sCompiling jittor_core(52/151) used: 4.050s eta: 7.711sCompiling jittor_core(53/151) used: 4.053s eta: 7.494sCompiling jittor_core(54/151) used: 4.086s eta: 7.339sCompiling jittor_core(55/151) used: 4.200s eta: 7.331sCompiling jittor_core(56/151) used: 4.305s eta: 7.303sCompiling jittor_core(57/151) used: 4.349s eta: 7.172sCompiling jittor_core(58/151) used: 4.446s eta: 7.129sCompiling jittor_core(59/151) used: 4.522s eta: 7.052sCompiling jittor_core(60/151) used: 4.542s eta: 6.889sCompiling jittor_core(61/151) used: 4.646s eta: 6.855sCompiling jittor_core(62/151) used: 4.708s eta: 6.758sCompiling jittor_core(63/151) used: 4.801s eta: 6.707sCompiling jittor_core(64/151) used: 4.959s eta: 6.741sCompiling jittor_core(65/151) used: 4.960s eta: 6.563sCompiling jittor_core(66/151) used: 5.005s eta: 6.446sCompiling jittor_core(67/151) used: 5.069s eta: 6.356sCompiling jittor_core(68/151) used: 5.077s eta: 6.197sCompiling jittor_core(69/151) used: 5.078s eta: 6.035sCompiling jittor_core(70/151) used: 5.168s eta: 5.981sCompiling jittor_core(71/151) used: 5.185s eta: 5.842sCompiling jittor_core(72/151) used: 5.327s eta: 5.845sCompiling jittor_core(73/151) used: 5.390s eta: 5.759sCompiling jittor_core(74/151) used: 5.395s eta: 5.613sCompiling jittor_core(75/151) used: 5.401s eta: 5.473sCompiling jittor_core(76/151) used: 5.434s eta: 5.363sCompiling jittor_core(77/151) used: 5.515s eta: 5.300sCompiling jittor_core(78/151) used: 5.521s eta: 5.167sCompiling jittor_core(79/151) used: 5.577s eta: 5.083sCompiling jittor_core(80/151) used: 5.690s eta: 5.050sCompiling jittor_core(81/151) used: 5.724s eta: 4.947sCompiling jittor_core(82/151) used: 5.748s eta: 4.836sCompiling jittor_core(83/151) used: 5.759s eta: 4.718sCompiling jittor_core(84/151) used: 6.013s eta: 4.796sCompiling jittor_core(85/151) used: 6.152s eta: 4.777sCompiling jittor_core(86/151) used: 6.160s eta: 4.656sCompiling jittor_core(87/151) used: 6.219s eta: 4.575sCompiling jittor_core(88/151) used: 6.264s eta: 4.485sCompiling jittor_core(89/151) used: 6.378s eta: 4.443sCompiling jittor_core(90/151) used: 6.388s eta: 4.329sCompiling jittor_core(91/151) used: 6.419s eta: 4.232sCompiling jittor_core(92/151) used: 6.463s eta: 4.145sCompiling jittor_core(93/151) used: 6.581s eta: 4.104sCompiling jittor_core(94/151) used: 6.626s eta: 4.018sCompiling jittor_core(95/151) used: 6.629s eta: 3.908sCompiling jittor_core(96/151) used: 6.664s eta: 3.818sCompiling jittor_core(97/151) used: 6.771s eta: 3.770sCompiling jittor_core(98/151) used: 6.878s eta: 3.720sCompiling jittor_core(99/151) used: 6.905s eta: 3.627sCompiling jittor_core(100/151) used: 6.939s eta: 3.539sCompiling jittor_core(101/151) used: 6.995s eta: 3.463sCompiling jittor_core(102/151) used: 7.008s eta: 3.366sCompiling jittor_core(103/151) used: 7.288s eta: 3.397sCompiling jittor_core(104/151) used: 7.288s eta: 3.294sCompiling jittor_core(105/151) used: 7.437s eta: 3.258sCompiling jittor_core(106/151) used: 7.508s eta: 3.187sCompiling jittor_core(107/151) used: 7.508s eta: 3.087sCompiling jittor_core(108/151) used: 7.563s eta: 3.011sCompiling jittor_core(109/151) used: 7.665s eta: 2.953sCompiling jittor_core(110/151) used: 7.688s eta: 2.865sCompiling jittor_core(111/151) used: 7.717s eta: 2.781sCompiling jittor_core(112/151) used: 7.765s eta: 2.704sCompiling jittor_core(113/151) used: 7.775s eta: 2.615sCompiling jittor_core(114/151) used: 7.876s eta: 2.556sCompiling jittor_core(115/151) used: 8.059s eta: 2.523sCompiling jittor_core(116/151) used: 8.059s eta: 2.432sCompiling jittor_core(117/151) used: 8.098s eta: 2.353sCompiling jittor_core(118/151) used: 8.183s eta: 2.288sCompiling jittor_core(119/151) used: 8.297s eta: 2.231sCompiling jittor_core(120/151) used: 8.361s eta: 2.160sCompiling jittor_core(121/151) used: 8.417s eta: 2.087sCompiling jittor_core(122/151) used: 8.536s eta: 2.029sCompiling jittor_core(123/151) used: 8.563s eta: 1.949sCompiling jittor_core(124/151) used: 8.605s eta: 1.874sCompiling jittor_core(125/151) used: 8.705s eta: 1.811sCompiling jittor_core(126/151) used: 8.764s eta: 1.739sCompiling jittor_core(127/151) used: 8.778s eta: 1.659sCompiling jittor_core(128/151) used: 8.905s eta: 1.600sCompiling jittor_core(129/151) used: 8.941s eta: 1.525sCompiling jittor_core(130/151) used: 8.996s eta: 1.453sCompiling jittor_core(131/151) used: 9.037s eta: 1.380sCompiling jittor_core(132/151) used: 9.039s eta: 1.301sCompiling jittor_core(133/151) used: 9.050s eta: 1.225sCompiling jittor_core(134/151) used: 9.081s eta: 1.152sCompiling jittor_core(135/151) used: 9.097s eta: 1.078sCompiling jittor_core(136/151) used: 9.158s eta: 1.010sCompiling jittor_core(137/151) used: 9.318s eta: 0.952sCompiling jittor_core(138/151) used: 9.329s eta: 0.879sCompiling jittor_core(139/151) used: 9.333s eta: 0.806sCompiling jittor_core(140/151) used: 9.407s eta: 0.739sCompiling jittor_core(141/151) used: 9.460s eta: 0.671sCompiling jittor_core(142/151) used: 9.538s eta: 0.605sCompiling jittor_core(143/151) used: 9.591s eta: 0.537sCompiling jittor_core(144/151) used: 9.709s eta: 0.472sCompiling jittor_core(145/151) used: 9.718s eta: 0.402sCompiling jittor_core(146/151) used: 9.822s eta: 0.336sCompiling jittor_core(147/151) used: 9.947s eta: 0.271sCompiling jittor_core(148/151) used: 10.664s eta: 0.216sCompiling jittor_core(149/151) used: 11.023s eta: 0.148sCompiling jittor_core(150/151) used: 11.430s eta: 0.076sCompiling jittor_core(151/151) used: 17.471s eta: 0.000s
+Compiling libcutt(8/9) used: 3.772s eta: 0.472sCompiling libcutt(9/9) used: 7.836s eta: 0.000s
+Compiling gen_ops_mkl_conv_mkl_conv_backward_w_mkl_test_mkl____hash4cc03b(7/7) used: 2.292s eta: 0.000s
+Compiling gen_ops_cudnn_rnn_cudnn_conv_backward_w_cudnn_conv___hash8b3aa2(16/16) used: 3.331s eta: 0.000s
+Torch cache cleared
+Torch cache cleared
+Torch cache cleared
+Torch cache cleared
+workdir: /mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012
+workdir: /mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012
+workdir: /mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012
+workdir: /mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012
+Making visible mask for zero-shot setting: [  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1 255]
+--------------------------------------
+Making visible mask for zero-shot setting: [  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1 255]
+--------------------------------------
+Making visible mask for zero-shot setting: [  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1 255]
+--------------------------------------
+Making visible mask for zero-shot setting: [  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1 255]
+--------------------------------------
+Beginning training script
