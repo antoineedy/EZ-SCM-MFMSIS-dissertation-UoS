@@ -1,0 +1,43 @@
+[i 0728 13:05:32.892101 92 __init__.py:227] Total mem: 251.74GB, using 16 procs for compiling.
+[i 0728 13:05:56.860264 92 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0728 13:05:57.059644 92 init.cc:62] Found cuda archs: [75,]
+[i 0728 13:05:58.321893 92 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0728 13:05:58.414079 92 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x0b/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/custom_ops
+[i 0728 13:06:00.840737 92 compile_extern.py:339] Downloading cutt...
+[i 0728 13:06:01.003079 92 compile_extern.py:352] installing cutt...
+[i 0728 13:06:16.333178 92 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x0b/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/cuda
+[i 0728 13:06:36.453623 92 cuda_flags.cc:49] CUDA enabled.
+
+Compiling Operators(6/16) used: 3.37s eta: 5.61s Compiling Operators(10/16) used: 4.37s eta: 2.62s Compiling Operators(16/16) used: 5.37s eta:    0s 
+
+Compiling Operators(1/2) used: 3.31s eta: 3.31s Compiling Operators(2/2) used: 4.31s eta:    0s 
+/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/cross_entropy_loss.py:55: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with Jittor official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+
+Compiling Operators(5/6) used: 4.34s eta: 0.869s Compiling Operators(6/6) used: 5.34s eta:    0s 
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 70, in <module>
+    main()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 59, in main
+    runner = Runner()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/runner/runner.py", line 34, in __init__
+    self.model = build_from_cfg(cfg.model, MODELS)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/utils/registry.py", line 33, in build_from_cfg
+    module = obj_cls(**args)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/segmentors/clip_rc.py", line 34, in __init__
+    super(CLIPRC, self).__init__(**args)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/segmentors/encoder_decoder.py", line 31, in __init__
+    self.init_weights(pretrained=pretrained)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/segmentors/encoder_decoder.py", line 59, in init_weights
+    self.backbone.init_weights(pretrained=pretrained)
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/backbones/clip_encoder_rlb.py", line 140, in init_weights
+    checkpoint = jt.load(pretrained)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor/__init__.py", line 1128, in load
+    model_dict = safeunpickle(path)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor/__init__.py", line 98, in safeunpickle
+    model_dict = load_pytorch(path)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor_utils/load_pytorch.py", line 270, in load_pytorch
+    result = unpickler.load()
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor_utils/load_pytorch.py", line 109, in find_class
+    return super().find_class(mod_name, name)
+ModuleNotFoundError: No module named '__torch__'

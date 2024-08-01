@@ -107,6 +107,6 @@ optimizer = dict(
 )
 
 data = dict(
-    samples_per_gpu=8,
-    workers_per_gpu=8,
+    samples_per_gpu=1,
+    workers_per_gpu=1,
 )

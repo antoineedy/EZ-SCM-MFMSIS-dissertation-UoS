@@ -104,8 +104,8 @@ class CLIPVisionTransformerWithRLB(nn.Module):
         for i in range(self.region_level_bridge_size):
             visual_mask[rlb_index + i, rlb_index + i] = 0
 
-        # import cv2
-        # cv2.imwrite('visual_mask.png', (visual_mask.numpy() + 1) * 255)
+        import cv2
+        cv2.imwrite('visual_mask.png', (visual_mask.numpy() + 1) * 255)
 
         return visual_mask
 

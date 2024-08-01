@@ -2,7 +2,8 @@ _base_ = [
     #'../datasets/zero_voc12_20_aug_512x512.py',
     #'../../_base_/default_runtime.py'
     "../_base_/datasets/voc12_20_aug_512x512.py",
-    "../_base_/default_runtime.py",
+    #"../_base_/default_runtime.py",
+    "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/_base_rc_clip_/default_runtime.py"
 ]
 
 img_size = 512
@@ -22,7 +23,8 @@ CLASSES = ('aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car',
            'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor')
 
 #pretrained = 'ViT-B-16.pkl'
-pretrained = '/mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16.pt'
+#pretrained = '/mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16.pt'
+pretrained = "/mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16-RC-CLIP.pkl"
 
 model = dict(
     type='CLIPRC',
