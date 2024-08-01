@@ -1,0 +1,40 @@
+000 (177932.000.000) 2024-07-28 14:40:55 Job submitted from host: <131.227.81.127:9618?addrs=131.227.81.127-9618&alias=aisurrey-condor.surrey.ac.uk&noUDP&sock=schedd_1795_cc96>
+...
+040 (177932.000.000) 2024-07-28 14:40:55 Started transferring input files
+	Transferring to host: <131.227.80.186:9618?addrs=131.227.80.186-9618&alias=aisurrey08.surrey.ac.uk&noUDP&sock=slot1_1_4745_081a_16394>
+...
+040 (177932.000.000) 2024-07-28 14:40:55 Finished transferring input files
+...
+001 (177932.000.000) 2024-07-28 14:40:56 Job executing on host: <131.227.80.186:9618?addrs=131.227.80.186-9618&alias=aisurrey08.surrey.ac.uk&noUDP&sock=startd_4605_39b7>
+...
+006 (177932.000.000) 2024-07-28 14:41:05 Image size of job updated: 17500
+	273  -  MemoryUsage of job (MB)
+	280380  -  ResidentSetSize of job (KB)
+...
+006 (177932.000.000) 2024-07-28 14:42:23 Image size of job updated: 17500
+	16610  -  MemoryUsage of job (MB)
+	17009192  -  ResidentSetSize of job (KB)
+...
+040 (177932.000.000) 2024-07-28 14:42:23 Started transferring output files
+...
+040 (177932.000.000) 2024-07-28 14:42:23 Finished transferring output files
+...
+005 (177932.000.000) 2024-07-28 14:42:23 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:03:51, Sys 0 00:00:42  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:03:51, Sys 0 00:00:42  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	16251694  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	16251694  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        4         4 
+	   Disk (KB)            : 16353       17500    246844 
+	   Gpus (Average)       :     0.03        4         4 "GPU-b10e5e98-d533-35c0-c507-da5471772c00,GPU-a4c2f5c5-c1af-6d7f-3709-14f6a7d78641,GPU-8259e7d9-f8a2-cb67-3606-e2fd1f4ad374,GPU-9f1a4d93-a8ab-1e71-1a1d-5f679ccdd67d"
+	   GpusMemory (MB)      :   257                       
+	   Memory (MB)          : 16610       65536     65536 
+
+	Job terminated of its own accord at 2024-07-28T13:42:23Z.
+...

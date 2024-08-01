@@ -1,0 +1,32 @@
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 49
+    ], f"{args.task} not support, please choose [train,val,test]"
+                                                             File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 49
+    ], f"{args.task} not support, please choose [train,val,test]"
+              File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 49
+    ], f"{args.task} not support, please choose [train,val,test]"
+                   File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 49
+    ], f"{args.task} not support, please choose [train,val,test]"
+                                         ^
+SyntaxError: invalid syntax
+                            ^
+SyntaxError  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 49
+    ], f"{args.task} not support, please choose [train,val,test]"
+                                                                ^
+SyntaxError: invalid syntax
+                                                    ^
+SyntaxError: invalid syntax
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 49
+    ], f"{args.task} not support, please choose [train,val,test]"
+                                                                                                      ^
+SyntaxError: invalid syntax
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 49
+    ], f"{args.task} not support, please choose [train,val,test]"
+                            : invalid syntax
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 49
+    ], f"{args.task} not support, please choose [train,val,test]"
+                                                                ^
+SyntaxError: invalid syntax
+         ^
+SyntaxError: invalid syntax
+                                    ^
+SyntaxError: invalid syntax

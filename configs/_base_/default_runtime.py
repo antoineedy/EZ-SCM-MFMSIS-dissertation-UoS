@@ -14,3 +14,6 @@ workflow = [('train', 1)]
 cudnn_benchmark = True
 find_unused_parameters = True
 
+logger = dict(type="RunLogger")
+log_interval = 50
+

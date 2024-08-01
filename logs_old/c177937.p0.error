@@ -1,0 +1,155 @@
+/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py:178: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use_env is set by default in torchrun.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  warnings.warn(
+[i 0728 13:57:29.430615 92 __init__.py:227] Total mem: 251.74GB, using 16 procs for compiling.
+[i 0728 13:57:52.771135 92 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0728 13:57:52.975134 92 init.cc:62] Found cuda archs: [75,]
+[i 0728 13:57:54.195635 92 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0728 13:57:54.284469 92 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x9c/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/custom_ops
+[i 0728 13:57:56.544451 32 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
+[i 0728 13:57:56.549607 32 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
+[i 0728 13:57:56.549693 32 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x9c/AMDEPYC750232-x2a/default
+[i 0728 13:57:56.555673 32 __init__.py:411] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc.
+[i 0728 13:57:56.561162 32 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
+[i 0728 13:57:56.728919 32 compiler.py:1011] cuda key:cu11.0.221_sm_75
+[i 0728 13:57:57.289825 32 __init__.py:227] Total mem: 251.74GB, using 16 procs for compiling.
+[i 0728 13:57:57.482544 32 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0728 13:57:57.623447 32 init.cc:62] Found cuda archs: [75,]
+[i 0728 13:57:58.861435 32 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0728 13:57:59.045042 76 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
+[i 0728 13:57:59.050829 76 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
+[i 0728 13:57:59.050918 76 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x9c/AMDEPYC750232-x2a/default
+[i 0728 13:57:59.057671 76 __init__.py:411] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc.
+[i 0728 13:57:59.063850 76 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
+[i 0728 13:57:59.247866 76 compiler.py:1011] cuda key:cu11.0.221_sm_75
+[i 0728 13:57:59.806754 76 __init__.py:227] Total mem: 251.74GB, using 16 procs for compiling.
+[i 0728 13:57:59.995581 76 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0728 13:58:00.135803 76 init.cc:62] Found cuda archs: [75,]
+[i 0728 13:58:01.497166 76 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0728 13:58:01.690704 48 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
+[i 0728 13:58:01.696211 48 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
+[i 0728 13:58:01.696297 48 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x9c/AMDEPYC750232-x2a/default
+[i 0728 13:58:01.702176 48 __init__.py:411] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc.
+[i 0728 13:58:01.707767 48 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
+[i 0728 13:58:01.871184 48 compiler.py:1011] cuda key:cu11.0.221_sm_75
+[i 0728 13:58:02.435919 48 __init__.py:227] Total mem: 251.74GB, using 16 procs for compiling.
+[i 0728 13:58:02.633373 48 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0728 13:58:02.772778 48 init.cc:62] Found cuda archs: [75,]
+[i 0728 13:58:04.125397 48 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0728 13:58:04.409722 92 compile_extern.py:339] Downloading cutt...
+[i 0728 13:58:04.563936 92 compile_extern.py:352] installing cutt...
+[i 0728 13:58:19.944133 76 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x9c/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/cuda
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 3, in <module>
+    from jseg.runner import Runner
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/__init__.py", line 1, in <module>
+    from . import models
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/__init__.py", line 2, in <module>
+    from .decode_heads import *
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/decode_heads/__init__.py", line 1, in <module>
+    from .segformer_head import SegFormerHead
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/decode_heads/segformer_head.py", line 7, in <module>
+    from .decode_head import BaseDecodeHead
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/decode_heads/decode_head.py", line 8, in <module>
+    from ..losses import accuracy
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/__init__.py", line 1, in <module>
+    from .accuracy import Accuracy, accuracy
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/accuracy.py", line 4, in <module>
+    eps = jt.Var(1.1920928955078125e-07)
+RuntimeError: Wrong inputs arguments, Please refer to examples(help(jt.__init__)).
+
+Types of your inputs are:
+ self	= Var,
+ args	= (float, ),
+
+The function declarations are:
+ VarHolder(PyObject* v, NanoString dtype=ns_void)
+
+Failed reason:[f 0728 13:58:40.975138 76 helper_cuda.h:128] CUDA error at /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor/src/mem/allocator/cuda_host_allocator.cc:22  code=2( cudaErrorMemoryAllocation ) cudaMallocHost(&ptr, size)
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 3, in <module>
+    from jseg.runner import Runner
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/__init__.py", line 1, in <module>
+    from . import models
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/__init__.py", line 2, in <module>
+    from .decode_heads import *
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/decode_heads/__init__.py", line 1, in <module>
+    from .segformer_head import SegFormerHead
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/decode_heads/segformer_head.py", line 7, in <module>
+    from .decode_head import BaseDecodeHead
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/decode_heads/decode_head.py", line 8, in <module>
+    from ..losses import accuracy
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/__init__.py", line 1, in <module>
+    from .accuracy import Accuracy, accuracy
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/accuracy.py", line 4, in <module>
+    eps = jt.Var(1.1920928955078125e-07)
+RuntimeError: Wrong inputs arguments, Please refer to examples(help(jt.__init__)).
+
+Types of your inputs are:
+ self	= Var,
+ args	= (float, ),
+
+The function declarations are:
+ VarHolder(PyObject* v, NanoString dtype=ns_void)
+
+Failed reason:[f 0728 13:58:41.294828 92 helper_cuda.h:128] CUDA error at /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor/src/mem/allocator/cuda_host_allocator.cc:22  code=2( cudaErrorMemoryAllocation ) cudaMallocHost(&ptr, size)
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 81, in <module>
+    main()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 48, in main
+    if "LOCAL_RANK" not in os.environ: # added by antoine
+NameError: name 'os' is not defined
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 81, in <module>
+    main()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 48, in main
+    if "LOCAL_RANK" not in os.environ: # added by antoine
+NameError: name 'os' is not defined
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 28 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 29 closing signal SIGTERM
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 26) of binary: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py", line 193, in <module>
+    main()
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py", line 189, in main
+    launch(args)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py", line 174, in launch
+    run(args)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/run.py", line 710, in run
+    elastic_launch(
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 131, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 259, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2024-07-28_13:58:43
+  host      : ae01116-177937.0-aisurrey02.surrey.ac.uk
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 27)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-07-28_13:58:43
+  host      : ae01116-177937.0-aisurrey02.surrey.ac.uk
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 26)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

@@ -1,0 +1,40 @@
+000 (177939.000.000) 2024-07-28 15:04:57 Job submitted from host: <131.227.81.127:9618?addrs=131.227.81.127-9618&alias=aisurrey-condor.surrey.ac.uk&noUDP&sock=schedd_1795_cc96>
+...
+040 (177939.000.000) 2024-07-28 15:05:17 Started transferring input files
+	Transferring to host: <131.227.80.128:9618?addrs=131.227.80.128-9618&alias=aisurrey16.surrey.ac.uk&noUDP&sock=slot1_5_5283_19f0_6799>
+...
+040 (177939.000.000) 2024-07-28 15:05:17 Finished transferring input files
+...
+001 (177939.000.000) 2024-07-28 15:05:18 Job executing on host: <131.227.80.128:9618?addrs=131.227.80.128-9618&alias=aisurrey16.surrey.ac.uk&noUDP&sock=startd_5143_3faa>
+...
+006 (177939.000.000) 2024-07-28 15:05:26 Image size of job updated: 17500
+	453  -  MemoryUsage of job (MB)
+	464612  -  ResidentSetSize of job (KB)
+...
+006 (177939.000.000) 2024-07-28 15:06:57 Image size of job updated: 24887
+	24887  -  MemoryUsage of job (MB)
+	25484908  -  ResidentSetSize of job (KB)
+...
+040 (177939.000.000) 2024-07-28 15:06:57 Started transferring output files
+...
+040 (177939.000.000) 2024-07-28 15:06:57 Finished transferring output files
+...
+005 (177939.000.000) 2024-07-28 15:06:58 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:05:01, Sys 0 00:01:04  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:05:01, Sys 0 00:01:04  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	16251893  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	16251893  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        4         4 
+	   Disk (KB)            : 16276       17500    652975 
+	   Gpus (Average)       :     0.05        4         4 "CUDA2,CUDA5,CUDA6,CUDA7"
+	   GpusMemory (MB)      :  2442                       
+	   Memory (MB)          : 24887       65536     65536 
+
+	Job terminated of its own accord at 2024-07-28T14:06:57Z.
+...

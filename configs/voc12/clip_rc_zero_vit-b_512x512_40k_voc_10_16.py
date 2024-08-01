@@ -1,9 +1,10 @@
 _base_ = [
-    #'../datasets/zero_voc12_20_aug_512x512.py',
-    #'../../_base_/default_runtime.py'
-    "../_base_/datasets/voc12_20_aug_512x512.py",
-    #"../_base_/default_runtime.py",
-    "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/_base_rc_clip_/default_runtime.py"
+    #'../datasets/zero_voc12_20_aug_512x512.py', # original
+    #'../../_base_/default_runtime.py' # original
+    "../_base_/datasets/voc12_20_aug_512x512.py", # antoine
+    "../_base_/default_runtime.py", # antoine
+    #"/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/_base_rc_clip_/zero_voc12_20_aug_512x512.py", # antoine
+    #"/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/_base_rc_clip_/default_runtime.py", # antoine
 ]
 
 img_size = 512
