@@ -1,0 +1,40 @@
+000 (178657.000.000) 2024-08-01 12:41:38 Job submitted from host: <131.227.81.127:9618?addrs=131.227.81.127-9618&alias=aisurrey-condor.surrey.ac.uk&noUDP&sock=schedd_1795_cc96>
+...
+040 (178657.000.000) 2024-08-01 12:41:53 Started transferring input files
+	Transferring to host: <131.227.80.134:9618?addrs=131.227.80.134-9618&alias=aisurrey19.surrey.ac.uk&noUDP&sock=slot1_1_4848_9abe_8471>
+...
+040 (178657.000.000) 2024-08-01 12:41:54 Finished transferring input files
+...
+001 (178657.000.000) 2024-08-01 12:41:55 Job executing on host: <131.227.80.134:9618?addrs=131.227.80.134-9618&alias=aisurrey19.surrey.ac.uk&noUDP&sock=startd_4709_8f90>
+...
+006 (178657.000.000) 2024-08-01 12:42:03 Image size of job updated: 17500
+	497  -  MemoryUsage of job (MB)
+	508980  -  ResidentSetSize of job (KB)
+...
+006 (178657.000.000) 2024-08-01 12:44:01 Image size of job updated: 27073
+	27073  -  MemoryUsage of job (MB)
+	27723068  -  ResidentSetSize of job (KB)
+...
+040 (178657.000.000) 2024-08-01 12:44:01 Started transferring output files
+...
+040 (178657.000.000) 2024-08-01 12:44:01 Finished transferring output files
+...
+005 (178657.000.000) 2024-08-01 12:44:01 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:05:52, Sys 0 00:01:27  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:05:52, Sys 0 00:01:27  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	6082  -  Run Bytes Sent By Job
+	16251893  -  Run Bytes Received By Job
+	6082  -  Total Bytes Sent By Job
+	16251893  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        4         4 
+	   Disk (KB)            : 16264       17500    652975 
+	   Gpus (Average)       :     0.04        4         4 "CUDA0,CUDA3,CUDA4,CUDA5"
+	   GpusMemory (MB)      :  2788                       
+	   Memory (MB)          : 27073       65536     65536 
+
+	Job terminated of its own accord at 2024-08-01T11:44:00Z.
+...

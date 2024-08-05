@@ -60,6 +60,7 @@ def main():
     torch.cuda.empty_cache() 
     print("Torch cache cleared")
     torch.cuda.set_device(args.local_rank)
+    print("Torch device set to local rank")
 
     if args.config_file:
         init_cfg(args.config_file)

@@ -36,8 +36,8 @@ test_pipeline = [
         ],
     ),
 ]
-#data = dict(
-dataset = dict( # changed by antoine to match rc-clip
+data = dict(
+#dataset = dict( # changed by antoine to match rc-clip
     samples_per_gpu=4,
     workers_per_gpu=4,
     train=dict(

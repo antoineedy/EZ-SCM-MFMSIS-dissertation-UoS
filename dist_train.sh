@@ -21,3 +21,5 @@ CUDA_VISIBLE_DEVICES="0,1,2,3" /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/b
 
 #PYTHONPATH="$(dirname $0)/..":$PYTHONPATH \
 #CUDA_VISIBLE_DEVICES="0,1,2,3" mpirun -n 8 python $(dirname "$0")/run_net.py --config-file=project/fcn/fcn_r50-d8_512x1024_cityscapes_80k.py --task=train
+
+#python tools/run_net.py --config-file=project/fcn/fcn_r50-d8_512x1024_cityscapes_80k.py --task=train
