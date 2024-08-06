@@ -1,0 +1,125 @@
+[i 0801 12:48:08.792978 00 __init__.py:227] Total mem: 503.74GB, using 16 procs for compiling.
+[i 0801 12:48:27.913006 00 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0801 12:48:28.099399 00 init.cc:62] Found cuda archs: [86,]
+[w 0801 12:48:28.175958 00 compiler.py:1384] CUDA arch(86)>80 will be backward-compatible
+[i 0801 12:48:28.189629 00 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0801 12:48:28.228024 00 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xec/AMDEPYC753232-x73/default/cu11.0.221_sm_86/custom_ops
+[i 0801 12:48:30.008064 24 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
+[i 0801 12:48:30.011971 24 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
+[i 0801 12:48:30.012046 24 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xec/AMDEPYC753232-x73/default
+[i 0801 12:48:30.016850 24 __init__.py:411] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc.
+[i 0801 12:48:30.021537 24 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
+[i 0801 12:48:30.160580 24 compiler.py:1011] cuda key:cu11.0.221_sm_86
+[i 0801 12:48:30.621746 24 __init__.py:227] Total mem: 503.74GB, using 16 procs for compiling.
+[i 0801 12:48:30.797466 24 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0801 12:48:30.962040 24 init.cc:62] Found cuda archs: [86,]
+[w 0801 12:48:31.034092 24 compiler.py:1384] CUDA arch(86)>80 will be backward-compatible
+[i 0801 12:48:31.047812 24 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0801 12:48:31.213968 88 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
+[i 0801 12:48:31.219194 88 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
+[i 0801 12:48:31.219320 88 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xec/AMDEPYC753232-x73/default
+[i 0801 12:48:31.225279 88 __init__.py:411] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc.
+[i 0801 12:48:31.230923 88 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
+[i 0801 12:48:31.362222 88 compiler.py:1011] cuda key:cu11.0.221_sm_86
+[i 0801 12:48:31.937201 88 __init__.py:227] Total mem: 503.74GB, using 16 procs for compiling.
+[i 0801 12:48:32.099664 88 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0801 12:48:32.221966 88 init.cc:62] Found cuda archs: [86,]
+[w 0801 12:48:32.296618 88 compiler.py:1384] CUDA arch(86)>80 will be backward-compatible
+[i 0801 12:48:32.309577 88 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0801 12:48:32.393550 84 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
+[i 0801 12:48:32.398131 84 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
+[i 0801 12:48:32.398216 84 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xec/AMDEPYC753232-x73/default
+[i 0801 12:48:32.403102 84 __init__.py:411] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc.
+[i 0801 12:48:32.407655 84 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
+[i 0801 12:48:32.543136 84 compiler.py:1011] cuda key:cu11.0.221_sm_86
+[i 0801 12:48:33.007419 84 __init__.py:227] Total mem: 503.74GB, using 16 procs for compiling.
+[i 0801 12:48:33.162930 84 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0801 12:48:33.361419 84 init.cc:62] Found cuda archs: [86,]
+[w 0801 12:48:33.430931 84 compiler.py:1384] CUDA arch(86)>80 will be backward-compatible
+[i 0801 12:48:33.445079 84 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0801 12:48:34.552664 84 compile_extern.py:438] installing nccl...
+[i 0801 12:49:43.241354 00 compile_extern.py:339] Downloading cutt...
+[i 0801 12:49:43.416514 00 compile_extern.py:352] installing cutt...
+[i 0801 12:49:55.427374 88 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xec/AMDEPYC753232-x73/default/cu11.0.221_sm_86/cuda
+[i 0801 12:50:14.157527 88 cuda_flags.cc:49] CUDA enabled.
+[i 0801 12:50:14.206704 84 cuda_flags.cc:49] CUDA enabled.
+[i 0801 12:50:14.236833 00 cuda_flags.cc:49] CUDA enabled.
+[i 0801 12:50:14.272537 24 cuda_flags.cc:49] CUDA enabled.
+
+Compiling Operators(9/16) used: 3.46s eta: 2.69s Compiling Operators(15/16) used: 4.46s eta: 0.297s Compiling Operators(16/16) used: 5.46s eta:    0s 
+
+Compiling Operators(1/4) used: 2.41s eta: 7.23s Compiling Operators(3/4) used: 3.41s eta: 1.14s Compiling Operators(4/4) used: 4.41s eta:    0s 
+
+Compiling Operators(1/2) used: 3.36s eta: 3.36s Compiling Operators(2/2) used: 4.36s eta:    0s 
+/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/cross_entropy_loss.py:55: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with Jittor official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/cross_entropy_loss.py:55: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with Jittor official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/cross_entropy_loss.py:55: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with Jittor official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/cross_entropy_loss.py:55: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with Jittor official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+
+Compiling Operators(1/6) used: 3.41s eta: 17.1s Compiling Operators(6/6) used: 4.42s eta:    0s 
+
+Compiling Operators(1/5) used: 2.43s eta: 9.72s Compiling Operators(4/5) used: 3.43s eta: 0.857s Compiling Operators(5/5) used: 4.43s eta:    0s 
+
+Compiling Operators(2/3) used: 3.37s eta: 1.69s Compiling Operators(3/3) used: 4.37s eta:    0s 
+
+Compiling Operators(2/3) used: 3.37s eta: 1.69s Compiling Operators(3/3) used: 4.37s eta:    0s 
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 83, in <module>
+    main()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 75, in main
+    runner.run()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/runner/runner.py", line 90, in run
+    self.train()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/runner/runner.py", line 129, in train
+    for batch_idx, (data) in enumerate(self.train_dataset):
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor/dataset/dataset.py", line 522, in __iter__
+    index_list = self._get_index_list()
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor/dataset/dataset.py", line 475, in _get_index_list
+    assert self.batch_size >= world_size, \
+AssertionError: Batch size(1) is smaller than MPI world_size(4)
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 83, in <module>
+    main()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 75, in main
+    runner.run()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/runner/runner.py", line 90, in run
+    self.train()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/runner/runner.py", line 129, in train
+    for batch_idx, (data) in enumerate(self.train_dataset):
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor/dataset/dataset.py", line 522, in __iter__
+    index_list = self._get_index_list()
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor/dataset/dataset.py", line 475, in _get_index_list
+    assert self.batch_size >= world_size, \
+AssertionError: Batch size(1) is smaller than MPI world_size(4)
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 83, in <module>
+    main()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 75, in main
+    runner.run()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/runner/runner.py", line 90, in run
+    self.train()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/runner/runner.py", line 129, in train
+    for batch_idx, (data) in enumerate(self.train_dataset):
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor/dataset/dataset.py", line 522, in __iter__
+    index_list = self._get_index_list()
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor/dataset/dataset.py", line 475, in _get_index_list
+    assert self.batch_size >= world_size, \
+AssertionError: Batch size(1) is smaller than MPI world_size(4)
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 83, in <module>
+    main()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 75, in main
+    runner.run()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/runner/runner.py", line 90, in run
+    self.train()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/runner/runner.py", line 129, in train
+    for batch_idx, (data) in enumerate(self.train_dataset):
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor/dataset/dataset.py", line 522, in __iter__
+    index_list = self._get_index_list()
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor/dataset/dataset.py", line 475, in _get_index_list
+    assert self.batch_size >= world_size, \
+AssertionError: Batch size(1) is smaller than MPI world_size(4)

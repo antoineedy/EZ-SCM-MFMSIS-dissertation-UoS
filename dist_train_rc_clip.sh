@@ -30,7 +30,7 @@ PORT=${PORT:-29500}
 #     --task=train \
 #     --local_rank 0
 
-#PYTHONPATH="$(dirname $0)/..":$PYTHONPATH \
+PYTHONPATH="$(dirname $0)/..":$PYTHONPATH \
 CUDA_VISIBLE_DEVICES="0,1,2,3" /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python \
     /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py \
     --config-file=/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py \

@@ -1,0 +1,24 @@
+[i 0801 12:28:50.493657 88 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
+[i 0801 12:28:50.497726 88 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
+[i 0801 12:28:50.497797 88 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xb0/AMDEPYC753232-x73/default
+[i 0801 12:28:50.504654 88 __init__.py:411] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc.
+[i 0801 12:28:50.510481 88 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
+[i 0801 12:28:50.642631 88 compiler.py:1011] cuda key:cu11.0.221_sm_86
+[i 0801 12:28:51.314273 88 __init__.py:227] Total mem: 503.74GB, using 16 procs for compiling.
+[i 0801 12:28:53.061719 88 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0801 12:28:53.199246 88 init.cc:62] Found cuda archs: [86,]
+[w 0801 12:28:53.321839 88 compiler.py:1384] CUDA arch(86)>80 will be backward-compatible
+[i 0801 12:28:55.047043 88 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0801 12:29:02.062610 88 cuda_flags.cc:49] CUDA enabled.
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 83, in <module>
+    main()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 62, in main
+    torch.cuda.set_device(args.local_rank)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/cuda/__init__.py", line 309, in set_device
+    device = _get_device_index(device)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/cuda/_utils.py", line 34, in _get_device_index
+    return _torch_get_device_index(device, optional, allow_cpu)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/_utils.py", line 513, in _get_device_index
+    raise ValueError('Expected a torch.device with a specified index '
+ValueError: Expected a torch.device with a specified index or an integer, but got:None

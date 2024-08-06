@@ -1,0 +1,40 @@
+000 (178671.000.000) 2024-08-01 13:13:40 Job submitted from host: <131.227.81.127:9618?addrs=131.227.81.127-9618&alias=aisurrey-condor.surrey.ac.uk&noUDP&sock=schedd_1795_cc96>
+...
+040 (178671.000.000) 2024-08-01 13:13:40 Started transferring input files
+	Transferring to host: <131.227.80.126:9618?addrs=131.227.80.126-9618&alias=aisurrey14.surrey.ac.uk&noUDP&sock=slot1_1_4748_253a_18195>
+...
+040 (178671.000.000) 2024-08-01 13:13:41 Finished transferring input files
+...
+001 (178671.000.000) 2024-08-01 13:13:42 Job executing on host: <131.227.80.126:9618?addrs=131.227.80.126-9618&alias=aisurrey14.surrey.ac.uk&noUDP&sock=startd_4608_487f>
+...
+006 (178671.000.000) 2024-08-01 13:13:50 Image size of job updated: 17500
+	255  -  MemoryUsage of job (MB)
+	261440  -  ResidentSetSize of job (KB)
+...
+006 (178671.000.000) 2024-08-01 13:14:55 Image size of job updated: 17500
+	4725  -  MemoryUsage of job (MB)
+	4839252  -  ResidentSetSize of job (KB)
+...
+040 (178671.000.000) 2024-08-01 13:14:55 Started transferring output files
+...
+040 (178671.000.000) 2024-08-01 13:14:55 Finished transferring output files
+...
+005 (178671.000.000) 2024-08-01 13:14:55 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:03:38, Sys 0 00:00:34  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:03:38, Sys 0 00:00:34  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	16251942  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	16251942  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        4         4 
+	   Disk (KB)            : 15994       17500    652975 
+	   Gpus (Average)       :     0.00        4         4 "CUDA0,CUDA1,CUDA3,CUDA5"
+	   GpusMemory (MB)      :   323                       
+	   Memory (MB)          :  4725       65536     65536 
+
+	Job terminated of its own accord at 2024-08-01T12:14:55Z.
+...

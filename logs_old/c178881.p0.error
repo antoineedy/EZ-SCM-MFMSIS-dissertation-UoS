@@ -1,0 +1,23 @@
+[i 0802 07:50:35.465219 48 __init__.py:227] Total mem: 251.74GB, using 16 procs for compiling.
+[i 0802 07:50:58.937396 48 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0802 07:50:59.136418 48 init.cc:62] Found cuda archs: [75,]
+[i 0802 07:51:00.481463 48 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0802 07:51:00.576322 48 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xec/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/custom_ops
+[i 0802 07:51:03.010594 48 compile_extern.py:339] Downloading cutt...
+[i 0802 07:51:03.166007 48 compile_extern.py:352] installing cutt...
+[i 0802 07:51:18.360339 48 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xec/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/cuda
+[i 0802 07:51:34.240781 48 cuda_flags.cc:49] CUDA enabled.
+
+Compiling Operators(1/1) used: 2.68s eta:    0s 
+.[i 0802 07:51:42.008631 48 cuda_flags.cc:49] CUDA enabled.
+
+Compiling Operators(1/1) used: 3.24s eta:    0s 
+.[i 0802 07:51:45.256169 48 cuda_flags.cc:49] CUDA enabled.
+
+Compiling Operators(1/1) used: 4.05s eta:    0s 
+.[i 0802 07:51:49.310698 48 cuda_flags.cc:49] CUDA enabled.
+.s
+----------------------------------------------------------------------
+Ran 5 tests in 16.602s
+
+OK (skipped=1)

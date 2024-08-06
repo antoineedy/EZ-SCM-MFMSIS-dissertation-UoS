@@ -1,0 +1,30 @@
+Could not find platform independent libraries <prefix>
+Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
+Python path configuration:
+  PYTHONHOME = (not set)
+  PYTHONPATH = '/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/..:'
+  program name = '/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python'
+  isolated = 0
+  environment = 1
+  user site = 1
+  import site = 1
+  sys._base_executable = '/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python'
+  sys.base_prefix = '/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv'
+  sys.base_exec_prefix = '/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv'
+  sys.platlibdir = 'lib'
+  sys.executable = '/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python'
+  sys.prefix = '/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv'
+  sys.exec_prefix = '/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv'
+  sys.path = [
+    '/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/..',
+    '',
+    '/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python39.zip',
+    '/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9',
+    '/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/lib-dynload',
+  ]
+Fatal Python error: init_fs_encoding: failed to get the Python codec of the filesystem encoding
+Python runtime state: core initialized
+LookupError: no codec search functions registered: can't find encoding
+
+Current thread 0x00007f8a1acdc3c0 (most recent call first):
+<no Python frame>

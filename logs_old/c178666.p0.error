@@ -1,0 +1,105 @@
+/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py:178: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use_env is set by default in torchrun.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  warnings.warn(
+[i 0801 12:02:33.640373 60 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
+[i 0801 12:02:33.644119 60 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
+[i 0801 12:02:33.644174 60 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x34/AMDEPYC753232-x73/default
+[i 0801 12:02:33.649021 60 __init__.py:411] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc.
+[i 0801 12:02:33.653773 60 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
+[i 0801 12:02:33.783776 60 compiler.py:1011] cuda key:cu11.0.221_sm_86
+[i 0801 12:02:34.309758 60 __init__.py:227] Total mem: 503.74GB, using 16 procs for compiling.
+[i 0801 12:02:34.855736 60 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0801 12:02:35.038792 60 init.cc:62] Found cuda archs: [86,]
+[w 0801 12:02:35.116325 60 compiler.py:1384] CUDA arch(86)>80 will be backward-compatible
+[i 0801 12:02:36.400293 60 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0801 12:02:36.615710 32 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
+[i 0801 12:02:36.620370 32 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
+[i 0801 12:02:36.620434 32 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x34/AMDEPYC753232-x73/default
+[i 0801 12:02:36.625149 32 __init__.py:411] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc.
+[i 0801 12:02:36.630076 32 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
+[i 0801 12:02:36.776925 32 compiler.py:1011] cuda key:cu11.0.221_sm_86
+[i 0801 12:02:37.259214 32 __init__.py:227] Total mem: 503.74GB, using 16 procs for compiling.
+[i 0801 12:02:37.439564 32 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0801 12:02:37.566850 32 init.cc:62] Found cuda archs: [86,]
+[w 0801 12:02:37.640811 32 compiler.py:1384] CUDA arch(86)>80 will be backward-compatible
+[i 0801 12:02:38.778773 32 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0801 12:02:38.953932 44 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
+[i 0801 12:02:38.958735 44 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
+[i 0801 12:02:38.958799 44 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x34/AMDEPYC753232-x73/default
+[i 0801 12:02:38.964450 44 __init__.py:411] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc.
+[i 0801 12:02:38.969970 44 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
+[i 0801 12:02:39.110044 44 compiler.py:1011] cuda key:cu11.0.221_sm_86
+[i 0801 12:02:39.592728 44 __init__.py:227] Total mem: 503.74GB, using 16 procs for compiling.
+[i 0801 12:02:39.762590 44 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0801 12:02:39.879123 44 init.cc:62] Found cuda archs: [86,]
+[w 0801 12:02:39.950397 44 compiler.py:1384] CUDA arch(86)>80 will be backward-compatible
+[i 0801 12:02:41.035755 44 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0801 12:02:41.178570 16 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
+[i 0801 12:02:41.183890 16 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
+[i 0801 12:02:41.183968 16 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x34/AMDEPYC753232-x73/default
+[i 0801 12:02:41.190636 16 __init__.py:411] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc.
+[i 0801 12:02:41.196218 16 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
+[i 0801 12:02:41.344087 16 compiler.py:1011] cuda key:cu11.0.221_sm_86
+[i 0801 12:02:41.814140 16 __init__.py:227] Total mem: 503.74GB, using 16 procs for compiling.
+[i 0801 12:02:42.000810 16 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0801 12:02:42.302467 16 init.cc:62] Found cuda archs: [86,]
+[w 0801 12:02:42.433326 16 compiler.py:1384] CUDA arch(86)>80 will be backward-compatible
+[i 0801 12:02:43.730016 16 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0801 12:02:51.627989 44 cuda_flags.cc:49] CUDA enabled.
+[i 0801 12:02:51.684613 32 cuda_flags.cc:49] CUDA enabled.
+/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/cross_entropy_loss.py:55: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with Jittor official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+[i 0801 12:02:52.033438 16 cuda_flags.cc:49] CUDA enabled.
+[i 0801 12:02:52.152476 60 cuda_flags.cc:49] CUDA enabled.
+/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/cross_entropy_loss.py:55: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with Jittor official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+
+Compiling Operators(4/4) used: 4.53s eta:    0s 
+/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/cross_entropy_loss.py:55: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with Jittor official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/cross_entropy_loss.py:55: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with Jittor official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+[e 0801 12:03:00.567288 32 log.cc:258] Caught SIGINT, quick exit
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 27 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 28 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 29 closing signal SIGTERM
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 26) of binary: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py", line 193, in <module>
+    main()
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py", line 189, in main
+    launch(args)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py", line 174, in launch
+    run(args)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/run.py", line 710, in run
+    elastic_launch(
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 131, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 259, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-08-01_12:03:03
+  host      : ae01116-178666.0-aisurrey19.surrey.ac.uk
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 26)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
