@@ -47,6 +47,7 @@ dataset = dict(
         type=dataset_type,
         batch_size=4,
         num_workers=8,
+        #num_workers=0, # antoine
         shuffle=True,
         drop_last=False,
         data_root=data_root,
@@ -59,6 +60,7 @@ dataset = dict(
         type=dataset_type,
         # Fixed to one
         batch_size=1,
+        # num_workers=0, # antoine
         num_workers=1,
         shuffle=False,
         drop_last=False,

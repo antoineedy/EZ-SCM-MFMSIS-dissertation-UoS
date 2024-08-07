@@ -48,6 +48,10 @@ def main():
 
     args = parser.parse_args()
 
+    #import multiprocessing as mp
+
+    #mp.set_start_method("spawn", force=True)
+
     print(args.local_rank)  # added by antoine
 
     if args.local_rank is not None:  # added by antoine

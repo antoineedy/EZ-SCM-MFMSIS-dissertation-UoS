@@ -1,0 +1,17 @@
+[i 0807 13:57:16.859365 24 __init__.py:227] Total mem: 251.74GB, using 16 procs for compiling.
+[i 0807 13:57:34.951051 24 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0807 13:57:35.126580 24 init.cc:62] Found cuda archs: [75,]
+[i 0807 13:57:36.249986 24 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0807 13:57:36.333401 24 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x39/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/custom_ops
+[i 0807 13:57:38.490192 24 compile_extern.py:339] Downloading cutt...
+[i 0807 13:57:39.858958 24 compile_extern.py:352] installing cutt...
+[i 0807 13:57:52.903020 24 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x39/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/cuda
+
+Compiling Operators(3/3) used: 2.37s eta:    0s 
+
+Compiling Operators(7/9) used: 2.37s eta: 0.677s Compiling Operators(9/9) used: 3.37s eta:    0s 
+.
+----------------------------------------------------------------------
+Ran 1 test in 14.400s
+
+OK

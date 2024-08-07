@@ -1,0 +1,25 @@
+[i 0807 15:16:56.652088 16 __init__.py:227] Total mem: 251.74GB, using 16 procs for compiling.
+[i 0807 15:17:14.874324 16 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0807 15:17:14.874354 16 jit_compiler.cc:31] Load nvcc_path: /usr/local/cuda/bin/nvcc
+[i 0807 15:17:15.050334 16 init.cc:62] Found cuda archs: [75,]
+[i 0807 15:17:16.122963 16 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0807 15:17:16.207246 16 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xcb/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/custom_ops
+[i 0807 15:17:18.246738 16 compile_extern.py:339] Downloading cutt...
+[i 0807 15:17:18.420308 16 compile_extern.py:352] installing cutt...
+[i 0807 15:17:31.461278 16 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xcb/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/cuda
+[i 0807 15:17:44.332546 16 cuda_flags.cc:49] CUDA enabled.
+0.00B [00:00, ?B/s] 27%|██▋       | 2.53M/9.45M [00:00<00:00, 24.9MB/s]9.46MB [00:00, 39.7MB/s]                            
+0.00B [00:00, ?B/s]32.0kB [00:00, 751kB/s]
+0.00B [00:00, ?B/s]1.58MB [00:00, 10.1MB/s]
+0.00B [00:00, ?B/s]8.00kB [00:00, 245kB/s]
+
+Compiling Operators(1/14) used: 2.47s eta: 32.1s Compiling Operators(5/14) used: 3.47s eta: 6.24s Compiling Operators(14/14) used: 4.47s eta:    0s 
+
+Compiling Operators(1/47) used: 3.45s eta:  159s Compiling Operators(10/47) used: 4.47s eta: 16.5s Compiling Operators(14/47) used: 5.47s eta: 12.9s Compiling Operators(16/47) used: 6.47s eta: 12.5s Compiling Operators(20/47) used: 7.49s eta: 10.1s Compiling Operators(28/47) used: 8.53s eta: 5.79s Compiling Operators(29/47) used: 9.53s eta: 5.92s Compiling Operators(32/47) used: 10.5s eta: 4.94s Compiling Operators(39/47) used: 11.5s eta: 2.37s Compiling Operators(43/47) used: 12.5s eta: 1.17s Compiling Operators(47/47) used: 13.5s eta:    0s 
+.[i 0807 15:20:35.438792 16 cuda_flags.cc:49] CUDA enabled.
+.
+----------------------------------------------------------------------
+Ran 2 tests in 298.232s
+
+OK
+/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/dist_train_rc_clip.sh: line 56: ers/ae01116/multi-modal-dissertation-uos/run_net.py: No such file or directory

@@ -1,0 +1,29 @@
+[i 0807 15:19:53.408273 36 __init__.py:227] Total mem: 251.74GB, using 16 procs for compiling.
+[i 0807 15:20:11.646621 36 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0807 15:20:11.646649 36 jit_compiler.cc:31] Load nvcc_path: /usr/local/cuda/bin/nvcc
+[i 0807 15:20:11.820943 36 init.cc:62] Found cuda archs: [75,]
+[i 0807 15:20:12.911812 36 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0807 15:20:12.985081 36 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x80/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/custom_ops
+[i 0807 15:20:14.948069 36 compile_extern.py:339] Downloading cutt...
+[i 0807 15:20:15.106272 36 compile_extern.py:352] installing cutt...
+[i 0807 15:20:27.114723 36 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x80/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/cuda
+[i 0807 15:20:43.351232 36 cuda_flags.cc:49] CUDA enabled.
+
+Compiling Operators(2/16) used: 2.43s eta:   17s Compiling Operators(9/16) used: 3.43s eta: 2.67s Compiling Operators(16/16) used: 4.43s eta:    0s 
+
+Compiling Operators(3/4) used: 3.38s eta: 1.13s Compiling Operators(4/4) used: 4.38s eta:    0s 
+
+Compiling Operators(2/2) used: 3.35s eta:    0s 
+/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/cross_entropy_loss.py:55: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with Jittor official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+
+Compiling Operators(2/6) used: 3.42s eta: 6.85s Compiling Operators(6/6) used: 4.42s eta:    0s 
+
+Compiling Operators(1/5) used: 2.46s eta: 9.83s Compiling Operators(4/5) used: 3.46s eta: 0.864s Compiling Operators(5/5) used: 4.46s eta:    0s 
+
+Compiling Operators(2/3) used: 3.36s eta: 1.68s Compiling Operators(3/3) used: 4.36s eta:    0s 
+
+Compiling Operators(2/3) used: 3.36s eta: 1.68s Compiling Operators(3/3) used: 4.36s eta:    0s 
+
+Compiling Operators(2/4) used: 3.36s eta: 3.36s Compiling Operators(4/4) used: 4.36s eta:    0s 
+[e 0807 15:21:21.478060 36 log.cc:258] Caught SIGINT, quick exit

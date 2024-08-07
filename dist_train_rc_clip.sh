@@ -37,18 +37,29 @@ PORT=${PORT:-29500}
 #    --config-file=/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py \
 #    --task=train \
 
-#python tools/run_net.py --config-file=project/fcn/fcn_r50-d8_512x1024_cityscapes_80k.py --task=train
+#python tools/run_net.py --config-file=project/fcn/fcn_r50-d8_512x1024_cityscapes_80k.py --task=trai
 
+    # export nvcc_path="/usr/local/cuda/bin/nvcc"
+
+    # PYTHONPATH="$(dirname $0)/..":$PYTHONPATH \
     # CUDA_VISIBLE_DEVICES="0,1,2,3" \
     # /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python \
     # /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py \
     # --config-file=/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py \
     # --task=train
 
-    export nvcc_path="/usr/local/cuda/bin/nvcc"
-
+    # replace this var with your nvcc location 
+    export nvcc_path="/usr/local/cuda/bin/nvcc" 
+    # run a simple cuda test
     /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python \
-    -m jittor.test.test_cudnn_op
+    /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py \
+    --config-file=/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py \
+    --task=train
+
+    #export nvcc_path="/usr/local/cuda/bin/nvcc"
+
+    #/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python \
+    #-m jittor.test.test_cudnn_op
 
     #nvidia-smi
 

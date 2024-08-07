@@ -1,0 +1,395 @@
+[i 0807 14:11:43.626034 28 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
+[i 0807 14:11:43.631348 28 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
+[i 0807 14:11:43.631427 28 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x04/AMDEPYC750232-x2a/default
+[i 0807 14:11:43.636731 28 compiler.py:901] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc
+[i 0807 14:11:43.643442 28 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
+[i 0807 14:11:43.909751 28 compiler.py:1011] cuda key:cu11.0.221_sm_75
+[i 0807 14:11:45.427760 28 __init__.py:227] Total mem: 251.74GB, using 16 procs for compiling.
+[i 0807 14:12:07.802010 28 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0807 14:12:07.802032 28 jit_compiler.cc:31] Load nvcc_path: /usr/local/cuda/bin/nvcc
+[i 0807 14:12:07.972031 28 init.cc:62] Found cuda archs: [75,]
+[i 0807 14:12:09.047523 28 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0807 14:12:24.224109 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:12:28.845364 28 v10 op.cc:272] Jit op key not found: curand_random«T:float32«R:uniform«JIT:1«JIT_cuda:1«index_t:int32
+[i 0807 14:12:31.562354 28 v10 op.cc:279] Get jit op entry: 0x7fbd9422a0b0
+[i 0807 14:12:31.564658 28 v100 op.cc:268] Jit op key found: curand_random«T:float32«R:uniform«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd9422a0b0
+[i 0807 14:12:34.753067 28 v10 op.cc:272] Jit op key not found: cudnn_conv«Tx:float32«Ty:float32«Tw:float32«XFORMAT:acdb«WFORMAT:oihw«YFORMAT:acdb«JIT:1«JIT_cuda:1«index_t:int32
+[i 0807 14:12:37.491950 28 v10 op.cc:279] Get jit op entry: 0x7fbd91521148
+
+Compiling Operators(1/1) used: 3.65s eta:    0s 
+[i 0807 14:12:42.236054 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:12:42.236247 28 v100 op.cc:268] Jit op key found: curand_random«T:float32«R:uniform«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd9422a0b0
+[i 0807 14:12:42.236312 28 v100 op.cc:268] Jit op key found: curand_random«T:float32«R:uniform«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd9422a0b0
+[i 0807 14:12:45.406030 28 v100 op.cc:268] Jit op key found: cudnn_conv«Tx:float32«Ty:float32«Tw:float32«XFORMAT:acdb«WFORMAT:oihw«YFORMAT:acdb«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd91521148
+[i 0807 14:12:46.608823 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:12:46.608923 28 v100 op.cc:268] Jit op key found: curand_random«T:float32«R:uniform«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd9422a0b0
+[i 0807 14:12:46.608966 28 v100 op.cc:268] Jit op key found: curand_random«T:float32«R:uniform«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd9422a0b0
+[i 0807 14:12:49.789784 28 v100 op.cc:268] Jit op key found: cudnn_conv«Tx:float32«Ty:float32«Tw:float32«XFORMAT:acdb«WFORMAT:oihw«YFORMAT:acdb«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd91521148
+.[i 0807 14:12:50.944761 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:12:50.944907 28 v100 executor.cc:303] id: 0  type: reduce  addr: Op(122:1:1:1:i1:o1:s0,reduce.add->123)
+[i 0807 14:12:50.944918 28 v100 executor.cc:312] input: 4  addr: Op(120:2:1:1:i2:o1:s0,binary.multiply->121)
+[i 0807 14:12:50.944925 28 v100 executor.cc:314] 
+[i 0807 14:12:50.944929 28 v100 executor.cc:303] id: 1  type: element  addr: Op(127:2:1:1:i2:o1:s0,binary.multiply->128)
+[i 0807 14:12:50.944935 28 v100 executor.cc:312] input: 5  addr: Op(125:0:1:1:i0:o1:s0,curand_random->126)
+[i 0807 14:12:50.944941 28 v100 executor.cc:312] input: 0  addr: Op(122:1:1:1:i1:o1:s0,reduce.add->123)
+[i 0807 14:12:50.944946 28 v100 executor.cc:314] 
+[i 0807 14:12:50.944950 28 v100 executor.cc:303] id: 2  type: reduce  addr: Op(149:1:1:1:i1:o1:s0,reindex_reduce.add->150)
+[i 0807 14:12:50.944956 28 v100 executor.cc:312] input: 7  addr: Op(141:2:1:1:i2:o1:s0,binary.multiply->142)
+[i 0807 14:12:50.944962 28 v100 executor.cc:314] 
+[i 0807 14:12:50.944965 28 v100 executor.cc:303] id: 3  type: reduce  addr: Op(151:1:1:1:i1:o1:s0,reduce.add->152)
+[i 0807 14:12:50.944970 28 v100 executor.cc:312] input: 8  addr: Op(147:2:1:1:i2:o1:s0,binary.multiply->148)
+[i 0807 14:12:50.944976 28 v100 executor.cc:314] 
+[i 0807 14:12:50.944980 28 v100 executor.cc:303] id: 4  type: element  addr: Op(120:2:1:1:i2:o1:s0,binary.multiply->121)
+[i 0807 14:12:50.944986 28 v100 executor.cc:312] input: 9  addr: Op(116:1:1:1:i1:o1:s0,reindex->117)
+[i 0807 14:12:50.944992 28 v100 executor.cc:312] input: 10  addr: Op(118:1:1:1:i1:o1:s0,broadcast_to->119)
+[i 0807 14:12:50.944998 28 v100 executor.cc:314] 
+[i 0807 14:12:50.945002 28 v100 executor.cc:303] id: 5  type: others  addr: Op(125:0:1:1:i0:o1:s0,curand_random->126)
+[i 0807 14:12:50.945007 28 v100 executor.cc:314] 
+[i 0807 14:12:50.945011 28 v100 executor.cc:303] id: 6  type: element  addr: Op(133:1:1:1:i2:o1:s0,binary.multiply->134)
+[i 0807 14:12:50.945016 28 v100 executor.cc:312] input: 5  addr: Op(125:0:1:1:i0:o1:s0,curand_random->126)
+[i 0807 14:12:50.945020 28 v100 executor.cc:312] input: 11  addr: Op(131:0:1:1:i1:o1:s0,broadcast_to->132)
+[i 0807 14:12:50.945026 28 v100 executor.cc:314] 
+[i 0807 14:12:50.945030 28 v100 executor.cc:303] id: 7  type: element  addr: Op(141:2:1:1:i2:o1:s0,binary.multiply->142)
+[i 0807 14:12:50.945035 28 v100 executor.cc:312] input: 14  addr: Op(139:1:1:1:i1:o1:s0,broadcast_to->140)
+[i 0807 14:12:50.945040 28 v100 executor.cc:312] input: 12  addr: Op(137:1:1:1:i1:o1:s0,broadcast_to->138)
+[i 0807 14:12:50.945044 28 v100 executor.cc:314] 
+[i 0807 14:12:50.945049 28 v100 executor.cc:303] id: 8  type: element  addr: Op(147:2:1:1:i2:o1:s0,binary.multiply->148)
+[i 0807 14:12:50.945054 28 v100 executor.cc:312] input: 15  addr: Op(145:1:1:1:i1:o1:s0,reindex->146)
+[i 0807 14:12:50.945059 28 v100 executor.cc:312] input: 13  addr: Op(143:1:1:1:i1:o1:s0,broadcast_to->144)
+[i 0807 14:12:50.945063 28 v100 executor.cc:314] 
+[i 0807 14:12:50.945067 28 v100 executor.cc:303] id: 9  type: broadcast  addr: Op(116:1:1:1:i1:o1:s0,reindex->117)
+[i 0807 14:12:50.945073 28 v100 executor.cc:312] input: 16  addr: Op(111:0:1:1:i0:o1:s0,curand_random->112)
+[i 0807 14:12:50.945078 28 v100 executor.cc:314] 
+[i 0807 14:12:50.945082 28 v100 executor.cc:303] id: 10  type: broadcast  addr: Op(118:1:1:1:i1:o1:s0,broadcast_to->119)
+[i 0807 14:12:50.945087 28 v100 executor.cc:312] input: 17  addr: Op(114:0:1:1:i0:o1:s0,curand_random->115)
+[i 0807 14:12:50.945091 28 v100 executor.cc:314] 
+[i 0807 14:12:50.945094 28 v100 executor.cc:303] id: 11  type: broadcast  addr: Op(131:0:1:1:i1:o1:s0,broadcast_to->132)
+[i 0807 14:12:50.945100 28 v100 executor.cc:312] input: 18  addr: Op(129:0:1:1:i0:o1:s0,array->130)
+[i 0807 14:12:50.945104 28 v100 executor.cc:314] 
+[i 0807 14:12:50.945108 28 v100 executor.cc:303] id: 12  type: broadcast  addr: Op(137:1:1:1:i1:o1:s0,broadcast_to->138)
+[i 0807 14:12:50.945114 28 v100 executor.cc:312] input: 6  addr: Op(133:1:1:1:i2:o1:s0,binary.multiply->134)
+[i 0807 14:12:50.945119 28 v100 executor.cc:314] 
+[i 0807 14:12:50.945122 28 v100 executor.cc:303] id: 13  type: broadcast  addr: Op(143:1:1:1:i1:o1:s0,broadcast_to->144)
+[i 0807 14:12:50.945126 28 v100 executor.cc:312] input: 6  addr: Op(133:1:1:1:i2:o1:s0,binary.multiply->134)
+[i 0807 14:12:50.945131 28 v100 executor.cc:314] 
+[i 0807 14:12:50.945135 28 v100 executor.cc:303] id: 14  type: broadcast  addr: Op(139:1:1:1:i1:o1:s0,broadcast_to->140)
+[i 0807 14:12:50.945140 28 v100 executor.cc:312] input: 17  addr: Op(114:0:1:1:i0:o1:s0,curand_random->115)
+[i 0807 14:12:50.945144 28 v100 executor.cc:314] 
+[i 0807 14:12:50.945147 28 v100 executor.cc:303] id: 15  type: broadcast  addr: Op(145:1:1:1:i1:o1:s0,reindex->146)
+[i 0807 14:12:50.945152 28 v100 executor.cc:312] input: 16  addr: Op(111:0:1:1:i0:o1:s0,curand_random->112)
+[i 0807 14:12:50.945157 28 v100 executor.cc:314] 
+[i 0807 14:12:50.945162 28 v100 executor.cc:303] id: 16  type: others  addr: Op(111:0:1:1:i0:o1:s0,curand_random->112)
+[i 0807 14:12:50.945166 28 v100 executor.cc:314] 
+[i 0807 14:12:50.945170 28 v100 executor.cc:303] id: 17  type: others  addr: Op(114:0:1:1:i0:o1:s0,curand_random->115)
+[i 0807 14:12:50.945175 28 v100 executor.cc:314] 
+[i 0807 14:12:50.945179 28 v100 executor.cc:303] id: 18  type: element  addr: Op(129:0:1:1:i0:o1:s0,array->130)
+[i 0807 14:12:50.945183 28 v100 executor.cc:314] 
+[i 0807 14:12:50.945193 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:12:50.945200 28 v1000 executor.cc:527] topsort internal [15,13,8,3,]
+[i 0807 14:12:50.945205 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:12:50.945210 28 v1000 executor.cc:527] topsort internal [14,12,7,2,]
+[i 0807 14:12:50.945214 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:12:50.945220 28 v1000 executor.cc:527] topsort internal [18,11,6,]
+[i 0807 14:12:50.945227 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:12:50.945232 28 v1000 executor.cc:527] topsort internal [1,]
+[i 0807 14:12:50.945236 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:12:50.945239 28 v1000 executor.cc:527] topsort internal [5,]
+[i 0807 14:12:50.945244 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:12:50.945248 28 v1000 executor.cc:527] topsort internal [10,9,4,0,]
+[i 0807 14:12:50.945252 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:12:50.945257 28 v1000 executor.cc:527] topsort internal [17,]
+[i 0807 14:12:50.945262 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:12:50.945265 28 v1000 executor.cc:527] topsort internal [16,]
+[i 0807 14:12:50.945271 28 v100 executor.cc:581] Run Op(111:0:1:1:i0:o1:s0,curand_random->112) inputs: [] outputs: [Var(112:1:3:3:i1:o2:s0:n0,float32,,7fbcba000000)[10,3,100,100,],]
+[i 0807 14:12:50.945280 28 v100 op.cc:268] Jit op key found: curand_random«T:float32«R:uniform«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd9422a0b0
+[i 0807 14:12:50.945314 28 v100 executor.cc:652] Finished Op(curand_random 0/8) output: [Var(112:1:3:3:i1:o2:s0:n0,float32,,7fbcba000000)[10,3,100,100,],]
+[i 0807 14:12:50.945321 28 v100 executor.cc:581] Run Op(114:0:1:1:i0:o1:s0,curand_random->115) inputs: [] outputs: [Var(115:1:3:3:i1:o2:s0:n1,float32,,7fbd8827dc00)[5,3,3,3,],]
+[i 0807 14:12:50.945327 28 v100 op.cc:268] Jit op key found: curand_random«T:float32«R:uniform«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd9422a0b0
+[i 0807 14:12:50.945335 28 v100 executor.cc:652] Finished Op(curand_random 1/8) output: [Var(115:1:3:3:i1:o2:s0:n1,float32,,7fbd8827dc00)[5,3,3,3,],]
+[i 0807 14:12:50.945342 28 v100 executor.cc:67] Prepare fused_op [Op(118:1:1:1:i1:o1:s0,broadcast_to->119),Op(116:1:1:1:i1:o1:s0,reindex->117),Op(120:2:1:1:i2:o1:s0,binary.multiply->121),Op(122:1:1:1:i1:o1:s0,reduce.add->123),]
+[i 0807 14:12:50.945352 28 v100 executor.cc:581] Run Op(153:0:0:0:i2:o1:s0,fused->123)[Op(118:1:1:1:i1:o1:s0,broadcast_to->119),Op(116:1:1:1:i1:o1:s0,reindex->117),Op(120:2:1:1:i2:o1:s0,binary.multiply->121),Op(122:1:1:1:i1:o1:s0,reduce.add->123),] inputs: [Var(115:1:3:3:i0:o2:s1:n1,float32,,7fbd8827dc00)[5,3,3,3,],Var(112:1:3:3:i0:o2:s1:n0,float32,,7fbcba000000)[10,3,100,100,],] outputs: [Var(123:2:2:2:i1:o1:s0:n1,float32,,7fbd8827e000)[10,5,49,49,],]
+[i 0807 14:12:54.154621 28 v10 op.cc:272] Jit op key not found: cudnn_conv«Tx:float32«Ty:float32«Tw:float32«XFORMAT:abcd«WFORMAT:oihw«YFORMAT:abcd«JIT:1«JIT_cuda:1«index_t:int32
+[i 0807 14:12:56.893410 28 v10 op.cc:279] Get jit op entry: 0x7fbd089ee148
+[i 0807 14:12:56.893615 28 v100 executor.cc:652] Finished Op(fused 2/8) output: [Var(123:2:2:2:i1:o1:s0:n1,float32,,7fbd8827e000)[10,5,49,49,],]
+[i 0807 14:12:56.893639 28 v100 executor.cc:581] Run Op(125:0:1:1:i0:o1:s0,curand_random->126) inputs: [] outputs: [Var(126:1:3:3:i1:o2:s0:n1,float32,,7fbd882f3400)[10,5,49,49,],]
+[i 0807 14:12:56.893650 28 v100 op.cc:268] Jit op key found: curand_random«T:float32«R:uniform«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd9422a0b0
+[i 0807 14:12:56.893672 28 v100 executor.cc:652] Finished Op(curand_random 3/8) output: [Var(126:1:3:3:i1:o2:s0:n1,float32,,7fbd882f3400)[10,5,49,49,],]
+[i 0807 14:12:56.893683 28 v100 executor.cc:67] Prepare fused_op [Op(127:2:1:1:i2:o1:s0,binary.multiply->128),]
+[i 0807 14:12:56.894399 28 v100 executor.cc:581] Run Op(153:0:0:0:i2:o1:s0,fused->128)[Op(127:2:1:1:i2:o1:s0,binary.multiply->128),] inputs: [Var(126:1:3:3:i0:o2:s1:n1,float32,,7fbd882f3400)[10,5,49,49,],Var(123:2:2:2:i1:o1:s1:n1,float32,,7fbd8827e000)[10,5,49,49,],] outputs: [Var(128:2:1:1:i1:o0:s0:n0,float32,,7fbc6a000000)[10,5,49,49,],]
+[i 0807 14:13:00.160029 28 v100 executor.cc:652] Finished Op(fused 4/8) output: [Var(128:2:1:1:i1:o0:s0:n0,float32,,7fbc6a000000)[10,5,49,49,],]
+[i 0807 14:13:00.160065 28 v100 executor.cc:67] Prepare fused_op [Op(129:0:1:1:i0:o1:s0,array->130),Op(131:0:1:1:i1:o1:s0,broadcast_to->132),Op(133:1:1:1:i2:o1:s0,binary.multiply->134),]
+[i 0807 14:13:00.160085 28 v100 executor.cc:581] Run Op(153:0:0:0:i1:o1:s0,fused->134)[Op(129:0:1:1:i0:o1:s0,array->130),Op(131:0:1:1:i1:o1:s0,broadcast_to->132),Op(133:1:1:1:i2:o1:s0,binary.multiply->134),] inputs: [Var(126:1:3:2:i0:o2:s1:n1,float32,,7fbd882f3400)[10,5,49,49,],] outputs: [Var(134:1:2:2:i1:o2:s0:n1,float32,,7fbc6a075400)[10,5,49,49,],]
+[i 0807 14:13:03.451869 28 v100 executor.cc:652] Finished Op(fused 5/8) output: [Var(134:1:2:2:i1:o2:s0:n1,float32,,7fbc6a075400)[10,5,49,49,],]
+[i 0807 14:13:03.451906 28 v100 executor.cc:67] Prepare fused_op [Op(139:1:1:1:i1:o1:s0,broadcast_to->140),Op(137:1:1:1:i1:o1:s0,broadcast_to->138),Op(141:2:1:1:i2:o1:s0,binary.multiply->142),Op(149:1:1:1:i1:o1:s0,reindex_reduce.add->150),]
+[i 0807 14:13:03.451929 28 v100 executor.cc:581] Run Op(153:0:0:0:i2:o1:s0,fused->150)[Op(139:1:1:1:i1:o1:s0,broadcast_to->140),Op(137:1:1:1:i1:o1:s0,broadcast_to->138),Op(141:2:1:1:i2:o1:s0,binary.multiply->142),Op(149:1:1:1:i1:o1:s0,reindex_reduce.add->150),] inputs: [Var(115:1:3:2:i0:o2:s1:n1,float32,,7fbd8827dc00)[5,3,3,3,],Var(134:1:2:2:i1:o2:s1:n1,float32,,7fbc6a075400)[10,5,49,49,],] outputs: [Var(150:2:1:1:i1:o0:s0:n0,float32,,7fbcba125000)[10,3,100,100,],]
+[i 0807 14:13:06.711566 28 v10 op.cc:272] Jit op key not found: cudnn_conv_backward_x«Tx:float32«Ty:float32«Tw:float32«XFORMAT:abcd«WFORMAT:oihw«YFORMAT:abcd«JIT:1«JIT_cuda:1«index_t:int32
+[i 0807 14:13:09.420287 28 v10 op.cc:279] Get jit op entry: 0x7fbc9b3f1208
+[i 0807 14:13:09.423921 28 v100 executor.cc:652] Finished Op(fused 6/8) output: [Var(150:2:1:1:i1:o0:s0:n0,float32,,7fbcba125000)[10,3,100,100,],]
+[i 0807 14:13:09.423945 28 v100 executor.cc:67] Prepare fused_op [Op(145:1:1:1:i1:o1:s0,reindex->146),Op(143:1:1:1:i1:o1:s0,broadcast_to->144),Op(147:2:1:1:i2:o1:s0,binary.multiply->148),Op(151:1:1:1:i1:o1:s0,reduce.add->152),]
+[i 0807 14:13:09.423970 28 v100 executor.cc:581] Run Op(153:0:0:0:i2:o1:s0,fused->152)[Op(145:1:1:1:i1:o1:s0,reindex->146),Op(143:1:1:1:i1:o1:s0,broadcast_to->144),Op(147:2:1:1:i2:o1:s0,binary.multiply->148),Op(151:1:1:1:i1:o1:s0,reduce.add->152),] inputs: [Var(112:1:3:2:i0:o2:s1:n1,float32,,7fbcba000000)[10,3,100,100,],Var(134:1:2:1:i1:o2:s1:n1,float32,,7fbc6a075400)[10,5,49,49,],] outputs: [Var(152:2:1:1:i1:o0:s0:n0,float32,,7fbd88368800)[5,3,3,3,],]
+[i 0807 14:13:12.605047 28 v10 op.cc:272] Jit op key not found: cudnn_conv_backward_w«Tx:float32«Ty:float32«Tw:float32«XFORMAT:abcd«WFORMAT:oihw«YFORMAT:abcd«JIT:1«JIT_cuda:1«index_t:int32
+[i 0807 14:13:15.325291 28 v10 op.cc:279] Get jit op entry: 0x7fbc9afd7530
+[i 0807 14:13:15.492630 28 v100 executor.cc:652] Finished Op(fused 7/8) output: [Var(152:2:1:1:i1:o0:s0:n0,float32,,7fbd88368800)[5,3,3,3,],]
+[i 0807 14:13:15.492666 28 v10 executor.cc:694] All 19 ops finished, return vars: [Var(123:2:2:1:i1:o1:s1:n1,float32,,7fbd8827e000)[10,5,49,49,],Var(128:2:1:1:i1:o0:s1:n0,float32,,7fbc6a000000)[10,5,49,49,],Var(150:2:1:1:i1:o0:s1:n0,float32,,7fbcba125000)[10,3,100,100,],Var(152:2:1:1:i1:o0:s1:n0,float32,,7fbd88368800)[5,3,3,3,],]
+[i 0807 14:13:15.492675 28 v10 executor.cc:714] cudaDeviceSynchronize times: 0 / 8 device_sync: 0
+[i 0807 14:13:15.492741 28 v1 cuda_flags.cc:51] CUDA disabled.
+[i 0807 14:13:15.492759 28 v10 executor.cc:694] All 0 ops finished, return vars: [Var(152:2:1:1:i1:o0:s1:n0,float32,,7fbd88368800)[5,3,3,3,],Var(150:2:1:1:i1:o0:s1:n0,float32,,7fbcba125000)[10,3,100,100,],Var(128:2:1:1:i1:o0:s1:n0,float32,,7fbc6a000000)[10,5,49,49,],]
+[i 0807 14:13:15.492766 28 v10 executor.cc:714] cudaDeviceSynchronize times: 0 / 0 device_sync: 0
+
+Compiling Operators(5/5) used: 2.39s eta:    0s 
+[i 0807 14:13:18.123964 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:13:18.124110 28 v100 executor.cc:303] id: 0  type: reduce  addr: Op(217:1:1:1:i1:o1:s0,reduce.add->218)
+[i 0807 14:13:18.124124 28 v100 executor.cc:312] input: 4  addr: Op(215:2:1:1:i2:o1:s0,binary.multiply->216)
+[i 0807 14:13:18.124133 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124138 28 v100 executor.cc:303] id: 1  type: element  addr: Op(222:2:1:1:i2:o1:s0,binary.multiply->223)
+[i 0807 14:13:18.124149 28 v100 executor.cc:312] input: 5  addr: Op(220:0:1:1:i0:o1:s0,curand_random->221)
+[i 0807 14:13:18.124154 28 v100 executor.cc:312] input: 0  addr: Op(217:1:1:1:i1:o1:s0,reduce.add->218)
+[i 0807 14:13:18.124163 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124168 28 v100 executor.cc:303] id: 2  type: reduce  addr: Op(244:1:1:1:i1:o1:s0,reindex_reduce.add->245)
+[i 0807 14:13:18.124176 28 v100 executor.cc:312] input: 7  addr: Op(236:2:1:1:i2:o1:s0,binary.multiply->237)
+[i 0807 14:13:18.124183 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124189 28 v100 executor.cc:303] id: 3  type: reduce  addr: Op(246:1:1:1:i1:o1:s0,reduce.add->247)
+[i 0807 14:13:18.124194 28 v100 executor.cc:312] input: 8  addr: Op(242:2:1:1:i2:o1:s0,binary.multiply->243)
+[i 0807 14:13:18.124200 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124204 28 v100 executor.cc:303] id: 4  type: element  addr: Op(215:2:1:1:i2:o1:s0,binary.multiply->216)
+[i 0807 14:13:18.124211 28 v100 executor.cc:312] input: 9  addr: Op(211:1:1:1:i1:o1:s0,reindex->212)
+[i 0807 14:13:18.124220 28 v100 executor.cc:312] input: 10  addr: Op(213:1:1:1:i1:o1:s0,broadcast_to->214)
+[i 0807 14:13:18.124230 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124234 28 v100 executor.cc:303] id: 5  type: others  addr: Op(220:0:1:1:i0:o1:s0,curand_random->221)
+[i 0807 14:13:18.124240 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124244 28 v100 executor.cc:303] id: 6  type: element  addr: Op(228:1:1:1:i2:o1:s0,binary.multiply->229)
+[i 0807 14:13:18.124250 28 v100 executor.cc:312] input: 5  addr: Op(220:0:1:1:i0:o1:s0,curand_random->221)
+[i 0807 14:13:18.124255 28 v100 executor.cc:312] input: 11  addr: Op(226:0:1:1:i1:o1:s0,broadcast_to->227)
+[i 0807 14:13:18.124259 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124263 28 v100 executor.cc:303] id: 7  type: element  addr: Op(236:2:1:1:i2:o1:s0,binary.multiply->237)
+[i 0807 14:13:18.124268 28 v100 executor.cc:312] input: 14  addr: Op(234:1:1:1:i1:o1:s0,broadcast_to->235)
+[i 0807 14:13:18.124273 28 v100 executor.cc:312] input: 12  addr: Op(232:1:1:1:i1:o1:s0,broadcast_to->233)
+[i 0807 14:13:18.124279 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124283 28 v100 executor.cc:303] id: 8  type: element  addr: Op(242:2:1:1:i2:o1:s0,binary.multiply->243)
+[i 0807 14:13:18.124287 28 v100 executor.cc:312] input: 15  addr: Op(240:1:1:1:i1:o1:s0,reindex->241)
+[i 0807 14:13:18.124292 28 v100 executor.cc:312] input: 13  addr: Op(238:1:1:1:i1:o1:s0,broadcast_to->239)
+[i 0807 14:13:18.124299 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124302 28 v100 executor.cc:303] id: 9  type: broadcast  addr: Op(211:1:1:1:i1:o1:s0,reindex->212)
+[i 0807 14:13:18.124308 28 v100 executor.cc:312] input: 16  addr: Op(206:0:1:1:i0:o1:s0,curand_random->207)
+[i 0807 14:13:18.124313 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124317 28 v100 executor.cc:303] id: 10  type: broadcast  addr: Op(213:1:1:1:i1:o1:s0,broadcast_to->214)
+[i 0807 14:13:18.124321 28 v100 executor.cc:312] input: 17  addr: Op(209:0:1:1:i0:o1:s0,curand_random->210)
+[i 0807 14:13:18.124327 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124331 28 v100 executor.cc:303] id: 11  type: broadcast  addr: Op(226:0:1:1:i1:o1:s0,broadcast_to->227)
+[i 0807 14:13:18.124335 28 v100 executor.cc:312] input: 18  addr: Op(224:0:1:1:i0:o1:s0,array->225)
+[i 0807 14:13:18.124340 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124344 28 v100 executor.cc:303] id: 12  type: broadcast  addr: Op(232:1:1:1:i1:o1:s0,broadcast_to->233)
+[i 0807 14:13:18.124348 28 v100 executor.cc:312] input: 6  addr: Op(228:1:1:1:i2:o1:s0,binary.multiply->229)
+[i 0807 14:13:18.124352 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124356 28 v100 executor.cc:303] id: 13  type: broadcast  addr: Op(238:1:1:1:i1:o1:s0,broadcast_to->239)
+[i 0807 14:13:18.124362 28 v100 executor.cc:312] input: 6  addr: Op(228:1:1:1:i2:o1:s0,binary.multiply->229)
+[i 0807 14:13:18.124366 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124369 28 v100 executor.cc:303] id: 14  type: broadcast  addr: Op(234:1:1:1:i1:o1:s0,broadcast_to->235)
+[i 0807 14:13:18.124374 28 v100 executor.cc:312] input: 17  addr: Op(209:0:1:1:i0:o1:s0,curand_random->210)
+[i 0807 14:13:18.124379 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124383 28 v100 executor.cc:303] id: 15  type: broadcast  addr: Op(240:1:1:1:i1:o1:s0,reindex->241)
+[i 0807 14:13:18.124388 28 v100 executor.cc:312] input: 16  addr: Op(206:0:1:1:i0:o1:s0,curand_random->207)
+[i 0807 14:13:18.124393 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124396 28 v100 executor.cc:303] id: 16  type: others  addr: Op(206:0:1:1:i0:o1:s0,curand_random->207)
+[i 0807 14:13:18.124401 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124404 28 v100 executor.cc:303] id: 17  type: others  addr: Op(209:0:1:1:i0:o1:s0,curand_random->210)
+[i 0807 14:13:18.124409 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124412 28 v100 executor.cc:303] id: 18  type: element  addr: Op(224:0:1:1:i0:o1:s0,array->225)
+[i 0807 14:13:18.124419 28 v100 executor.cc:314] 
+[i 0807 14:13:18.124429 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:13:18.124436 28 v1000 executor.cc:527] topsort internal [15,13,8,3,]
+[i 0807 14:13:18.124440 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:13:18.124444 28 v1000 executor.cc:527] topsort internal [14,12,7,2,]
+[i 0807 14:13:18.124448 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:13:18.124454 28 v1000 executor.cc:527] topsort internal [18,11,6,]
+[i 0807 14:13:18.124460 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:13:18.124464 28 v1000 executor.cc:527] topsort internal [1,]
+[i 0807 14:13:18.124469 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:13:18.124474 28 v1000 executor.cc:527] topsort internal [5,]
+[i 0807 14:13:18.124478 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:13:18.124482 28 v1000 executor.cc:527] topsort internal [10,9,4,0,]
+[i 0807 14:13:18.124487 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:13:18.124491 28 v1000 executor.cc:527] topsort internal [17,]
+[i 0807 14:13:18.124495 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:13:18.124499 28 v1000 executor.cc:527] topsort internal [16,]
+[i 0807 14:13:18.124504 28 v100 executor.cc:581] Run Op(206:0:1:1:i0:o1:s0,curand_random->207) inputs: [] outputs: [Var(207:1:3:3:i1:o2:s0:n0,float32,,7fbd8827dc00)[10,4,40,50,],]
+[i 0807 14:13:18.124515 28 v100 op.cc:268] Jit op key found: curand_random«T:float32«R:uniform«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd9422a0b0
+[i 0807 14:13:18.124554 28 v100 executor.cc:652] Finished Op(curand_random 0/8) output: [Var(207:1:3:3:i1:o2:s0:n0,float32,,7fbd8827dc00)[10,4,40,50,],]
+[i 0807 14:13:18.124562 28 v100 executor.cc:581] Run Op(209:0:1:1:i0:o1:s0,curand_random->210) inputs: [] outputs: [Var(210:1:3:3:i1:o2:s0:n1,float32,,7fbd882cbe00)[5,4,5,5,],]
+[i 0807 14:13:18.124567 28 v100 op.cc:268] Jit op key found: curand_random«T:float32«R:uniform«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd9422a0b0
+[i 0807 14:13:18.124576 28 v100 executor.cc:652] Finished Op(curand_random 1/8) output: [Var(210:1:3:3:i1:o2:s0:n1,float32,,7fbd882cbe00)[5,4,5,5,],]
+[i 0807 14:13:18.124582 28 v100 executor.cc:67] Prepare fused_op [Op(213:1:1:1:i1:o1:s0,broadcast_to->214),Op(211:1:1:1:i1:o1:s0,reindex->212),Op(215:2:1:1:i2:o1:s0,binary.multiply->216),Op(217:1:1:1:i1:o1:s0,reduce.add->218),]
+[i 0807 14:13:18.124594 28 v100 executor.cc:581] Run Op(248:0:0:0:i2:o1:s0,fused->218)[Op(213:1:1:1:i1:o1:s0,broadcast_to->214),Op(211:1:1:1:i1:o1:s0,reindex->212),Op(215:2:1:1:i2:o1:s0,binary.multiply->216),Op(217:1:1:1:i1:o1:s0,reduce.add->218),] inputs: [Var(210:1:3:3:i0:o2:s1:n1,float32,,7fbd882cbe00)[5,4,5,5,],Var(207:1:3:3:i0:o2:s1:n0,float32,,7fbd8827dc00)[10,4,40,50,],] outputs: [Var(218:2:2:2:i1:o1:s0:n1,float32,,7fbd882cc600)[10,5,38,48,],]
+[i 0807 14:13:21.326608 28 v100 op.cc:268] Jit op key found: cudnn_conv«Tx:float32«Ty:float32«Tw:float32«XFORMAT:abcd«WFORMAT:oihw«YFORMAT:abcd«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd089ee148
+[i 0807 14:13:21.326756 28 v100 executor.cc:652] Finished Op(fused 2/8) output: [Var(218:2:2:2:i1:o1:s0:n1,float32,,7fbd882cc600)[10,5,38,48,],]
+[i 0807 14:13:21.326790 28 v100 executor.cc:581] Run Op(220:0:1:1:i0:o1:s0,curand_random->221) inputs: [] outputs: [Var(221:1:3:3:i1:o2:s0:n1,float32,,7fbc6a000000)[10,5,38,48,],]
+[i 0807 14:13:21.326801 28 v100 op.cc:268] Jit op key found: curand_random«T:float32«R:uniform«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd9422a0b0
+[i 0807 14:13:21.326822 28 v100 executor.cc:652] Finished Op(curand_random 3/8) output: [Var(221:1:3:3:i1:o2:s0:n1,float32,,7fbc6a000000)[10,5,38,48,],]
+[i 0807 14:13:21.326832 28 v100 executor.cc:67] Prepare fused_op [Op(222:2:1:1:i2:o1:s0,binary.multiply->223),]
+[i 0807 14:13:21.326842 28 v100 executor.cc:581] Run Op(248:0:0:0:i2:o1:s0,fused->223)[Op(222:2:1:1:i2:o1:s0,binary.multiply->223),] inputs: [Var(221:1:3:3:i0:o2:s1:n1,float32,,7fbc6a000000)[10,5,38,48,],Var(218:2:2:2:i1:o1:s1:n1,float32,,7fbd882cc600)[10,5,38,48,],] outputs: [Var(223:2:1:1:i1:o0:s0:n0,float32,,7fbc6a059200)[10,5,38,48,],]
+[i 0807 14:13:21.327091 28 v100 executor.cc:652] Finished Op(fused 4/8) output: [Var(223:2:1:1:i1:o0:s0:n0,float32,,7fbc6a059200)[10,5,38,48,],]
+[i 0807 14:13:21.327102 28 v100 executor.cc:67] Prepare fused_op [Op(224:0:1:1:i0:o1:s0,array->225),Op(226:0:1:1:i1:o1:s0,broadcast_to->227),Op(228:1:1:1:i2:o1:s0,binary.multiply->229),]
+[i 0807 14:13:21.327128 28 v100 executor.cc:581] Run Op(248:0:0:0:i1:o1:s0,fused->229)[Op(224:0:1:1:i0:o1:s0,array->225),Op(226:0:1:1:i1:o1:s0,broadcast_to->227),Op(228:1:1:1:i2:o1:s0,binary.multiply->229),] inputs: [Var(221:1:3:2:i0:o2:s1:n1,float32,,7fbc6a000000)[10,5,38,48,],] outputs: [Var(229:1:2:2:i1:o2:s0:n1,float32,,7fbc6a100000)[10,5,38,48,],]
+[i 0807 14:13:21.327153 28 v100 executor.cc:652] Finished Op(fused 5/8) output: [Var(229:1:2:2:i1:o2:s0:n1,float32,,7fbc6a100000)[10,5,38,48,],]
+[i 0807 14:13:21.327164 28 v100 executor.cc:67] Prepare fused_op [Op(234:1:1:1:i1:o1:s0,broadcast_to->235),Op(232:1:1:1:i1:o1:s0,broadcast_to->233),Op(236:2:1:1:i2:o1:s0,binary.multiply->237),Op(244:1:1:1:i1:o1:s0,reindex_reduce.add->245),]
+[i 0807 14:13:21.327176 28 v100 executor.cc:581] Run Op(248:0:0:0:i2:o1:s0,fused->245)[Op(234:1:1:1:i1:o1:s0,broadcast_to->235),Op(232:1:1:1:i1:o1:s0,broadcast_to->233),Op(236:2:1:1:i2:o1:s0,binary.multiply->237),Op(244:1:1:1:i1:o1:s0,reindex_reduce.add->245),] inputs: [Var(210:1:3:2:i0:o2:s1:n1,float32,,7fbd882cbe00)[5,4,5,5,],Var(229:1:2:2:i1:o2:s1:n1,float32,,7fbc6a100000)[10,5,38,48,],] outputs: [Var(245:2:1:1:i1:o0:s0:n0,float32,,7fbd88325800)[10,4,40,50,],]
+[i 0807 14:13:24.471673 28 v100 op.cc:268] Jit op key found: cudnn_conv_backward_x«Tx:float32«Ty:float32«Tw:float32«XFORMAT:abcd«WFORMAT:oihw«YFORMAT:abcd«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbc9b3f1208
+[i 0807 14:13:24.474201 28 v100 executor.cc:652] Finished Op(fused 6/8) output: [Var(245:2:1:1:i1:o0:s0:n0,float32,,7fbd88325800)[10,4,40,50,],]
+[i 0807 14:13:24.474227 28 v100 executor.cc:67] Prepare fused_op [Op(240:1:1:1:i1:o1:s0,reindex->241),Op(238:1:1:1:i1:o1:s0,broadcast_to->239),Op(242:2:1:1:i2:o1:s0,binary.multiply->243),Op(246:1:1:1:i1:o1:s0,reduce.add->247),]
+[i 0807 14:13:24.474250 28 v100 executor.cc:581] Run Op(248:0:0:0:i2:o1:s0,fused->247)[Op(240:1:1:1:i1:o1:s0,reindex->241),Op(238:1:1:1:i1:o1:s0,broadcast_to->239),Op(242:2:1:1:i2:o1:s0,binary.multiply->243),Op(246:1:1:1:i1:o1:s0,reduce.add->247),] inputs: [Var(207:1:3:2:i0:o2:s1:n1,float32,,7fbd8827dc00)[10,4,40,50,],Var(229:1:2:1:i1:o2:s1:n1,float32,,7fbc6a100000)[10,5,38,48,],] outputs: [Var(247:2:1:1:i1:o0:s0:n0,float32,,7fbd88373a00)[5,4,5,5,],]
+[i 0807 14:13:27.655148 28 v100 op.cc:268] Jit op key found: cudnn_conv_backward_w«Tx:float32«Ty:float32«Tw:float32«XFORMAT:abcd«WFORMAT:oihw«YFORMAT:abcd«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbc9afd7530
+[i 0807 14:13:27.657841 28 v100 executor.cc:652] Finished Op(fused 7/8) output: [Var(247:2:1:1:i1:o0:s0:n0,float32,,7fbd88373a00)[5,4,5,5,],]
+[i 0807 14:13:27.657860 28 v10 executor.cc:694] All 19 ops finished, return vars: [Var(218:2:2:1:i1:o1:s1:n1,float32,,7fbd882cc600)[10,5,38,48,],Var(223:2:1:1:i1:o0:s1:n0,float32,,7fbc6a059200)[10,5,38,48,],Var(245:2:1:1:i1:o0:s1:n0,float32,,7fbd88325800)[10,4,40,50,],Var(247:2:1:1:i1:o0:s1:n0,float32,,7fbd88373a00)[5,4,5,5,],]
+[i 0807 14:13:27.657872 28 v10 executor.cc:714] cudaDeviceSynchronize times: 0 / 8 device_sync: 0
+[i 0807 14:13:27.657930 28 v1 cuda_flags.cc:51] CUDA disabled.
+[i 0807 14:13:27.657946 28 v10 executor.cc:694] All 0 ops finished, return vars: [Var(247:2:1:1:i1:o0:s1:n0,float32,,7fbd88373a00)[5,4,5,5,],Var(245:2:1:1:i1:o0:s1:n0,float32,,7fbd88325800)[10,4,40,50,],Var(223:2:1:1:i1:o0:s1:n0,float32,,7fbc6a059200)[10,5,38,48,],]
+[i 0807 14:13:27.657953 28 v10 executor.cc:714] cudaDeviceSynchronize times: 0 / 0 device_sync: 0
+
+Compiling Operators(3/3) used: 2.36s eta:    0s 
+[i 0807 14:13:30.067803 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:13:30.067945 28 v100 executor.cc:303] id: 0  type: reduce  addr: Op(310:1:1:1:i1:o1:s0,reduce.add->311)
+[i 0807 14:13:30.067957 28 v100 executor.cc:312] input: 4  addr: Op(308:2:1:1:i2:o1:s0,binary.multiply->309)
+[i 0807 14:13:30.067964 28 v100 executor.cc:314] 
+[i 0807 14:13:30.067967 28 v100 executor.cc:303] id: 1  type: element  addr: Op(315:2:1:1:i2:o1:s0,binary.multiply->316)
+[i 0807 14:13:30.067974 28 v100 executor.cc:312] input: 5  addr: Op(313:0:1:1:i0:o1:s0,curand_random->314)
+[i 0807 14:13:30.067979 28 v100 executor.cc:312] input: 0  addr: Op(310:1:1:1:i1:o1:s0,reduce.add->311)
+[i 0807 14:13:30.067986 28 v100 executor.cc:314] 
+[i 0807 14:13:30.067992 28 v100 executor.cc:303] id: 2  type: reduce  addr: Op(337:1:1:1:i1:o1:s0,reindex_reduce.add->338)
+[i 0807 14:13:30.067997 28 v100 executor.cc:312] input: 7  addr: Op(329:2:1:1:i2:o1:s0,binary.multiply->330)
+[i 0807 14:13:30.068006 28 v100 executor.cc:314] 
+[i 0807 14:13:30.068010 28 v100 executor.cc:303] id: 3  type: reduce  addr: Op(339:1:1:1:i1:o1:s0,reduce.add->340)
+[i 0807 14:13:30.068015 28 v100 executor.cc:312] input: 8  addr: Op(335:2:1:1:i2:o1:s0,binary.multiply->336)
+[i 0807 14:13:30.068021 28 v100 executor.cc:314] 
+[i 0807 14:13:30.068027 28 v100 executor.cc:303] id: 4  type: element  addr: Op(308:2:1:1:i2:o1:s0,binary.multiply->309)
+[i 0807 14:13:30.068032 28 v100 executor.cc:312] input: 9  addr: Op(304:1:1:1:i1:o1:s0,reindex->305)
+[i 0807 14:13:30.068037 28 v100 executor.cc:312] input: 10  addr: Op(306:1:1:1:i1:o1:s0,broadcast_to->307)
+[i 0807 14:13:30.068045 28 v100 executor.cc:314] 
+[i 0807 14:13:30.068049 28 v100 executor.cc:303] id: 5  type: others  addr: Op(313:0:1:1:i0:o1:s0,curand_random->314)
+[i 0807 14:13:30.068056 28 v100 executor.cc:314] 
+[i 0807 14:13:30.068059 28 v100 executor.cc:303] id: 6  type: element  addr: Op(321:1:1:1:i2:o1:s0,binary.multiply->322)
+[i 0807 14:13:30.068065 28 v100 executor.cc:312] input: 5  addr: Op(313:0:1:1:i0:o1:s0,curand_random->314)
+[i 0807 14:13:30.068070 28 v100 executor.cc:312] input: 11  addr: Op(319:0:1:1:i1:o1:s0,broadcast_to->320)
+[i 0807 14:13:30.068075 28 v100 executor.cc:314] 
+[i 0807 14:13:30.068079 28 v100 executor.cc:303] id: 7  type: element  addr: Op(329:2:1:1:i2:o1:s0,binary.multiply->330)
+[i 0807 14:13:30.068085 28 v100 executor.cc:312] input: 14  addr: Op(327:1:1:1:i1:o1:s0,broadcast_to->328)
+[i 0807 14:13:30.068091 28 v100 executor.cc:312] input: 12  addr: Op(325:1:1:1:i1:o1:s0,broadcast_to->326)
+[i 0807 14:13:30.068096 28 v100 executor.cc:314] 
+[i 0807 14:13:30.068100 28 v100 executor.cc:303] id: 8  type: element  addr: Op(335:2:1:1:i2:o1:s0,binary.multiply->336)
+[i 0807 14:13:30.068104 28 v100 executor.cc:312] input: 15  addr: Op(333:1:1:1:i1:o1:s0,reindex->334)
+[i 0807 14:13:30.068110 28 v100 executor.cc:312] input: 13  addr: Op(331:1:1:1:i1:o1:s0,broadcast_to->332)
+[i 0807 14:13:30.068114 28 v100 executor.cc:314] 
+[i 0807 14:13:30.068118 28 v100 executor.cc:303] id: 9  type: broadcast  addr: Op(304:1:1:1:i1:o1:s0,reindex->305)
+[i 0807 14:13:30.068124 28 v100 executor.cc:312] input: 16  addr: Op(299:0:1:1:i0:o1:s0,curand_random->300)
+[i 0807 14:13:30.068128 28 v100 executor.cc:314] 
+[i 0807 14:13:30.068133 28 v100 executor.cc:303] id: 10  type: broadcast  addr: Op(306:1:1:1:i1:o1:s0,broadcast_to->307)
+[i 0807 14:13:30.068139 28 v100 executor.cc:312] input: 17  addr: Op(302:0:1:1:i0:o1:s0,curand_random->303)
+[i 0807 14:13:30.068144 28 v100 executor.cc:314] 
+[i 0807 14:13:30.068147 28 v100 executor.cc:303] id: 11  type: broadcast  addr: Op(319:0:1:1:i1:o1:s0,broadcast_to->320)
+[i 0807 14:13:30.068153 28 v100 executor.cc:312] input: 18  addr: Op(317:0:1:1:i0:o1:s0,array->318)
+[i 0807 14:13:30.068159 28 v100 executor.cc:314] 
+[i 0807 14:13:30.068164 28 v100 executor.cc:303] id: 12  type: broadcast  addr: Op(325:1:1:1:i1:o1:s0,broadcast_to->326)
+[i 0807 14:13:30.068168 28 v100 executor.cc:312] input: 6  addr: Op(321:1:1:1:i2:o1:s0,binary.multiply->322)
+[i 0807 14:13:30.068174 28 v100 executor.cc:314] 
+[i 0807 14:13:30.068179 28 v100 executor.cc:303] id: 13  type: broadcast  addr: Op(331:1:1:1:i1:o1:s0,broadcast_to->332)
+[i 0807 14:13:30.068185 28 v100 executor.cc:312] input: 6  addr: Op(321:1:1:1:i2:o1:s0,binary.multiply->322)
+[i 0807 14:13:30.068190 28 v100 executor.cc:314] 
+[i 0807 14:13:30.068193 28 v100 executor.cc:303] id: 14  type: broadcast  addr: Op(327:1:1:1:i1:o1:s0,broadcast_to->328)
+[i 0807 14:13:30.068199 28 v100 executor.cc:312] input: 17  addr: Op(302:0:1:1:i0:o1:s0,curand_random->303)
+[i 0807 14:13:30.068204 28 v100 executor.cc:314] 
+[i 0807 14:13:30.068208 28 v100 executor.cc:303] id: 15  type: broadcast  addr: Op(333:1:1:1:i1:o1:s0,reindex->334)
+[i 0807 14:13:30.068213 28 v100 executor.cc:312] input: 16  addr: Op(299:0:1:1:i0:o1:s0,curand_random->300)
+[i 0807 14:13:30.068219 28 v100 executor.cc:314] 
+[i 0807 14:13:30.068224 28 v100 executor.cc:303] id: 16  type: others  addr: Op(299:0:1:1:i0:o1:s0,curand_random->300)
+[i 0807 14:13:30.068229 28 v100 executor.cc:314] 
+[i 0807 14:13:30.068233 28 v100 executor.cc:303] id: 17  type: others  addr: Op(302:0:1:1:i0:o1:s0,curand_random->303)
+[i 0807 14:13:30.068238 28 v100 executor.cc:314] 
+[i 0807 14:13:30.068241 28 v100 executor.cc:303] id: 18  type: element  addr: Op(317:0:1:1:i0:o1:s0,array->318)
+[i 0807 14:13:30.068246 28 v100 executor.cc:314] 
+[i 0807 14:13:30.068257 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:13:30.068261 28 v1000 executor.cc:527] topsort internal [15,13,8,3,]
+[i 0807 14:13:30.068266 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:13:30.068272 28 v1000 executor.cc:527] topsort internal [14,12,7,2,]
+[i 0807 14:13:30.068276 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:13:30.068280 28 v1000 executor.cc:527] topsort internal [18,11,6,]
+[i 0807 14:13:30.068286 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:13:30.068293 28 v1000 executor.cc:527] topsort internal [1,]
+[i 0807 14:13:30.068297 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:13:30.068301 28 v1000 executor.cc:527] topsort internal [5,]
+[i 0807 14:13:30.068309 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:13:30.068315 28 v1000 executor.cc:527] topsort internal [10,9,4,0,]
+[i 0807 14:13:30.068321 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:13:30.068328 28 v1000 executor.cc:527] topsort internal [17,]
+[i 0807 14:13:30.068334 28 v1000 executor.cc:507] sharegraph_q []
+[i 0807 14:13:30.068338 28 v1000 executor.cc:527] topsort internal [16,]
+[i 0807 14:13:30.068344 28 v100 executor.cc:581] Run Op(299:0:1:1:i0:o1:s0,curand_random->300) inputs: [] outputs: [Var(300:1:3:3:i1:o2:s0:n0,float32,,7fbd8827dc00)[10,4,40,50,],]
+[i 0807 14:13:30.068353 28 v100 op.cc:268] Jit op key found: curand_random«T:float32«R:uniform«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd9422a0b0
+[i 0807 14:13:30.068385 28 v100 executor.cc:652] Finished Op(curand_random 0/8) output: [Var(300:1:3:3:i1:o2:s0:n0,float32,,7fbd8827dc00)[10,4,40,50,],]
+[i 0807 14:13:30.068393 28 v100 executor.cc:581] Run Op(302:0:1:1:i0:o1:s0,curand_random->303) inputs: [] outputs: [Var(303:1:3:3:i1:o2:s0:n1,float32,,7fbd882cbe00)[5,4,4,4,],]
+[i 0807 14:13:30.068399 28 v100 op.cc:268] Jit op key found: curand_random«T:float32«R:uniform«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd9422a0b0
+[i 0807 14:13:30.068407 28 v100 executor.cc:652] Finished Op(curand_random 1/8) output: [Var(303:1:3:3:i1:o2:s0:n1,float32,,7fbd882cbe00)[5,4,4,4,],]
+[i 0807 14:13:30.068413 28 v100 executor.cc:67] Prepare fused_op [Op(306:1:1:1:i1:o1:s0,broadcast_to->307),Op(304:1:1:1:i1:o1:s0,reindex->305),Op(308:2:1:1:i2:o1:s0,binary.multiply->309),Op(310:1:1:1:i1:o1:s0,reduce.add->311),]
+[i 0807 14:13:30.068422 28 v100 executor.cc:581] Run Op(341:0:0:0:i2:o1:s0,fused->311)[Op(306:1:1:1:i1:o1:s0,broadcast_to->307),Op(304:1:1:1:i1:o1:s0,reindex->305),Op(308:2:1:1:i2:o1:s0,binary.multiply->309),Op(310:1:1:1:i1:o1:s0,reduce.add->311),] inputs: [Var(303:1:3:3:i0:o2:s1:n1,float32,,7fbd882cbe00)[5,4,4,4,],Var(300:1:3:3:i0:o2:s1:n0,float32,,7fbd8827dc00)[10,4,40,50,],] outputs: [Var(311:2:2:2:i1:o1:s0:n1,float32,,7fbd882cc400)[10,5,13,17,],]
+[i 0807 14:13:33.288028 28 v100 op.cc:268] Jit op key found: cudnn_conv«Tx:float32«Ty:float32«Tw:float32«XFORMAT:abcd«WFORMAT:oihw«YFORMAT:abcd«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd089ee148
+[i 0807 14:13:33.288181 28 v100 executor.cc:652] Finished Op(fused 2/8) output: [Var(311:2:2:2:i1:o1:s0:n1,float32,,7fbd882cc400)[10,5,13,17,],]
+[i 0807 14:13:33.288206 28 v100 executor.cc:581] Run Op(313:0:1:1:i0:o1:s0,curand_random->314) inputs: [] outputs: [Var(314:1:3:3:i1:o2:s0:n1,float32,,7fbd882d7200)[10,5,13,17,],]
+[i 0807 14:13:33.288217 28 v100 op.cc:268] Jit op key found: curand_random«T:float32«R:uniform«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbd9422a0b0
+[i 0807 14:13:33.288240 28 v100 executor.cc:652] Finished Op(curand_random 3/8) output: [Var(314:1:3:3:i1:o2:s0:n1,float32,,7fbd882d7200)[10,5,13,17,],]
+[i 0807 14:13:33.288251 28 v100 executor.cc:67] Prepare fused_op [Op(315:2:1:1:i2:o1:s0,binary.multiply->316),]
+[i 0807 14:13:33.288262 28 v100 executor.cc:581] Run Op(341:0:0:0:i2:o1:s0,fused->316)[Op(315:2:1:1:i2:o1:s0,binary.multiply->316),] inputs: [Var(314:1:3:3:i0:o2:s1:n1,float32,,7fbd882d7200)[10,5,13,17,],Var(311:2:2:2:i1:o1:s1:n1,float32,,7fbd882cc400)[10,5,13,17,],] outputs: [Var(316:2:1:1:i1:o0:s0:n0,float32,,7fbd882e2000)[10,5,13,17,],]
+[i 0807 14:13:33.288516 28 v100 executor.cc:652] Finished Op(fused 4/8) output: [Var(316:2:1:1:i1:o0:s0:n0,float32,,7fbd882e2000)[10,5,13,17,],]
+[i 0807 14:13:33.288526 28 v100 executor.cc:67] Prepare fused_op [Op(317:0:1:1:i0:o1:s0,array->318),Op(319:0:1:1:i1:o1:s0,broadcast_to->320),Op(321:1:1:1:i2:o1:s0,binary.multiply->322),]
+[i 0807 14:13:33.288535 28 v100 executor.cc:581] Run Op(341:0:0:0:i1:o1:s0,fused->322)[Op(317:0:1:1:i0:o1:s0,array->318),Op(319:0:1:1:i1:o1:s0,broadcast_to->320),Op(321:1:1:1:i2:o1:s0,binary.multiply->322),] inputs: [Var(314:1:3:2:i0:o2:s1:n1,float32,,7fbd882d7200)[10,5,13,17,],] outputs: [Var(322:1:2:2:i1:o2:s0:n1,float32,,7fbd882ece00)[10,5,13,17,],]
+[i 0807 14:13:33.288560 28 v100 executor.cc:652] Finished Op(fused 5/8) output: [Var(322:1:2:2:i1:o2:s0:n1,float32,,7fbd882ece00)[10,5,13,17,],]
+[i 0807 14:13:33.288566 28 v100 executor.cc:67] Prepare fused_op [Op(327:1:1:1:i1:o1:s0,broadcast_to->328),Op(325:1:1:1:i1:o1:s0,broadcast_to->326),Op(329:2:1:1:i2:o1:s0,binary.multiply->330),Op(337:1:1:1:i1:o1:s0,reindex_reduce.add->338),]
+[i 0807 14:13:33.288578 28 v100 executor.cc:581] Run Op(341:0:0:0:i2:o1:s0,fused->338)[Op(327:1:1:1:i1:o1:s0,broadcast_to->328),Op(325:1:1:1:i1:o1:s0,broadcast_to->326),Op(329:2:1:1:i2:o1:s0,binary.multiply->330),Op(337:1:1:1:i1:o1:s0,reindex_reduce.add->338),] inputs: [Var(303:1:3:2:i0:o2:s1:n1,float32,,7fbd882cbe00)[5,4,4,4,],Var(322:1:2:2:i1:o2:s1:n1,float32,,7fbd882ece00)[10,5,13,17,],] outputs: [Var(338:2:1:1:i1:o0:s0:n0,float32,,7fbd882f7c00)[10,4,40,50,],]
+[i 0807 14:13:36.561701 28 v100 op.cc:268] Jit op key found: cudnn_conv_backward_x«Tx:float32«Ty:float32«Tw:float32«XFORMAT:abcd«WFORMAT:oihw«YFORMAT:abcd«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbc9b3f1208
+[i 0807 14:13:36.563224 28 v100 executor.cc:652] Finished Op(fused 6/8) output: [Var(338:2:1:1:i1:o0:s0:n0,float32,,7fbd882f7c00)[10,4,40,50,],]
+[i 0807 14:13:36.563244 28 v100 executor.cc:67] Prepare fused_op [Op(333:1:1:1:i1:o1:s0,reindex->334),Op(331:1:1:1:i1:o1:s0,broadcast_to->332),Op(335:2:1:1:i2:o1:s0,binary.multiply->336),Op(339:1:1:1:i1:o1:s0,reduce.add->340),]
+[i 0807 14:13:36.563267 28 v100 executor.cc:581] Run Op(341:0:0:0:i2:o1:s0,fused->340)[Op(333:1:1:1:i1:o1:s0,reindex->334),Op(331:1:1:1:i1:o1:s0,broadcast_to->332),Op(335:2:1:1:i2:o1:s0,binary.multiply->336),Op(339:1:1:1:i1:o1:s0,reduce.add->340),] inputs: [Var(300:1:3:2:i0:o2:s1:n1,float32,,7fbd8827dc00)[10,4,40,50,],Var(322:1:2:1:i1:o2:s1:n1,float32,,7fbd882ece00)[10,5,13,17,],] outputs: [Var(340:2:1:1:i1:o0:s0:n0,float32,,7fbd88345e00)[5,4,4,4,],]
+[i 0807 14:13:39.765145 28 v100 op.cc:268] Jit op key found: cudnn_conv_backward_w«Tx:float32«Ty:float32«Tw:float32«XFORMAT:abcd«WFORMAT:oihw«YFORMAT:abcd«JIT:1«JIT_cuda:1«index_t:int32 jit op entry: 0x7fbc9afd7530
+[i 0807 14:13:39.765981 28 v100 executor.cc:652] Finished Op(fused 7/8) output: [Var(340:2:1:1:i1:o0:s0:n0,float32,,7fbd88345e00)[5,4,4,4,],]
+[i 0807 14:13:39.766000 28 v10 executor.cc:694] All 19 ops finished, return vars: [Var(311:2:2:1:i1:o1:s1:n1,float32,,7fbd882cc400)[10,5,13,17,],Var(316:2:1:1:i1:o0:s1:n0,float32,,7fbd882e2000)[10,5,13,17,],Var(338:2:1:1:i1:o0:s1:n0,float32,,7fbd882f7c00)[10,4,40,50,],Var(340:2:1:1:i1:o0:s1:n0,float32,,7fbd88345e00)[5,4,4,4,],]
+[i 0807 14:13:39.766008 28 v10 executor.cc:714] cudaDeviceSynchronize times: 0 / 8 device_sync: 0
+[i 0807 14:13:39.766072 28 v1 cuda_flags.cc:51] CUDA disabled.
+[i 0807 14:13:39.766088 28 v10 executor.cc:694] All 0 ops finished, return vars: [Var(340:2:1:1:i1:o0:s1:n0,float32,,7fbd88345e00)[5,4,4,4,],Var(338:2:1:1:i1:o0:s1:n0,float32,,7fbd882f7c00)[10,4,40,50,],Var(316:2:1:1:i1:o0:s1:n0,float32,,7fbd882e2000)[10,5,13,17,],]
+[i 0807 14:13:39.766095 28 v10 executor.cc:714] cudaDeviceSynchronize times: 0 / 0 device_sync: 0
+
+Compiling Operators(3/3) used: 2.43s eta:    0s 
+..[i 0807 14:13:42.204223 28 cuda_flags.cc:49] CUDA enabled.
+
+Compiling Operators(3/4) used: 3.48s eta: 1.16s Compiling Operators(4/4) used: 4.48s eta:    0s 
+[i 0807 14:13:50.794835 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:13:54.674009 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:13:58.531407 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:14:02.393206 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:14:02.404829 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:14:02.408857 28 cuda_flags.cc:49] CUDA enabled.
+.[i 0807 14:14:06.255884 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:14:06.260600 28 cuda_flags.cc:49] CUDA enabled.
+
+Compiling Operators(2/2) used: 2.31s eta:    0s 
+[i 0807 14:14:08.580916 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:14:08.583054 28 cuda_flags.cc:49] CUDA enabled.
+
+Compiling Operators(2/2) used: 2.41s eta:    0s 
+[i 0807 14:14:11.001644 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:14:11.003942 28 cuda_flags.cc:49] CUDA enabled.
+
+Compiling Operators(2/2) used:  2.4s eta:    0s 
+[i 0807 14:14:13.412209 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:14:13.414500 28 cuda_flags.cc:49] CUDA enabled.
+
+Compiling Operators(2/2) used: 2.41s eta:    0s 
+[i 0807 14:14:15.841765 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:14:15.845670 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:14:15.858000 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:14:15.862187 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:14:15.875293 28 cuda_flags.cc:49] CUDA enabled.
+[i 0807 14:14:15.877418 28 cuda_flags.cc:49] CUDA enabled.
+
+Compiling Operators(2/2) used: 2.31s eta:    0s 
+.
+----------------------------------------------------------------------
+Ran 5 tests in 113.977s
+
+OK
