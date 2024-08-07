@@ -30,9 +30,27 @@ PORT=${PORT:-29500}
 #     --task=train \
 #     --local_rank 0
 
-PYTHONPATH="$(dirname $0)/..":$PYTHONPATH \
-CUDA_VISIBLE_DEVICES="0,1,2,3" /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python \
-    /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py \
-    --config-file=/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py \
-    --task=train \
-    --local_rank 0
+#PYTHONPATH="$(dirname $0)/..":$PYTHONPATH \
+#CUDA_VISIBLE_DEVICES="0,1,2,3" /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python \
+#    -m torch.distributed.launch  --nproc_per_node=4 --master_port=$((RANDOM + 10000)) \
+#    /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py \
+#    --config-file=/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py \
+#    --task=train \
+
+#python tools/run_net.py --config-file=project/fcn/fcn_r50-d8_512x1024_cityscapes_80k.py --task=train
+
+    # CUDA_VISIBLE_DEVICES="0,1,2,3" \
+    # /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python \
+    # /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py \
+    # --config-file=/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py \
+    # --task=train
+
+    #/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python \
+    #-m jittor.test.test_cudnn_op
+
+    #nvidia-smi
+
+    /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python \
+    -m jittor_utils.install_cuda
+
+

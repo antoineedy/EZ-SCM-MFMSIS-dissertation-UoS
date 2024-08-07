@@ -1,0 +1,22 @@
+[i 0807 07:05:54.417172 20 __init__.py:227] Total mem: 503.74GB, using 16 procs for compiling.
+[i 0807 07:06:18.360154 20 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
+[i 0807 07:06:18.568241 20 init.cc:62] Found cuda archs: [86,]
+[w 0807 07:06:18.679439 20 compiler.py:1384] CUDA arch(86)>80 will be backward-compatible
+[i 0807 07:06:20.376446 20 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
+[i 0807 07:06:20.479618 20 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xc3/AMDEPYC753232-x73/default/cu11.0.221_sm_86/custom_ops
+[i 0807 07:06:22.729203 20 compile_extern.py:339] Downloading cutt...
+[i 0807 07:06:23.736186 20 compile_extern.py:352] installing cutt...
+[i 0807 07:06:39.669979 20 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xc3/AMDEPYC753232-x73/default/cu11.0.221_sm_86/cuda
+[i 0807 07:07:00.897612 20 cuda_flags.cc:49] CUDA enabled.
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 84, in <module>
+    main()
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 62, in main
+    torch.cuda.set_device(args.local_rank)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/cuda/__init__.py", line 309, in set_device
+    device = _get_device_index(device)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/cuda/_utils.py", line 34, in _get_device_index
+    return _torch_get_device_index(device, optional, allow_cpu)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/_utils.py", line 513, in _get_device_index
+    raise ValueError('Expected a torch.device with a specified index '
+ValueError: Expected a torch.device with a specified index or an integer, but got:None

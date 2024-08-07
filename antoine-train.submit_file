@@ -10,7 +10,8 @@ JobBatchName = "Antoine-ZegCLIP-train-2-specific"
 
 # --------------------------------------------
 # Executable and its arguments
-executable    = /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/bin/python3.9
+#executable    = /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/bin/python3.9
+executable    = /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python3.9
 arguments     = $ENV(PWD)/start_training.py
 #arguments     = $ENV(PWD)/start_testing.py
 #arguments    = $ENV(PWD)/just_print.py

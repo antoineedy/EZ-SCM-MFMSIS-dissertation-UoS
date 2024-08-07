@@ -1,0 +1,7 @@
+Compiling jittor_core(150/151) used: 4.347s eta: 0.029sCompiling jittor_core(151/151) used: 22.493s eta: 0.000s
+Compiling gen_ops_mkl_test_mkl_conv_backward_x_mkl_matmul_mk___hash16649c(7/7) used: 2.783s eta: 0.000s
+Compiling gen_ops_cub_cumsum_cub_where_cub_argsort_cub_test____hashe0c04e(6/6) used: 2.107s eta: 0.000s
+Compiling gen_ops_cublas_batched_matmul_cublas_acc_matmul_cu___hash4e18cc(8/8) used: 2.612s eta: 0.000s
+Compiling gen_ops_cudnn_test_cudnn_conv3d_backward_w_cudnn_c___hashca4f2c(16/16) used: 4.697s eta: 0.000s
+Torch cache cleared
+Beginning training script

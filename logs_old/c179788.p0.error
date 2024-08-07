@@ -1,0 +1,79 @@
+/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py:183: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use-env is set by default in torchrun.
+If your script expects `--local-rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  warnings.warn(
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 2, in <module>
+    import jittor as jt
+ModuleNotFoundError: No module named 'jittor'
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 2, in <module>
+    import jittor as jt
+ModuleNotFoundError: No module named 'jittor'
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 2, in <module>
+    import jittor as jt
+ModuleNotFoundError: No module named 'jittor'
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 2, in <module>
+    import jittor as jt
+ModuleNotFoundError: No module named 'jittor'
+E0806 16:26:18.579078 139644705924032 torch/distributed/elastic/multiprocessing/api.py:826] failed (exitcode: 1) local_rank: 0 (pid: 22) of binary: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python
+Traceback (most recent call last):
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py", line 198, in <module>
+    main()
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py", line 194, in main
+    launch(args)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py", line 179, in launch
+    run(args)
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/run.py", line 870, in run
+    elastic_launch(
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 132, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 263, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2024-08-06_16:26:18
+  host      : ae01116-179788.0-aisurrey14.surrey.ac.uk
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 23)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2024-08-06_16:26:18
+  host      : ae01116-179788.0-aisurrey14.surrey.ac.uk
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 24)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2024-08-06_16:26:18
+  host      : ae01116-179788.0-aisurrey14.surrey.ac.uk
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 25)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-08-06_16:26:18
+  host      : ae01116-179788.0-aisurrey14.surrey.ac.uk
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 22)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
