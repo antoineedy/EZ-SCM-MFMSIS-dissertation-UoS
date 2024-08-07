@@ -45,12 +45,23 @@ PORT=${PORT:-29500}
     # --config-file=/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py \
     # --task=train
 
-    #/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python \
-    #-m jittor.test.test_cudnn_op
+    export nvcc_path="/usr/local/cuda/bin/nvcc"
+
+    /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python \
+    -m jittor.test.test_cudnn_op
 
     #nvidia-smi
 
-    /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python \
-    -m jittor_utils.install_cuda
+    #/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python \
+    #-m jittor_utils.install_cuda
+
+    #/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python \
+    #-m jittor.test.test_example
+
+    #find / -type d -name cuda 2>/dev/null
+
+    #nvcc --version
+
+    #which nvcc
 
 
