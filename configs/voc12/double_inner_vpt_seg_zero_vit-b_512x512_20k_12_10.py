@@ -15,7 +15,7 @@ novel_class = [15, 16, 17, 18, 19]
 both_class = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 num_classes = len(base_class)
 
-pretrained = '/mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16.pt'
+pretrained = "/mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16.pt"
 
 model = dict(
     type="DoubleInnerZegCLIP",
@@ -23,7 +23,7 @@ model = dict(
     pretrained_text=pretrained,
     context_length=77,
     backbone=dict(
-        type="VPTCLIPVisionTransformer",
+        type="InnerVPTCLIPVisionTransformer",
         patch_size=16,
         width=768,
         output_dim=512,  # ? difference between the output and the embeddings

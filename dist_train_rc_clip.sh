@@ -48,13 +48,15 @@ PORT=${PORT:-29500}
     # --config-file=/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py \
     # --task=train
 
-    # replace this var with your nvcc location 
-    export nvcc_path="/usr/local/cuda/bin/nvcc" 
-    # run a simple cuda test
-    /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python \
-    /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py \
-    --config-file=/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py \
-    --task=train
+    # # replace this var with your nvcc location 
+    # export nvcc_path="/usr/local/cuda/bin/nvcc" 
+    # # run a simple cuda test
+    # /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python \
+    # /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py \
+    # --config-file=/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py \
+    # --task=train
+
+    pip install cupy
 
     #export nvcc_path="/usr/local/cuda/bin/nvcc"
 

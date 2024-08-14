@@ -178,7 +178,9 @@ class MLP(nn.Module):
 
 
 @HEADS.register_module()
-class InnerATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transfer Module?
+class InnerATMSingleHeadSeg(
+    BaseDecodeHead
+):  # ATM means Attention-based Transfer Module?
     def __init__(
         self,
         img_size,
@@ -250,19 +252,27 @@ class InnerATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transf
 
         delattr(self, "conv_seg")
 
-        #self.q_proj = nn.Linear(dim * 2, dim)
+        # self.q_proj = nn.Linear(dim * 2, dim)
 
-        self.layer6_proj = nn.Linear(768, 512)
-        self.layer8_proj = nn.Linear(768, 512)
-        self.layer12_proj = nn.Linear(768, 512)
+        # self.layer6_proj = nn.Linear(768, 512)
+        # self.layer8_proj = nn.Linear(768, 512)
+        # self.layer12_proj = nn.Linear(768, 512)
+
+        self.layer6_proj = nn.Conv2d(in_channels=768, out_channels=512, kernel_size=1)
+        self.layer8_proj = nn.Conv2d(in_channels=768, out_channels=512, kernel_size=1)
+        self.layer12_proj = nn.Conv2d(in_channels=768, out_channels=512, kernel_size=1)
 
         self.q6_proj = nn.Linear(dim * 2, dim)
         self.q8_proj = nn.Linear(dim * 2, dim)
         self.q12_proj = nn.Linear(dim * 2, dim)
 
-        self.text_proj_6 = nn.Linear(512, 512)
-        self.text_proj_8 = nn.Linear(512, 512)
-        self.text_proj_12 = nn.Linear(512, 512)
+        # self.text_proj_6 = nn.Linear(512, 512)
+        # self.text_proj_8 = nn.Linear(512, 512)
+        # self.text_proj_12 = nn.Linear(512, 512)
+
+        self.text_proj_6 = nn.Conv2d(in_channels=512, out_channels=512, kernel_size=1)
+        self.text_proj_8 = nn.Conv2d(in_channels=512, out_channels=512, kernel_size=1)
+        self.text_proj_12 = nn.Conv2d(in_channels=512, out_channels=512, kernel_size=1)
 
     def init_weights(self):
         for n, m in self.named_modules():
@@ -308,8 +318,8 @@ class InnerATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transf
     def forward(self, inputs_both, self_training=None):
         inputs = inputs_both[0][0]
         # antoine: inputs will be the output of the backbone
-        cls_token = inputs_both[0][1]
-        # antoine: cls_token will be the cls output of the backbone
+        cls_tokens = inputs_both[0][1]
+        # antoine: cls_token will be the cls output of the backbone (HERE 3, from layers 6, 8 and 12)
         text_token = inputs_both[1]
         # antoine: text_token will be the output of the text encoder
 
@@ -319,19 +329,24 @@ class InnerATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transf
 
         visual_feat = inputs_both[0]
 
-        layer6 = visual_feat[0][0] # torch.Size([1, 768, 32, 32])
-        layer8 = visual_feat[0][1] # torch.Size([1, 768, 32, 32])
-        layer12 = visual_feat[0][2] # torch.Size([1, 768, 32, 32])
-
+        layer6 = visual_feat[0][0]  # torch.Size([1, 768, 32, 32])
+        layer8 = visual_feat[0][1]  # torch.Size([1, 768, 32, 32])
+        layer12 = visual_feat[0][2]  # torch.Size([1, 768, 32, 32])
 
         # --- CHANGE DIMENSIONS ---
         layer12 = layer12.permute(0, 2, 3, 1)
         layer8 = layer8.permute(0, 2, 3, 1)
         layer6 = layer6.permute(0, 2, 3, 1)
 
-        layer6 = self.layer6_proj(layer6) # torch.Size([1, 768, 32, 32]) -> torch.Size([1, 512, 32, 32])
-        layer8 = self.layer8_proj(layer8) # torch.Size([1, 768, 32, 32]) -> torch.Size([1, 512, 32, 32])
-        layer12 = self.layer12_proj(layer12) # torch.Size([1, 768, 32, 32]) -> torch.Size([1, 512, 32, 32])
+        layer6 = self.layer6_proj(
+            layer6
+        )  # torch.Size([1, 768, 32, 32]) -> torch.Size([1, 512, 32, 32])
+        layer8 = self.layer8_proj(
+            layer8
+        )  # torch.Size([1, 768, 32, 32]) -> torch.Size([1, 512, 32, 32])
+        layer12 = self.layer12_proj(
+            layer12
+        )  # torch.Size([1, 768, 32, 32]) -> torch.Size([1, 512, 32, 32])
 
         layer12 = layer12.permute(0, 3, 1, 2)
         layer8 = layer8.permute(0, 3, 1, 2)
@@ -339,16 +354,22 @@ class InnerATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transf
 
         # --- END ---
 
-        # cls6 will be the mean of torch.Size([1, 768, 32, 32]) along the spatial dimensions
-        cls6 = layer6.mean(dim=[2, 3]) # torch.Size([1, 768])
-        cls8 = layer8.mean(dim=[2, 3]) # torch.Size([1, 768])
-        cls12 = (layer12.mean(dim=[2, 3]) + cls_token)/2 # torch.Size([1, 768])
+        # OLD
+
+        # # cls6 will be the mean of torch.Size([1, 768, 32, 32]) along the spatial dimensions
+        # cls6 = layer6.mean(dim=[2, 3])  # torch.Size([1, 768])
+        # cls8 = layer8.mean(dim=[2, 3])  # torch.Size([1, 768])
+        # cls12 = (layer12.mean(dim=[2, 3]) + cls_token) / 2  # torch.Size([1, 768])
+
+        cls6 = cls_tokens[0]
+        cls8 = cls_tokens[1]
+        cls12 = cls_tokens[2]
 
         x = []
         for stage_ in [layer6, layer8, layer12]:
             x.append(self.d4_to_d3(stage_) if stage_.dim() > 3 else stage_)
-        x.reverse() # antoine: [layer12, layer8, layer6]
-        bs = x[0].size()[0] 
+        x.reverse()  # antoine: [layer12, layer8, layer6]
+        bs = x[0].size()[0]
 
         laterals = []
         attns = []
@@ -377,9 +398,9 @@ class InnerATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transf
 
         # antoine: lateral = images? see the paper with my drawing
 
-        #q = self.q_proj(self.get_qs(text_token, cls_token))
+        # q = self.q_proj(self.get_qs(text_token, cls_token))
         # antoine: get the query with the relationship descriptor
-        #q = q.transpose(0, 1)
+        # q = q.transpose(0, 1)
 
         q6 = self.q6_proj(self.get_qs(text_token_6, cls6))
         q6 = q6.transpose(0, 1)
@@ -393,7 +414,7 @@ class InnerATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transf
         ql = [q12, q8, q6]
 
         for idx, decoder_ in enumerate(self.decoder):
-            if idx==0:
+            if idx == 0:
                 q = ql[idx]
             else:
                 q = self.merge_qs(q, ql[idx])
@@ -455,7 +476,7 @@ class InnerATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transf
         return mask_pred
 
     def merge_qs(self, q, q_layer):
-        return (q + q_layer)/2
+        return (q + q_layer) / 2
 
     @torch.jit.unused
     def _set_aux_loss(self, outputs_seg_masks):

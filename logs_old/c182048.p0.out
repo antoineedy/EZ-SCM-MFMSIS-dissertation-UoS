@@ -1,0 +1,677 @@
+Collecting cupy
+  Using cached https://files.pythonhosted.org/packages/79/12/68cc4dabe0b7d7bf69716459acc72820f747fc2b3ab63b145e0fd35b8658/cupy-7.1.1.tar.gz
+Collecting fastrlock>=0.3 (from cupy)
+  Using cached https://files.pythonhosted.org/packages/91/99/9601c3e32896aa80f5608256fb3d289641441eb96d5199dfa94787524645/fastrlock-0.8.2-cp27-cp27mu-manylinux_2_5_x86_64.manylinux1_x86_64.whl
+Collecting numpy>=1.9.0 (from cupy)
+  Using cached https://files.pythonhosted.org/packages/3a/5f/47e578b3ae79e2624e205445ab77a1848acdaa2929a00eeef6b16eaaeb20/numpy-1.16.6-cp27-cp27mu-manylinux1_x86_64.whl
+Collecting six>=1.9.0 (from cupy)
+  Using cached https://files.pythonhosted.org/packages/d9/5a/e7c31adbe875f2abbb91bd84cf2dc52d792b5a01506781dbcf25c91daf11/six-1.16.0-py2.py3-none-any.whl
+Building wheels for collected packages: cupy
+  Running setup.py bdist_wheel for cupy: started
+  Running setup.py bdist_wheel for cupy: finished with status 'error'
+  Complete output from command /usr/bin/python -u -c "import setuptools, tokenize;__file__='/scratch/condor/dir_3312459/pip-build-ocRztL/cupy/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" bdist_wheel -d /scratch/condor/dir_3312459/tmpvo62wBpip-wheel- --python-tag cp27:
+  Options: {'profile': False, 'annotate': False, 'linetrace': False, 'wheel_libs': [], 'package_name': 'cupy', 'no_rpath': False, 'no_cuda': False, 'wheel_includes': [], 'long_description': None, 'use_hip': False}
+  
+  -------- Configuring Module: cuda --------
+  
+  -------- Configuring Module: cusolver --------
+  
+  -------- Configuring Module: cudnn --------
+  **************************************************
+  *** WARNING: Unsupported cuDNN version: 8004
+  *** WARNING: cuDNN v5000= and <=v7999 is required
+  **************************************************
+  
+  -------- Configuring Module: nccl --------
+  
+  -------- Configuring Module: nvtx --------
+  
+  -------- Configuring Module: thrust --------
+  
+  -------- Configuring Module: cutensor --------
+  /scratch/condor/dir_3312459/tmptE3VRK/a.cpp:1:10: fatal error: cutensor.h: No such file or directory
+   #include <cutensor.h>
+            ^~~~~~~~~~~~
+  compilation terminated.
+  command 'x86_64-linux-gnu-gcc' failed with exit status 1
+  
+  -------- Configuring Module: cub --------
+  
+  ************************************************************
+  * CuPy Configuration Summary                               *
+  ************************************************************
+  
+  Build Environment:
+    Include directories: ['/usr/local/cuda/include']
+    Library directories: ['/usr/local/cuda/lib64']
+    nvcc command       : ['/usr/local/cuda/bin/nvcc']
+  
+  Environment Variables:
+    CFLAGS          : (none)
+    LDFLAGS         : (none)
+    LIBRARY_PATH    : /usr/local/cuda/lib64/stubs
+    CUDA_PATH       : (none)
+    NVTOOLSEXT_PATH : (none)
+    NVCC            : (none)
+    ROCM_HOME       : (none)
+  
+  Modules:
+    cuda      : Yes (version 11000)
+    cusolver  : Yes
+    cudnn     : No (version 8004)
+      -> The library is installed but not supported.
+    nccl      : Yes (version 2708)
+    nvtx      : Yes
+    thrust    : Yes
+    cutensor  : No
+      -> Include files not found: ['cutensor.h']
+      -> Check your CFLAGS environment variable.
+    cub       : Yes
+  
+  WARNING: Some modules could not be configured.
+  CuPy will be installed without these modules.
+  Please refer to the Installation Guide for details:
+  https://docs-cupy.chainer.org/en/stable/install.html
+  
+  ************************************************************
+  
+  running bdist_wheel
+  running build
+  running build_py
+  creating build
+  creating build/lib.linux-x86_64-2.7
+  creating build/lib.linux-x86_64-2.7/cupy
+  copying cupy/__init__.py -> build/lib.linux-x86_64-2.7/cupy
+  copying cupy/_environment.py -> build/lib.linux-x86_64-2.7/cupy
+  copying cupy/_version.py -> build/lib.linux-x86_64-2.7/cupy
+  copying cupy/cusparse.py -> build/lib.linux-x86_64-2.7/cupy
+  copying cupy/cutensor.py -> build/lib.linux-x86_64-2.7/cupy
+  creating build/lib.linux-x86_64-2.7/cupy/binary
+  copying cupy/binary/__init__.py -> build/lib.linux-x86_64-2.7/cupy/binary
+  copying cupy/binary/elementwise.py -> build/lib.linux-x86_64-2.7/cupy/binary
+  copying cupy/binary/packing.py -> build/lib.linux-x86_64-2.7/cupy/binary
+  creating build/lib.linux-x86_64-2.7/cupy/core
+  copying cupy/core/__init__.py -> build/lib.linux-x86_64-2.7/cupy/core
+  copying cupy/core/_errors.py -> build/lib.linux-x86_64-2.7/cupy/core
+  copying cupy/core/_ufuncs.py -> build/lib.linux-x86_64-2.7/cupy/core
+  creating build/lib.linux-x86_64-2.7/cupy/creation
+  copying cupy/creation/__init__.py -> build/lib.linux-x86_64-2.7/cupy/creation
+  copying cupy/creation/basic.py -> build/lib.linux-x86_64-2.7/cupy/creation
+  copying cupy/creation/from_data.py -> build/lib.linux-x86_64-2.7/cupy/creation
+  copying cupy/creation/matrix.py -> build/lib.linux-x86_64-2.7/cupy/creation
+  copying cupy/creation/ranges.py -> build/lib.linux-x86_64-2.7/cupy/creation
+  creating build/lib.linux-x86_64-2.7/cupy/cuda
+  copying cupy/cuda/__init__.py -> build/lib.linux-x86_64-2.7/cupy/cuda
+  copying cupy/cuda/compiler.py -> build/lib.linux-x86_64-2.7/cupy/cuda
+  creating build/lib.linux-x86_64-2.7/cupy/cuda/memory_hooks
+  copying cupy/cuda/memory_hooks/__init__.py -> build/lib.linux-x86_64-2.7/cupy/cuda/memory_hooks
+  copying cupy/cuda/memory_hooks/debug_print.py -> build/lib.linux-x86_64-2.7/cupy/cuda/memory_hooks
+  copying cupy/cuda/memory_hooks/line_profile.py -> build/lib.linux-x86_64-2.7/cupy/cuda/memory_hooks
+  creating build/lib.linux-x86_64-2.7/cupy/ext
+  copying cupy/ext/__init__.py -> build/lib.linux-x86_64-2.7/cupy/ext
+  copying cupy/ext/scatter.py -> build/lib.linux-x86_64-2.7/cupy/ext
+  creating build/lib.linux-x86_64-2.7/cupy/fft
+  copying cupy/fft/__init__.py -> build/lib.linux-x86_64-2.7/cupy/fft
+  copying cupy/fft/config.py -> build/lib.linux-x86_64-2.7/cupy/fft
+  copying cupy/fft/fft.py -> build/lib.linux-x86_64-2.7/cupy/fft
+  creating build/lib.linux-x86_64-2.7/cupy/indexing
+  copying cupy/indexing/__init__.py -> build/lib.linux-x86_64-2.7/cupy/indexing
+  copying cupy/indexing/generate.py -> build/lib.linux-x86_64-2.7/cupy/indexing
+  copying cupy/indexing/indexing.py -> build/lib.linux-x86_64-2.7/cupy/indexing
+  copying cupy/indexing/insert.py -> build/lib.linux-x86_64-2.7/cupy/indexing
+  creating build/lib.linux-x86_64-2.7/cupy/io
+  copying cupy/io/__init__.py -> build/lib.linux-x86_64-2.7/cupy/io
+  copying cupy/io/formatting.py -> build/lib.linux-x86_64-2.7/cupy/io
+  copying cupy/io/npz.py -> build/lib.linux-x86_64-2.7/cupy/io
+  copying cupy/io/text.py -> build/lib.linux-x86_64-2.7/cupy/io
+  creating build/lib.linux-x86_64-2.7/cupy/lib
+  copying cupy/lib/__init__.py -> build/lib.linux-x86_64-2.7/cupy/lib
+  copying cupy/lib/stride_tricks.py -> build/lib.linux-x86_64-2.7/cupy/lib
+  creating build/lib.linux-x86_64-2.7/cupy/linalg
+  copying cupy/linalg/__init__.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+  copying cupy/linalg/decomposition.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+  copying cupy/linalg/eigenvalue.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+  copying cupy/linalg/einsum.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+  copying cupy/linalg/einsum_opt.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+  copying cupy/linalg/norms.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+  copying cupy/linalg/product.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+  copying cupy/linalg/solve.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+  copying cupy/linalg/util.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+  creating build/lib.linux-x86_64-2.7/cupy/logic
+  copying cupy/logic/__init__.py -> build/lib.linux-x86_64-2.7/cupy/logic
+  copying cupy/logic/comparison.py -> build/lib.linux-x86_64-2.7/cupy/logic
+  copying cupy/logic/content.py -> build/lib.linux-x86_64-2.7/cupy/logic
+  copying cupy/logic/ops.py -> build/lib.linux-x86_64-2.7/cupy/logic
+  copying cupy/logic/truth.py -> build/lib.linux-x86_64-2.7/cupy/logic
+  copying cupy/logic/type_test.py -> build/lib.linux-x86_64-2.7/cupy/logic
+  creating build/lib.linux-x86_64-2.7/cupy/manipulation
+  copying cupy/manipulation/__init__.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+  copying cupy/manipulation/add_remove.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+  copying cupy/manipulation/basic.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+  copying cupy/manipulation/dims.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+  copying cupy/manipulation/join.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+  copying cupy/manipulation/kind.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+  copying cupy/manipulation/rearrange.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+  copying cupy/manipulation/shape.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+  copying cupy/manipulation/split.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+  copying cupy/manipulation/tiling.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+  copying cupy/manipulation/transpose.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+  creating build/lib.linux-x86_64-2.7/cupy/math
+  copying cupy/math/__init__.py -> build/lib.linux-x86_64-2.7/cupy/math
+  copying cupy/math/arithmetic.py -> build/lib.linux-x86_64-2.7/cupy/math
+  copying cupy/math/explog.py -> build/lib.linux-x86_64-2.7/cupy/math
+  copying cupy/math/floating.py -> build/lib.linux-x86_64-2.7/cupy/math
+  copying cupy/math/hyperbolic.py -> build/lib.linux-x86_64-2.7/cupy/math
+  copying cupy/math/misc.py -> build/lib.linux-x86_64-2.7/cupy/math
+  copying cupy/math/rounding.py -> build/lib.linux-x86_64-2.7/cupy/math
+  copying cupy/math/special.py -> build/lib.linux-x86_64-2.7/cupy/math
+  copying cupy/math/sumprod.py -> build/lib.linux-x86_64-2.7/cupy/math
+  copying cupy/math/trigonometric.py -> build/lib.linux-x86_64-2.7/cupy/math
+  copying cupy/math/ufunc.py -> build/lib.linux-x86_64-2.7/cupy/math
+  copying cupy/math/window.py -> build/lib.linux-x86_64-2.7/cupy/math
+  creating build/lib.linux-x86_64-2.7/cupy/misc
+  copying cupy/misc/__init__.py -> build/lib.linux-x86_64-2.7/cupy/misc
+  copying cupy/misc/memory_ranges.py -> build/lib.linux-x86_64-2.7/cupy/misc
+  creating build/lib.linux-x86_64-2.7/cupy/padding
+  copying cupy/padding/__init__.py -> build/lib.linux-x86_64-2.7/cupy/padding
+  copying cupy/padding/pad.py -> build/lib.linux-x86_64-2.7/cupy/padding
+  creating build/lib.linux-x86_64-2.7/cupy/prof
+  copying cupy/prof/__init__.py -> build/lib.linux-x86_64-2.7/cupy/prof
+  copying cupy/prof/time_range.py -> build/lib.linux-x86_64-2.7/cupy/prof
+  creating build/lib.linux-x86_64-2.7/cupy/random
+  copying cupy/random/__init__.py -> build/lib.linux-x86_64-2.7/cupy/random
+  copying cupy/random/_kernels.py -> build/lib.linux-x86_64-2.7/cupy/random
+  copying cupy/random/distributions.py -> build/lib.linux-x86_64-2.7/cupy/random
+  copying cupy/random/generator.py -> build/lib.linux-x86_64-2.7/cupy/random
+  copying cupy/random/permutations.py -> build/lib.linux-x86_64-2.7/cupy/random
+  copying cupy/random/sample.py -> build/lib.linux-x86_64-2.7/cupy/random
+  creating build/lib.linux-x86_64-2.7/cupy/sorting
+  copying cupy/sorting/__init__.py -> build/lib.linux-x86_64-2.7/cupy/sorting
+  copying cupy/sorting/count.py -> build/lib.linux-x86_64-2.7/cupy/sorting
+  copying cupy/sorting/search.py -> build/lib.linux-x86_64-2.7/cupy/sorting
+  copying cupy/sorting/sort.py -> build/lib.linux-x86_64-2.7/cupy/sorting
+  creating build/lib.linux-x86_64-2.7/cupy/sparse
+  copying cupy/sparse/__init__.py -> build/lib.linux-x86_64-2.7/cupy/sparse
+  creating build/lib.linux-x86_64-2.7/cupy/sparse/linalg
+  copying cupy/sparse/linalg/__init__.py -> build/lib.linux-x86_64-2.7/cupy/sparse/linalg
+  creating build/lib.linux-x86_64-2.7/cupy/statistics
+  copying cupy/statistics/__init__.py -> build/lib.linux-x86_64-2.7/cupy/statistics
+  copying cupy/statistics/correlation.py -> build/lib.linux-x86_64-2.7/cupy/statistics
+  copying cupy/statistics/histogram.py -> build/lib.linux-x86_64-2.7/cupy/statistics
+  copying cupy/statistics/meanvar.py -> build/lib.linux-x86_64-2.7/cupy/statistics
+  copying cupy/statistics/order.py -> build/lib.linux-x86_64-2.7/cupy/statistics
+  creating build/lib.linux-x86_64-2.7/cupy/testing
+  copying cupy/testing/__init__.py -> build/lib.linux-x86_64-2.7/cupy/testing
+  copying cupy/testing/_bundle.py -> build/lib.linux-x86_64-2.7/cupy/testing
+  copying cupy/testing/array.py -> build/lib.linux-x86_64-2.7/cupy/testing
+  copying cupy/testing/attr.py -> build/lib.linux-x86_64-2.7/cupy/testing
+  copying cupy/testing/condition.py -> build/lib.linux-x86_64-2.7/cupy/testing
+  copying cupy/testing/helper.py -> build/lib.linux-x86_64-2.7/cupy/testing
+  copying cupy/testing/hypothesis.py -> build/lib.linux-x86_64-2.7/cupy/testing
+  copying cupy/testing/parameterized.py -> build/lib.linux-x86_64-2.7/cupy/testing
+  copying cupy/testing/random.py -> build/lib.linux-x86_64-2.7/cupy/testing
+  creating build/lib.linux-x86_64-2.7/cupyx
+  copying cupyx/__init__.py -> build/lib.linux-x86_64-2.7/cupyx
+  copying cupyx/_ufunc_config.py -> build/lib.linux-x86_64-2.7/cupyx
+  copying cupyx/rsqrt.py -> build/lib.linux-x86_64-2.7/cupyx
+  copying cupyx/runtime.py -> build/lib.linux-x86_64-2.7/cupyx
+  copying cupyx/scatter.py -> build/lib.linux-x86_64-2.7/cupyx
+  creating build/lib.linux-x86_64-2.7/cupyx/fallback_mode
+  copying cupyx/fallback_mode/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/fallback_mode
+  copying cupyx/fallback_mode/fallback.py -> build/lib.linux-x86_64-2.7/cupyx/fallback_mode
+  creating build/lib.linux-x86_64-2.7/cupyx/scipy
+  copying cupyx/scipy/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/scipy
+  creating build/lib.linux-x86_64-2.7/cupyx/scipy/fft
+  copying cupyx/scipy/fft/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/fft
+  copying cupyx/scipy/fft/fft.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/fft
+  creating build/lib.linux-x86_64-2.7/cupyx/scipy/fftpack
+  copying cupyx/scipy/fftpack/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/fftpack
+  copying cupyx/scipy/fftpack/fft.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/fftpack
+  creating build/lib.linux-x86_64-2.7/cupyx/scipy/ndimage
+  copying cupyx/scipy/ndimage/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/ndimage
+  copying cupyx/scipy/ndimage/filters.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/ndimage
+  copying cupyx/scipy/ndimage/interpolation.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/ndimage
+  creating build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+  copying cupyx/scipy/sparse/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+  copying cupyx/scipy/sparse/base.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+  copying cupyx/scipy/sparse/compressed.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+  copying cupyx/scipy/sparse/construct.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+  copying cupyx/scipy/sparse/coo.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+  copying cupyx/scipy/sparse/csc.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+  copying cupyx/scipy/sparse/csr.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+  copying cupyx/scipy/sparse/data.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+  copying cupyx/scipy/sparse/dia.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+  copying cupyx/scipy/sparse/sputils.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+  copying cupyx/scipy/sparse/util.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+  creating build/lib.linux-x86_64-2.7/cupyx/scipy/sparse/linalg
+  copying cupyx/scipy/sparse/linalg/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse/linalg
+  copying cupyx/scipy/sparse/linalg/solve.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse/linalg
+  creating build/lib.linux-x86_64-2.7/cupyx/scipy/special
+  copying cupyx/scipy/special/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+  copying cupyx/scipy/special/bessel.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+  copying cupyx/scipy/special/digamma.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+  copying cupyx/scipy/special/erf.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+  copying cupyx/scipy/special/gamma.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+  copying cupyx/scipy/special/gammaln.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+  copying cupyx/scipy/special/polygamma.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+  copying cupyx/scipy/special/statistics.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+  copying cupyx/scipy/special/zeta.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+  creating build/lib.linux-x86_64-2.7/cupyx/scipy/linalg
+  copying cupyx/scipy/linalg/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/linalg
+  copying cupyx/scipy/linalg/decomp_lu.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/linalg
+  copying cupyx/scipy/linalg/solve_triangular.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/linalg
+  creating build/lib.linux-x86_64-2.7/cupyx/linalg
+  copying cupyx/linalg/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/linalg
+  copying cupyx/linalg/solve.py -> build/lib.linux-x86_64-2.7/cupyx/linalg
+  creating build/lib.linux-x86_64-2.7/cupyx/linalg/sparse
+  copying cupyx/linalg/sparse/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/linalg/sparse
+  copying cupyx/linalg/sparse/solve.py -> build/lib.linux-x86_64-2.7/cupyx/linalg/sparse
+  creating build/lib.linux-x86_64-2.7/cupy/core/include
+  creating build/lib.linux-x86_64-2.7/cupy/core/include/cupy
+  creating build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/arithmetic.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/catrig.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/catrigf.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/ccosh.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/ccoshf.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/cexp.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/cexpf.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/clog.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/clogf.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/complex.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/complex_inl.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/cpow.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/cproj.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/csinh.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/csinhf.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/csqrt.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/csqrtf.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/ctanh.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/ctanhf.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/complex/math_private.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+  copying cupy/core/include/cupy/carray.cuh -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy
+  copying cupy/core/include/cupy/complex.cuh -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy
+  copying cupy/core/include/cupy/atomics.cuh -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy
+  creating build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda
+  creating build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-10.0
+  copying cupy/core/include/cupy/_cuda/cuda-10.0/cuda_fp16.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-10.0
+  creating build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-10.1
+  copying cupy/core/include/cupy/_cuda/cuda-10.1/cuda_fp16.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-10.1
+  creating build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-9.2
+  copying cupy/core/include/cupy/_cuda/cuda-9.2/cuda_fp16.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-9.2
+  copying cupy/core/include/cupy/_cuda/cuda-10.0/cuda_fp16.hpp -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-10.0
+  copying cupy/core/include/cupy/_cuda/cuda-10.1/cuda_fp16.hpp -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-10.1
+  copying cupy/core/include/cupy/_cuda/cuda-9.2/cuda_fp16.hpp -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-9.2
+  copying cupy/cuda/cupy_thrust.cu -> build/lib.linux-x86_64-2.7/cupy/cuda
+  running build_ext
+  Traceback (most recent call last):
+    File "<string>", line 1, in <module>
+    File "/scratch/condor/dir_3312459/pip-build-ocRztL/cupy/setup.py", line 217, in <module>
+      'sdist': sdist},
+    File "/usr/lib/python2.7/dist-packages/setuptools/__init__.py", line 129, in setup
+      return distutils.core.setup(**attrs)
+    File "/usr/lib/python2.7/distutils/core.py", line 151, in setup
+      dist.run_commands()
+    File "/usr/lib/python2.7/distutils/dist.py", line 953, in run_commands
+      self.run_command(cmd)
+    File "/usr/lib/python2.7/distutils/dist.py", line 972, in run_command
+      cmd_obj.run()
+    File "/usr/lib/python2.7/dist-packages/wheel/bdist_wheel.py", line 204, in run
+      self.run_command('build')
+    File "/usr/lib/python2.7/distutils/cmd.py", line 326, in run_command
+      self.distribution.run_command(command)
+    File "/usr/lib/python2.7/distutils/dist.py", line 972, in run_command
+      cmd_obj.run()
+    File "/usr/lib/python2.7/distutils/command/build.py", line 128, in run
+      self.run_command(cmd_name)
+    File "/usr/lib/python2.7/distutils/cmd.py", line 326, in run_command
+      self.distribution.run_command(command)
+    File "/usr/lib/python2.7/distutils/dist.py", line 972, in run_command
+      cmd_obj.run()
+    File "cupy_setup_build.py", line 979, in run
+      check_extensions(self.extensions)
+    File "cupy_setup_build.py", line 732, in check_extensions
+      '''.format(f, required_cython_version))
+  RuntimeError: Missing file: cupy/cuda/cub.cpp
+  Please install Cython 0.28.0 or later. Please also check the version of Cython.
+  See https://docs-cupy.chainer.org/en/stable/install.html for details.
+  
+  
+  ----------------------------------------
+  Running setup.py clean for cupy
+Failed to build cupy
+Installing collected packages: fastrlock, numpy, six, cupy
+  Running setup.py install for cupy: started
+    Running setup.py install for cupy: finished with status 'error'
+    Complete output from command /usr/bin/python -u -c "import setuptools, tokenize;__file__='/scratch/condor/dir_3312459/pip-build-ocRztL/cupy/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /scratch/condor/dir_3312459/pip-Y3qCrf-record/install-record.txt --single-version-externally-managed --compile --user --prefix=:
+    Options: {'profile': False, 'annotate': False, 'linetrace': False, 'wheel_libs': [], 'package_name': 'cupy', 'no_rpath': False, 'no_cuda': False, 'wheel_includes': [], 'long_description': None, 'use_hip': False}
+    
+    -------- Configuring Module: cuda --------
+    
+    -------- Configuring Module: cusolver --------
+    
+    -------- Configuring Module: cudnn --------
+    **************************************************
+    *** WARNING: Unsupported cuDNN version: 8004
+    *** WARNING: cuDNN v5000= and <=v7999 is required
+    **************************************************
+    
+    -------- Configuring Module: nccl --------
+    
+    -------- Configuring Module: nvtx --------
+    
+    -------- Configuring Module: thrust --------
+    
+    -------- Configuring Module: cutensor --------
+    /scratch/condor/dir_3312459/tmpqP2dlh/a.cpp:1:10: fatal error: cutensor.h: No such file or directory
+     #include <cutensor.h>
+              ^~~~~~~~~~~~
+    compilation terminated.
+    command 'x86_64-linux-gnu-gcc' failed with exit status 1
+    
+    -------- Configuring Module: cub --------
+    
+    ************************************************************
+    * CuPy Configuration Summary                               *
+    ************************************************************
+    
+    Build Environment:
+      Include directories: ['/usr/local/cuda/include']
+      Library directories: ['/usr/local/cuda/lib64']
+      nvcc command       : ['/usr/local/cuda/bin/nvcc']
+    
+    Environment Variables:
+      CFLAGS          : (none)
+      LDFLAGS         : (none)
+      LIBRARY_PATH    : /usr/local/cuda/lib64/stubs
+      CUDA_PATH       : (none)
+      NVTOOLSEXT_PATH : (none)
+      NVCC            : (none)
+      ROCM_HOME       : (none)
+    
+    Modules:
+      cuda      : Yes (version 11000)
+      cusolver  : Yes
+      cudnn     : No (version 8004)
+        -> The library is installed but not supported.
+      nccl      : Yes (version 2708)
+      nvtx      : Yes
+      thrust    : Yes
+      cutensor  : No
+        -> Include files not found: ['cutensor.h']
+        -> Check your CFLAGS environment variable.
+      cub       : Yes
+    
+    WARNING: Some modules could not be configured.
+    CuPy will be installed without these modules.
+    Please refer to the Installation Guide for details:
+    https://docs-cupy.chainer.org/en/stable/install.html
+    
+    ************************************************************
+    
+    running install
+    running build
+    running build_py
+    creating build
+    creating build/lib.linux-x86_64-2.7
+    creating build/lib.linux-x86_64-2.7/cupy
+    copying cupy/__init__.py -> build/lib.linux-x86_64-2.7/cupy
+    copying cupy/_environment.py -> build/lib.linux-x86_64-2.7/cupy
+    copying cupy/_version.py -> build/lib.linux-x86_64-2.7/cupy
+    copying cupy/cusparse.py -> build/lib.linux-x86_64-2.7/cupy
+    copying cupy/cutensor.py -> build/lib.linux-x86_64-2.7/cupy
+    creating build/lib.linux-x86_64-2.7/cupy/binary
+    copying cupy/binary/__init__.py -> build/lib.linux-x86_64-2.7/cupy/binary
+    copying cupy/binary/elementwise.py -> build/lib.linux-x86_64-2.7/cupy/binary
+    copying cupy/binary/packing.py -> build/lib.linux-x86_64-2.7/cupy/binary
+    creating build/lib.linux-x86_64-2.7/cupy/core
+    copying cupy/core/__init__.py -> build/lib.linux-x86_64-2.7/cupy/core
+    copying cupy/core/_errors.py -> build/lib.linux-x86_64-2.7/cupy/core
+    copying cupy/core/_ufuncs.py -> build/lib.linux-x86_64-2.7/cupy/core
+    creating build/lib.linux-x86_64-2.7/cupy/creation
+    copying cupy/creation/__init__.py -> build/lib.linux-x86_64-2.7/cupy/creation
+    copying cupy/creation/basic.py -> build/lib.linux-x86_64-2.7/cupy/creation
+    copying cupy/creation/from_data.py -> build/lib.linux-x86_64-2.7/cupy/creation
+    copying cupy/creation/matrix.py -> build/lib.linux-x86_64-2.7/cupy/creation
+    copying cupy/creation/ranges.py -> build/lib.linux-x86_64-2.7/cupy/creation
+    creating build/lib.linux-x86_64-2.7/cupy/cuda
+    copying cupy/cuda/__init__.py -> build/lib.linux-x86_64-2.7/cupy/cuda
+    copying cupy/cuda/compiler.py -> build/lib.linux-x86_64-2.7/cupy/cuda
+    creating build/lib.linux-x86_64-2.7/cupy/cuda/memory_hooks
+    copying cupy/cuda/memory_hooks/__init__.py -> build/lib.linux-x86_64-2.7/cupy/cuda/memory_hooks
+    copying cupy/cuda/memory_hooks/debug_print.py -> build/lib.linux-x86_64-2.7/cupy/cuda/memory_hooks
+    copying cupy/cuda/memory_hooks/line_profile.py -> build/lib.linux-x86_64-2.7/cupy/cuda/memory_hooks
+    creating build/lib.linux-x86_64-2.7/cupy/ext
+    copying cupy/ext/__init__.py -> build/lib.linux-x86_64-2.7/cupy/ext
+    copying cupy/ext/scatter.py -> build/lib.linux-x86_64-2.7/cupy/ext
+    creating build/lib.linux-x86_64-2.7/cupy/fft
+    copying cupy/fft/__init__.py -> build/lib.linux-x86_64-2.7/cupy/fft
+    copying cupy/fft/config.py -> build/lib.linux-x86_64-2.7/cupy/fft
+    copying cupy/fft/fft.py -> build/lib.linux-x86_64-2.7/cupy/fft
+    creating build/lib.linux-x86_64-2.7/cupy/indexing
+    copying cupy/indexing/__init__.py -> build/lib.linux-x86_64-2.7/cupy/indexing
+    copying cupy/indexing/generate.py -> build/lib.linux-x86_64-2.7/cupy/indexing
+    copying cupy/indexing/indexing.py -> build/lib.linux-x86_64-2.7/cupy/indexing
+    copying cupy/indexing/insert.py -> build/lib.linux-x86_64-2.7/cupy/indexing
+    creating build/lib.linux-x86_64-2.7/cupy/io
+    copying cupy/io/__init__.py -> build/lib.linux-x86_64-2.7/cupy/io
+    copying cupy/io/formatting.py -> build/lib.linux-x86_64-2.7/cupy/io
+    copying cupy/io/npz.py -> build/lib.linux-x86_64-2.7/cupy/io
+    copying cupy/io/text.py -> build/lib.linux-x86_64-2.7/cupy/io
+    creating build/lib.linux-x86_64-2.7/cupy/lib
+    copying cupy/lib/__init__.py -> build/lib.linux-x86_64-2.7/cupy/lib
+    copying cupy/lib/stride_tricks.py -> build/lib.linux-x86_64-2.7/cupy/lib
+    creating build/lib.linux-x86_64-2.7/cupy/linalg
+    copying cupy/linalg/__init__.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+    copying cupy/linalg/decomposition.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+    copying cupy/linalg/eigenvalue.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+    copying cupy/linalg/einsum.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+    copying cupy/linalg/einsum_opt.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+    copying cupy/linalg/norms.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+    copying cupy/linalg/product.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+    copying cupy/linalg/solve.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+    copying cupy/linalg/util.py -> build/lib.linux-x86_64-2.7/cupy/linalg
+    creating build/lib.linux-x86_64-2.7/cupy/logic
+    copying cupy/logic/__init__.py -> build/lib.linux-x86_64-2.7/cupy/logic
+    copying cupy/logic/comparison.py -> build/lib.linux-x86_64-2.7/cupy/logic
+    copying cupy/logic/content.py -> build/lib.linux-x86_64-2.7/cupy/logic
+    copying cupy/logic/ops.py -> build/lib.linux-x86_64-2.7/cupy/logic
+    copying cupy/logic/truth.py -> build/lib.linux-x86_64-2.7/cupy/logic
+    copying cupy/logic/type_test.py -> build/lib.linux-x86_64-2.7/cupy/logic
+    creating build/lib.linux-x86_64-2.7/cupy/manipulation
+    copying cupy/manipulation/__init__.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+    copying cupy/manipulation/add_remove.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+    copying cupy/manipulation/basic.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+    copying cupy/manipulation/dims.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+    copying cupy/manipulation/join.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+    copying cupy/manipulation/kind.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+    copying cupy/manipulation/rearrange.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+    copying cupy/manipulation/shape.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+    copying cupy/manipulation/split.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+    copying cupy/manipulation/tiling.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+    copying cupy/manipulation/transpose.py -> build/lib.linux-x86_64-2.7/cupy/manipulation
+    creating build/lib.linux-x86_64-2.7/cupy/math
+    copying cupy/math/__init__.py -> build/lib.linux-x86_64-2.7/cupy/math
+    copying cupy/math/arithmetic.py -> build/lib.linux-x86_64-2.7/cupy/math
+    copying cupy/math/explog.py -> build/lib.linux-x86_64-2.7/cupy/math
+    copying cupy/math/floating.py -> build/lib.linux-x86_64-2.7/cupy/math
+    copying cupy/math/hyperbolic.py -> build/lib.linux-x86_64-2.7/cupy/math
+    copying cupy/math/misc.py -> build/lib.linux-x86_64-2.7/cupy/math
+    copying cupy/math/rounding.py -> build/lib.linux-x86_64-2.7/cupy/math
+    copying cupy/math/special.py -> build/lib.linux-x86_64-2.7/cupy/math
+    copying cupy/math/sumprod.py -> build/lib.linux-x86_64-2.7/cupy/math
+    copying cupy/math/trigonometric.py -> build/lib.linux-x86_64-2.7/cupy/math
+    copying cupy/math/ufunc.py -> build/lib.linux-x86_64-2.7/cupy/math
+    copying cupy/math/window.py -> build/lib.linux-x86_64-2.7/cupy/math
+    creating build/lib.linux-x86_64-2.7/cupy/misc
+    copying cupy/misc/__init__.py -> build/lib.linux-x86_64-2.7/cupy/misc
+    copying cupy/misc/memory_ranges.py -> build/lib.linux-x86_64-2.7/cupy/misc
+    creating build/lib.linux-x86_64-2.7/cupy/padding
+    copying cupy/padding/__init__.py -> build/lib.linux-x86_64-2.7/cupy/padding
+    copying cupy/padding/pad.py -> build/lib.linux-x86_64-2.7/cupy/padding
+    creating build/lib.linux-x86_64-2.7/cupy/prof
+    copying cupy/prof/__init__.py -> build/lib.linux-x86_64-2.7/cupy/prof
+    copying cupy/prof/time_range.py -> build/lib.linux-x86_64-2.7/cupy/prof
+    creating build/lib.linux-x86_64-2.7/cupy/random
+    copying cupy/random/__init__.py -> build/lib.linux-x86_64-2.7/cupy/random
+    copying cupy/random/_kernels.py -> build/lib.linux-x86_64-2.7/cupy/random
+    copying cupy/random/distributions.py -> build/lib.linux-x86_64-2.7/cupy/random
+    copying cupy/random/generator.py -> build/lib.linux-x86_64-2.7/cupy/random
+    copying cupy/random/permutations.py -> build/lib.linux-x86_64-2.7/cupy/random
+    copying cupy/random/sample.py -> build/lib.linux-x86_64-2.7/cupy/random
+    creating build/lib.linux-x86_64-2.7/cupy/sorting
+    copying cupy/sorting/__init__.py -> build/lib.linux-x86_64-2.7/cupy/sorting
+    copying cupy/sorting/count.py -> build/lib.linux-x86_64-2.7/cupy/sorting
+    copying cupy/sorting/search.py -> build/lib.linux-x86_64-2.7/cupy/sorting
+    copying cupy/sorting/sort.py -> build/lib.linux-x86_64-2.7/cupy/sorting
+    creating build/lib.linux-x86_64-2.7/cupy/sparse
+    copying cupy/sparse/__init__.py -> build/lib.linux-x86_64-2.7/cupy/sparse
+    creating build/lib.linux-x86_64-2.7/cupy/sparse/linalg
+    copying cupy/sparse/linalg/__init__.py -> build/lib.linux-x86_64-2.7/cupy/sparse/linalg
+    creating build/lib.linux-x86_64-2.7/cupy/statistics
+    copying cupy/statistics/__init__.py -> build/lib.linux-x86_64-2.7/cupy/statistics
+    copying cupy/statistics/correlation.py -> build/lib.linux-x86_64-2.7/cupy/statistics
+    copying cupy/statistics/histogram.py -> build/lib.linux-x86_64-2.7/cupy/statistics
+    copying cupy/statistics/meanvar.py -> build/lib.linux-x86_64-2.7/cupy/statistics
+    copying cupy/statistics/order.py -> build/lib.linux-x86_64-2.7/cupy/statistics
+    creating build/lib.linux-x86_64-2.7/cupy/testing
+    copying cupy/testing/__init__.py -> build/lib.linux-x86_64-2.7/cupy/testing
+    copying cupy/testing/_bundle.py -> build/lib.linux-x86_64-2.7/cupy/testing
+    copying cupy/testing/array.py -> build/lib.linux-x86_64-2.7/cupy/testing
+    copying cupy/testing/attr.py -> build/lib.linux-x86_64-2.7/cupy/testing
+    copying cupy/testing/condition.py -> build/lib.linux-x86_64-2.7/cupy/testing
+    copying cupy/testing/helper.py -> build/lib.linux-x86_64-2.7/cupy/testing
+    copying cupy/testing/hypothesis.py -> build/lib.linux-x86_64-2.7/cupy/testing
+    copying cupy/testing/parameterized.py -> build/lib.linux-x86_64-2.7/cupy/testing
+    copying cupy/testing/random.py -> build/lib.linux-x86_64-2.7/cupy/testing
+    creating build/lib.linux-x86_64-2.7/cupyx
+    copying cupyx/__init__.py -> build/lib.linux-x86_64-2.7/cupyx
+    copying cupyx/_ufunc_config.py -> build/lib.linux-x86_64-2.7/cupyx
+    copying cupyx/rsqrt.py -> build/lib.linux-x86_64-2.7/cupyx
+    copying cupyx/runtime.py -> build/lib.linux-x86_64-2.7/cupyx
+    copying cupyx/scatter.py -> build/lib.linux-x86_64-2.7/cupyx
+    creating build/lib.linux-x86_64-2.7/cupyx/fallback_mode
+    copying cupyx/fallback_mode/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/fallback_mode
+    copying cupyx/fallback_mode/fallback.py -> build/lib.linux-x86_64-2.7/cupyx/fallback_mode
+    creating build/lib.linux-x86_64-2.7/cupyx/scipy
+    copying cupyx/scipy/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/scipy
+    creating build/lib.linux-x86_64-2.7/cupyx/scipy/fft
+    copying cupyx/scipy/fft/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/fft
+    copying cupyx/scipy/fft/fft.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/fft
+    creating build/lib.linux-x86_64-2.7/cupyx/scipy/fftpack
+    copying cupyx/scipy/fftpack/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/fftpack
+    copying cupyx/scipy/fftpack/fft.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/fftpack
+    creating build/lib.linux-x86_64-2.7/cupyx/scipy/ndimage
+    copying cupyx/scipy/ndimage/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/ndimage
+    copying cupyx/scipy/ndimage/filters.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/ndimage
+    copying cupyx/scipy/ndimage/interpolation.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/ndimage
+    creating build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+    copying cupyx/scipy/sparse/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+    copying cupyx/scipy/sparse/base.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+    copying cupyx/scipy/sparse/compressed.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+    copying cupyx/scipy/sparse/construct.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+    copying cupyx/scipy/sparse/coo.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+    copying cupyx/scipy/sparse/csc.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+    copying cupyx/scipy/sparse/csr.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+    copying cupyx/scipy/sparse/data.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+    copying cupyx/scipy/sparse/dia.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+    copying cupyx/scipy/sparse/sputils.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+    copying cupyx/scipy/sparse/util.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse
+    creating build/lib.linux-x86_64-2.7/cupyx/scipy/sparse/linalg
+    copying cupyx/scipy/sparse/linalg/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse/linalg
+    copying cupyx/scipy/sparse/linalg/solve.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/sparse/linalg
+    creating build/lib.linux-x86_64-2.7/cupyx/scipy/special
+    copying cupyx/scipy/special/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+    copying cupyx/scipy/special/bessel.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+    copying cupyx/scipy/special/digamma.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+    copying cupyx/scipy/special/erf.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+    copying cupyx/scipy/special/gamma.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+    copying cupyx/scipy/special/gammaln.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+    copying cupyx/scipy/special/polygamma.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+    copying cupyx/scipy/special/statistics.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+    copying cupyx/scipy/special/zeta.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/special
+    creating build/lib.linux-x86_64-2.7/cupyx/scipy/linalg
+    copying cupyx/scipy/linalg/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/linalg
+    copying cupyx/scipy/linalg/decomp_lu.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/linalg
+    copying cupyx/scipy/linalg/solve_triangular.py -> build/lib.linux-x86_64-2.7/cupyx/scipy/linalg
+    creating build/lib.linux-x86_64-2.7/cupyx/linalg
+    copying cupyx/linalg/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/linalg
+    copying cupyx/linalg/solve.py -> build/lib.linux-x86_64-2.7/cupyx/linalg
+    creating build/lib.linux-x86_64-2.7/cupyx/linalg/sparse
+    copying cupyx/linalg/sparse/__init__.py -> build/lib.linux-x86_64-2.7/cupyx/linalg/sparse
+    copying cupyx/linalg/sparse/solve.py -> build/lib.linux-x86_64-2.7/cupyx/linalg/sparse
+    creating build/lib.linux-x86_64-2.7/cupy/core/include
+    creating build/lib.linux-x86_64-2.7/cupy/core/include/cupy
+    creating build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/arithmetic.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/catrig.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/catrigf.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/ccosh.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/ccoshf.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/cexp.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/cexpf.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/clog.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/clogf.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/complex.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/complex_inl.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/cpow.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/cproj.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/csinh.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/csinhf.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/csqrt.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/csqrtf.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/ctanh.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/ctanhf.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/complex/math_private.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/complex
+    copying cupy/core/include/cupy/carray.cuh -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy
+    copying cupy/core/include/cupy/complex.cuh -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy
+    copying cupy/core/include/cupy/atomics.cuh -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy
+    creating build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda
+    creating build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-10.0
+    copying cupy/core/include/cupy/_cuda/cuda-10.0/cuda_fp16.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-10.0
+    creating build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-10.1
+    copying cupy/core/include/cupy/_cuda/cuda-10.1/cuda_fp16.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-10.1
+    creating build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-9.2
+    copying cupy/core/include/cupy/_cuda/cuda-9.2/cuda_fp16.h -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-9.2
+    copying cupy/core/include/cupy/_cuda/cuda-10.0/cuda_fp16.hpp -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-10.0
+    copying cupy/core/include/cupy/_cuda/cuda-10.1/cuda_fp16.hpp -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-10.1
+    copying cupy/core/include/cupy/_cuda/cuda-9.2/cuda_fp16.hpp -> build/lib.linux-x86_64-2.7/cupy/core/include/cupy/_cuda/cuda-9.2
+    copying cupy/cuda/cupy_thrust.cu -> build/lib.linux-x86_64-2.7/cupy/cuda
+    running build_ext
+    Traceback (most recent call last):
+      File "<string>", line 1, in <module>
+      File "/scratch/condor/dir_3312459/pip-build-ocRztL/cupy/setup.py", line 217, in <module>
+        'sdist': sdist},
+      File "/usr/lib/python2.7/dist-packages/setuptools/__init__.py", line 129, in setup
+        return distutils.core.setup(**attrs)
+      File "/usr/lib/python2.7/distutils/core.py", line 151, in setup
+        dist.run_commands()
+      File "/usr/lib/python2.7/distutils/dist.py", line 953, in run_commands
+        self.run_command(cmd)
+      File "/usr/lib/python2.7/distutils/dist.py", line 972, in run_command
+        cmd_obj.run()
+      File "/usr/lib/python2.7/dist-packages/setuptools/command/install.py", line 61, in run
+        return orig.install.run(self)
+      File "/usr/lib/python2.7/distutils/command/install.py", line 601, in run
+        self.run_command('build')
+      File "/usr/lib/python2.7/distutils/cmd.py", line 326, in run_command
+        self.distribution.run_command(command)
+      File "/usr/lib/python2.7/distutils/dist.py", line 972, in run_command
+        cmd_obj.run()
+      File "/usr/lib/python2.7/distutils/command/build.py", line 128, in run
+        self.run_command(cmd_name)
+      File "/usr/lib/python2.7/distutils/cmd.py", line 326, in run_command
+        self.distribution.run_command(command)
+      File "/usr/lib/python2.7/distutils/dist.py", line 972, in run_command
+        cmd_obj.run()
+      File "cupy_setup_build.py", line 979, in run
+        check_extensions(self.extensions)
+      File "cupy_setup_build.py", line 732, in check_extensions
+        '''.format(f, required_cython_version))
+    RuntimeError: Missing file: cupy/cuda/cub.cpp
+    Please install Cython 0.28.0 or later. Please also check the version of Cython.
+    See https://docs-cupy.chainer.org/en/stable/install.html for details.
+    
+    
+    ----------------------------------------
+Beginning training script

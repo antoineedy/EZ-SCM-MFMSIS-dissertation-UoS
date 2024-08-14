@@ -10,7 +10,11 @@ from models.segmentor.double_inner_zegclip import DoubleInnerZegCLIP
 from models.other_modules.multi_scale import MultiScales
 
 from models.backbone.text_encoder import CLIPTextEncoder
-from models.backbone.img_encoder import CLIPVisionTransformer, VPTCLIPVisionTransformer
+from models.backbone.img_encoder import (
+    CLIPVisionTransformer,
+    VPTCLIPVisionTransformer,
+    InnerVPTCLIPVisionTransformer,
+)
 
 from models.decode_heads.decode_seg import ATMSingleHeadSeg
 
