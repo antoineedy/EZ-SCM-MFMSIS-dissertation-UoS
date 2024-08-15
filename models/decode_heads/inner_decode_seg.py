@@ -266,13 +266,17 @@ class InnerATMSingleHeadSeg(
         self.q8_proj = nn.Linear(dim * 2, dim)
         self.q12_proj = nn.Linear(dim * 2, dim)
 
-        # self.text_proj_6 = nn.Linear(512, 512)
-        # self.text_proj_8 = nn.Linear(512, 512)
-        # self.text_proj_12 = nn.Linear(512, 512)
+        self.text_proj_6 = nn.Linear(512, 512)
+        self.text_proj_8 = nn.Linear(512, 512)
+        self.text_proj_12 = nn.Linear(512, 512)
 
-        self.text_proj_6 = nn.Conv2d(in_channels=512, out_channels=512, kernel_size=1)
-        self.text_proj_8 = nn.Conv2d(in_channels=512, out_channels=512, kernel_size=1)
-        self.text_proj_12 = nn.Conv2d(in_channels=512, out_channels=512, kernel_size=1)
+        self.cls_proj_6 = nn.Linear(768, 512)
+        self.cls_proj_8 = nn.Linear(768, 512)
+        self.cls_proj_12 = nn.Linear(768, 512)
+
+        # self.text_proj_6 = nn.Conv2d(in_channels=512, out_channels=512, kernel_size=1)
+        # self.text_proj_8 = nn.Conv2d(in_channels=512, out_channels=512, kernel_size=1)
+        # self.text_proj_12 = nn.Conv2d(in_channels=512, out_channels=512, kernel_size=1)
 
     def init_weights(self):
         for n, m in self.named_modules():
@@ -318,7 +322,9 @@ class InnerATMSingleHeadSeg(
     def forward(self, inputs_both, self_training=None):
         inputs = inputs_both[0][0]
         # antoine: inputs will be the output of the backbone
-        cls_tokens = inputs_both[0][1]
+        global_embeddings = inputs_both[0][1]
+        print("global_embeddings", global_embeddings.size())
+        cls_tokens = inputs_both[0][2]
         # antoine: cls_token will be the cls output of the backbone (HERE 3, from layers 6, 8 and 12)
         text_token = inputs_both[1]
         # antoine: text_token will be the output of the text encoder
@@ -334,9 +340,14 @@ class InnerATMSingleHeadSeg(
         layer12 = visual_feat[0][2]  # torch.Size([1, 768, 32, 32])
 
         # --- CHANGE DIMENSIONS ---
-        layer12 = layer12.permute(0, 2, 3, 1)
-        layer8 = layer8.permute(0, 2, 3, 1)
-        layer6 = layer6.permute(0, 2, 3, 1)
+        # layer12 = layer12.permute(0, 2, 3, 1)
+        # layer8 = layer8.permute(0, 2, 3, 1)
+        # layer6 = layer6.permute(0, 2, 3, 1)
+
+        # |
+        # V
+
+        # [1, 768, 32, 32]-> [1, 32, 32, 768]
 
         layer6 = self.layer6_proj(
             layer6
@@ -348,9 +359,9 @@ class InnerATMSingleHeadSeg(
             layer12
         )  # torch.Size([1, 768, 32, 32]) -> torch.Size([1, 512, 32, 32])
 
-        layer12 = layer12.permute(0, 3, 1, 2)
-        layer8 = layer8.permute(0, 3, 1, 2)
-        layer6 = layer6.permute(0, 3, 1, 2)
+        # layer12 = layer12.permute(0, 3, 1, 2)
+        # layer8 = layer8.permute(0, 3, 1, 2)
+        # layer6 = layer6.permute(0, 3, 1, 2)
 
         # --- END ---
 
@@ -361,9 +372,13 @@ class InnerATMSingleHeadSeg(
         # cls8 = layer8.mean(dim=[2, 3])  # torch.Size([1, 768])
         # cls12 = (layer12.mean(dim=[2, 3]) + cls_token) / 2  # torch.Size([1, 768])
 
-        cls6 = cls_tokens[0]
-        cls8 = cls_tokens[1]
-        cls12 = cls_tokens[2]
+        cls6 = cls_tokens[6]  # [1, 768]
+        cls8 = cls_tokens[8]
+        cls12 = cls_tokens[12]
+
+        cls6 = self.cls_proj_6(cls6)  # [1, 512]
+        cls8 = self.cls_proj_8(cls8)
+        cls12 = self.cls_proj_12(cls12)
 
         x = []
         for stage_ in [layer6, layer8, layer12]:
@@ -402,8 +417,18 @@ class InnerATMSingleHeadSeg(
         # antoine: get the query with the relationship descriptor
         # q = q.transpose(0, 1)
 
+        # goal:
+        # cls_token torch.Size([4, 512])
+        # text_token torch.Size([15, 512])
+
+        # now:
+        # cls6 torch.Size([1, 768])
+        # text_token torch.Size([15, 512])
+
         q6 = self.q6_proj(self.get_qs(text_token_6, cls6))
         q6 = q6.transpose(0, 1)
+
+        print("q6", q6.size())
 
         q8 = self.q8_proj(self.get_qs(text_token_8, cls8))
         q8 = q8.transpose(0, 1)

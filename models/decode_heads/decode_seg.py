@@ -295,7 +295,6 @@ class ATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transfer Mo
 
     def forward(self, inputs_both, self_training=None):
         inputs = inputs_both[0][0]
-        # antoine: inputs will be the output of the backbone
         cls_token = inputs_both[0][1]
         # antoine: cls_token will be the cls output of the backbone
         text_token = inputs_both[1]
@@ -333,6 +332,9 @@ class ATMSingleHeadSeg(BaseDecodeHead):  # ATM means Attention-based Transfer Mo
         lateral = laterals[-1]
 
         # antoine: lateral = images? see the paper with my drawing
+
+        # print("cls_token", cls_token.size())
+        # print("text_token", text_token.size())
 
         q = self.q_proj(self.get_qs(text_token, cls_token))
         # antoine: get the query with the relationship descriptor
