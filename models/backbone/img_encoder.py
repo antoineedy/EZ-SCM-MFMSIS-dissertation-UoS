@@ -450,7 +450,7 @@ class VPTCLIPVisionTransformer(nn.Module):
                 dim=1, keepdim=True
             )
             outs.append(global_embedding)
-            print("debug ge", global_embedding.shape)
+            # print("debug ge", global_embedding.shape)
         return outs
 
     def forward_deep_prompt(self, embedding_output, features, H, W, out_last=False):
@@ -801,7 +801,7 @@ class InnerVPTCLIPVisionTransformer(nn.Module):
                 dim=1, keepdim=True
             )
             outs.append(global_embedding)
-            print("debug ge", global_embedding.shape)
+            #print("debug ge", global_embedding.shape)
             outs.append(cls_tokens)  # Add cls_tokens to the output
         return outs
 

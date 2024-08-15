@@ -323,7 +323,7 @@ class InnerATMSingleHeadSeg(
         inputs = inputs_both[0][0]
         # antoine: inputs will be the output of the backbone
         global_embeddings = inputs_both[0][1]
-        print("global_embeddings", global_embeddings.size())
+        # print("global_embeddings", global_embeddings.size())
         cls_tokens = inputs_both[0][2]
         # antoine: cls_token will be the cls output of the backbone (HERE 3, from layers 6, 8 and 12)
         text_token = inputs_both[1]
@@ -428,7 +428,7 @@ class InnerATMSingleHeadSeg(
         q6 = self.q6_proj(self.get_qs(text_token_6, cls6))
         q6 = q6.transpose(0, 1)
 
-        print("q6", q6.size())
+        # print("q6", q6.size())
 
         q8 = self.q8_proj(self.get_qs(text_token_8, cls8))
         q8 = q8.transpose(0, 1)
