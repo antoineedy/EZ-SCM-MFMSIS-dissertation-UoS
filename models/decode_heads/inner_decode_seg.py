@@ -383,7 +383,8 @@ class InnerATMSingleHeadSeg(
         x = []
         for stage_ in [layer6, layer8, layer12]:
             x.append(self.d4_to_d3(stage_) if stage_.dim() > 3 else stage_)
-        x.reverse()  # antoine: [layer12, layer8, layer6]
+        # x.reverse()  # antoine: [layer12, layer8, layer6]
+        # antoine: tentative d'inverser, 6 puis 8 puis 12
         bs = x[0].size()[0]
 
         laterals = []
@@ -436,7 +437,8 @@ class InnerATMSingleHeadSeg(
         q12 = self.q12_proj(self.get_qs(text_token_12, cls12))
         q12 = q12.transpose(0, 1)
 
-        ql = [q12, q8, q6]
+        # ql = [q12, q8, q6]
+        ql = [q6, q8, q12]  # antoine: tentative d'inverser, 6 puis 8 puis 12
 
         for idx, decoder_ in enumerate(self.decoder):
             if idx == 0:
@@ -501,6 +503,9 @@ class InnerATMSingleHeadSeg(
         return mask_pred
 
     def merge_qs(self, q, q_layer):
+        # antoine: added normalization
+        q = q / q.norm(dim=-1, keepdim=True)
+        q_layer = q_layer / q_layer.norm(dim=-1, keepdim=True)
         return (q + q_layer) / 2
 
     @torch.jit.unused
