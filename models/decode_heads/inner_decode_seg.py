@@ -504,9 +504,11 @@ class InnerATMSingleHeadSeg(
 
     def merge_qs(self, q, q_layer):
         # antoine: added normalization
+        to_keep = q.norm(dim=-1, keepdim=True)
         q = q / q.norm(dim=-1, keepdim=True)
         q_layer = q_layer / q_layer.norm(dim=-1, keepdim=True)
-        return (q + q_layer) / 2
+        out = to_keep * (q + q_layer) * 0.5
+        return out
 
     @torch.jit.unused
     def _set_aux_loss(self, outputs_seg_masks):

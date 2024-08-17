@@ -63,7 +63,7 @@ def parse_args():
 
 
 def main():
-    torch.cuda.empty_cache() 
+    torch.cuda.empty_cache()
     print("Torch cache cleared")
     args = parse_args()
     torch.cuda.set_device(args.local_rank)
