@@ -20,7 +20,7 @@ num_classes = len(base_class)
 pretrained = '/mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16.pt'
 
 model = dict(
-    type="MultiScalesZegCLIP",
+    type="MultiScalesZegCLIP2",
     pretrained=pretrained,
     pretrained_text=pretrained,
     context_length=77,
@@ -115,6 +115,6 @@ optimizer = dict(
 # I CHANGED THAT FROM 4 TO 1
 
 data = dict(
-    samples_per_gpu=2,
-    workers_per_gpu=2,
+    samples_per_gpu=1,
+    workers_per_gpu=1,
 )
