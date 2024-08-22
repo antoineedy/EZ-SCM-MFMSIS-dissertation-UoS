@@ -186,6 +186,8 @@ class MultiScalesZegCLIP2(EncoderDecoder):
 
         self.load_text_embedding = load_text_embedding  # antoine: if we want to load text embeddings from a file
 
+        self.final_conv = nn.Conv2d(in_channels=1024, out_channels=512, kernel_size=1)
+
         if not self.load_text_embedding:
             if not self.multi_prompts:
                 self.texts = torch.cat(
@@ -368,7 +370,11 @@ class MultiScalesZegCLIP2(EncoderDecoder):
 
         crop_all = F.interpolate(crop_all, size=(32, 32), mode='bilinear', align_corners=False)
 
-        crop_final = (original + crop_all)/2
+        #crop_final = (original + crop_all)/2
+
+        concatenated = torch.cat((original, crop_all), dim=1)
+
+        out = self.final_conv(concatenated)
 
         out = visual_feats[0]
         out = tuple([crop_final.unsqueeze(0), out[1]])
