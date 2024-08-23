@@ -374,10 +374,10 @@ class MultiScalesZegCLIP2(EncoderDecoder):
 
         concatenated = torch.cat((original, crop_all), dim=1)
 
-        out = self.final_conv(concatenated)
+        concatenated = self.final_conv(concatenated)
 
         out = visual_feats[0]
-        out = tuple([crop_final.unsqueeze(0), out[1]])
+        out = tuple([concatenated.unsqueeze(0), out[1]])
 
         return out
 
