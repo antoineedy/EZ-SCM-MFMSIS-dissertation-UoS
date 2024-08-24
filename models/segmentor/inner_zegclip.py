@@ -114,7 +114,9 @@ class InnerZegCLIP(EncoderDecoder):
         # # linear [1, 768, 32, 32] -> [1, 512, 32, 32]
         self.linear3_inner = nn.Linear(768, 512)
 
-        self.w_3 = nn.Parameter(torch.randn(3))
+        self.linear_final_inner = nn.Linear(3*512, 512)
+
+        # self.w_3 = nn.Parameter(torch.randn(3))
 
 
         if not self.load_text_embedding:
@@ -266,8 +268,37 @@ class InnerZegCLIP(EncoderDecoder):
         layer8 = visual_feat[0][1]
         layer12 = visual_feat[0][2]
 
-        thistype = "w_average"
-        if thistype == "w_average":
+        thistype = "concat and linear"
+
+        if thistype == "concat and linear":
+
+            # change dim 0 and 2
+            layer12 = layer12.permute(0, 2, 3, 1)
+            layer8 = layer8.permute(0, 2, 3, 1)
+            layer6 = layer6.permute(0, 2, 3, 1)
+
+            layer12 = self.linear1_inner(layer12)
+            layer8 = self.linear2_inner(layer8)
+            layer6 = self.linear3_inner(layer6)
+
+            # change dim 0 and 2
+            #layer12 = layer12.permute(0, 3, 1, 2)
+            #layer8 = layer8.permute(0, 3, 1, 2)
+            #layer6 = layer6.permute(0, 3, 1, 2)
+
+            layer = torch.cat([layer6, layer8, layer12], dim=3)
+
+            # print("layer.shape", layer.shape)
+
+            # [1, 1536, 32, 32] -> [1, 512, 32, 32]
+
+            # self.linear_final_inner = nn.Linear(1536, 512)
+
+            layer = self.linear_final_inner(layer)
+
+            layer = layer.permute(0, 3, 1, 2)
+
+        elif thistype == "w_average":
 
             # weighted verage between the layers
             # self.w_3 = nn.Parameter(torch.randn(3))
