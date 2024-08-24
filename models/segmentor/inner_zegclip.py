@@ -87,32 +87,34 @@ class InnerZegCLIP(EncoderDecoder):
 
         self.load_text_embedding = load_text_embedding  # antoine: if we want to load text embeddings from a file
 
-        self.upsample2 = nn.Upsample(
-            scale_factor=2,
-            mode="bilinear",
-            align_corners=False,
-        )
+        # self.upsample2 = nn.Upsample(
+        #     scale_factor=2,
+        #     mode="bilinear",
+        #     align_corners=False,
+        # )
 
-        self.upsample4 = nn.Upsample(
-            scale_factor=4,
-            mode="bilinear",
-            align_corners=False,
-        )
+        # self.upsample4 = nn.Upsample(
+        #     scale_factor=4,
+        #     mode="bilinear",
+        #     align_corners=False,
+        # )
 
-        # torch.Size([1, 512, 32, 32]) -> torch.Size([1, 512, 8, 8])
-        self.conv_mult_1 = nn.Conv2d(512, 512, 3, stride = 4, padding=1)
+        # # torch.Size([1, 512, 32, 32]) -> torch.Size([1, 512, 8, 8])
+        # self.conv_mult_1 = nn.Conv2d(512, 512, 3, stride = 4, padding=1)
 
-        # torch.Size([1, 512, 32, 32]) -> torch.Size([1, 512, 16, 16])
-        self.conv_mult_2 = nn.Conv2d(512, 512, 3, stride = 2, padding=1)
+        # # torch.Size([1, 512, 32, 32]) -> torch.Size([1, 512, 16, 16])
+        # self.conv_mult_2 = nn.Conv2d(512, 512, 3, stride = 2, padding=1)
 
-        # linear [1, 768, 32, 32] -> [1, 512, 32, 32]
+        # # linear [1, 768, 32, 32] -> [1, 512, 32, 32]
         self.linear1_inner = nn.Linear(768, 512)
 
-        # linear [1, 768, 32, 32] -> [1, 512, 32, 32]
+        # # linear [1, 768, 32, 32] -> [1, 512, 32, 32]
         self.linear2_inner = nn.Linear(768, 512)
 
-        # linear [1, 768, 32, 32] -> [1, 512, 32, 32]
+        # # linear [1, 768, 32, 32] -> [1, 512, 32, 32]
         self.linear3_inner = nn.Linear(768, 512)
+
+        self.w_3 = nn.Parameter(torch.randn(3))
 
 
         if not self.load_text_embedding:
@@ -260,39 +262,69 @@ class InnerZegCLIP(EncoderDecoder):
         return visual_feat
 
     def mutli_scale_inner(self, visual_feat):
-        layer4 = visual_feat[0][0]
+        layer6 = visual_feat[0][0]
         layer8 = visual_feat[0][1]
         layer12 = visual_feat[0][2]
 
-        # change dim 0 and 2
-        layer12 = layer12.permute(0, 2, 3, 1)
-        layer8 = layer8.permute(0, 2, 3, 1)
-        layer4 = layer4.permute(0, 2, 3, 1)
+        thistype = "w_average"
+        if thistype == "w_average":
 
-        layer12 = self.linear1_inner(layer12)
-        layer8 = self.linear2_inner(layer8)
-        layer4 = self.linear3_inner(layer4)
+            # weighted verage between the layers
+            # self.w_3 = nn.Parameter(torch.randn(3))
 
-        # change dim 0 and 2
-        layer12 = layer12.permute(0, 3, 1, 2)
-        layer8 = layer8.permute(0, 3, 1, 2)
-        layer4 = layer4.permute(0, 3, 1, 2)
+            layer12 = layer12.permute(0, 2, 3, 1)
+            layer8 = layer8.permute(0, 2, 3, 1)
+            layer6 = layer6.permute(0, 2, 3, 1)
 
-        # layer 12 : 32x32 -> 8x8
-        layer12 = self.conv_mult_1(layer12)
+            layer12 = self.linear1_inner(layer12)
+            layer8 = self.linear2_inner(layer8)
+            layer6 = self.linear3_inner(layer6)
 
-        # layer 8 : 32x32 -> 16x16
-        layer8 = self.conv_mult_2(layer8)
+            # change dim 0 and 2
+            layer12 = layer12.permute(0, 3, 1, 2)
+            layer8 = layer8.permute(0, 3, 1, 2)
+            layer6 = layer6.permute(0, 3, 1, 2)
 
-        # upsample 4 times
-        layer12 = self.upsample4(layer12)
+            #self.w_3  is 3 parameters
+            layers = [layer6, layer8, layer12]
+            layers = torch.stack(layers, dim=-1)
+            # ([1, 512, 32, 32, 3]) -> ([1, 512, 32, 32]) by summing the 3 last layers with the 3 parameters
+            layer = torch.sum(F.softmax(self.w_3, dim=0) * layers, dim=-1)
+            #print("layer", layer.shape)
+            
+        else:
 
-        # upsample 2 times
-        layer8 = self.upsample2(layer8)
+            # change dim 0 and 2
+            layer12 = layer12.permute(0, 2, 3, 1)
+            layer8 = layer8.permute(0, 2, 3, 1)
+            layer6 = layer6.permute(0, 2, 3, 1)
 
-        layer = (layer4 + layer8 + layer12) / 3
+            layer12 = self.linear1_inner(layer12)
+            layer8 = self.linear2_inner(layer8)
+            layer6 = self.linear3_inner(layer6)
+
+            # change dim 0 and 2
+            layer12 = layer12.permute(0, 3, 1, 2)
+            layer8 = layer8.permute(0, 3, 1, 2)
+            layer6 = layer6.permute(0, 3, 1, 2)
+
+            # layer 12 : 32x32 -> 8x8
+            layer12 = self.conv_mult_1(layer12)
+
+            # layer 8 : 32x32 -> 16x16
+            layer8 = self.conv_mult_2(layer8)
+
+            # upsample 4 times
+            layer12 = self.upsample4(layer12)
+
+            # upsample 2 times
+            layer8 = self.upsample2(layer8)
+
+            layer = (layer6 + layer8 + layer12) / 3
 
         visual_feat[0] = layer.unsqueeze(0)
+
+        #visual_feat = visual_feat[0]
 
         return visual_feat
 
