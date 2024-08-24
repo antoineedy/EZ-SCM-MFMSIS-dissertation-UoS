@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/start_training.py", line 5, in <module>
-    import mmcv
-ModuleNotFoundError: No module named 'mmcv'

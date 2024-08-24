@@ -1,141 +1,0 @@
-/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py:178: FutureWarning: The module torch.distributed.launch is deprecated
-and will be removed in future. Use torchrun.
-Note that --use_env is set by default in torchrun.
-If your script expects `--local_rank` argument to be set, please
-change it to read from `os.environ['LOCAL_RANK']` instead. See 
-https://pytorch.org/docs/stable/distributed.html#launch-utility for 
-further instructions
-
-  warnings.warn(
-[i 0721 10:59:48.141162 20 __init__.py:227] Total mem: 251.73GB, using 16 procs for compiling.
-[i 0721 11:00:07.678475 20 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
-[i 0721 11:00:11.112709 20 init.cc:62] Found cuda archs: [75,]
-[i 0721 11:00:11.254250 20 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
-[i 0721 11:00:11.442989 20 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x83/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/custom_ops
-[i 0721 11:00:13.379476 60 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
-[i 0721 11:00:13.405896 60 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
-[i 0721 11:00:13.405969 60 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x83/AMDEPYC750232-x2a/default
-[i 0721 11:00:13.429674 60 __init__.py:411] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc.
-[i 0721 11:00:13.451509 60 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
-[i 0721 11:00:13.947015 60 compiler.py:1011] cuda key:cu11.0.221_sm_75
-[i 0721 11:00:14.705305 60 __init__.py:227] Total mem: 251.73GB, using 16 procs for compiling.
-[i 0721 11:00:15.089482 60 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
-[i 0721 11:00:18.075686 60 init.cc:62] Found cuda archs: [75,]
-[i 0721 11:00:18.213048 60 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
-[i 0721 11:00:18.568214 48 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
-[i 0721 11:00:18.596242 48 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
-[i 0721 11:00:18.596315 48 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x83/AMDEPYC750232-x2a/default
-[i 0721 11:00:18.621119 48 __init__.py:411] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc.
-[i 0721 11:00:18.645134 48 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
-[i 0721 11:00:18.844624 48 compiler.py:1011] cuda key:cu11.0.221_sm_75
-[i 0721 11:00:19.717438 48 __init__.py:227] Total mem: 251.73GB, using 16 procs for compiling.
-[i 0721 11:00:20.094917 48 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
-[i 0721 11:00:23.397006 48 init.cc:62] Found cuda archs: [75,]
-[i 0721 11:00:23.696803 48 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
-[i 0721 11:00:24.168831 28 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
-[i 0721 11:00:24.200846 28 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
-[i 0721 11:00:24.200942 28 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x83/AMDEPYC750232-x2a/default
-[i 0721 11:00:24.228540 28 __init__.py:411] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc.
-[i 0721 11:00:24.254605 28 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
-[i 0721 11:00:24.441274 28 compiler.py:1011] cuda key:cu11.0.221_sm_75
-[i 0721 11:00:25.319195 28 __init__.py:227] Total mem: 251.73GB, using 16 procs for compiling.
-[i 0721 11:00:25.719737 28 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
-[i 0721 11:00:29.557257 28 init.cc:62] Found cuda archs: [75,]
-[i 0721 11:00:30.011581 28 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
-[i 0721 11:00:30.790167 20 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/nccl
-[i 0721 11:00:30.806085 20 compile_extern.py:426] Downloading nccl...
-0.00B [00:00, ?B/s]0.00B [00:00, ?B/s]200kB [00:00, 645kB/s]
-[i 0721 11:00:31.129872 20 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/cutt
-[i 0721 11:00:31.132629 20 compile_extern.py:339] Downloading cutt...
-0.00B [00:00, ?B/s]0.00B [00:00, ?B/s]296kB [00:00, 1.24MB/s]
-[i 0721 11:00:31.556372 20 compile_extern.py:352] installing cutt...
-[i 0721 11:00:42.614376 20 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/mkl
-[i 0721 11:00:42.617513 20 compile_extern.py:73] Downloading mkl...
-0.00B [00:00, ?B/s]  0%|          | 0.00/10.5M [00:00<?, ?B/s]  0%|          | 16.0k/10.5M [00:01<02:12, 83.1kB/s]  0%|          | 40.0k/10.5M [00:01<01:42, 108kB/s]   1%|          | 80.0k/10.5M [00:01<01:02, 174kB/s]  1%|          | 120k/10.5M [00:01<00:46, 235kB/s]   2%|▏         | 184k/10.5M [00:01<00:32, 338kB/s]  2%|▏         | 264k/10.5M [00:01<00:23, 459kB/s]  3%|▎         | 376k/10.5M [00:02<00:26, 406kB/s]  9%|▊         | 936k/10.5M [00:02<00:06, 1.45MB/s] 11%|█         | 1.13M/10.5M [00:02<00:06, 1.62MB/s] 13%|█▎        | 1.34M/10.5M [00:02<00:07, 1.31MB/s] 16%|█▋        | 1.73M/10.5M [00:02<00:05, 1.72MB/s] 29%|██▉       | 3.09M/10.5M [00:02<00:01, 4.35MB/s] 36%|███▌      | 3.79M/10.5M [00:02<00:01, 5.05MB/s] 45%|████▌     | 4.79M/10.5M [00:02<00:00, 6.39MB/s] 59%|█████▊    | 6.18M/10.5M [00:03<00:00, 8.53MB/s] 67%|██████▋   | 7.10M/10.5M [00:03<00:00, 5.36MB/s] 92%|█████████▏| 9.70M/10.5M [00:03<00:00, 7.85MB/s]10.5MB [00:03, 2.90MB/s]                            
-[i 0721 11:00:56.768734 20 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x83/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/cuda
-Traceback (most recent call last):
-Traceback (most recent call last):
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/train.py", line 15, in <module>
-    import models
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/models/__init__.py", line 10, in <module>
-    from models.segmentor.clip_rc import CLIPRC
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/train.py", line 15, in <module>
-    import models
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/models/segmentor/clip_rc.py", line 5, in <module>
-    from jseg.ops import resize
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/models/__init__.py", line 10, in <module>
-    from models.segmentor.clip_rc import CLIPRC
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/models/segmentor/clip_rc.py", line 5, in <module>
-    from jseg.ops import resize
-ModuleNotFoundError: No module named 'jseg'
-ModuleNotFoundError: No module named 'jseg'
-Traceback (most recent call last):
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/train.py", line 15, in <module>
-    import models
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/models/__init__.py", line 10, in <module>
-    from models.segmentor.clip_rc import CLIPRC
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/models/segmentor/clip_rc.py", line 5, in <module>
-    from jseg.ops import resize
-ModuleNotFoundError: No module named 'jseg'
-Traceback (most recent call last):
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/train.py", line 15, in <module>
-    import models
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/models/__init__.py", line 10, in <module>
-    from models.segmentor.clip_rc import CLIPRC
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/models/segmentor/clip_rc.py", line 5, in <module>
-    from jseg.ops import resize
-ModuleNotFoundError: No module named 'jseg'
-ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 26) of binary: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python
-Traceback (most recent call last):
-  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/runpy.py", line 197, in _run_module_as_main
-    return _run_code(code, main_globals, None,
-  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/runpy.py", line 87, in _run_code
-    exec(code, run_globals)
-  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py", line 193, in <module>
-    main()
-  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py", line 189, in main
-    launch(args)
-  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launch.py", line 174, in launch
-    run(args)
-  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/run.py", line 710, in run
-    elastic_launch(
-  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 131, in __call__
-    return launch_agent(self._config, self._entrypoint, list(args))
-  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 259, in launch_agent
-    raise ChildFailedError(
-torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
-============================================================
-/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/train.py FAILED
-------------------------------------------------------------
-Failures:
-[1]:
-  time      : 2024-07-21_11:01:20
-  host      : ae01116-176623.0-aisurrey07.surrey.ac.uk
-  rank      : 1 (local_rank: 1)
-  exitcode  : 1 (pid: 27)
-  error_file: <N/A>
-  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
-[2]:
-  time      : 2024-07-21_11:01:20
-  host      : ae01116-176623.0-aisurrey07.surrey.ac.uk
-  rank      : 2 (local_rank: 2)
-  exitcode  : 1 (pid: 28)
-  error_file: <N/A>
-  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
-[3]:
-  time      : 2024-07-21_11:01:20
-  host      : ae01116-176623.0-aisurrey07.surrey.ac.uk
-  rank      : 3 (local_rank: 3)
-  exitcode  : 1 (pid: 29)
-  error_file: <N/A>
-  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
-------------------------------------------------------------
-Root Cause (first observed failure):
-[0]:
-  time      : 2024-07-21_11:01:20
-  host      : ae01116-176623.0-aisurrey07.surrey.ac.uk
-  rank      : 0 (local_rank: 0)
-  exitcode  : 1 (pid: 26)
-  error_file: <N/A>
-  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
-============================================================

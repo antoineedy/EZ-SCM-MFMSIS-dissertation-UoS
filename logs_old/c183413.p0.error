@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/view_weights.py", line 10, in <module>
-    for name, param in model.named_parameters():
-AttributeError: 'dict' object has no attribute 'named_parameters'

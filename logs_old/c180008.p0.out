@@ -1,3 +1,0 @@
-Compiling jittor_core(150/151) used: 3.405s eta: 0.023sCompiling jittor_core(151/151) used: 16.525s eta: 0.000s
-Compiling gen_ops_cudnn_test_cudnn_conv3d_backward_w_cudnn_c___hashca4f2c(16/16) used: 3.238s eta: 0.000s
-Beginning training script

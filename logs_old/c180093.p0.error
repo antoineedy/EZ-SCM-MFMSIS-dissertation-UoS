@@ -1,58 +1,0 @@
-[i 0807 16:35:08.768426 92 __init__.py:227] Total mem: 251.74GB, using 16 procs for compiling.
-[i 0807 16:35:27.002405 92 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
-[i 0807 16:35:27.002621 92 jit_compiler.cc:31] Load nvcc_path: /usr/local/cuda/bin/nvcc
-[i 0807 16:35:27.192480 92 init.cc:62] Found cuda archs: [75,]
-[i 0807 16:35:28.347508 92 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
-[i 0807 16:35:28.428236 92 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.7/g++7.5.0/py3.9.19/Linux-4.18.0-4xda/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/custom_ops
-[i 0807 16:35:30.401282 92 compile_extern.py:339] Downloading cutt...
-[i 0807 16:35:30.559210 92 compile_extern.py:352] installing cutt...
-[i 0807 16:35:42.494603 92 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.7/g++7.5.0/py3.9.19/Linux-4.18.0-4xda/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/cuda
-[i 0807 16:35:55.523874 92 cuda_flags.cc:39] CUDA enabled.
-
-Compiling Operators(1/16) used: 2.34s eta: 35.1s Compiling Operators(9/16) used: 3.34s eta:  2.6s Compiling Operators(16/16) used: 4.34s eta:    0s 
-
-Compiling Operators(1/4) used: 2.36s eta: 7.08s Compiling Operators(3/4) used: 3.36s eta: 1.12s Compiling Operators(4/4) used: 4.36s eta:    0s 
-
-Compiling Operators(2/2) used: 3.35s eta:    0s 
-/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/cross_entropy_loss.py:55: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with Jittor official cross_entropy, set ``avg_non_ignore=True``.
-  warnings.warn(
-
-Compiling Operators(4/6) used: 3.46s eta: 1.73s Compiling Operators(6/6) used: 4.46s eta:    0s 
-
-Compiling Operators(1/5) used:  2.4s eta: 9.61s Compiling Operators(4/5) used:  3.4s eta: 0.851s Compiling Operators(5/5) used:  4.4s eta:    0s 
-
-Compiling Operators(3/3) used: 3.37s eta:    0s 
-
-Compiling Operators(2/3) used: 3.37s eta: 1.68s Compiling Operators(3/3) used: 4.37s eta:    0s 
-
-Compiling Operators(4/4) used: 3.47s eta:    0s 
-Traceback (most recent call last):
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 94, in <module>
-    main()
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/run_net.py", line 86, in main
-    runner.run()
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/runner/runner.py", line 90, in run
-    self.train()
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/runner/runner.py", line 133, in train
-    losses = self.model(img=images,
-  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor/__init__.py", line 1168, in __call__
-    return self.execute(*args, **kw)
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/segmentors/base.py", line 75, in execute
-    return self.execute_train(img, img_metas, **kwargs)
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/segmentors/clip_rc.py", line 198, in execute_train
-    loss_decode = self._decode_head_execute_train(feat, img_metas,
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/segmentors/clip_rc.py", line 157, in _decode_head_execute_train
-    loss_decode = self.decode_head.execute_train(
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/decode_heads/cliprc_head.py", line 126, in execute_train
-    losses = self.losses(seg_logits, gt_semantic_seg)
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/decode_heads/cliprc_head.py", line 304, in losses
-    loss = self.loss_decode(seg_logit,
-  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor/__init__.py", line 1168, in __call__
-    return self.execute(*args, **kw)
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/cross_entropy_loss.py", line 84, in execute
-    loss_cls = self.loss_weight * self.cls_criterion(
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/cross_entropy_loss.py", line 17, in cross_entropy
-    loss = cross_entropy_loss(pred,
-  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor/nn.py", line 377, in cross_entropy_loss
-    print(out)
-NameError: name 'out' is not defined

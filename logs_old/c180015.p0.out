@@ -1,1060 +1,0 @@
-[i 0807 14:41:01.568824 48 lock.py:85] Create lock file:/user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xe9/AMDEPYC753232-x73/jittor.lock
-[i 0807 14:41:06.643484 48 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
-[i 0807 14:41:06.652170 48 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
-[i 0807 14:41:06.652337 48 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xe9/AMDEPYC753232-x73/default
-[i 0807 14:41:06.662724 48 compiler.py:901] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc
-[i 0807 14:41:06.674686 48 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
-[i 0807 14:41:06.913862 48 compiler.py:1011] cuda key:cu11.0.221_sm_86
-[i 0807 14:41:06.988445 48 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xe9/AMDEPYC753232-x73/default/cu11.0.221_sm_86
-[i 0807 14:41:06.991476 48 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xe9/AMDEPYC753232-x73/default/cu11.0.221_sm_86/jit
-[i 0807 14:41:06.993220 48 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xe9/AMDEPYC753232-x73/default/cu11.0.221_sm_86/obj_files
-[i 0807 14:41:06.994716 48 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xe9/AMDEPYC753232-x73/default/cu11.0.221_sm_86/gen
-[i 0807 14:41:06.996090 48 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xe9/AMDEPYC753232-x73/default/cu11.0.221_sm_86/tmp
-[i 0807 14:41:06.997694 48 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4xe9/AMDEPYC753232-x73/default/cu11.0.221_sm_86/checkpoints
-Compiling jittor_core(17/151) used: 2.066s eta: 16.284sCompiling jittor_core(18/151) used: 2.332s eta: 17.234sCompiling jittor_core(19/151) used: 2.333s eta: 16.206sCompiling jittor_core(20/151) used: 2.405s eta: 15.750sCompiling jittor_core(21/151) used: 2.503s eta: 15.495sCompiling jittor_core(22/151) used: 2.630s eta: 15.423sCompiling jittor_core(23/151) used: 2.630s eta: 14.639sCompiling jittor_core(24/151) used: 2.793s eta: 14.778sCompiling jittor_core(25/151) used: 2.820s eta: 14.213sCompiling jittor_core(26/151) used: 2.841s eta: 13.658sCompiling jittor_core(27/151) used: 2.894s eta: 13.289sCompiling jittor_core(28/151) used: 2.996s eta: 13.161sCompiling jittor_core(29/151) used: 3.076s eta: 12.939sCompiling jittor_core(30/151) used: 3.409s eta: 13.750sCompiling jittor_core(31/151) used: 3.680s eta: 14.245sCompiling jittor_core(32/151) used: 3.759s eta: 13.979sCompiling jittor_core(33/151) used: 3.814s eta: 13.638sCompiling jittor_core(34/151) used: 3.895s eta: 13.403sCompiling jittor_core(35/151) used: 4.023s eta: 13.333sCompiling jittor_core(36/151) used: 4.076s eta: 13.020sCompiling jittor_core(37/151) used: 4.148s eta: 12.780sCompiling jittor_core(38/151) used: 4.177s eta: 12.421sCompiling jittor_core(39/151) used: 4.197s eta: 12.052sCompiling jittor_core(40/151) used: 4.590s eta: 12.739sCompiling jittor_core(41/151) used: 4.748s eta: 12.740sCompiling jittor_core(42/151) used: 4.791s eta: 12.433sCompiling jittor_core(43/151) used: 4.832s eta: 12.137sCompiling jittor_core(44/151) used: 4.877s eta: 11.860sCompiling jittor_core(45/151) used: 5.095s eta: 12.002sCompiling jittor_core(46/151) used: 5.123s eta: 11.695sCompiling jittor_core(47/151) used: 5.196s eta: 11.498sCompiling jittor_core(48/151) used: 5.214s eta: 11.189sCompiling jittor_core(49/151) used: 5.275s eta: 10.981sCompiling jittor_core(50/151) used: 5.305s eta: 10.716sCompiling jittor_core(51/151) used: 5.328s eta: 10.446sCompiling jittor_core(52/151) used: 5.351s eta: 10.188sCompiling jittor_core(53/151) used: 5.491s eta: 10.152sCompiling jittor_core(54/151) used: 5.567s eta: 10.000sCompiling jittor_core(55/151) used: 5.707s eta: 9.962sCompiling jittor_core(56/151) used: 5.793s eta: 9.827sCompiling jittor_core(57/151) used: 5.826s eta: 9.609sCompiling jittor_core(58/151) used: 5.992s eta: 9.608sCompiling jittor_core(59/151) used: 6.202s eta: 9.671sCompiling jittor_core(60/151) used: 6.206s eta: 9.413sCompiling jittor_core(61/151) used: 6.315s eta: 9.317sCompiling jittor_core(62/151) used: 6.380s eta: 9.158sCompiling jittor_core(63/151) used: 6.424s eta: 8.973sCompiling jittor_core(64/151) used: 6.452s eta: 8.771sCompiling jittor_core(65/151) used: 6.510s eta: 8.614sCompiling jittor_core(66/151) used: 6.710s eta: 8.642sCompiling jittor_core(67/151) used: 6.784s eta: 8.505sCompiling jittor_core(68/151) used: 6.813s eta: 8.316sCompiling jittor_core(69/151) used: 7.009s eta: 8.329sCompiling jittor_core(70/151) used: 7.039s eta: 8.145sCompiling jittor_core(71/151) used: 7.134s eta: 8.038sCompiling jittor_core(72/151) used: 7.193s eta: 7.893sCompiling jittor_core(73/151) used: 7.241s eta: 7.737sCompiling jittor_core(74/151) used: 7.553s eta: 7.859sCompiling jittor_core(75/151) used: 7.714s eta: 7.817sCompiling jittor_core(76/151) used: 7.743s eta: 7.641sCompiling jittor_core(77/151) used: 7.755s eta: 7.453sCompiling jittor_core(78/151) used: 7.836s eta: 7.334sCompiling jittor_core(79/151) used: 7.972s eta: 7.265sCompiling jittor_core(80/151) used: 8.028s eta: 7.125sCompiling jittor_core(81/151) used: 8.056s eta: 6.962sCompiling jittor_core(82/151) used: 8.334s eta: 7.012sCompiling jittor_core(83/151) used: 8.457s eta: 6.929sCompiling jittor_core(84/151) used: 8.458s eta: 6.746sCompiling jittor_core(85/151) used: 8.670s eta: 6.732sCompiling jittor_core(86/151) used: 8.736s eta: 6.603sCompiling jittor_core(87/151) used: 8.792s eta: 6.467sCompiling jittor_core(88/151) used: 8.892s eta: 6.366sCompiling jittor_core(89/151) used: 8.893s eta: 6.195sCompiling jittor_core(90/151) used: 8.929s eta: 6.052sCompiling jittor_core(91/151) used: 8.930s eta: 5.888sCompiling jittor_core(92/151) used: 9.290s eta: 5.958sCompiling jittor_core(93/151) used: 9.401s eta: 5.863sCompiling jittor_core(94/151) used: 9.555s eta: 5.794sCompiling jittor_core(95/151) used: 9.666s eta: 5.698sCompiling jittor_core(96/151) used: 9.712s eta: 5.564sCompiling jittor_core(97/151) used: 9.852s eta: 5.485sCompiling jittor_core(98/151) used: 9.909s eta: 5.359sCompiling jittor_core(99/151) used: 9.920s eta: 5.210sCompiling jittor_core(100/151) used: 9.931s eta: 5.065sCompiling jittor_core(101/151) used: 10.039s eta: 4.970sCompiling jittor_core(102/151) used: 10.061s eta: 4.833sCompiling jittor_core(103/151) used: 10.161s eta: 4.735sCompiling jittor_core(104/151) used: 10.179s eta: 4.600sCompiling jittor_core(105/151) used: 10.324s eta: 4.523sCompiling jittor_core(106/151) used: 10.432s eta: 4.429sCompiling jittor_core(107/151) used: 10.468s eta: 4.305sCompiling jittor_core(108/151) used: 10.492s eta: 4.177sCompiling jittor_core(109/151) used: 10.534s eta: 4.059sCompiling jittor_core(110/151) used: 10.636s eta: 3.964sCompiling jittor_core(111/151) used: 10.725s eta: 3.865sCompiling jittor_core(112/151) used: 10.821s eta: 3.768sCompiling jittor_core(113/151) used: 10.821s eta: 3.639sCompiling jittor_core(114/151) used: 10.839s eta: 3.518sCompiling jittor_core(115/151) used: 10.952s eta: 3.428sCompiling jittor_core(116/151) used: 11.053s eta: 3.335sCompiling jittor_core(117/151) used: 11.082s eta: 3.220sCompiling jittor_core(118/151) used: 11.093s eta: 3.102sCompiling jittor_core(119/151) used: 11.104s eta: 2.986sCompiling jittor_core(120/151) used: 11.124s eta: 2.874sCompiling jittor_core(121/151) used: 11.174s eta: 2.770sCompiling jittor_core(122/151) used: 11.332s eta: 2.694sCompiling jittor_core(123/151) used: 11.637s eta: 2.649sCompiling jittor_core(124/151) used: 11.780s eta: 2.565sCompiling jittor_core(125/151) used: 11.843s eta: 2.463sCompiling jittor_core(126/151) used: 11.865s eta: 2.354sCompiling jittor_core(127/151) used: 11.919s eta: 2.252sCompiling jittor_core(128/151) used: 11.963s eta: 2.150sCompiling jittor_core(129/151) used: 11.966s eta: 2.041sCompiling jittor_core(130/151) used: 11.990s eta: 1.937sCompiling jittor_core(131/151) used: 11.999s eta: 1.832sCompiling jittor_core(132/151) used: 12.008s eta: 1.728sCompiling jittor_core(133/151) used: 12.163s eta: 1.646sCompiling jittor_core(134/151) used: 12.172s eta: 1.544sCompiling jittor_core(135/151) used: 12.190s eta: 1.445sCompiling jittor_core(136/151) used: 12.302s eta: 1.357sCompiling jittor_core(137/151) used: 12.454s eta: 1.273sCompiling jittor_core(138/151) used: 12.536s eta: 1.181sCompiling jittor_core(139/151) used: 12.565s eta: 1.085sCompiling jittor_core(140/151) used: 12.615s eta: 0.991sCompiling jittor_core(141/151) used: 12.759s eta: 0.905sCompiling jittor_core(142/151) used: 12.817s eta: 0.812sCompiling jittor_core(143/151) used: 12.997s eta: 0.727sCompiling jittor_core(144/151) used: 13.129s eta: 0.638sCompiling jittor_core(145/151) used: 14.056s eta: 0.582sCompiling jittor_core(146/151) used: 14.290s eta: 0.489sCompiling jittor_core(147/151) used: 14.318s eta: 0.390sCompiling jittor_core(148/151) used: 14.500s eta: 0.294sCompiling jittor_core(149/151) used: 14.844s eta: 0.199sCompiling jittor_core(150/151) used: 14.957s eta: 0.100sCompiling jittor_core(151/151) used: 21.243s eta: 0.000s
-Compiling jittor_mpi_core(7/7) used: 2.544s eta: 0.000s
-Compiling libcutt(8/9) used: 4.580s eta: 0.573sCompiling libcutt(9/9) used: 9.083s eta: 0.000s
-Compiling gen_ops_mkl_test_mkl_conv_backward_x_mkl_matmul_mk___hash16649c(6/7) used: 3.068s eta: 0.511sCompiling gen_ops_mkl_test_mkl_conv_backward_x_mkl_matmul_mk___hash16649c(7/7) used: 5.800s eta: 0.000s
-Compiling libcuda_extern(3/3) used: 2.157s eta: 0.000s
-Compiling gen_ops_cub_cumsum_cub_where_cub_argsort_cub_test____hashe0c04e(6/6) used: 2.784s eta: 0.000s
-Compiling gen_ops_cublas_batched_matmul_cublas_acc_matmul_cu___hash4e18cc(8/8) used: 2.403s eta: 0.000s
-Compiling gen_ops_cudnn_test_cudnn_conv3d_backward_w_cudnn_c___hashca4f2c(16/16) used: 4.339s eta: 0.000s
-None
-Using CUDA
-Loading config from:  /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py
-Resize the pos_embed shape from (197, 768) to [1025,768,]
-Making visible mask for zero-shot setting: [  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1 255]
---------------------------------------
-Finetune layer in segmentor: backbone.prompt_embeddings
-Finetune layer in segmentor: backbone.deep_prompt_embeddings
-Finetune layer in segmentor: backbone.prompt_proj.weight
-Finetune layer in segmentor: backbone.prompt_proj.bias
-Finetune layer in segmentor: backbone.prompt_norm.weight
-Finetune layer in segmentor: backbone.prompt_norm.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.linear1.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.linear2.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.norm2.weight
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.norm2.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.norm3.weight
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.norm3.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.multihead_attn.q.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.multihead_attn.k.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.multihead_attn.v.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.multihead_attn.proj.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.linear1.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.linear2.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.norm2.weight
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.norm2.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.norm3.weight
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.norm3.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.multihead_attn.q.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.multihead_attn.k.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.multihead_attn.v.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.multihead_attn.proj.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.linear1.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.linear2.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.norm2.weight
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.norm2.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.norm3.weight
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.norm3.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.multihead_attn.q.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.multihead_attn.k.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.multihead_attn.v.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.multihead_attn.proj.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.linear1.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.linear2.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.norm2.weight
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.norm2.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.norm3.weight
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.norm3.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.multihead_attn.q.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.multihead_attn.k.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.multihead_attn.v.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.multihead_attn.proj.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.linear1.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.linear2.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.norm2.weight
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.norm2.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.norm3.weight
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.norm3.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.multihead_attn.q.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.multihead_attn.k.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.multihead_attn.v.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.multihead_attn.proj.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.linear1.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.linear2.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.norm2.weight
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.norm2.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.norm3.weight
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.norm3.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.multihead_attn.q.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.multihead_attn.k.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.multihead_attn.v.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.multihead_attn.proj.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.linear1.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.linear2.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.norm2.weight
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.norm2.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.norm3.weight
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.norm3.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.multihead_attn.q.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.multihead_attn.k.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.multihead_attn.v.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.multihead_attn.proj.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.linear1.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.linear2.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.norm2.weight
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.norm2.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.norm3.weight
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.norm3.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.multihead_attn.q.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.multihead_attn.k.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.multihead_attn.v.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.multihead_attn.proj.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.linear_q_in.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.linear_k_in.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.linear_q_out.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.linear_k_out.bias
-Finetune layer in segmentor: decode_head.lateral_proj.bias
-Finetune layer in segmentor: decode_head.q_proj.bias
-CLASSES: &id003 !!python/tuple
-- aeroplane
-- bicycle
-- bird
-- boat
-- bottle
-- bus
-- car
-- cat
-- chair
-- cow
-- diningtable
-- dog
-- horse
-- motorbike
-- person
-- pottedplant
-- sheep
-- sofa
-- train
-- tvmonitor
-base: /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos
-base_class:
-- 0
-- 1
-- 2
-- 3
-- 4
-- 5
-- 6
-- 7
-- 8
-- 9
-- 10
-- 11
-- 12
-- 13
-- 14
-base_scratch: /mnt/fast/nobackup/scratch4weeks/ae01116
-both_class:
-- 0
-- 1
-- 2
-- 3
-- 4
-- 5
-- 6
-- 7
-- 8
-- 9
-- 10
-- 11
-- 12
-- 13
-- 14
-- 15
-- 16
-- 17
-- 18
-- 19
-checkpoint_interval: 2000
-crop_size: &id001 !!python/tuple
-- 512
-- 512
-data_root: /mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012
-dataset:
-  train:
-    ann_dir: SegmentationClassAug
-    batch_size: 4
-    data_root: /mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012
-    drop_last: false
-    img_dir: JPEGImages
-    num_workers: 8
-    pipeline:
-    - type: LoadImageFromFile
-    - reduce_zero_label: true
-      type: LoadAnnotations
-    - img_scale: &id002 !!python/tuple
-      - 2048
-      - 512
-      ratio_range: &id004 !!python/tuple
-      - 0.5
-      - 2.0
-      type: Resize
-    - cat_max_ratio: 0.75
-      crop_size: *id001
-      type: RandomCrop
-    - prob: 0.5
-      type: RandomFlip
-    - type: PhotoMetricDistortion
-    - mean:
-      - 123.675
-      - 116.28
-      - 103.53
-      std:
-      - 58.395
-      - 57.12
-      - 57.375
-      to_rgb: true
-      type: Normalize
-    - pad_val: 0
-      seg_pad_val: 255
-      size: *id001
-      type: Pad
-    - type: DefaultFormatBundle
-    - keys:
-      - img
-      - gt_semantic_seg
-      type: Collect
-    shuffle: true
-    split: ImageSets/Segmentation/trainaug.txt
-    type: ZeroPascalVOCDataset20
-  val:
-    ann_dir: SegmentationClass
-    batch_size: 1
-    data_root: /mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012
-    drop_last: false
-    img_dir: JPEGImages
-    num_workers: 1
-    pipeline:
-    - type: LoadImageFromFile
-    - flip: false
-      img_scale: *id002
-      transforms:
-      - keep_ratio: true
-        min_size: 512
-        type: Resize
-      - type: RandomFlip
-      - mean:
-        - 123.675
-        - 116.28
-        - 103.53
-        std:
-        - 58.395
-        - 57.12
-        - 57.375
-        to_rgb: true
-        type: Normalize
-      - keys:
-        - img
-        type: ImageToTensor
-      - keys:
-        - img
-        type: Collect
-      type: MultiScaleFlipAug
-    shuffle: false
-    split: ImageSets/Segmentation/val.txt
-    type: ZeroPascalVOCDataset20
-dataset_type: ZeroPascalVOCDataset20
-eval_interval: 2000
-img_norm_cfg:
-  mean:
-  - 123.675
-  - 116.28
-  - 103.53
-  std:
-  - 58.395
-  - 57.12
-  - 57.375
-  to_rgb: true
-img_size: 512
-in_channels: 512
-log_interval: 50
-logger:
-  type: RunLogger
-max_iter: 40000
-model:
-  backbone:
-    drop_path_rate: 0.1
-    get_embeddings: true
-    input_resolution: 512
-    layers: 12
-    num_tokens: 10
-    out_indices:
-    - 11
-    output_dim: 512
-    patch_size: 16
-    prompt_dim: 768
-    region_level_bridge_size: 16
-    total_d_layer: 11
-    type: CLIPVisionTransformerWithRLB
-    width: 768
-  base_class:
-  - 0
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
-  - 9
-  - 10
-  - 11
-  - 12
-  - 13
-  - 14
-  both_class:
-  - 0
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
-  - 9
-  - 10
-  - 11
-  - 12
-  - 13
-  - 14
-  - 15
-  - 16
-  - 17
-  - 18
-  - 19
-  class_names: *id003
-  decode_head:
-    all_idx:
-    - 0
-    - 1
-    - 2
-    - 3
-    - 4
-    - 5
-    - 6
-    - 7
-    - 8
-    - 9
-    - 10
-    - 11
-    - 12
-    - 13
-    - 14
-    - 15
-    - 16
-    - 17
-    - 18
-    - 19
-    channels: 512
-    embed_dims: 512
-    img_size: 512
-    in_channels: 512
-    num_classes: 15
-    num_heads: 8
-    num_layers: 3
-    seen_idx:
-    - 0
-    - 1
-    - 2
-    - 3
-    - 4
-    - 5
-    - 6
-    - 7
-    - 8
-    - 9
-    - 10
-    - 11
-    - 12
-    - 13
-    - 14
-    type: ATMSingleHeadSeg
-    use_proj: false
-    use_stages: 1
-  exclude_key: prompt
-  ft_backbone: false
-  load_text_embedding: /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/_base_/datasets/text_embedding/voc12_single.npy
-  novel_class:
-  - 15
-  - 16
-  - 17
-  - 18
-  - 19
-  pretrained: /mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16-RC-CLIP.pkl
-  pretrained_text: /mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16-RC-CLIP.pkl
-  test_cfg:
-    crop_size: !!python/tuple
-    - 512
-    - 512
-    mode: slide
-    stride: !!python/tuple
-    - 426
-    - 426
-  text_encoder:
-    context_length: 77
-    embed_dim: 512
-    pretrained: /mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16-RC-CLIP.pkl
-    transformer_heads: 8
-    transformer_layers: 12
-    transformer_width: 512
-    type: CLIPTextEncoder
-  type: CLIPRC
-name: clip_rc_zero_vit-b_512x512_40k_voc_10_16
-novel_class:
-- 15
-- 16
-- 17
-- 18
-- 19
-optimizer:
-  betas: !!python/tuple
-  - 0.9
-  - 0.999
-  lr: 2.0e-05
-  type: CustomAdamW
-  weight_decay: 0.01
-out_indices:
-- 11
-parameter_groups_generator:
-  custom_keys:
-    backbone:
-      lr_mult: 10.0
-    head:
-      lr_mult: 10.0
-    ln:
-      decay_mult: 0.0
-    norm:
-      decay_mult: 0.0
-    text_encoder:
-      lr_mult: 0.0
-  type: CustomPrameterGroupsGenerator
-pretrained: /mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16-RC-CLIP.pkl
-region_level_bridge_size: 16
-scheduler:
-  max_steps: 40000
-  min_lr: 1.0e-06
-  power: 0.9
-  type: PolyLR
-  warmup: linear
-  warmup_iters: 1500
-  warmup_ratio: 1.0e-06
-test_pipeline:
-- type: LoadImageFromFile
-- flip: false
-  img_scale: *id002
-  transforms:
-  - keep_ratio: true
-    min_size: 512
-    type: Resize
-  - type: RandomFlip
-  - mean:
-    - 123.675
-    - 116.28
-    - 103.53
-    std:
-    - 58.395
-    - 57.12
-    - 57.375
-    to_rgb: true
-    type: Normalize
-  - keys:
-    - img
-    type: ImageToTensor
-  - keys:
-    - img
-    type: Collect
-  type: MultiScaleFlipAug
-train_pipeline:
-- type: LoadImageFromFile
-- reduce_zero_label: true
-  type: LoadAnnotations
-- img_scale: *id002
-  ratio_range: *id004
-  type: Resize
-- cat_max_ratio: 0.75
-  crop_size: *id001
-  type: RandomCrop
-- prob: 0.5
-  type: RandomFlip
-- type: PhotoMetricDistortion
-- mean:
-  - 123.675
-  - 116.28
-  - 103.53
-  std:
-  - 58.395
-  - 57.12
-  - 57.375
-  to_rgb: true
-  type: Normalize
-- pad_val: 0
-  seg_pad_val: 255
-  size: *id001
-  type: Pad
-- type: DefaultFormatBundle
-- keys:
-  - img
-  - gt_semantic_seg
-  type: Collect
-work_dir: work_dirs/clip_rc_zero_vit-b_512x512_40k_voc_10_16
-
-Wed Aug  7 14:43:26 2024  model:CLIPRC(
-    backbone: CLIPVisionTransformerWithRLB(
-        conv1: Conv(3, 768, (16, 16), (16, 16), (0, 0), (1, 1), 1, None, None, Kw=None, fan=None, i=None, bound=None)
-        ln_pre: LayerNorm((768,), 1e-05, elementwise_affine=True)
-        transformer: Transformer(
-            resblocks: Sequential(
-                0: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(768, 768, float32[768,], None)
-                    )
-                    ln_1: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(768, 3072, float32[3072,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(3072, 768, float32[768,], None)
-                    )
-                    ln_2: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    drop_path: Identity(None, None)
-                )
-                1: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(768, 768, float32[768,], None)
-                    )
-                    ln_1: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(768, 3072, float32[3072,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(3072, 768, float32[768,], None)
-                    )
-                    ln_2: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    drop_path: DropPath(p=0.00909090880304575)
-                )
-                2: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(768, 768, float32[768,], None)
-                    )
-                    ln_1: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(768, 3072, float32[3072,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(3072, 768, float32[768,], None)
-                    )
-                    ln_2: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    drop_path: DropPath(p=0.0181818176060915)
-                )
-                3: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(768, 768, float32[768,], None)
-                    )
-                    ln_1: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(768, 3072, float32[3072,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(3072, 768, float32[768,], None)
-                    )
-                    ln_2: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    drop_path: DropPath(p=0.027272727340459824)
-                )
-                4: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(768, 768, float32[768,], None)
-                    )
-                    ln_1: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(768, 3072, float32[3072,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(3072, 768, float32[768,], None)
-                    )
-                    ln_2: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    drop_path: DropPath(p=0.036363635212183)
-                )
-                5: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(768, 768, float32[768,], None)
-                    )
-                    ln_1: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(768, 3072, float32[3072,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(3072, 768, float32[768,], None)
-                    )
-                    ln_2: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    drop_path: DropPath(p=0.045454543083906174)
-                )
-                6: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(768, 768, float32[768,], None)
-                    )
-                    ln_1: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(768, 3072, float32[3072,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(3072, 768, float32[768,], None)
-                    )
-                    ln_2: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    drop_path: DropPath(p=0.05454545468091965)
-                )
-                7: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(768, 768, float32[768,], None)
-                    )
-                    ln_1: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(768, 3072, float32[3072,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(3072, 768, float32[768,], None)
-                    )
-                    ln_2: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    drop_path: DropPath(p=0.06363636255264282)
-                )
-                8: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(768, 768, float32[768,], None)
-                    )
-                    ln_1: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(768, 3072, float32[3072,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(3072, 768, float32[768,], None)
-                    )
-                    ln_2: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    drop_path: DropPath(p=0.072727270424366)
-                )
-                9: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(768, 768, float32[768,], None)
-                    )
-                    ln_1: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(768, 3072, float32[3072,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(3072, 768, float32[768,], None)
-                    )
-                    ln_2: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    drop_path: DropPath(p=0.08181817829608917)
-                )
-                10: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(768, 768, float32[768,], None)
-                    )
-                    ln_1: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(768, 3072, float32[3072,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(3072, 768, float32[768,], None)
-                    )
-                    ln_2: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    drop_path: DropPath(p=0.09090908616781235)
-                )
-                11: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(768, 768, float32[768,], None)
-                    )
-                    ln_1: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(768, 3072, float32[3072,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(3072, 768, float32[768,], None)
-                    )
-                    ln_2: LayerNorm((768,), 1e-05, elementwise_affine=True)
-                    drop_path: DropPath(p=0.09999999403953552)
-                )
-            )
-        )
-        ln_post: LayerNorm((768,), 1e-05, elementwise_affine=True)
-        prompt_proj: Linear(768, 768, float32[768,], None)
-        prompt_norm: LayerNorm((768,), 1e-06, elementwise_affine=True)
-        prompt_dropout: Dropout(0.1, is_train=False)
-    )
-    decode_head: ATMSingleHeadSeg(
-        loss_decode: CrossEntropyLoss(avg_non_ignore=False)
-        dropout: Dropout(0.1, is_train=False)
-        input_proj_1: Identity(None, None)
-        proj_norm_1: Identity(None, None)
-        decoder_q: TPN_Decoder(
-            layers: Sequential(
-                0: TPN_DecoderLayer(
-                    linear1: Linear(512, 2048, float32[2048,], None)
-                    dropout: Dropout(0.1, is_train=False)
-                    linear2: Linear(2048, 512, float32[512,], None)
-                    norm2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    norm3: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    dropout1: Dropout(0.1, is_train=False)
-                    dropout2: Dropout(0.1, is_train=False)
-                    dropout3: Dropout(0.1, is_train=False)
-                    multihead_attn: Attention(
-                        q: Linear(512, 512, float32[512,], None)
-                        k: Linear(512, 512, float32[512,], None)
-                        v: Linear(512, 512, float32[512,], None)
-                        attn_drop: Dropout(0.1, is_train=False)
-                        proj: Linear(512, 512, float32[512,], None)
-                        proj_drop: Dropout(0.0, is_train=False)
-                    )
-                )
-                1: TPN_DecoderLayer(
-                    linear1: Linear(512, 2048, float32[2048,], None)
-                    dropout: Dropout(0.1, is_train=False)
-                    linear2: Linear(2048, 512, float32[512,], None)
-                    norm2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    norm3: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    dropout1: Dropout(0.1, is_train=False)
-                    dropout2: Dropout(0.1, is_train=False)
-                    dropout3: Dropout(0.1, is_train=False)
-                    multihead_attn: Attention(
-                        q: Linear(512, 512, float32[512,], None)
-                        k: Linear(512, 512, float32[512,], None)
-                        v: Linear(512, 512, float32[512,], None)
-                        attn_drop: Dropout(0.1, is_train=False)
-                        proj: Linear(512, 512, float32[512,], None)
-                        proj_drop: Dropout(0.0, is_train=False)
-                    )
-                )
-                2: TPN_DecoderLayer(
-                    linear1: Linear(512, 2048, float32[2048,], None)
-                    dropout: Dropout(0.1, is_train=False)
-                    linear2: Linear(2048, 512, float32[512,], None)
-                    norm2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    norm3: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    dropout1: Dropout(0.1, is_train=False)
-                    dropout2: Dropout(0.1, is_train=False)
-                    dropout3: Dropout(0.1, is_train=False)
-                    multihead_attn: Attention(
-                        q: Linear(512, 512, float32[512,], None)
-                        k: Linear(512, 512, float32[512,], None)
-                        v: Linear(512, 512, float32[512,], None)
-                        attn_drop: Dropout(0.1, is_train=False)
-                        proj: Linear(512, 512, float32[512,], None)
-                        proj_drop: Dropout(0.0, is_train=False)
-                    )
-                )
-            )
-        )
-        decoder_v: TPN_Decoder(
-            layers: Sequential(
-                0: TPN_DecoderLayer(
-                    linear1: Linear(512, 2048, float32[2048,], None)
-                    dropout: Dropout(0.1, is_train=False)
-                    linear2: Linear(2048, 512, float32[512,], None)
-                    norm2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    norm3: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    dropout1: Dropout(0.1, is_train=False)
-                    dropout2: Dropout(0.1, is_train=False)
-                    dropout3: Dropout(0.1, is_train=False)
-                    multihead_attn: Attention(
-                        q: Linear(512, 512, float32[512,], None)
-                        k: Linear(512, 512, float32[512,], None)
-                        v: Linear(512, 512, float32[512,], None)
-                        attn_drop: Dropout(0.1, is_train=False)
-                        proj: Linear(512, 512, float32[512,], None)
-                        proj_drop: Dropout(0.0, is_train=False)
-                    )
-                )
-                1: TPN_DecoderLayer(
-                    linear1: Linear(512, 2048, float32[2048,], None)
-                    dropout: Dropout(0.1, is_train=False)
-                    linear2: Linear(2048, 512, float32[512,], None)
-                    norm2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    norm3: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    dropout1: Dropout(0.1, is_train=False)
-                    dropout2: Dropout(0.1, is_train=False)
-                    dropout3: Dropout(0.1, is_train=False)
-                    multihead_attn: Attention(
-                        q: Linear(512, 512, float32[512,], None)
-                        k: Linear(512, 512, float32[512,], None)
-                        v: Linear(512, 512, float32[512,], None)
-                        attn_drop: Dropout(0.1, is_train=False)
-                        proj: Linear(512, 512, float32[512,], None)
-                        proj_drop: Dropout(0.0, is_train=False)
-                    )
-                )
-                2: TPN_DecoderLayer(
-                    linear1: Linear(512, 2048, float32[2048,], None)
-                    dropout: Dropout(0.1, is_train=False)
-                    linear2: Linear(2048, 512, float32[512,], None)
-                    norm2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    norm3: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    dropout1: Dropout(0.1, is_train=False)
-                    dropout2: Dropout(0.1, is_train=False)
-                    dropout3: Dropout(0.1, is_train=False)
-                    multihead_attn: Attention(
-                        q: Linear(512, 512, float32[512,], None)
-                        k: Linear(512, 512, float32[512,], None)
-                        v: Linear(512, 512, float32[512,], None)
-                        attn_drop: Dropout(0.1, is_train=False)
-                        proj: Linear(512, 512, float32[512,], None)
-                        proj_drop: Dropout(0.0, is_train=False)
-                    )
-                )
-            )
-        )
-        recovery_decoder: RecoveryDecoder(
-            decouple_q: Sequential(
-                0: TPN_DecoderLayer(
-                    linear1: Linear(512, 2048, float32[2048,], None)
-                    dropout: Dropout(0.1, is_train=False)
-                    linear2: Linear(2048, 512, float32[512,], None)
-                    norm2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    norm3: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    dropout1: Dropout(0.1, is_train=False)
-                    dropout2: Dropout(0.1, is_train=False)
-                    dropout3: Dropout(0.1, is_train=False)
-                    multihead_attn: Attention(
-                        q: Linear(512, 512, float32[512,], None)
-                        k: Linear(512, 512, float32[512,], None)
-                        v: Linear(512, 512, float32[512,], None)
-                        attn_drop: Dropout(0.1, is_train=False)
-                        proj: Linear(512, 512, float32[512,], None)
-                        proj_drop: Dropout(0.0, is_train=False)
-                    )
-                )
-            )
-            decouple_v: Sequential(
-                0: TPN_DecoderLayer(
-                    linear1: Linear(512, 2048, float32[2048,], None)
-                    dropout: Dropout(0.1, is_train=False)
-                    linear2: Linear(2048, 512, float32[512,], None)
-                    norm2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    norm3: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    dropout1: Dropout(0.1, is_train=False)
-                    dropout2: Dropout(0.1, is_train=False)
-                    dropout3: Dropout(0.1, is_train=False)
-                    multihead_attn: Attention(
-                        q: Linear(512, 512, float32[512,], None)
-                        k: Linear(512, 512, float32[512,], None)
-                        v: Linear(512, 512, float32[512,], None)
-                        attn_drop: Dropout(0.1, is_train=False)
-                        proj: Linear(512, 512, float32[512,], None)
-                        proj_drop: Dropout(0.0, is_train=False)
-                    )
-                )
-            )
-            linear_q_in: Linear(512, 512, float32[512,], None)
-            linear_k_in: Linear(512, 512, float32[512,], None)
-            linear_q_out: Linear(512, 1024, float32[1024,], None)
-            linear_k_out: Linear(512, 512, float32[512,], None)
-        )
-        lateral_proj: Linear(1536, 512, float32[512,], None)
-        q_proj: Linear(1024, 512, float32[512,], None)
-    )
-    text_encoder: CLIPTextEncoder(
-        transformer: Transformer(
-            resblocks: Sequential(
-                0: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(512, 512, float32[512,], None)
-                    )
-                    ln_1: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(512, 2048, float32[2048,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(2048, 512, float32[512,], None)
-                    )
-                    ln_2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    drop_path: Identity(None, None)
-                )
-                1: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(512, 512, float32[512,], None)
-                    )
-                    ln_1: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(512, 2048, float32[2048,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(2048, 512, float32[512,], None)
-                    )
-                    ln_2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    drop_path: Identity(None, None)
-                )
-                2: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(512, 512, float32[512,], None)
-                    )
-                    ln_1: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(512, 2048, float32[2048,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(2048, 512, float32[512,], None)
-                    )
-                    ln_2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    drop_path: Identity(None, None)
-                )
-                3: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(512, 512, float32[512,], None)
-                    )
-                    ln_1: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(512, 2048, float32[2048,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(2048, 512, float32[512,], None)
-                    )
-                    ln_2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    drop_path: Identity(None, None)
-                )
-                4: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(512, 512, float32[512,], None)
-                    )
-                    ln_1: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(512, 2048, float32[2048,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(2048, 512, float32[512,], None)
-                    )
-                    ln_2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    drop_path: Identity(None, None)
-                )
-                5: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(512, 512, float32[512,], None)
-                    )
-                    ln_1: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(512, 2048, float32[2048,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(2048, 512, float32[512,], None)
-                    )
-                    ln_2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    drop_path: Identity(None, None)
-                )
-                6: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(512, 512, float32[512,], None)
-                    )
-                    ln_1: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(512, 2048, float32[2048,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(2048, 512, float32[512,], None)
-                    )
-                    ln_2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    drop_path: Identity(None, None)
-                )
-                7: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(512, 512, float32[512,], None)
-                    )
-                    ln_1: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(512, 2048, float32[2048,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(2048, 512, float32[512,], None)
-                    )
-                    ln_2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    drop_path: Identity(None, None)
-                )
-                8: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(512, 512, float32[512,], None)
-                    )
-                    ln_1: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(512, 2048, float32[2048,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(2048, 512, float32[512,], None)
-                    )
-                    ln_2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    drop_path: Identity(None, None)
-                )
-                9: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(512, 512, float32[512,], None)
-                    )
-                    ln_1: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(512, 2048, float32[2048,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(2048, 512, float32[512,], None)
-                    )
-                    ln_2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    drop_path: Identity(None, None)
-                )
-                10: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(512, 512, float32[512,], None)
-                    )
-                    ln_1: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(512, 2048, float32[2048,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(2048, 512, float32[512,], None)
-                    )
-                    ln_2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    drop_path: Identity(None, None)
-                )
-                11: ResidualAttentionBlock(
-                    attn: MultiheadAttention(
-                        out_proj: Linear(512, 512, float32[512,], None)
-                    )
-                    ln_1: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    mlp: Sequential(
-                        c_fc: Linear(512, 2048, float32[2048,], None)
-                        gelu: QuickGELU(None, None)
-                        c_proj: Linear(2048, 512, float32[512,], None)
-                    )
-                    ln_2: LayerNorm((512,), 1e-05, elementwise_affine=True)
-                    drop_path: Identity(None, None)
-                )
-            )
-        )
-        token_embedding: Embedding(49408, 512, None, dtype=None)
-        ln_final: LayerNorm((512,), 1e-05, elementwise_affine=True)
-    )
-)
-Loaded 10582 images
-Loaded 1449 images
-Wed Aug  7 14:43:26 2024 Start running
-Traceback (most recent call last):
-  File "/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor/dataset/dataset.py", line 258, in _worker_main
-    batch.append(self[i])
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/datasets/custom.py", line 129, in __getitem__
-    return self.prepare_train_img(idx)
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/datasets/custom.py", line 136, in prepare_train_img
-    return self.pipeline(results)
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/datasets/pipelines/compose.py", line 22, in __call__
-    data = t(data)
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/datasets/pipelines/formating.py", line 23, in __call__
-    results['gt_semantic_seg'] = to_tensor(
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/datasets/pipelines/formating.py", line 8, in to_tensor
-    return jt.Var(data)
-RuntimeError: Wrong inputs arguments, Please refer to examples(help(jt.__init__)).
-
-Types of your inputs are:
- self	= Var,
- args	= (ndarray, ),
-
-The function declarations are:
- VarHolder(PyObject* v, NanoString dtype=ns_void)
-
-Failed reason:[f 0807 14:43:32.476331 44 helper_cuda.h:128] CUDA error at /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor/src/mem/allocator/cuda_host_allocator.cc:22  code=3( cudaErrorInitializationError ) cudaMallocHost(&ptr, size)
-
-Beginning training script

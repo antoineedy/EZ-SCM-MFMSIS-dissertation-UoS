@@ -1,585 +1,0 @@
-[i 0801 10:25:44.131828 12 lock.py:85] Create lock file:/user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-3xe2/AMDEPYC755248-x9b/jittor.lock
-[i 0801 10:25:44.131855 28 lock.py:85] Create lock file:/user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-3xe2/AMDEPYC755248-x9b/jittor.lock
-[i 0801 10:25:44.132290 20 lock.py:85] Create lock file:/user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-3xe2/AMDEPYC755248-x9b/jittor.lock
-[i 0801 10:25:44.137510 72 lock.py:85] Create lock file:/user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-3xe2/AMDEPYC755248-x9b/jittor.lock
-[i 0801 10:25:44.242276 12 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
-[i 0801 10:25:44.249684 12 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
-[i 0801 10:25:44.249855 12 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-3xe2/AMDEPYC755248-x9b/default
-[i 0801 10:25:44.259401 12 __init__.py:411] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc.
-[i 0801 10:25:44.271276 12 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
-[i 0801 10:25:44.619926 12 compiler.py:1011] cuda key:cu11.0.221_sm_80
-[i 0801 10:25:44.693482 12 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-3xe2/AMDEPYC755248-x9b/default/cu11.0.221_sm_80
-[i 0801 10:25:44.696530 12 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-3xe2/AMDEPYC755248-x9b/default/cu11.0.221_sm_80/jit
-[i 0801 10:25:44.698046 12 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-3xe2/AMDEPYC755248-x9b/default/cu11.0.221_sm_80/obj_files
-[i 0801 10:25:44.699765 12 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-3xe2/AMDEPYC755248-x9b/default/cu11.0.221_sm_80/gen
-[i 0801 10:25:44.701248 12 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-3xe2/AMDEPYC755248-x9b/default/cu11.0.221_sm_80/tmp
-[i 0801 10:25:44.702806 12 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-3xe2/AMDEPYC755248-x9b/default/cu11.0.221_sm_80/checkpoints
-Compiling jittor_core(12/151) used: 2.176s eta: 25.211sCompiling jittor_core(13/151) used: 2.407s eta: 25.548sCompiling jittor_core(14/151) used: 2.440s eta: 23.874sCompiling jittor_core(15/151) used: 2.448s eta: 22.192sCompiling jittor_core(16/151) used: 2.695s eta: 22.739sCompiling jittor_core(17/151) used: 3.009s eta: 23.720sCompiling jittor_core(18/151) used: 3.020s eta: 22.315sCompiling jittor_core(19/151) used: 3.096s eta: 21.511sCompiling jittor_core(20/151) used: 3.318s eta: 21.734sCompiling jittor_core(21/151) used: 3.414s eta: 21.134sCompiling jittor_core(22/151) used: 3.533s eta: 20.717sCompiling jittor_core(23/151) used: 3.591s eta: 19.985sCompiling jittor_core(24/151) used: 3.671s eta: 19.424sCompiling jittor_core(25/151) used: 3.697s eta: 18.632sCompiling jittor_core(26/151) used: 4.053s eta: 19.486sCompiling jittor_core(27/151) used: 4.239s eta: 19.470sCompiling jittor_core(28/151) used: 4.246s eta: 18.652sCompiling jittor_core(29/151) used: 4.335s eta: 18.238sCompiling jittor_core(30/151) used: 4.554s eta: 18.370sCompiling jittor_core(31/151) used: 4.567s eta: 17.679sCompiling jittor_core(32/151) used: 4.568s eta: 16.986sCompiling jittor_core(33/151) used: 5.111s eta: 18.275sCompiling jittor_core(34/151) used: 5.343s eta: 18.388sCompiling jittor_core(35/151) used: 5.373s eta: 17.807sCompiling jittor_core(36/151) used: 5.552s eta: 17.735sCompiling jittor_core(37/151) used: 5.602s eta: 17.261sCompiling jittor_core(38/151) used: 5.654s eta: 16.812sCompiling jittor_core(39/151) used: 5.809s eta: 16.682sCompiling jittor_core(40/151) used: 5.893s eta: 16.352sCompiling jittor_core(41/151) used: 5.917s eta: 15.876sCompiling jittor_core(42/151) used: 5.948s eta: 15.436sCompiling jittor_core(43/151) used: 6.197s eta: 15.566sCompiling jittor_core(44/151) used: 6.230s eta: 15.151sCompiling jittor_core(45/151) used: 6.281s eta: 14.796sCompiling jittor_core(46/151) used: 6.677s eta: 15.240sCompiling jittor_core(47/151) used: 6.891s eta: 15.249sCompiling jittor_core(48/151) used: 6.904s eta: 14.814sCompiling jittor_core(49/151) used: 6.955s eta: 14.478sCompiling jittor_core(50/151) used: 6.987s eta: 14.114sCompiling jittor_core(51/151) used: 6.996s eta: 13.717sCompiling jittor_core(52/151) used: 7.281s eta: 13.862sCompiling jittor_core(53/151) used: 7.327s eta: 13.549sCompiling jittor_core(54/151) used: 7.503s eta: 13.477sCompiling jittor_core(55/151) used: 7.696s eta: 13.433sCompiling jittor_core(56/151) used: 7.924s eta: 13.443sCompiling jittor_core(57/151) used: 8.022s eta: 13.230sCompiling jittor_core(58/151) used: 8.204s eta: 13.155sCompiling jittor_core(59/151) used: 8.245s eta: 12.856sCompiling jittor_core(60/151) used: 8.299s eta: 12.586sCompiling jittor_core(61/151) used: 8.364s eta: 12.341sCompiling jittor_core(62/151) used: 8.392s eta: 12.047sCompiling jittor_core(63/151) used: 8.601s eta: 12.014sCompiling jittor_core(64/151) used: 8.633s eta: 11.735sCompiling jittor_core(65/151) used: 8.675s eta: 11.478sCompiling jittor_core(66/151) used: 8.817s eta: 11.355sCompiling jittor_core(67/151) used: 8.896s eta: 11.153sCompiling jittor_core(68/151) used: 9.140s eta: 11.157sCompiling jittor_core(69/151) used: 9.158s eta: 10.884sCompiling jittor_core(70/151) used: 9.160s eta: 10.600sCompiling jittor_core(71/151) used: 9.499s eta: 10.704sCompiling jittor_core(72/151) used: 9.503s eta: 10.426sCompiling jittor_core(73/151) used: 9.579s eta: 10.235sCompiling jittor_core(74/151) used: 9.602s eta: 9.991sCompiling jittor_core(75/151) used: 9.725s eta: 9.855sCompiling jittor_core(76/151) used: 9.771s eta: 9.642sCompiling jittor_core(77/151) used: 9.823s eta: 9.440sCompiling jittor_core(78/151) used: 9.870s eta: 9.238sCompiling jittor_core(79/151) used: 9.893s eta: 9.016sCompiling jittor_core(80/151) used: 9.940s eta: 8.822sCompiling jittor_core(81/151) used: 10.054s eta: 8.689sCompiling jittor_core(82/151) used: 10.242s eta: 8.618sCompiling jittor_core(83/151) used: 10.268s eta: 8.412sCompiling jittor_core(84/151) used: 10.412s eta: 8.305sCompiling jittor_core(85/151) used: 10.709s eta: 8.315sCompiling jittor_core(86/151) used: 10.946s eta: 8.273sCompiling jittor_core(87/151) used: 10.992s eta: 8.086sCompiling jittor_core(88/151) used: 11.073s eta: 7.927sCompiling jittor_core(89/151) used: 11.095s eta: 7.729sCompiling jittor_core(90/151) used: 11.152s eta: 7.559sCompiling jittor_core(91/151) used: 11.169s eta: 7.364sCompiling jittor_core(92/151) used: 11.445s eta: 7.340sCompiling jittor_core(93/151) used: 11.559s eta: 7.209sCompiling jittor_core(94/151) used: 11.621s eta: 7.047sCompiling jittor_core(95/151) used: 11.740s eta: 6.920sCompiling jittor_core(96/151) used: 11.842s eta: 6.785sCompiling jittor_core(97/151) used: 11.911s eta: 6.631sCompiling jittor_core(98/151) used: 11.993s eta: 6.486sCompiling jittor_core(99/151) used: 12.070s eta: 6.340sCompiling jittor_core(100/151) used: 12.078s eta: 6.160sCompiling jittor_core(101/151) used: 12.128s eta: 6.004sCompiling jittor_core(102/151) used: 12.280s eta: 5.899sCompiling jittor_core(103/151) used: 12.348s eta: 5.755sCompiling jittor_core(104/151) used: 12.528s eta: 5.662sCompiling jittor_core(105/151) used: 12.822s eta: 5.617sCompiling jittor_core(106/151) used: 12.880s eta: 5.468sCompiling jittor_core(107/151) used: 12.985s eta: 5.339sCompiling jittor_core(108/151) used: 13.143s eta: 5.233sCompiling jittor_core(109/151) used: 13.201s eta: 5.087sCompiling jittor_core(110/151) used: 13.381s eta: 4.987sCompiling jittor_core(111/151) used: 13.487s eta: 4.860sCompiling jittor_core(112/151) used: 13.505s eta: 4.703sCompiling jittor_core(113/151) used: 13.506s eta: 4.542sCompiling jittor_core(114/151) used: 13.508s eta: 4.384sCompiling jittor_core(115/151) used: 13.537s eta: 4.238sCompiling jittor_core(116/151) used: 13.868s eta: 4.184sCompiling jittor_core(117/151) used: 13.964s eta: 4.058sCompiling jittor_core(118/151) used: 14.159s eta: 3.960sCompiling jittor_core(119/151) used: 14.390s eta: 3.870sCompiling jittor_core(120/151) used: 14.479s eta: 3.740sCompiling jittor_core(121/151) used: 14.561s eta: 3.610sCompiling jittor_core(122/151) used: 14.770s eta: 3.511sCompiling jittor_core(123/151) used: 14.812s eta: 3.372sCompiling jittor_core(124/151) used: 14.840s eta: 3.231sCompiling jittor_core(125/151) used: 15.016s eta: 3.123sCompiling jittor_core(126/151) used: 15.085s eta: 2.993sCompiling jittor_core(127/151) used: 15.223s eta: 2.877sCompiling jittor_core(128/151) used: 15.299s eta: 2.749sCompiling jittor_core(129/151) used: 15.365s eta: 2.620sCompiling jittor_core(130/151) used: 15.488s eta: 2.502sCompiling jittor_core(131/151) used: 15.567s eta: 2.377sCompiling jittor_core(132/151) used: 15.682s eta: 2.257sCompiling jittor_core(133/151) used: 15.733s eta: 2.129sCompiling jittor_core(134/151) used: 15.773s eta: 2.001sCompiling jittor_core(135/151) used: 15.779s eta: 1.870sCompiling jittor_core(136/151) used: 15.786s eta: 1.741sCompiling jittor_core(137/151) used: 15.933s eta: 1.628sCompiling jittor_core(138/151) used: 16.133s eta: 1.520sCompiling jittor_core(139/151) used: 16.162s eta: 1.395sCompiling jittor_core(140/151) used: 16.213s eta: 1.274sCompiling jittor_core(141/151) used: 16.467s eta: 1.168sCompiling jittor_core(142/151) used: 16.509s eta: 1.046sCompiling jittor_core(143/151) used: 16.644s eta: 0.931sCompiling jittor_core(144/151) used: 16.875s eta: 0.820sCompiling jittor_core(145/151) used: 17.021s eta: 0.704sCompiling jittor_core(146/151) used: 17.077s eta: 0.585sCompiling jittor_core(147/151) used: 17.185s eta: 0.468sCompiling jittor_core(148/151) used: 18.352s eta: 0.372sCompiling jittor_core(149/151) used: 18.787s eta: 0.252sCompiling jittor_core(150/151) used: 19.302s eta: 0.129sCompiling jittor_core(151/151) used: 22.045s eta: 0.000s
-Compiling jittor_mpi_core(7/7) used: 2.702s eta: 0.000s
-Compiling libcutt(7/9) used: 2.527s eta: 0.722sCompiling libcutt(8/9) used: 6.303s eta: 0.788sCompiling libcutt(9/9) used: 12.882s eta: 0.000s
-Compiling gen_ops_cutt_transpose_cutt_test(4/4) used: 2.208s eta: 0.000s
-Compiling gen_ops_mkl_conv_mkl_conv_backward_w_mkl_test_mkl____hash4cc03b(3/7) used: 2.115s eta: 2.820sCompiling gen_ops_mkl_conv_mkl_conv_backward_w_mkl_test_mkl____hash4cc03b(4/7) used: 2.194s eta: 1.645sCompiling gen_ops_mkl_conv_mkl_conv_backward_w_mkl_test_mkl____hash4cc03b(5/7) used: 2.230s eta: 0.892sCompiling gen_ops_mkl_conv_mkl_conv_backward_w_mkl_test_mkl____hash4cc03b(6/7) used: 3.009s eta: 0.502sCompiling gen_ops_mkl_conv_mkl_conv_backward_w_mkl_test_mkl____hash4cc03b(7/7) used: 5.178s eta: 0.000s
-Compiling libcuda_extern(3/3) used: 3.108s eta: 0.000s
-Compiling gen_ops_cub_arg_reduce_cub_cumsum_cub_test_cub_arg___hashcd1b9a(6/6) used: 2.673s eta: 0.000s
-Compiling gen_ops_cublas_acc_matmul_cublas_batched_matmul_cu___hashe0fa5d(8/8) used: 3.193s eta: 0.000s
-Compiling gen_ops_cudnn_rnn_cudnn_conv_backward_w_cudnn_conv___hash8b3aa2(14/16) used: 2.019s eta: 0.288sCompiling gen_ops_cudnn_rnn_cudnn_conv_backward_w_cudnn_conv___hash8b3aa2(15/16) used: 2.167s eta: 0.144sCompiling gen_ops_cudnn_rnn_cudnn_conv_backward_w_cudnn_conv___hash8b3aa2(16/16) used: 5.267s eta: 0.000s
-Compiling gen_ops_curand_random(4/4) used: 2.141s eta: 0.000s
-Torch cache cleared
-Loading config from:  /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py
-Torch cache cleared
-Loading config from:  /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py
-Torch cache cleared
-Loading config from:  /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py
-Torch cache cleared
-Loading config from:  /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py
-Resize the pos_embed shape from (197, 768) to [1025,768,]
-Resize the pos_embed shape from (197, 768) to [1025,768,]
-Resize the pos_embed shape from (197, 768) to [1025,768,]
-Resize the pos_embed shape from (197, 768) to [1025,768,]
-Making visible mask for zero-shot setting: [  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
-  -1  -1  -1 255]
---------------------------------------
-Finetune layer in segmentor: backbone.prompt_embeddings
-Finetune layer in segmentor: backbone.deep_prompt_embeddings
-Finetune layer in segmentor: backbone.prompt_proj.weight
-Finetune layer in segmentor: backbone.prompt_proj.bias
-Finetune layer in segmentor: backbone.prompt_norm.weight
-Finetune layer in segmentor: backbone.prompt_norm.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.linear1.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.linear2.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.norm2.weight
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.norm2.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.norm3.weight
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.norm3.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.multihead_attn.q.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.multihead_attn.k.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.multihead_attn.v.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.0.multihead_attn.proj.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.linear1.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.linear2.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.norm2.weight
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.norm2.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.norm3.weight
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.norm3.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.multihead_attn.q.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.multihead_attn.k.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.multihead_attn.v.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.1.multihead_attn.proj.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.linear1.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.linear2.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.norm2.weight
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.norm2.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.norm3.weight
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.norm3.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.multihead_attn.q.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.multihead_attn.k.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.multihead_attn.v.bias
-Finetune layer in segmentor: decode_head.decoder_q.layers.2.multihead_attn.proj.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.linear1.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.linear2.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.norm2.weight
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.norm2.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.norm3.weight
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.norm3.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.multihead_attn.q.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.multihead_attn.k.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.multihead_attn.v.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.0.multihead_attn.proj.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.linear1.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.linear2.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.norm2.weight
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.norm2.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.norm3.weight
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.norm3.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.multihead_attn.q.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.multihead_attn.k.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.multihead_attn.v.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.1.multihead_attn.proj.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.linear1.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.linear2.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.norm2.weight
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.norm2.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.norm3.weight
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.norm3.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.multihead_attn.q.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.multihead_attn.k.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.multihead_attn.v.bias
-Finetune layer in segmentor: decode_head.decoder_v.layers.2.multihead_attn.proj.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.linear1.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.linear2.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.norm2.weight
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.norm2.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.norm3.weight
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.norm3.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.multihead_attn.q.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.multihead_attn.k.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.multihead_attn.v.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_q.0.multihead_attn.proj.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.linear1.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.linear2.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.norm2.weight
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.norm2.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.norm3.weight
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.norm3.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.multihead_attn.q.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.multihead_attn.k.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.multihead_attn.v.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.decouple_v.0.multihead_attn.proj.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.linear_q_in.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.linear_k_in.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.linear_q_out.bias
-Finetune layer in segmentor: decode_head.recovery_decoder.linear_k_out.bias
-Finetune layer in segmentor: decode_head.lateral_proj.bias
-Finetune layer in segmentor: decode_head.q_proj.bias
-CLASSES: &id003 !!python/tuple
-- aeroplane
-- bicycle
-- bird
-- boat
-- bottle
-- bus
-- car
-- cat
-- chair
-- cow
-- diningtable
-- dog
-- horse
-- motorbike
-- person
-- pottedplant
-- sheep
-- sofa
-- train
-- tvmonitor
-base: /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos
-base_class:
-- 0
-- 1
-- 2
-- 3
-- 4
-- 5
-- 6
-- 7
-- 8
-- 9
-- 10
-- 11
-- 12
-- 13
-- 14
-base_scratch: /mnt/fast/nobackup/scratch4weeks/ae01116
-both_class:
-- 0
-- 1
-- 2
-- 3
-- 4
-- 5
-- 6
-- 7
-- 8
-- 9
-- 10
-- 11
-- 12
-- 13
-- 14
-- 15
-- 16
-- 17
-- 18
-- 19
-checkpoint_interval: 2000
-crop_size: &id002 !!python/tuple
-- 512
-- 512
-cudnn_benchmark: true
-data:
-  samples_per_gpu: 4
-  test:
-    ann_dir: SegmentationClass
-    data_root: /mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012
-    img_dir: JPEGImages
-    pipeline:
-    - type: LoadImageFromFile
-    - flip: false
-      img_scale: &id001 !!python/tuple
-      - 2048
-      - 512
-      transforms:
-      - keep_ratio: true
-        min_size: 512
-        type: Resize
-      - type: RandomFlip
-      - mean:
-        - 123.675
-        - 116.28
-        - 103.53
-        std:
-        - 58.395
-        - 57.12
-        - 57.375
-        to_rgb: true
-        type: Normalize
-      - keys:
-        - img
-        type: ImageToTensor
-      - keys:
-        - img
-        type: Collect
-      type: MultiScaleFlipAug
-    split: ImageSets/Segmentation/val.txt
-    type: ZeroPascalVOCDataset20
-  train:
-    ann_dir:
-    - SegmentationClass
-    - SegmentationClassAug
-    data_root: /mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012
-    img_dir: JPEGImages
-    pipeline:
-    - type: LoadImageFromFile
-    - reduce_zero_label: true
-      type: LoadAnnotations
-    - img_scale: *id001
-      ratio_range: &id004 !!python/tuple
-      - 0.5
-      - 2.0
-      type: Resize
-    - cat_max_ratio: 0.75
-      crop_size: *id002
-      type: RandomCrop
-    - prob: 0.5
-      type: RandomFlip
-    - type: PhotoMetricDistortion
-    - mean:
-      - 123.675
-      - 116.28
-      - 103.53
-      std:
-      - 58.395
-      - 57.12
-      - 57.375
-      to_rgb: true
-      type: Normalize
-    - pad_val: 0
-      seg_pad_val: 255
-      size: *id002
-      type: Pad
-    - type: DefaultFormatBundle
-    - keys:
-      - img
-      - gt_semantic_seg
-      type: Collect
-    split:
-    - ImageSets/Segmentation/train.txt
-    - ImageSets/Segmentation/aug.txt
-    type: ZeroPascalVOCDataset20
-  val:
-    ann_dir: SegmentationClass
-    data_root: /mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012
-    img_dir: JPEGImages
-    pipeline:
-    - type: LoadImageFromFile
-    - flip: false
-      img_scale: *id001
-      transforms:
-      - keep_ratio: true
-        min_size: 512
-        type: Resize
-      - type: RandomFlip
-      - mean:
-        - 123.675
-        - 116.28
-        - 103.53
-        std:
-        - 58.395
-        - 57.12
-        - 57.375
-        to_rgb: true
-        type: Normalize
-      - keys:
-        - img
-        type: ImageToTensor
-      - keys:
-        - img
-        type: Collect
-      type: MultiScaleFlipAug
-    split: ImageSets/Segmentation/val.txt
-    type: ZeroPascalVOCDataset20
-  workers_per_gpu: 4
-data_root: /mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012
-dataset_type: ZeroPascalVOCDataset20
-dist_params:
-  backend: nccl
-eval_interval: 2000
-find_unused_parameters: true
-img_norm_cfg:
-  mean:
-  - 123.675
-  - 116.28
-  - 103.53
-  std:
-  - 58.395
-  - 57.12
-  - 57.375
-  to_rgb: true
-img_size: 512
-in_channels: 512
-load_from: null
-log_config:
-  hooks:
-  - by_epoch: false
-    type: TextLoggerHook
-  interval: 50
-log_level: INFO
-max_iter: 40000
-model:
-  backbone:
-    drop_path_rate: 0.1
-    get_embeddings: true
-    input_resolution: 512
-    layers: 12
-    num_tokens: 10
-    out_indices:
-    - 11
-    output_dim: 512
-    patch_size: 16
-    prompt_dim: 768
-    region_level_bridge_size: 16
-    total_d_layer: 11
-    type: CLIPVisionTransformerWithRLB
-    width: 768
-  base_class:
-  - 0
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
-  - 9
-  - 10
-  - 11
-  - 12
-  - 13
-  - 14
-  both_class:
-  - 0
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
-  - 9
-  - 10
-  - 11
-  - 12
-  - 13
-  - 14
-  - 15
-  - 16
-  - 17
-  - 18
-  - 19
-  class_names: *id003
-  decode_head:
-    all_idx:
-    - 0
-    - 1
-    - 2
-    - 3
-    - 4
-    - 5
-    - 6
-    - 7
-    - 8
-    - 9
-    - 10
-    - 11
-    - 12
-    - 13
-    - 14
-    - 15
-    - 16
-    - 17
-    - 18
-    - 19
-    channels: 512
-    embed_dims: 512
-    img_size: 512
-    in_channels: 512
-    num_classes: 15
-    num_heads: 8
-    num_layers: 3
-    seen_idx:
-    - 0
-    - 1
-    - 2
-    - 3
-    - 4
-    - 5
-    - 6
-    - 7
-    - 8
-    - 9
-    - 10
-    - 11
-    - 12
-    - 13
-    - 14
-    type: ATMSingleHeadSeg
-    use_proj: false
-    use_stages: 1
-  exclude_key: prompt
-  ft_backbone: false
-  load_text_embedding: /mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/_base_/datasets/text_embedding/voc12_single.npy
-  novel_class:
-  - 15
-  - 16
-  - 17
-  - 18
-  - 19
-  pretrained: /mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16-RC-CLIP.pkl
-  pretrained_text: /mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16-RC-CLIP.pkl
-  test_cfg:
-    crop_size: !!python/tuple
-    - 512
-    - 512
-    mode: slide
-    stride: !!python/tuple
-    - 426
-    - 426
-  text_encoder:
-    context_length: 77
-    embed_dim: 512
-    pretrained: /mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16-RC-CLIP.pkl
-    transformer_heads: 8
-    transformer_layers: 12
-    transformer_width: 512
-    type: CLIPTextEncoder
-  type: CLIPRC
-name: clip_rc_zero_vit-b_512x512_40k_voc_10_16
-novel_class:
-- 15
-- 16
-- 17
-- 18
-- 19
-optimizer:
-  betas: !!python/tuple
-  - 0.9
-  - 0.999
-  lr: 2.0e-05
-  type: CustomAdamW
-  weight_decay: 0.01
-out_indices:
-- 11
-parameter_groups_generator:
-  custom_keys:
-    backbone:
-      lr_mult: 10.0
-    head:
-      lr_mult: 10.0
-    ln:
-      decay_mult: 0.0
-    norm:
-      decay_mult: 0.0
-    text_encoder:
-      lr_mult: 0.0
-  type: CustomPrameterGroupsGenerator
-pretrained: /mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16-RC-CLIP.pkl
-region_level_bridge_size: 16
-resume_from: null
-scheduler:
-  max_steps: 40000
-  min_lr: 1.0e-06
-  power: 0.9
-  type: PolyLR
-  warmup: linear
-  warmup_iters: 1500
-  warmup_ratio: 1.0e-06
-test_pipeline:
-- type: LoadImageFromFile
-- flip: false
-  img_scale: *id001
-  transforms:
-  - keep_ratio: true
-    min_size: 512
-    type: Resize
-  - type: RandomFlip
-  - mean:
-    - 123.675
-    - 116.28
-    - 103.53
-    std:
-    - 58.395
-    - 57.12
-    - 57.375
-    to_rgb: true
-    type: Normalize
-  - keys:
-    - img
-    type: ImageToTensor
-  - keys:
-    - img
-    type: Collect
-  type: MultiScaleFlipAug
-train_pipeline:
-- type: LoadImageFromFile
-- reduce_zero_label: true
-  type: LoadAnnotations
-- img_scale: *id001
-  ratio_range: *id004
-  type: Resize
-- cat_max_ratio: 0.75
-  crop_size: *id002
-  type: RandomCrop
-- prob: 0.5
-  type: RandomFlip
-- type: PhotoMetricDistortion
-- mean:
-  - 123.675
-  - 116.28
-  - 103.53
-  std:
-  - 58.395
-  - 57.12
-  - 57.375
-  to_rgb: true
-  type: Normalize
-- pad_val: 0
-  seg_pad_val: 255
-  size: *id002
-  type: Pad
-- type: DefaultFormatBundle
-- keys:
-  - img
-  - gt_semantic_seg
-  type: Collect
-work_dir: work_dirs/clip_rc_zero_vit-b_512x512_40k_voc_10_16
-workflow:
-- !!python/tuple
-  - train
-  - 1
-
-Beginning training script

@@ -1,1018 +1,0 @@
-[i 0807 13:57:00.958594 92 lock.py:85] Create lock file:/user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x39/AMDEPYC750232-x2a/jittor.lock
-[i 0807 13:57:00.993579 92 compiler.py:956] Jittor(1.3.8.5) src: /mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/lib/python3.9/site-packages/jittor
-[i 0807 13:57:00.997622 92 compiler.py:957] g++ at /usr/bin/g++(7.5.0)
-[i 0807 13:57:00.997717 92 compiler.py:958] cache_path: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x39/AMDEPYC750232-x2a/default
-[i 0807 13:57:01.003950 92 __init__.py:411] Found nvcc(11.0.221) at /usr/local/cuda/bin/nvcc.
-[i 0807 13:57:01.009376 92 __init__.py:411] Found addr2line(2.30) at /usr/bin/addr2line.
-[i 0807 13:57:01.133359 92 compiler.py:1011] cuda key:cu11.0.221_sm_75
-[i 0807 13:57:01.170643 92 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x39/AMDEPYC750232-x2a/default/cu11.0.221_sm_75
-[i 0807 13:57:01.173635 92 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x39/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/jit
-[i 0807 13:57:01.175112 92 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x39/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/obj_files
-[i 0807 13:57:01.176717 92 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x39/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/gen
-[i 0807 13:57:01.178195 92 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x39/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/tmp
-[i 0807 13:57:01.179864 92 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x39/AMDEPYC750232-x2a/default/cu11.0.221_sm_75/checkpoints
-Compiling jittor_core(27/151) used: 2.009s eta: 9.225sCompiling jittor_core(28/151) used: 2.081s eta: 9.143sCompiling jittor_core(29/151) used: 2.149s eta: 9.039sCompiling jittor_core(30/151) used: 2.195s eta: 8.852sCompiling jittor_core(31/151) used: 2.486s eta: 9.623sCompiling jittor_core(32/151) used: 2.689s eta: 9.999sCompiling jittor_core(33/151) used: 2.719s eta: 9.721sCompiling jittor_core(34/151) used: 2.744s eta: 9.443sCompiling jittor_core(35/151) used: 2.818s eta: 9.340sCompiling jittor_core(36/151) used: 2.880s eta: 9.200sCompiling jittor_core(37/151) used: 2.925s eta: 9.011sCompiling jittor_core(38/151) used: 2.958s eta: 8.797sCompiling jittor_core(39/151) used: 2.968s eta: 8.523sCompiling jittor_core(40/151) used: 3.076s eta: 8.537sCompiling jittor_core(41/151) used: 3.210s eta: 8.612sCompiling jittor_core(42/151) used: 3.304s eta: 8.575sCompiling jittor_core(43/151) used: 3.384s eta: 8.499sCompiling jittor_core(44/151) used: 3.426s eta: 8.333sCompiling jittor_core(45/151) used: 3.430s eta: 8.080sCompiling jittor_core(46/151) used: 3.470s eta: 7.922sCompiling jittor_core(47/151) used: 3.543s eta: 7.840sCompiling jittor_core(48/151) used: 3.619s eta: 7.765sCompiling jittor_core(49/151) used: 3.705s eta: 7.713sCompiling jittor_core(50/151) used: 3.714s eta: 7.501sCompiling jittor_core(51/151) used: 3.734s eta: 7.321sCompiling jittor_core(52/151) used: 3.808s eta: 7.251sCompiling jittor_core(53/151) used: 3.932s eta: 7.270sCompiling jittor_core(54/151) used: 3.965s eta: 7.123sCompiling jittor_core(55/151) used: 4.009s eta: 6.998sCompiling jittor_core(56/151) used: 4.049s eta: 6.868sCompiling jittor_core(57/151) used: 4.052s eta: 6.682sCompiling jittor_core(58/151) used: 4.117s eta: 6.602sCompiling jittor_core(59/151) used: 4.122s eta: 6.427sCompiling jittor_core(60/151) used: 4.267s eta: 6.472sCompiling jittor_core(61/151) used: 4.431s eta: 6.538sCompiling jittor_core(62/151) used: 4.474s eta: 6.422sCompiling jittor_core(63/151) used: 4.475s eta: 6.250sCompiling jittor_core(64/151) used: 4.572s eta: 6.215sCompiling jittor_core(65/151) used: 4.580s eta: 6.060sCompiling jittor_core(66/151) used: 4.657s eta: 5.997sCompiling jittor_core(67/151) used: 4.786s eta: 6.000sCompiling jittor_core(68/151) used: 4.814s eta: 5.876sCompiling jittor_core(69/151) used: 4.927s eta: 5.856sCompiling jittor_core(70/151) used: 5.171s eta: 5.984sCompiling jittor_core(71/151) used: 5.183s eta: 5.840sCompiling jittor_core(72/151) used: 5.207s eta: 5.713sCompiling jittor_core(73/151) used: 5.222s eta: 5.580sCompiling jittor_core(74/151) used: 5.238s eta: 5.450sCompiling jittor_core(75/151) used: 5.323s eta: 5.394sCompiling jittor_core(76/151) used: 5.478s eta: 5.406sCompiling jittor_core(77/151) used: 5.573s eta: 5.356sCompiling jittor_core(78/151) used: 5.724s eta: 5.358sCompiling jittor_core(79/151) used: 5.750s eta: 5.241sCompiling jittor_core(80/151) used: 5.779s eta: 5.129sCompiling jittor_core(81/151) used: 5.845s eta: 5.052sCompiling jittor_core(82/151) used: 5.869s eta: 4.938sCompiling jittor_core(83/151) used: 5.884s eta: 4.821sCompiling jittor_core(84/151) used: 5.940s eta: 4.738sCompiling jittor_core(85/151) used: 5.982s eta: 4.645sCompiling jittor_core(86/151) used: 6.125s eta: 4.629sCompiling jittor_core(87/151) used: 6.166s eta: 4.536sCompiling jittor_core(88/151) used: 6.494s eta: 4.649sCompiling jittor_core(89/151) used: 6.496s eta: 4.525sCompiling jittor_core(90/151) used: 6.550s eta: 4.440sCompiling jittor_core(91/151) used: 6.619s eta: 4.364sCompiling jittor_core(92/151) used: 6.626s eta: 4.249sCompiling jittor_core(93/151) used: 6.932s eta: 4.323sCompiling jittor_core(94/151) used: 6.938s eta: 4.207sCompiling jittor_core(95/151) used: 6.941s eta: 4.092sCompiling jittor_core(96/151) used: 6.946s eta: 3.980sCompiling jittor_core(97/151) used: 6.966s eta: 3.878sCompiling jittor_core(98/151) used: 6.979s eta: 3.775sCompiling jittor_core(99/151) used: 7.013s eta: 3.683sCompiling jittor_core(100/151) used: 7.081s eta: 3.611sCompiling jittor_core(101/151) used: 7.167s eta: 3.548sCompiling jittor_core(102/151) used: 7.197s eta: 3.457sCompiling jittor_core(103/151) used: 7.323s eta: 3.413sCompiling jittor_core(104/151) used: 7.398s eta: 3.343sCompiling jittor_core(105/151) used: 7.461s eta: 3.268sCompiling jittor_core(106/151) used: 7.508s eta: 3.187sCompiling jittor_core(107/151) used: 7.548s eta: 3.104sCompiling jittor_core(108/151) used: 7.572s eta: 3.015sCompiling jittor_core(109/151) used: 7.591s eta: 2.925sCompiling jittor_core(110/151) used: 7.668s eta: 2.858sCompiling jittor_core(111/151) used: 7.679s eta: 2.767sCompiling jittor_core(112/151) used: 7.680s eta: 2.674sCompiling jittor_core(113/151) used: 7.704s eta: 2.591sCompiling jittor_core(114/151) used: 7.705s eta: 2.501sCompiling jittor_core(115/151) used: 7.799s eta: 2.441sCompiling jittor_core(116/151) used: 7.891s eta: 2.381sCompiling jittor_core(117/151) used: 7.899s eta: 2.295sCompiling jittor_core(118/151) used: 7.956s eta: 2.225sCompiling jittor_core(119/151) used: 7.957s eta: 2.140sCompiling jittor_core(120/151) used: 8.059s eta: 2.082sCompiling jittor_core(121/151) used: 8.060s eta: 1.998sCompiling jittor_core(122/151) used: 8.089s eta: 1.923sCompiling jittor_core(123/151) used: 8.354s eta: 1.902sCompiling jittor_core(124/151) used: 8.420s eta: 1.833sCompiling jittor_core(125/151) used: 8.452s eta: 1.758sCompiling jittor_core(126/151) used: 8.455s eta: 1.678sCompiling jittor_core(127/151) used: 8.495s eta: 1.605sCompiling jittor_core(128/151) used: 8.543s eta: 1.535sCompiling jittor_core(129/151) used: 8.545s eta: 1.457sCompiling jittor_core(130/151) used: 8.548s eta: 1.381sCompiling jittor_core(131/151) used: 8.578s eta: 1.310sCompiling jittor_core(132/151) used: 8.644s eta: 1.244sCompiling jittor_core(133/151) used: 8.669s eta: 1.173sCompiling jittor_core(134/151) used: 8.726s eta: 1.107sCompiling jittor_core(135/151) used: 8.774s eta: 1.040sCompiling jittor_core(136/151) used: 8.802s eta: 0.971sCompiling jittor_core(137/151) used: 8.906s eta: 0.910sCompiling jittor_core(138/151) used: 8.943s eta: 0.842sCompiling jittor_core(139/151) used: 9.026s eta: 0.779sCompiling jittor_core(140/151) used: 9.065s eta: 0.712sCompiling jittor_core(141/151) used: 9.124s eta: 0.647sCompiling jittor_core(142/151) used: 9.157s eta: 0.580sCompiling jittor_core(143/151) used: 9.229s eta: 0.516sCompiling jittor_core(144/151) used: 9.482s eta: 0.461sCompiling jittor_core(145/151) used: 9.847s eta: 0.407sCompiling jittor_core(146/151) used: 10.399s eta: 0.356sCompiling jittor_core(147/151) used: 10.547s eta: 0.287sCompiling jittor_core(148/151) used: 10.582s eta: 0.214sCompiling jittor_core(149/151) used: 10.668s eta: 0.143sCompiling jittor_core(150/151) used: 11.005s eta: 0.073sCompiling jittor_core(151/151) used: 17.217s eta: 0.000s
-Compiling libcutt(8/9) used: 3.673s eta: 0.459sCompiling libcutt(9/9) used: 7.788s eta: 0.000s
-Compiling gen_ops_mkl_test_mkl_conv_backward_x_mkl_matmul_mk___hash16649c(7/7) used: 2.177s eta: 0.000s
-Compiling gen_ops_cudnn_test_cudnn_conv3d_backward_w_cudnn_c___hashca4f2c(16/16) used: 3.233s eta: 0.000s
-step 0, loss = 0.8328441381454468 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 1, loss = 0.5198176503181458 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 2, loss = 0.6351378560066223 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 3, loss = 0.4140093922615051 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 4, loss = 0.3204501271247864 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 5, loss = 0.44037774205207825 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 6, loss = 0.18288762867450714 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 7, loss = 0.2611086070537567 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 8, loss = 0.22653912007808685 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 9, loss = 0.21002896130084991 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 10, loss = 0.1303851455450058 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 11, loss = 0.20395444333553314 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 12, loss = 0.14337126910686493 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 13, loss = 0.08256898820400238 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 14, loss = 0.10406483709812164 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 15, loss = 0.12527938187122345 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 16, loss = 0.09392567723989487 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 17, loss = 0.10157683491706848 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 18, loss = 0.0933321863412857 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 19, loss = 0.10284028947353363 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 20, loss = 0.09271053969860077 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 21, loss = 0.09947265684604645 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 22, loss = 0.10170020163059235 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 23, loss = 0.09251629561185837 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 24, loss = 0.10525894910097122 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 25, loss = 0.10247665643692017 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 26, loss = 0.10232849419116974 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 27, loss = 0.07922419160604477 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 28, loss = 0.08537382632493973 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 29, loss = 0.09615754336118698 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 30, loss = 0.08759747445583344 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 31, loss = 0.09079186618328094 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 32, loss = 0.09055172652006149 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 33, loss = 0.07319293916225433 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 34, loss = 0.08558554947376251 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 35, loss = 0.07897347956895828 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 36, loss = 0.08832217007875443 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 37, loss = 0.08432500064373016 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 38, loss = 0.07898660749197006 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 39, loss = 0.07946257293224335 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 40, loss = 0.07277138531208038 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 41, loss = 0.06747633218765259 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 42, loss = 0.07113231718540192 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 43, loss = 0.09355384856462479 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 44, loss = 0.08443115651607513 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 45, loss = 0.07502690702676773 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 46, loss = 0.08012191951274872 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 47, loss = 0.07984857261180878 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 48, loss = 0.08165553212165833 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 49, loss = 0.06320798397064209 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 50, loss = 0.08248129487037659 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 51, loss = 0.08470156043767929 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 52, loss = 0.06700315326452255 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 53, loss = 0.07387549430131912 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 54, loss = 0.06990643590688705 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 55, loss = 0.06564616411924362 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 56, loss = 0.09245340526103973 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 57, loss = 0.08479616791009903 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 58, loss = 0.08421363681554794 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 59, loss = 0.07718760520219803 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 60, loss = 0.06885847449302673 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 61, loss = 0.0663505420088768 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 62, loss = 0.08464567363262177 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 63, loss = 0.05675854906439781 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 64, loss = 0.07758476585149765 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 65, loss = 0.09627551585435867 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 66, loss = 0.08779618889093399 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 67, loss = 0.0696396753191948 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 68, loss = 0.06639474630355835 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 69, loss = 0.07093232125043869 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 70, loss = 0.06611686944961548 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 71, loss = 0.06787004321813583 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 72, loss = 0.06582333892583847 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 73, loss = 0.07895561307668686 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 74, loss = 0.046645257622003555 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 75, loss = 0.08718133717775345 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 76, loss = 0.0690113976597786 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 77, loss = 0.05220109224319458 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 78, loss = 0.05122110992670059 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 79, loss = 0.06660400331020355 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 80, loss = 0.07528485357761383 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 81, loss = 0.06267013400793076 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 82, loss = 0.06649570912122726 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 83, loss = 0.04760845750570297 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 84, loss = 0.07461515069007874 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 85, loss = 0.06239777430891991 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 86, loss = 0.0732925534248352 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 87, loss = 0.04644312337040901 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 88, loss = 0.06505735963582993 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 89, loss = 0.053730353713035583 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 90, loss = 0.04999210685491562 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 91, loss = 0.059629958122968674 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 92, loss = 0.07278402149677277 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 93, loss = 0.05510375276207924 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 94, loss = 0.05741705000400543 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 95, loss = 0.053726304322481155 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 96, loss = 0.06136232241988182 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 97, loss = 0.07052282243967056 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 98, loss = 0.06253189593553543 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 99, loss = 0.06646624207496643 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 100, loss = 0.04237673059105873 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 101, loss = 0.05763385817408562 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 102, loss = 0.06397132575511932 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 103, loss = 0.06462839990854263 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 104, loss = 0.05747740715742111 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 105, loss = 0.07362127304077148 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 106, loss = 0.060619425028562546 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 107, loss = 0.051979612559080124 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 108, loss = 0.06032789126038551 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 109, loss = 0.06123746559023857 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 110, loss = 0.05643658712506294 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 111, loss = 0.06738597899675369 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 112, loss = 0.06606127321720123 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 113, loss = 0.06317369639873505 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 114, loss = 0.0677548497915268 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 115, loss = 0.06626521795988083 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 116, loss = 0.04993832856416702 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 117, loss = 0.05385326221585274 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 118, loss = 0.05827454850077629 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 119, loss = 0.05137113854289055 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 120, loss = 0.05660410597920418 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 121, loss = 0.051847852766513824 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 122, loss = 0.06118848919868469 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 123, loss = 0.05250803753733635 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 124, loss = 0.05258562043309212 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 125, loss = 0.051791224628686905 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 126, loss = 0.04106651991605759 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 127, loss = 0.04206172376871109 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 128, loss = 0.044996216893196106 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 129, loss = 0.07239391654729843 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 130, loss = 0.04855528846383095 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 131, loss = 0.04054715111851692 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 132, loss = 0.04504208639264107 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 133, loss = 0.049215562641620636 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 134, loss = 0.062358055263757706 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 135, loss = 0.06391678005456924 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 136, loss = 0.06170244887471199 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 137, loss = 0.06258966773748398 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 138, loss = 0.044898372143507004 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 139, loss = 0.04665561765432358 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 140, loss = 0.04885188490152359 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 141, loss = 0.04354511573910713 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 142, loss = 0.04916689172387123 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 143, loss = 0.06907110661268234 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 144, loss = 0.04272284358739853 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 145, loss = 0.05954453721642494 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 146, loss = 0.0472642257809639 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 147, loss = 0.057508211582899094 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 148, loss = 0.045991357415914536 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 149, loss = 0.053646404296159744 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 150, loss = 0.0572209432721138 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 151, loss = 0.04355030134320259 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 152, loss = 0.047677285969257355 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 153, loss = 0.04253864288330078 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 154, loss = 0.04356302693486214 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 155, loss = 0.04439323768019676 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 156, loss = 0.03951762616634369 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 157, loss = 0.0444922149181366 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 158, loss = 0.051483746618032455 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 159, loss = 0.03643249347805977 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 160, loss = 0.04188159853219986 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 161, loss = 0.038936249911785126 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 162, loss = 0.031503528356552124 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 163, loss = 0.039973948150873184 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 164, loss = 0.037462856620550156 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 165, loss = 0.04349871724843979 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 166, loss = 0.030302761122584343 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 167, loss = 0.03606133908033371 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 168, loss = 0.042075131088495255 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 169, loss = 0.04374032840132713 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 170, loss = 0.025909416377544403 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 171, loss = 0.037728019058704376 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 172, loss = 0.03853893652558327 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 173, loss = 0.044964179396629333 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 174, loss = 0.04442393779754639 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 175, loss = 0.03355154022574425 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 176, loss = 0.03588181734085083 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 177, loss = 0.03588821738958359 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 178, loss = 0.04084175080060959 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 179, loss = 0.04592140018939972 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 180, loss = 0.04638293385505676 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 181, loss = 0.03535643592476845 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 182, loss = 0.037130117416381836 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 183, loss = 0.043335869908332825 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 184, loss = 0.029865313321352005 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 185, loss = 0.0481116808950901 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 186, loss = 0.0319950170814991 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 187, loss = 0.032306525856256485 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 188, loss = 0.027352306991815567 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 189, loss = 0.028802212327718735 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 190, loss = 0.032808657735586166 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 191, loss = 0.034080665558576584 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 192, loss = 0.03318679332733154 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 193, loss = 0.033747680485248566 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 194, loss = 0.03695158660411835 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 195, loss = 0.047209978103637695 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 196, loss = 0.03142694756388664 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 197, loss = 0.03382568806409836 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 198, loss = 0.03439631313085556 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 199, loss = 0.034680332988500595 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 200, loss = 0.03633549436926842 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 201, loss = 0.03506496921181679 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 202, loss = 0.028010882437229156 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 203, loss = 0.02786276303231716 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 204, loss = 0.029804756864905357 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 205, loss = 0.0284674484282732 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 206, loss = 0.023828571662306786 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 207, loss = 0.024625709280371666 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 208, loss = 0.023897306993603706 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 209, loss = 0.039057407528162 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 210, loss = 0.02053540013730526 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 211, loss = 0.025165243074297905 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 212, loss = 0.027056602761149406 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 213, loss = 0.020891442894935608 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 214, loss = 0.029269389808177948 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 215, loss = 0.019464146345853806 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 216, loss = 0.026869280263781548 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 217, loss = 0.026743536815047264 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 218, loss = 0.021562879905104637 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 219, loss = 0.025110473856329918 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 220, loss = 0.025450050830841064 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 221, loss = 0.025533292442560196 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 222, loss = 0.02648182213306427 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 223, loss = 0.01862271875143051 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 224, loss = 0.02761668525636196 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 225, loss = 0.03286540508270264 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 226, loss = 0.031842783093452454 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 227, loss = 0.01966693252325058 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 228, loss = 0.023363839834928513 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 229, loss = 0.018804052844643593 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 230, loss = 0.019528232514858246 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 231, loss = 0.019364435225725174 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 232, loss = 0.023756835609674454 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 233, loss = 0.02259022556245327 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 234, loss = 0.024340705946087837 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 235, loss = 0.017535248771309853 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 236, loss = 0.020798886194825172 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 237, loss = 0.0192649494856596 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 238, loss = 0.022122347727417946 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 239, loss = 0.017408648505806923 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 240, loss = 0.022597767412662506 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 241, loss = 0.014810748398303986 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 242, loss = 0.017067622393369675 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 243, loss = 0.020923838019371033 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 244, loss = 0.015060327015817165 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 245, loss = 0.019922124221920967 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 246, loss = 0.01884620450437069 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 247, loss = 0.0139467166736722 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 248, loss = 0.01699112541973591 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 249, loss = 0.017787013202905655 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 250, loss = 0.013602950610220432 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 251, loss = 0.014399704523384571 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 252, loss = 0.0177925918251276 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 253, loss = 0.012928145937621593 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 254, loss = 0.016217399388551712 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 255, loss = 0.016488881781697273 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 256, loss = 0.020361775532364845 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 257, loss = 0.017359113320708275 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 258, loss = 0.020996050909161568 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 259, loss = 0.013869153335690498 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 260, loss = 0.013567836955189705 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 261, loss = 0.016204439103603363 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 262, loss = 0.013301222585141659 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 263, loss = 0.012250959873199463 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 264, loss = 0.012032871134579182 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 265, loss = 0.013550449162721634 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 266, loss = 0.016739726066589355 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 267, loss = 0.009948261082172394 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 268, loss = 0.013914577662944794 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 269, loss = 0.012450910173356533 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 270, loss = 0.010645328089594841 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 271, loss = 0.008294548839330673 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 272, loss = 0.015559731051325798 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 273, loss = 0.014102629385888577 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 274, loss = 0.01539611630141735 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 275, loss = 0.01362988818436861 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 276, loss = 0.012298907153308392 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 277, loss = 0.012379019521176815 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 278, loss = 0.007838391698896885 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 279, loss = 0.017566630616784096 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 280, loss = 0.014950839802622795 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 281, loss = 0.010754021815955639 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 282, loss = 0.011466387659311295 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 283, loss = 0.016341611742973328 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 284, loss = 0.014517761766910553 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 285, loss = 0.01104872114956379 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 286, loss = 0.009926204569637775 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 287, loss = 0.007228499744087458 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 288, loss = 0.010189373046159744 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 289, loss = 0.008233211934566498 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 290, loss = 0.01120521780103445 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 291, loss = 0.011781682260334492 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 292, loss = 0.011653320863842964 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 293, loss = 0.011484913527965546 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 294, loss = 0.01179631520062685 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 295, loss = 0.01083834283053875 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 296, loss = 0.012743339873850346 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 297, loss = 0.012385830283164978 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 298, loss = 0.008362562395632267 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 299, loss = 0.011651979759335518 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 300, loss = 0.010149974375963211 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 301, loss = 0.012064099311828613 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 302, loss = 0.013895461335778236 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 303, loss = 0.012360505759716034 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 304, loss = 0.013847431167960167 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 305, loss = 0.008835372515022755 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 306, loss = 0.009206987917423248 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 307, loss = 0.01064517442137003 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 308, loss = 0.007517601363360882 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 309, loss = 0.009999465197324753 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 310, loss = 0.009954228065907955 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 311, loss = 0.009428909048438072 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 312, loss = 0.009498056955635548 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 313, loss = 0.01263072993606329 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 314, loss = 0.00875830464065075 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 315, loss = 0.004709677770733833 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 316, loss = 0.005898796953260899 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 317, loss = 0.007639905903488398 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 318, loss = 0.006669121328741312 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 319, loss = 0.010621951892971992 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 320, loss = 0.009172413498163223 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 321, loss = 0.009470563381910324 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 322, loss = 0.009916070848703384 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 323, loss = 0.006607058458030224 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 324, loss = 0.009466123767197132 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 325, loss = 0.011117694899439812 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 326, loss = 0.009644957259297371 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 327, loss = 0.007229211274534464 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 328, loss = 0.00814061425626278 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 329, loss = 0.006168016232550144 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 330, loss = 0.010341322980821133 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 331, loss = 0.007931859232485294 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 332, loss = 0.008004088886082172 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 333, loss = 0.008828110992908478 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 334, loss = 0.007435763720422983 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 335, loss = 0.007784823887050152 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 336, loss = 0.0044100526720285416 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 337, loss = 0.006688386667519808 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 338, loss = 0.007692267652601004 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 339, loss = 0.008925721049308777 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 340, loss = 0.0066808960400521755 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 341, loss = 0.006440870929509401 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 342, loss = 0.006720004137605429 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 343, loss = 0.007817093282938004 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 344, loss = 0.00679117301478982 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 345, loss = 0.007675961125642061 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 346, loss = 0.007967142388224602 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 347, loss = 0.006347667425870895 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 348, loss = 0.00809022132307291 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 349, loss = 0.005864754784852266 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 350, loss = 0.006506651174277067 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 351, loss = 0.0063809663988649845 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 352, loss = 0.00619232514873147 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 353, loss = 0.008319933898746967 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 354, loss = 0.0059645529836416245 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 355, loss = 0.005936181638389826 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 356, loss = 0.006230438128113747 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 357, loss = 0.007012620102614164 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 358, loss = 0.008350228890776634 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 359, loss = 0.00592438830062747 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 360, loss = 0.006955704651772976 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 361, loss = 0.004395059309899807 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 362, loss = 0.004975337069481611 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 363, loss = 0.0049680364318192005 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 364, loss = 0.005201734136790037 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 365, loss = 0.005606843624264002 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 366, loss = 0.007520414888858795 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 367, loss = 0.005871440749615431 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 368, loss = 0.0046608480624854565 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 369, loss = 0.007246738765388727 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 370, loss = 0.006953350268304348 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 371, loss = 0.0084795281291008 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 372, loss = 0.005520104896277189 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 373, loss = 0.007179411593824625 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 374, loss = 0.0059652384370565414 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 375, loss = 0.006457248702645302 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 376, loss = 0.005696173757314682 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 377, loss = 0.004411463160067797 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 378, loss = 0.00590894091874361 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 379, loss = 0.005412086378782988 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 380, loss = 0.00455109728500247 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 381, loss = 0.006194553803652525 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 382, loss = 0.0064558228477835655 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 383, loss = 0.0061802249401807785 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 384, loss = 0.005244039930403233 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 385, loss = 0.006888063158839941 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 386, loss = 0.005446244962513447 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 387, loss = 0.005681231152266264 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 388, loss = 0.004565706942230463 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 389, loss = 0.004028434865176678 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 390, loss = 0.00648431247100234 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 391, loss = 0.005240160971879959 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 392, loss = 0.00559372128918767 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 393, loss = 0.0037593389861285686 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 394, loss = 0.007526397239416838 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 395, loss = 0.004951324313879013 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 396, loss = 0.005089899059385061 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 397, loss = 0.006639888975769281 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 398, loss = 0.004798447247594595 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 399, loss = 0.004718046635389328 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 400, loss = 0.00535324914380908 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 401, loss = 0.00520115764811635 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 402, loss = 0.005724040791392326 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 403, loss = 0.0037517137825489044 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 404, loss = 0.005281591322273016 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 405, loss = 0.005078746005892754 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 406, loss = 0.007781327236443758 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 407, loss = 0.005596525501459837 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 408, loss = 0.004269293509423733 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 409, loss = 0.004398801829665899 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 410, loss = 0.005158445332199335 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 411, loss = 0.004302126355469227 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 412, loss = 0.005684480536729097 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 413, loss = 0.004888573195785284 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 414, loss = 0.003458577673882246 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 415, loss = 0.005992017686367035 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 416, loss = 0.006274939980357885 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 417, loss = 0.004000502172857523 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 418, loss = 0.005419454071670771 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 419, loss = 0.005707932636141777 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 420, loss = 0.005327225662767887 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 421, loss = 0.004675678443163633 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 422, loss = 0.00597183033823967 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 423, loss = 0.005513232666999102 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 424, loss = 0.00492854556068778 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 425, loss = 0.005049487110227346 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 426, loss = 0.0062360623851418495 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 427, loss = 0.005438328254967928 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 428, loss = 0.003859494347125292 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 429, loss = 0.0038433324079960585 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 430, loss = 0.004422816447913647 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 431, loss = 0.004220203496515751 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 432, loss = 0.00439200596883893 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 433, loss = 0.0035315328277647495 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 434, loss = 0.0038853962905704975 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 435, loss = 0.0030892721842974424 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 436, loss = 0.0034533545840531588 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 437, loss = 0.005452326498925686 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 438, loss = 0.003898660419508815 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 439, loss = 0.0041208346374332905 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 440, loss = 0.005674679297953844 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 441, loss = 0.003831164911389351 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 442, loss = 0.0033288851846009493 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 443, loss = 0.005247251130640507 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 444, loss = 0.003934287466108799 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 445, loss = 0.004228660836815834 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 446, loss = 0.003429574891924858 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 447, loss = 0.003814209019765258 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 448, loss = 0.004962179809808731 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 449, loss = 0.003751950804144144 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 450, loss = 0.00388506893068552 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 451, loss = 0.0035416230093687773 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 452, loss = 0.003117970423772931 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 453, loss = 0.004614909645169973 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 454, loss = 0.0037342431023716927 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 455, loss = 0.005425420589745045 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 456, loss = 0.0031352073419839144 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 457, loss = 0.004580309614539146 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 458, loss = 0.00560127105563879 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 459, loss = 0.0030160262249410152 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 460, loss = 0.004414494149386883 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 461, loss = 0.004161224700510502 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 462, loss = 0.005898297764360905 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 463, loss = 0.0032841383945196867 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 464, loss = 0.003694082610309124 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 465, loss = 0.0029889019206166267 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 466, loss = 0.0036303866654634476 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 467, loss = 0.004203649703413248 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 468, loss = 0.003584636375308037 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 469, loss = 0.003965303301811218 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 470, loss = 0.003133453195914626 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 471, loss = 0.003884681034833193 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 472, loss = 0.003342275507748127 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 473, loss = 0.0032496994826942682 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 474, loss = 0.003079288871958852 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 475, loss = 0.004111672285944223 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 476, loss = 0.004315992351621389 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 477, loss = 0.005363906733691692 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 478, loss = 0.003330251667648554 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 479, loss = 0.004670511931180954 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 480, loss = 0.004240113310515881 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 481, loss = 0.003464221488684416 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 482, loss = 0.002684117993339896 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 483, loss = 0.0037460429593920708 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 484, loss = 0.004019177518785 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 485, loss = 0.0037103192880749702 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 486, loss = 0.0031455904245376587 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 487, loss = 0.003270243527367711 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 488, loss = 0.002495895139873028 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 489, loss = 0.003483349457383156 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 490, loss = 0.0048669385723769665 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 491, loss = 0.0036100847646594048 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 492, loss = 0.004931687843054533 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 493, loss = 0.0037129302509129047 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 494, loss = 0.004326022695749998 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 495, loss = 0.003779193153604865 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 496, loss = 0.0034948792308568954 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 497, loss = 0.004158808384090662 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 498, loss = 0.0026527713052928448 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 499, loss = 0.0033926162868738174 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 500, loss = 0.002891599666327238 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 501, loss = 0.003821595571935177 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 502, loss = 0.0035960872191935778 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 503, loss = 0.0033011704217642546 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 504, loss = 0.002681138925254345 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 505, loss = 0.0028933545108884573 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 506, loss = 0.004255369771271944 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 507, loss = 0.003049667924642563 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 508, loss = 0.0027590617537498474 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 509, loss = 0.002779589034616947 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 510, loss = 0.003389631398022175 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 511, loss = 0.0034787715412676334 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 512, loss = 0.002765742363408208 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 513, loss = 0.004111422225832939 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 514, loss = 0.003254971234127879 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 515, loss = 0.0027698634658008814 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 516, loss = 0.003280802397057414 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 517, loss = 0.002438274910673499 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 518, loss = 0.0037340489216148853 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 519, loss = 0.0034249506425112486 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 520, loss = 0.003719101659953594 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 521, loss = 0.004573460202664137 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 522, loss = 0.0027632880955934525 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 523, loss = 0.0033408398739993572 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 524, loss = 0.0035950555466115475 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 525, loss = 0.003556864568963647 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 526, loss = 0.0025273046921938658 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 527, loss = 0.0035542608238756657 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 528, loss = 0.004108898341655731 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 529, loss = 0.002727789804339409 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 530, loss = 0.0034416525159031153 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 531, loss = 0.0039941659197211266 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 532, loss = 0.0030375649221241474 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 533, loss = 0.002470402978360653 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 534, loss = 0.003161410568282008 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 535, loss = 0.0026191065553575754 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 536, loss = 0.0036533966194838285 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 537, loss = 0.00393897807225585 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 538, loss = 0.0031830971129238605 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 539, loss = 0.002918078564107418 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 540, loss = 0.00198614364489913 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 541, loss = 0.0029326726216822863 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 542, loss = 0.0023621227592229843 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 543, loss = 0.003301292425021529 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 544, loss = 0.0033364095725119114 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 545, loss = 0.002275787526741624 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 546, loss = 0.00441175838932395 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 547, loss = 0.0025367005728185177 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 548, loss = 0.0030718944035470486 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 549, loss = 0.0027288158889859915 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 550, loss = 0.0035472018644213676 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 551, loss = 0.0024300101213157177 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 552, loss = 0.003115695435553789 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 553, loss = 0.002298494102433324 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 554, loss = 0.0025287591852247715 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 555, loss = 0.0026567166205495596 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 556, loss = 0.00336937652900815 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 557, loss = 0.0029879948124289513 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 558, loss = 0.003236724529415369 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 559, loss = 0.0016847720835357904 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 560, loss = 0.004255000501871109 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 561, loss = 0.0019266012823209167 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 562, loss = 0.002326450776308775 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 563, loss = 0.0035310748498886824 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 564, loss = 0.003372347680851817 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 565, loss = 0.002948346547782421 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 566, loss = 0.002986979903653264 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 567, loss = 0.00288032041862607 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 568, loss = 0.002526976400986314 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 569, loss = 0.002916650613769889 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 570, loss = 0.0028195492923259735 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 571, loss = 0.002140779746696353 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 572, loss = 0.002385462401434779 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 573, loss = 0.0025269556790590286 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 574, loss = 0.0028073021676391363 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 575, loss = 0.0017637861892580986 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 576, loss = 0.0019874852150678635 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 577, loss = 0.002914061304181814 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 578, loss = 0.0038066061679273844 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 579, loss = 0.002230261219665408 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 580, loss = 0.003409536322578788 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 581, loss = 0.002339159371331334 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 582, loss = 0.0027620920445770025 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 583, loss = 0.0022451221011579037 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 584, loss = 0.002595465397462249 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 585, loss = 0.0033574348781257868 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 586, loss = 0.003764075692743063 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 587, loss = 0.003333613509312272 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 588, loss = 0.0024825783912092447 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 589, loss = 0.0025866536889225245 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 590, loss = 0.0026327611412853003 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 591, loss = 0.0036098735872656107 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 592, loss = 0.0027011099737137556 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 593, loss = 0.002938065445050597 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 594, loss = 0.0029547931626439095 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 595, loss = 0.0029150736518204212 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 596, loss = 0.002704857848584652 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 597, loss = 0.002072974806651473 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 598, loss = 0.0020275365095585585 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 599, loss = 0.0021184191573411226 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 600, loss = 0.002486021490767598 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 601, loss = 0.003079870482906699 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 602, loss = 0.0022584651596844196 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 603, loss = 0.0024126553907990456 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 604, loss = 0.0026380906347185373 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 605, loss = 0.002730004955083132 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 606, loss = 0.002763696713373065 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 607, loss = 0.0022986652329564095 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 608, loss = 0.002338619204238057 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 609, loss = 0.0029843279626220465 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 610, loss = 0.0018535000272095203 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 611, loss = 0.002605284098535776 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 612, loss = 0.0024447860196232796 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 613, loss = 0.0024971188977360725 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 614, loss = 0.0030436075758188963 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 615, loss = 0.0031521120108664036 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 616, loss = 0.002151773078367114 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 617, loss = 0.0021933086682111025 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 618, loss = 0.002184730488806963 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 619, loss = 0.0031084613874554634 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 620, loss = 0.00270071835257113 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 621, loss = 0.0028036264702677727 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 622, loss = 0.002703979844227433 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 623, loss = 0.0031883190385997295 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 624, loss = 0.002270141849294305 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 625, loss = 0.002989107510074973 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 626, loss = 0.003045337274670601 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 627, loss = 0.0017823295202106237 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 628, loss = 0.0022102664224803448 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 629, loss = 0.0025407345965504646 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 630, loss = 0.00250680441968143 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 631, loss = 0.0022415730636566877 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 632, loss = 0.0023847706615924835 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 633, loss = 0.002007125411182642 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 634, loss = 0.0019031174015253782 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 635, loss = 0.0024415806401520967 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 636, loss = 0.0018757431535050273 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 637, loss = 0.002176406094804406 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 638, loss = 0.002234168816357851 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 639, loss = 0.0034594442695379257 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 640, loss = 0.00254450854845345 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 641, loss = 0.0018653578590601683 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 642, loss = 0.0021808913443237543 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 643, loss = 0.0016471677226945758 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 644, loss = 0.002972780494019389 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 645, loss = 0.0019486312521621585 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 646, loss = 0.0020095696672797203 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 647, loss = 0.0025718542747199535 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 648, loss = 0.002172641921788454 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 649, loss = 0.0018661062931641936 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 650, loss = 0.0016380242304876447 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 651, loss = 0.0021107445936650038 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 652, loss = 0.0021118205040693283 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 653, loss = 0.00234089489094913 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 654, loss = 0.002033559838309884 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 655, loss = 0.0015784634742885828 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 656, loss = 0.0024073056410998106 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 657, loss = 0.002191340085119009 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 658, loss = 0.0017348629189655185 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 659, loss = 0.0023385200183838606 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 660, loss = 0.0014344054507091641 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 661, loss = 0.0021999571472406387 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 662, loss = 0.002274617785587907 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 663, loss = 0.0019580163061618805 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 664, loss = 0.0023998389951884747 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 665, loss = 0.0017432846361771226 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 666, loss = 0.001707145245745778 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 667, loss = 0.0018932948587462306 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 668, loss = 0.0014628206845372915 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 669, loss = 0.00251965643838048 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 670, loss = 0.002345516113564372 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 671, loss = 0.0018835258670151234 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 672, loss = 0.00235599628649652 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 673, loss = 0.0016570240259170532 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 674, loss = 0.0018238280899822712 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 675, loss = 0.0016899608308449388 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 676, loss = 0.002494809217751026 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 677, loss = 0.0013946632388979197 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 678, loss = 0.0016572069143876433 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 679, loss = 0.0020310054533183575 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 680, loss = 0.0025170333683490753 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 681, loss = 0.0021064032334834337 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 682, loss = 0.001554350252263248 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 683, loss = 0.0022173861507326365 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 684, loss = 0.0026590682100504637 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 685, loss = 0.0016578012146055698 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 686, loss = 0.0022336491383612156 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 687, loss = 0.00292702903971076 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 688, loss = 0.0026363718789070845 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 689, loss = 0.002476674970239401 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 690, loss = 0.0015409389743581414 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 691, loss = 0.0017180850263684988 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 692, loss = 0.0016326503828167915 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 693, loss = 0.002224866533651948 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 694, loss = 0.0019484206568449736 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 695, loss = 0.001959322253242135 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 696, loss = 0.002168992767110467 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 697, loss = 0.0015795102808624506 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 698, loss = 0.0014329286059364676 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 699, loss = 0.002581457607448101 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 700, loss = 0.001556562026962638 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 701, loss = 0.0019370553782209754 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 702, loss = 0.002138337353244424 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 703, loss = 0.0016505112871527672 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 704, loss = 0.00244144513271749 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 705, loss = 0.002053585136309266 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 706, loss = 0.0012455455726012588 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 707, loss = 0.002025884110480547 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 708, loss = 0.002507301978766918 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 709, loss = 0.0034753847867250443 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 710, loss = 0.0018306822748854756 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 711, loss = 0.001467486727051437 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 712, loss = 0.0017252429388463497 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 713, loss = 0.0007665190496481955 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 714, loss = 0.002488633617758751 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 715, loss = 0.002332701114937663 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 716, loss = 0.0020032201427966356 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 717, loss = 0.002134511945769191 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 718, loss = 0.0018546015489846468 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 719, loss = 0.0016341175651177764 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 720, loss = 0.0012821046402677894 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 721, loss = 0.0023600421845912933 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 722, loss = 0.0019987798295915127 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 723, loss = 0.0024419876281172037 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 724, loss = 0.001681283232755959 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 725, loss = 0.001008673571050167 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 726, loss = 0.0017386049730703235 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 727, loss = 0.0022230148315429688 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 728, loss = 0.00301039288751781 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 729, loss = 0.002444435143843293 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 730, loss = 0.0016692050267010927 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 731, loss = 0.0016574894543737173 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 732, loss = 0.0017835783073678613 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 733, loss = 0.0012646743562072515 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 734, loss = 0.002516459906473756 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 735, loss = 0.0016750829527154565 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 736, loss = 0.0023543178103864193 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 737, loss = 0.0019012942211702466 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 738, loss = 0.002601282438263297 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 739, loss = 0.0012690434232354164 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 740, loss = 0.0011224377667531371 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 741, loss = 0.0018843725556507707 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 742, loss = 0.001742479158565402 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 743, loss = 0.0013507935218513012 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 744, loss = 0.0020672171376645565 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 745, loss = 0.0017565187299624085 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 746, loss = 0.0016972612356767058 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 747, loss = 0.0009118588059209287 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 748, loss = 0.0016903122887015343 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 749, loss = 0.0015984283527359366 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 750, loss = 0.002507663331925869 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 751, loss = 0.0019329626811668277 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 752, loss = 0.002318047219887376 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 753, loss = 0.0010600456735119224 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 754, loss = 0.0019187952857464552 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 755, loss = 0.0014550405321642756 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 756, loss = 0.0018654325976967812 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 757, loss = 0.0018744415137916803 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 758, loss = 0.0015661207726225257 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 759, loss = 0.002009080955758691 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 760, loss = 0.0016366220079362392 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 761, loss = 0.002034652279689908 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 762, loss = 0.0018045754404738545 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 763, loss = 0.0016098057385534048 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 764, loss = 0.0020165385212749243 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 765, loss = 0.001816681819036603 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 766, loss = 0.001697875326499343 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 767, loss = 0.0013948478735983372 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 768, loss = 0.0016394930426031351 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 769, loss = 0.0020957940723747015 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 770, loss = 0.0020030420273542404 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 771, loss = 0.002063244814053178 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 772, loss = 0.002174503169953823 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 773, loss = 0.001947099226526916 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 774, loss = 0.0022253436036407948 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 775, loss = 0.0011593514354899526 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 776, loss = 0.001986525719985366 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 777, loss = 0.001051398809067905 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 778, loss = 0.0016087173717096448 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 779, loss = 0.001967852236703038 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 780, loss = 0.0017471816390752792 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 781, loss = 0.0016972034936770797 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 782, loss = 0.001269499072805047 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 783, loss = 0.001404658774845302 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 784, loss = 0.001991103868931532 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 785, loss = 0.001850453088991344 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 786, loss = 0.0017546069575473666 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 787, loss = 0.001927369856275618 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 788, loss = 0.0014541918644681573 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 789, loss = 0.0015927022323012352 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 790, loss = 0.0015756544889882207 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 791, loss = 0.0019538425840437412 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 792, loss = 0.0016782341990619898 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 793, loss = 0.0017677107825875282 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 794, loss = 0.0013803532347083092 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 795, loss = 0.0015169179532676935 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 796, loss = 0.0017140586860477924 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 797, loss = 0.0013939797645434737 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 798, loss = 0.0011236416175961494 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 799, loss = 0.002336975187063217 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 800, loss = 0.0013645890867337584 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 801, loss = 0.0011857937788590789 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 802, loss = 0.001780300633981824 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 803, loss = 0.0015063360333442688 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 804, loss = 0.0018644484225660563 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 805, loss = 0.0015919629950076342 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 806, loss = 0.0017570920754224062 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 807, loss = 0.0014156365068629384 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 808, loss = 0.0017206332413479686 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 809, loss = 0.0016933822771534324 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 810, loss = 0.0015417712274938822 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 811, loss = 0.0013638160889968276 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 812, loss = 0.0020169964991509914 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 813, loss = 0.0011862623505294323 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 814, loss = 0.0013845368521288037 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 815, loss = 0.001325902296230197 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 816, loss = 0.001476982026360929 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 817, loss = 0.001616892172023654 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 818, loss = 0.00198422116227448 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 819, loss = 0.001575944945216179 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 820, loss = 0.0013314259704202414 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 821, loss = 0.0016208627494052052 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 822, loss = 0.0012820465490221977 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 823, loss = 0.0019641825929284096 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 824, loss = 0.0015688859857618809 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 825, loss = 0.0013776103733107448 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 826, loss = 0.001024408033117652 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 827, loss = 0.0015702119562774897 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 828, loss = 0.0012807791354134679 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 829, loss = 0.0015101563185453415 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 830, loss = 0.0018492715898901224 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 831, loss = 0.000840049993712455 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 832, loss = 0.0013406106736510992 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 833, loss = 0.0021017633844166994 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 834, loss = 0.0009688108111731708 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 835, loss = 0.0023029285948723555 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 836, loss = 0.001336121466010809 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 837, loss = 0.0018011005595326424 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 838, loss = 0.001349215512163937 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 839, loss = 0.0016726760659366846 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 840, loss = 0.0017246194183826447 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 841, loss = 0.0015095807611942291 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 842, loss = 0.00141270796302706 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 843, loss = 0.0010357252322137356 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 844, loss = 0.001871297019533813 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 845, loss = 0.0017056651413440704 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 846, loss = 0.0017997237155213952 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 847, loss = 0.0016322014853358269 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 848, loss = 0.0017350636189803481 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 849, loss = 0.001465433626435697 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 850, loss = 0.0012759666424244642 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 851, loss = 0.0014240741729736328 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 852, loss = 0.0014493147609755397 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 853, loss = 0.0016654926585033536 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 854, loss = 0.001475071650929749 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 855, loss = 0.001482157502323389 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 856, loss = 0.0011984430020675063 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 857, loss = 0.001205811626277864 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 858, loss = 0.0017566801980137825 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 859, loss = 0.0012074989499524236 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 860, loss = 0.001638077083043754 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 861, loss = 0.0017320491606369615 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 862, loss = 0.001780158607289195 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 863, loss = 0.0013673920184373856 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 864, loss = 0.0021692272275686264 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 865, loss = 0.0012158892350271344 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 866, loss = 0.0014560817508026958 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 867, loss = 0.0011412905296310782 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 868, loss = 0.0012711531016975641 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 869, loss = 0.0017802088987082243 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 870, loss = 0.00186997652053833 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 871, loss = 0.001817812561057508 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 872, loss = 0.0013287293259054422 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 873, loss = 0.0015630241250619292 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 874, loss = 0.0017172434600070119 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 875, loss = 0.0010685339802876115 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 876, loss = 0.0014850875595584512 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 877, loss = 0.0011757690226659179 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 878, loss = 0.0013350117951631546 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 879, loss = 0.001697296043857932 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 880, loss = 0.000886386726051569 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 881, loss = 0.0016801779856905341 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 882, loss = 0.0013784558977931738 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 883, loss = 0.001229654997587204 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 884, loss = 0.0012119491584599018 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 885, loss = 0.0018355997744947672 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 886, loss = 0.0014147362671792507 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 887, loss = 0.001533525181002915 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 888, loss = 0.0012855642708018422 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 889, loss = 0.001248599262908101 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 890, loss = 0.001688110176473856 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 891, loss = 0.001320805517025292 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 892, loss = 0.001706778071820736 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 893, loss = 0.0012083156034350395 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 894, loss = 0.0013617280637845397 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 895, loss = 0.0013119528302922845 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 896, loss = 0.0014770579291507602 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 897, loss = 0.001619798014871776 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 898, loss = 0.0011272620176896453 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 899, loss = 0.0012081232853233814 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 900, loss = 0.0010016248561441898 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 901, loss = 0.0014827592531219125 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 902, loss = 0.0011168421478942037 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 903, loss = 0.0010455261217430234 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 904, loss = 0.0012559922179207206 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 905, loss = 0.001440920401364565 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 906, loss = 0.0013473607832565904 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 907, loss = 0.0012590063270181417 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 908, loss = 0.0012300948146730661 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 909, loss = 0.000806912372354418 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 910, loss = 0.0012295189080759883 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 911, loss = 0.001265410683117807 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 912, loss = 0.0014730680268257856 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 913, loss = 0.0013567405985668302 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 914, loss = 0.0015807501040399075 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 915, loss = 0.0014697156148031354 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 916, loss = 0.001401845016516745 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 917, loss = 0.0013016863958910108 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 918, loss = 0.0013721775030717254 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 919, loss = 0.001359391724690795 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 920, loss = 0.00157248938921839 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 921, loss = 0.001308727660216391 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 922, loss = 0.0013430928811430931 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 923, loss = 0.0013889563269913197 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 924, loss = 0.0012191329151391983 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 925, loss = 0.0010861651971936226 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 926, loss = 0.001885399455204606 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 927, loss = 0.0013405270874500275 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 928, loss = 0.0011492493795230985 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 929, loss = 0.001246092957444489 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 930, loss = 0.0014518502866849303 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 931, loss = 0.0011692031985148787 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 932, loss = 0.0010674481745809317 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 933, loss = 0.0014759948244318366 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 934, loss = 0.0017791652353480458 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 935, loss = 0.0013140999944880605 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 936, loss = 0.0011152485385537148 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 937, loss = 0.0011510017793625593 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 938, loss = 0.0011056618532165885 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 939, loss = 0.0012957763392478228 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 940, loss = 0.0011110017076134682 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 941, loss = 0.0009354533976875246 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 942, loss = 0.001046468736603856 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 943, loss = 0.0011340092169120908 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 944, loss = 0.0014256674330681562 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 945, loss = 0.001411535544320941 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 946, loss = 0.0012003093725070357 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 947, loss = 0.00130236626137048 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 948, loss = 0.0014045544667169452 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 949, loss = 0.001517196069471538 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 950, loss = 0.001023694290779531 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 951, loss = 0.0012927985517308116 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 952, loss = 0.0005415069754235446 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 953, loss = 0.0019237557426095009 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 954, loss = 0.0013223036658018827 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 955, loss = 0.0014285569777712226 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 956, loss = 0.0013866975205019116 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 957, loss = 0.0010607566218823195 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 958, loss = 0.0009688995196484029 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 959, loss = 0.0012066697236150503 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 960, loss = 0.0010153145994991064 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 961, loss = 0.0012316263746470213 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 962, loss = 0.0012024929746985435 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 963, loss = 0.0010973555035889149 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 964, loss = 0.0009953865082934499 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 965, loss = 0.0010281656868755817 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 966, loss = 0.0010591486934572458 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 967, loss = 0.0008774762391112745 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 968, loss = 0.0012037832057103515 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 969, loss = 0.0013068460393697023 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 970, loss = 0.0009770579636096954 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 971, loss = 0.001201679348014295 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 972, loss = 0.0008717445307411253 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 973, loss = 0.0016356403939425945 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 974, loss = 0.0009485693299211562 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 975, loss = 0.0013143584365025163 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 976, loss = 0.0014073716010898352 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 977, loss = 0.001745668356306851 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 978, loss = 0.001410502241924405 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 979, loss = 0.0012076833518221974 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 980, loss = 0.0015093768015503883 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 981, loss = 0.001450544921681285 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 982, loss = 0.0010742387967184186 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 983, loss = 0.0012474721297621727 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 984, loss = 0.0011018348159268498 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 985, loss = 0.000913183088414371 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 986, loss = 0.0006099174497649074 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 987, loss = 0.0010235764784738421 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 988, loss = 0.0008161026635207236 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 989, loss = 0.0013769088545814157 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 990, loss = 0.0013174716150388122 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 991, loss = 0.0011371838627383113 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 992, loss = 0.0015128592494875193 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 993, loss = 0.0010326012270525098 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 994, loss = 0.0009665400721132755 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 995, loss = 0.0014802005607634783 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 996, loss = 0.001636751927435398 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 997, loss = 0.001171271433122456 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 998, loss = 0.0010918091284111142 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-step 999, loss = 0.0009948192164301872 {'hold_vars': 13, 'lived_vars': 61, 'lived_ops': 55}
-Beginning training script

@@ -1,29 +1,0 @@
-[i 0801 12:16:01.107952 12 __init__.py:227] Total mem: 503.74GB, using 16 procs for compiling.
-[i 0801 12:16:20.537877 12 jit_compiler.cc:28] Load cc_path: /usr/bin/g++
-[i 0801 12:16:20.691518 12 init.cc:62] Found cuda archs: [86,]
-[w 0801 12:16:20.763842 12 compiler.py:1384] CUDA arch(86)>80 will be backward-compatible
-[i 0801 12:16:21.933389 12 __init__.py:411] Found mpicc(2.1.1) at /usr/bin/mpicc.
-[i 0801 12:16:22.010998 12 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x9b/AMDEPYC753232-x73/default/cu11.0.221_sm_86/custom_ops
-[i 0801 12:16:23.989253 12 compile_extern.py:339] Downloading cutt...
-[i 0801 12:16:24.155428 12 compile_extern.py:352] installing cutt...
-[i 0801 12:16:36.328631 12 compiler.py:34] Create cache dir: /user/HS400/ae01116/.cache/jittor/jt1.3.8/g++7.5.0/py3.9.19/Linux-4.18.0-4x9b/AMDEPYC753232-x73/default/cu11.0.221_sm_86/cuda
-[i 0801 12:16:54.065816 12 cuda_flags.cc:49] CUDA enabled.
-
-Compiling Operators(1/16) used: 2.51s eta: 37.7s Compiling Operators(9/16) used: 3.51s eta: 2.73s Compiling Operators(14/16) used: 4.51s eta: 0.645s Compiling Operators(16/16) used: 5.51s eta:    0s 
-
-Compiling Operators(3/4) used: 3.47s eta: 1.16s Compiling Operators(4/4) used: 4.47s eta:    0s 
-
-Compiling Operators(1/2) used: 3.37s eta: 3.37s Compiling Operators(2/2) used: 4.38s eta:    0s 
-/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/jseg/models/losses/cross_entropy_loss.py:55: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with Jittor official cross_entropy, set ``avg_non_ignore=True``.
-  warnings.warn(
-
-Compiling Operators(6/6) used: 4.41s eta:    0s 
-
-Compiling Operators(4/5) used: 3.37s eta: 0.843s Compiling Operators(5/5) used: 4.37s eta:    0s 
-
-Compiling Operators(3/3) used: 4.38s eta:    0s 
-
-Compiling Operators(3/3) used: 4.38s eta:    0s 
-
-Compiling Operators(4/4) used: 4.34s eta:    0s 
-[e 0801 12:17:34.645837 12 log.cc:258] Caught SIGINT, quick exit

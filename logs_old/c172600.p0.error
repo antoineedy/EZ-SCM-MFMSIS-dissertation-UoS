@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/start_training.py", line 7, in <module>
-    from mmcv.utils import collect_env as collect_base_env
-ImportError: cannot import name 'collect_env' from 'mmcv.utils' (/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/lib/python3.9/site-packages/mmcv/utils/__init__.py)

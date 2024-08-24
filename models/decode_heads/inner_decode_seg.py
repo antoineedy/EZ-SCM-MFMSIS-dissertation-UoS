@@ -31,34 +31,20 @@ class CrossAttention(nn.Module):
         self.value_proj = nn.Linear(embed_dim, embed_dim)
         self.softmax = nn.Softmax(dim=-1)
 
-    def forward(self, x1, x2):
+    def forward(self, query, key, value):
         # Projeter les queries, keys et values
-        query = self.query_proj(x1)
-        key = self.key_proj(x2)
-        value = self.value_proj(x2)
+        query = self.query_proj(query)
+        key = self.key_proj(key)
+        value = self.value_proj(value)
         
         # Calculer les scores d'attention
-        attention_scores = torch.matmul(query, key.transpose(-2, -1)) / (x1.shape[-1] ** 0.5)
+        attention_scores = torch.matmul(query, key.transpose(-2, -1)) / (query.shape[-1] ** 0.5)
         attention_weights = self.softmax(attention_scores)
         
         # Appliquer les weights sur les valeurs
         attended = torch.matmul(attention_weights, value)
         
         return attended
-
-class ConcatReduce(nn.Module):
-    def __init__(self, embed_dim):
-        super(ConcatReduce, self).__init__()
-        # Couche linéaire pour réduire la dimension de concat([x1, x2]) de 1024 à 512
-        self.fc = nn.Linear(embed_dim * 2, embed_dim)
-    
-    def forward(self, x1, x2):
-        # Concaténation des deux tensors le long de la dimension des features (dim=-1)
-        concatenated = torch.cat((x1, x2), dim=-1)
-        # Réduction dimensionnelle
-        reduced = self.fc(concatenated)
-        return reduced
-
 
 def trunc_normal_init(
     module: nn.Module,
@@ -315,7 +301,6 @@ class InnerATMSingleHeadSeg(
         # self.text_proj_12 = nn.Conv2d(in_channels=512, out_channels=512, kernel_size=1)
 
         self.cross_attention = CrossAttention(embed_dim=512)
-        self.concat_reduce = ConcatReduce(embed_dim=512)
 
     def init_weights(self):
         for n, m in self.named_modules():
@@ -420,9 +405,10 @@ class InnerATMSingleHeadSeg(
         cls12 = self.cls_proj_12(cls12)
 
         x = []
-        for stage_ in [layer6, layer8, layer12]:
+        for stage_ in [layer6, layer8, layer12]: # added by antoine to use the inner layers
+        #for stage_ in inputs[: self.use_stages]:
             x.append(self.d4_to_d3(stage_) if stage_.dim() > 3 else stage_)
-        x.reverse()  # antoine: [layer12, layer8, layer6]
+        #x.reverse()  # antoine: [layer12, layer8, layer6]
         # antoine: tentative d'inverser, 6 puis 8 puis 12
         bs = x[0].size()[0]
 
@@ -476,14 +462,18 @@ class InnerATMSingleHeadSeg(
         q12 = self.q12_proj(self.get_qs(text_token_12, cls12))
         q12 = q12.transpose(0, 1)
 
-        ql = [q12, q8, q6]
+        # ql = [q12, q8, q6]
+        ql = [q12, q12, q12] # test
         # ql = [q6, q8, q12]  # antoine: tentative d'inverser, 6 puis 8 puis 12
 
         for idx, decoder_ in enumerate(self.decoder):
-            if idx == 0:
-                q = ql[idx]
-            else:
-                q = self.merge_qs(q, ql[idx])
+            #if idx == 0:
+            #    q = ql[idx]
+            #else:
+            #    q = self.merge_qs(q, ql[idx])
+            q = ql[idx]
+            #q_, attn_ = decoder_(q, lateral.transpose(0, 1))
+            lateral = self.merge_laterals(lateral, laterals, idx)
             q_, attn_ = decoder_(q, lateral.transpose(0, 1))
             # antoine: apply the decoder
             for q, attn in zip(q_, attn_):
@@ -541,18 +531,23 @@ class InnerATMSingleHeadSeg(
         mask_pred[:, seen_idx] = mask_pred[:, seen_idx] - weight
         return mask_pred
 
-    def merge_qs(self, q, q_layer):
-        # antoine: added normalization
-        # to_keep = q.norm(dim=-1, keepdim=True)
-        # q = q / q.norm(dim=-1, keepdim=True)
-        # q_layer = q_layer / q_layer.norm(dim=-1, keepdim=True)
-        # out = to_keep * (q + q_layer) * 0.5
+    # def merge_qs(self, q, q_layer):
+    #     # antoine: added normalization
+    #     # to_keep = q.norm(dim=-1, keepdim=True)
+    #     # q = q / q.norm(dim=-1, keepdim=True)
+    #     # q_layer = q_layer / q_layer.norm(dim=-1, keepdim=True)
+    #     # out = to_keep * (q + q_layer) * 0.5
 
-        q_1 = self.cross_attention(q, q_layer)
-        q_layer_1 = self.cross_attention(q_layer, q)
-        combined = self.concat_reduce(q_1, q_layer_1)
+    #     out = self.cross_attention(query=q, key=q_layer, value=q_layer)
 
-        return combined
+    #     return out
+
+    def merge_laterals(self, lateral, laterals, idx):
+        if idx == 0: 
+            return lateral
+        else:
+            lateral = self.cross_attention(query=lateral, key=laterals[-1-idx], value=laterals[-1-idx])
+            return lateral
 
     @torch.jit.unused
     def _set_aux_loss(self, outputs_seg_masks):
