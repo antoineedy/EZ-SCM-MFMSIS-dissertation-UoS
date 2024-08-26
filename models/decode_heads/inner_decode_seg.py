@@ -408,7 +408,7 @@ class InnerATMSingleHeadSeg(
         for stage_ in [layer6, layer8, layer12]: # added by antoine to use the inner layers
         #for stage_ in inputs[: self.use_stages]:
             x.append(self.d4_to_d3(stage_) if stage_.dim() > 3 else stage_)
-        #x.reverse()  # antoine: [layer12, layer8, layer6]
+        x.reverse()  # antoine: [layer12, layer8, layer6]
         # antoine: tentative d'inverser, 6 puis 8 puis 12
         bs = x[0].size()[0]
 
@@ -437,6 +437,9 @@ class InnerATMSingleHeadSeg(
 
         lateral = laterals[-1]
 
+        # print("len(laterals):", len(laterals))
+        # print("lateral.size():", lateral.size())
+
         # antoine: lateral = images? see the paper with my drawing
 
         # q = self.q_proj(self.get_qs(text_token, cls_token))
@@ -462,16 +465,17 @@ class InnerATMSingleHeadSeg(
         q12 = self.q12_proj(self.get_qs(text_token_12, cls12))
         q12 = q12.transpose(0, 1)
 
-        # ql = [q12, q8, q6]
-        ql = [q12, q12, q12] # test
+        # print("q6.size()", q6.size())
+
+        ql = [q12, q8, q6]
+        # ql = [q12, q12, q12] # test
         # ql = [q6, q8, q12]  # antoine: tentative d'inverser, 6 puis 8 puis 12
 
         for idx, decoder_ in enumerate(self.decoder):
-            #if idx == 0:
-            #    q = ql[idx]
-            #else:
-            #    q = self.merge_qs(q, ql[idx])
-            q = ql[idx]
+            if idx == 0:
+               q = ql[idx]
+            else:
+               q = self.merge_qs(q, ql[idx])
             #q_, attn_ = decoder_(q, lateral.transpose(0, 1))
             lateral = self.merge_laterals(lateral, laterals, idx)
             q_, attn_ = decoder_(q, lateral.transpose(0, 1))
@@ -531,16 +535,16 @@ class InnerATMSingleHeadSeg(
         mask_pred[:, seen_idx] = mask_pred[:, seen_idx] - weight
         return mask_pred
 
-    # def merge_qs(self, q, q_layer):
-    #     # antoine: added normalization
-    #     # to_keep = q.norm(dim=-1, keepdim=True)
-    #     # q = q / q.norm(dim=-1, keepdim=True)
-    #     # q_layer = q_layer / q_layer.norm(dim=-1, keepdim=True)
-    #     # out = to_keep * (q + q_layer) * 0.5
+    def merge_qs(self, q, q_layer):
+        # antoine: added normalization
+        # to_keep = q.norm(dim=-1, keepdim=True)
+        # q = q / q.norm(dim=-1, keepdim=True)
+        # q_layer = q_layer / q_layer.norm(dim=-1, keepdim=True)
+        # out = to_keep * (q + q_layer) * 0.5
 
-    #     out = self.cross_attention(query=q, key=q_layer, value=q_layer)
+        out = self.cross_attention(query=q, key=q_layer, value=q_layer)
 
-    #     return out
+        return out
 
     def merge_laterals(self, lateral, laterals, idx):
         if idx == 0: 

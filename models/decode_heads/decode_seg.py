@@ -93,9 +93,16 @@ class TPN_DecoderLayer(TransformerDecoderLayer):
         memory_key_padding_mask: Optional[Tensor] = None,
     ) -> Tensor:
 
+        # memory, tgt = tgt, memory
+        # memory_mask, tgt_mask = tgt_mask, memory_mask
+        # memory_key_padding_mask, tgt_key_padding_mask = tgt_key_padding_mask, memory_key_padding_mask
+
         tgt2, attn2 = self.multihead_attn(
             tgt.transpose(0, 1), memory.transpose(0, 1), memory.transpose(0, 1)
         )
+        #tgt2, attn2 = self.multihead_attn(
+        #    memory.transpose(0, 1), tgt.transpose(0, 1), tgt.transpose(0, 1) # try to invert
+        #)
         tgt = tgt + self.dropout2(tgt2)
         tgt = self.norm2(tgt)
         tgt2 = self.linear2(self.dropout(self.activation(self.linear1(tgt))))

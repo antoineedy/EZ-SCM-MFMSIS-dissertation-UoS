@@ -39,7 +39,8 @@ model = dict(
         style="pytorch",
     ),
     text_encoder=dict(
-        type="CLIPTextEncoder",
+        #type="CLIPTextEncoder",
+        type="DPTCLIPTextEncoder",
         context_length=77,
         embed_dim=512,
         transformer_width=512,
@@ -97,8 +98,9 @@ optimizer = dict(
         custom_keys={
             "backbone": dict(lr_mult=10.0),
             # antoine: we want to update the backbone (VPT)
-            "text_encoder": dict(lr_mult=0.0),
+            #"text_encoder": dict(lr_mult=0.0),
             # antoine: we don't want to update the text encoder
+            "text_encoder": dict(lr_mult=10.0), # we want to update it for DPT !!!
             "norm": dict(decay_mult=0.0),
             "ln": dict(decay_mult=0.0),
             "head": dict(lr_mult=10.0),

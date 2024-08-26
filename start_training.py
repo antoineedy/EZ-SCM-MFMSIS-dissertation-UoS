@@ -22,9 +22,9 @@ config7 = f"{base}/configs/voc12/double_inner_vpt_seg_zero_vit-b_512x512_20k_12_
 
 config8 = f"{base}/configs/voc12/clip_rc_zero_vit-b_512x512_40k_voc_10_16.py"
 
-config9 = config2 = f"{base}/configs/voc12/xxscales_input_vpt_seg_zero_vit-b_512x512_20k_12_10_2.py"
+#config9 = config2 = f"{base}/configs/voc12/xxscales_input_vpt_seg_zero_vit-b_512x512_20k_12_10_2.py"
 
-command = f"bash {base}/dist_train.sh {config4} {base_scratch}/data/VOC2012"
+command = f"bash {base}/dist_train.sh {config1} {base_scratch}/data/VOC2012"
 
 # command = f"bash {base}/dist_train_rc_clip.sh"
 

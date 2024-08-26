@@ -321,6 +321,8 @@ class InnerZegCLIP(EncoderDecoder):
             layers = torch.stack(layers, dim=-1)
             # ([1, 512, 32, 32, 3]) -> ([1, 512, 32, 32]) by summing the 3 last layers with the 3 parameters
             layer = torch.sum(F.softmax(self.w_3, dim=0) * layers, dim=-1)
+            print("w3:", self.w_3.round(10))
+            print("softmax w3:", F.softmax(self.w_3, dim=0).round(10))
             #print("layer", layer.shape)
             
         else:
