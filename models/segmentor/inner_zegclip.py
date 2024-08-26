@@ -116,7 +116,7 @@ class InnerZegCLIP(EncoderDecoder):
 
         self.linear_final_inner = nn.Linear(3*512, 512)
 
-        # self.w_3 = nn.Parameter(torch.randn(3))
+        self.w_3 = nn.Parameter(torch.randn(3))
 
 
         if not self.load_text_embedding:
@@ -268,7 +268,7 @@ class InnerZegCLIP(EncoderDecoder):
         layer8 = visual_feat[0][1]
         layer12 = visual_feat[0][2]
 
-        thistype = "concat and linear"
+        thistype = "w_average"
 
         if thistype == "concat and linear":
 
