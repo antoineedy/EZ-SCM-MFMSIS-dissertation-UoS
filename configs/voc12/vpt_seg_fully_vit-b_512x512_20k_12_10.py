@@ -12,7 +12,8 @@ novel_class = []
 both_class = base_class
 num_classes = len(base_class)
 
-pretrained = 'Path/to/pretrained/ViT-B-16.pt'
+#pretrained = 'Path/to/pretrained/ViT-B-16.pt'
+pretrained = '/mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16.pt'
 
 model = dict(
     type='ZegCLIP',
@@ -35,7 +36,8 @@ model = dict(
         total_d_layer=11,
         style='pytorch'),
     text_encoder=dict(
-        type='CLIPTextEncoder',
+        #type='CLIPTextEncoder',
+        type = 'DPTCLIPTextEncoder',
         context_length=77,
         embed_dim=512,
         transformer_width=512,
@@ -67,7 +69,7 @@ model = dict(
     both_class = both_class,
     ft_backbone = False,
     exclude_key='prompt',
-    load_text_embedding='configs/_base_/datasets/text_embedding/voc12_single.npy'
+    load_text_embedding="/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/_base_/datasets/text_embedding/voc12_single.npy",
 )
 
 lr_config = dict(policy='poly', power=0.9, min_lr=1e-6, by_epoch=False,
@@ -78,7 +80,8 @@ lr_config = dict(policy='poly', power=0.9, min_lr=1e-6, by_epoch=False,
 
 optimizer = dict(type='AdamW', lr=0.00002, weight_decay=0.01, 
         paramwise_cfg=dict(custom_keys={'backbone': dict(lr_mult=10.0),
-                                        'text_encoder': dict(lr_mult=0.0),
+                                        #'text_encoder': dict(lr_mult=0.0),
+                                        'text_encoder': dict(lr_mult=10.0), # for DPT
                                         'norm': dict(decay_mult=0.),
                                         'ln': dict(decay_mult=0.),
                                         'head': dict(lr_mult=10.),

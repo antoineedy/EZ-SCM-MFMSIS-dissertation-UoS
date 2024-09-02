@@ -2,33 +2,31 @@ _base_ = [
     "../_base_/models/zegclip.py",
     "../_base_/datasets/voc12_20_aug_512x512.py",
     "../_base_/default_runtime.py",
-    "../_base_/schedules/schedule_10k.py",
+    "../_base_/schedules/schedule_20k.py",
 ]
 
-img_size = 512
+img_size = 512  # images are 512x512
 in_channels = 512
 out_indices = [11]
+# we only keep the information from the last layer of the CLIP vision transformer
 
-base_class = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-novel_class = [15, 16, 17, 18, 19]
-both_class = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-num_classes = len(both_class)
+base_class = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+novel_class = []
+both_class = base_class
+num_classes = len(base_class)
 
-#pretrained = "Path/to/pretrained/ViT-B-16.pt"
 pretrained = '/mnt/fast/nobackup/scratch4weeks/ae01116/weights/ViT-B-16.pt'
 
 model = dict(
-    type="ZegCLIP",
+    type="MultiScalesOutputZegCLIP",
     pretrained=pretrained,
     pretrained_text=pretrained,
     context_length=77,
-    # text_dim=512,
-    # score_concat_index=2,
     backbone=dict(
         type="VPTCLIPVisionTransformer",
         patch_size=16,
         width=768,
-        output_dim=512,
+        output_dim=512,  # ? difference between the output and the embeddings
         get_embeddings=True,
         drop_path_rate=0.1,
         layers=12,
@@ -37,12 +35,12 @@ model = dict(
         # setting of vpt
         num_tokens=10,
         prompt_dim=768,
-        total_d_layer=11,  # 11
+        total_d_layer=11,
         style="pytorch",
     ),
     text_encoder=dict(
-        #type="CLIPTextEncoder",
-        type="DPTCLIPTextEncoder",
+        #type="DPTCLIPTextEncoder",
+        type="CLIPTextEncoder",
         context_length=77,
         embed_dim=512,
         transformer_width=512,
@@ -76,12 +74,9 @@ model = dict(
     base_class=base_class,
     novel_class=novel_class,
     both_class=both_class,
-    self_training=True,
     ft_backbone=False,
     exclude_key="prompt",
-    #load_text_embedding="configs/_base_/datasets/text_embedding/voc12_single.npy",
     load_text_embedding="/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/_base_/datasets/text_embedding/voc12_single.npy",
-
 )
 
 lr_config = dict(
@@ -102,8 +97,9 @@ optimizer = dict(
     paramwise_cfg=dict(
         custom_keys={
             "backbone": dict(lr_mult=10.0),
-            #"text_encoder": dict(lr_mult=0.0),
+            # antoine: we want to update the backbone (VPT)
             "text_encoder": dict(lr_mult=10.0),
+            # antoine: we don't want to update the text encoder
             "norm": dict(decay_mult=0.0),
             "ln": dict(decay_mult=0.0),
             "head": dict(lr_mult=10.0),
@@ -112,6 +108,6 @@ optimizer = dict(
 )
 
 data = dict(
-    samples_per_gpu=4,
-    workers_per_gpu=4,
+    samples_per_gpu=8,
+    workers_per_gpu=8,
 )

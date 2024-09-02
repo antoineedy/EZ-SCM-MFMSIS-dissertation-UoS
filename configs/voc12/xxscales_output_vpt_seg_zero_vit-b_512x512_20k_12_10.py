@@ -73,6 +73,7 @@ model = dict(
     base_class=base_class,
     novel_class=novel_class,
     both_class=both_class,
+    self_training=True,
     ft_backbone=False,
     exclude_key="prompt",
     load_text_embedding="/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/_base_/datasets/text_embedding/voc12_single.npy",

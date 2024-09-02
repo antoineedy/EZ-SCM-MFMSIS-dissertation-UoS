@@ -27,6 +27,11 @@ model7 = f"{base}/configs/voc12/double_inner_vpt_seg_zero_vit-b_512x512_20k_12_1
 
 # command = f"{base}/zegenv/bin/python {base}/test.py {base}/configs/voc12/xxscales_input_vpt_seg_zero_vit-b_512x512_20k_12_10.py {weight2} --eval=mIoU"
 
-command = f"/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python3.9 {base}/test.py {model7} {new_w} --eval=mIoU"
+last_w = "/mnt/fast/nobackup/scratch4weeks/ae01116/data/VOC2012/iter_10000.pth"
+
+transductive = "/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/configs/voc12/vpt_seg_zero_vit-b_512x512_10k_12_10_st.py"
+
+
+command = f"/mnt/fast/nobackup/scratch4weeks/ae01116/zegenv/bin/python3.9 {base}/test.py {transductive} {last_w} --eval=mIoU"
 
 os.system(command)
