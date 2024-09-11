@@ -1,8 +1,0 @@
-condor_exec.exe
-dist_train.sh
-docker_stderror
-start_testing.py
-start_training.py
-test.txt
-tmp
-var
