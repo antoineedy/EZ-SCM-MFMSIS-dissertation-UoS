@@ -9,7 +9,7 @@ Dissertation for the MSc in Artificial Intelligence of the University of Surrey 
 ## My MSO Architecture
 
 <p align="center">
- <img src="images/final-archi.png" alt="MSO Architecture" width="500px">
+ <img src="images/final-archi.png" alt="MSO Architecture" width="1000px">
 </p>
 
 
@@ -17,7 +17,7 @@ Dissertation for the MSc in Artificial Intelligence of the University of Surrey 
 ## Result Summary
 
 <p align="center">
- <img src="images/result.png" alt="MSO Architecture" width="300px" style="text-align:center">
+ <img src="images/result.png" alt="MSO Architecture" width="600px" style="text-align:center">
 </p>
 
 
