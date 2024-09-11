@@ -1,5 +1,7 @@
 #!/mnt/fast/nobackup/users/ae01116/multi-modal-dissertation-uos/zegenv/bin/python3
 
+# SMALL SCRIPT TO LINK A TELEGRAM BOT TO MY TRAINING!!!
+
 import requests
 import sys
 import argparse
